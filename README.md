@@ -2,7 +2,7 @@
 
 # 42 Amman
 
-## Piscine
+## 🏊Piscine
 
 ### What will you find in the Piscine folder
 
@@ -11,7 +11,7 @@ You clone the whole repo or download any of it's content for learning purposes o
 I will do my best to finish solving all the projects provided here.  
 This file was written on Monday, January 27th, 2025 at 08:00 PM
 
-## Common Core
+## 🧑‍💻Common Core
 
 ### What will you find in the Common Core folder
 
