@@ -9,7 +9,6 @@
 This Repo is dedicated to hold all the 42 Amman Piscine Cursus content given in the 2025 Piscine.  
 You clone the whole repo or download any of it's content for learning purposes only!  
 I will do my best to finish solving all the projects provided here.  
-This file was written on Monday, January 27th, 2025 at 08:00 PM
 
 ## 🧑‍💻Common Core
 
