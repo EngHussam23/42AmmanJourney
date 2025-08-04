@@ -6,7 +6,7 @@
 /*   By: halragga <halragga@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/03 15:45:30 by halragga          #+#    #+#             */
-/*   Updated: 2025/08/04 17:06:16 by halragga         ###   ########.fr       */
+/*   Updated: 2025/08/04 18:52:14 by halragga         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ int	ft_isalpha(int c);
 int	ft_isalpha(int c)
 {
 	if ((c >= 65 && c <= 90) || (c >= 97 && c <= 122))
-		return (1);
+		return (1024);
 	else
 		return (0);
 }
