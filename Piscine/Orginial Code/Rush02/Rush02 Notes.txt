@@ -1,0 +1,25 @@
+#######################################################################################################
+#######################################################################################################
+
+Notes:
+
+# open() function:
+- Use: open a file to read, write, or both.
+- Library: <fcntl.h>, <sys/stat.h>
+- return: if opend succesfuly (file descriptor), if failed (-1).
+- Params: int open(const char* path, int flags);
+	- path: pointer to null-termainated string "file-to-be-opended name".
+	- flags: specifies the access given to the file:
+		- O_RDONLY
+		- O_WRONLY
+		- O_RDWR
+		- O_CREAT
+		- O_EXCL
+		- example:
+			- int fd = open("filename.txt", O_RDWR, 0000);
+				- 0000: file permessions "as we learned in shell except of the first 0"
+
+# read() function:
+- Use: read from a file or a socket.
+- Library: <unistd.h>
+- 
