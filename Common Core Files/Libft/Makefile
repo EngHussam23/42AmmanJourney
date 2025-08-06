@@ -6,7 +6,7 @@
 #    By: halragga <halragga@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/08/03 20:17:30 by halragga          #+#    #+#              #
-#    Updated: 2025/08/05 19:27:07 by halragga         ###   ########.fr        #
+#    Updated: 2025/08/06 10:26:09 by halragga         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -40,4 +40,4 @@ fclean: clean
 
 re: fclean all
 
-.PHONY: all clean fclean re
+# .PHONY: all clean fclean re
