@@ -1,38 +1,43 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_isascii.c                                       :+:      :+:    :+:   */
+/*   ft_strlen.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: halragga <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: halragga <halragga@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/08/04 18:53:25 by halragga          #+#    #+#             */
-/*   Updated: 2025/08/04 20:42:28 by halragga         ###   ########.fr       */
+/*   Created: 2025/08/05 12:22:25 by halragga          #+#    #+#             */
+/*   Updated: 2025/08/05 19:55:21 by halragga         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+/*
 #include <stdio.h>
-#include <ctype.h>
+#include <string.h>
+*/
+#include "libft.h"
 
-int	ft_isascii(int c);
-
-int	ft_isascii(int c)
+size_t	ft_strlen(const char *s)
 {
-	if (c >= 0 && c <= 177)
-		return (1);
-	else
-		return (0);
+	int		x;
+
+	x = 0;
+	while (s[x] != '\0')
+		x++;
+	return (x);
 }
 
+/*
 int	main(int argc, char *argv[])
 {
 	if (argc > 2)
-		printf("Too many arguments...\n");
+		printf("Too many ARGUMENTS...");
 	else if (argc < 2)
-		printf("Missing argument...\n");
+		printf("Missing ARGUMENT...");
 	else
 	{
-		printf("My Result: %d\n", ft_isascii(argv[1][0]));
-		printf("Standard Result: %d\n", isascii(argv[1][0]));
+		printf("Standard Result: %lu\n", strlen(argv[1]));
+		printf("My Result: %lu\n", ft_strlen(argv[1]));
 	}
 	return (0);
 }
+*/
