@@ -6,7 +6,7 @@
 /*   By: halragga <halragga@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/05 17:30:34 by halragga          #+#    #+#             */
-/*   Updated: 2025/08/05 20:02:31 by halragga         ###   ########.fr       */
+/*   Updated: 2025/08/06 19:22:19 by halragga         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,15 +14,18 @@
 # define LIBFT_H
 
 # include <stdio.h>
-# include <string.h>
+# include <bsd/string.h>
 
-void		ft_bzero(void *ptr, size_t size);
-size_t		ft_strlen(const char *s);
 int			ft_isalnum(int c);
 int			ft_isprint(int c);
-void		*ft_memset(void *ptr, int fill, size_t size);
 int			ft_isdigit(int d);
 int			ft_isascii(int c);
 int			ft_isalpha(int c);
+void		ft_bzero(void *ptr, size_t size);
+void		*ft_memset(void *ptr, int fill, size_t size);
+void		*ft_memcpy(void *dest, const void *src, size_t cpysize);
+void		*ft_memmove(void *dest, const void *src, size_t mvsize0);
+size_t		ft_strlen(const char *s);
+size_t		ft_strlcpy(char *dst, const char *src, size_t size);
 
 #endif
