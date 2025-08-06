@@ -1,0 +1,24 @@
+# File & Navigation:
+ls            # list files
+cd            # change directory
+pwd           # print working directory
+mkdir libft   # make new folder
+touch file.c  # create file
+rm file.c     # delete file
+rm -rf dir/   # force delete folder
+
+# Compilation Commands:
+cc -Wall -Wextra -Werror file.c       # compile C file with 42 flags
+cc -g file.c                          # compile with debug info (for gdb)
+ar rcs libft.a file1.o file2.o        # create your .a archive (your library)
+
+# Makefile Shourtcuts:
+make            # runs the default rule (usually all)
+make bonus      # compile your bonus part
+make clean      # deletes object files
+make fclean     # deletes object files + libft.a
+make re         # clean then recompile
+
+# Debugging Memory:
+valgrind ./a.out                # check for memory leaks
+valgrind --leak-check=full ./a.out
