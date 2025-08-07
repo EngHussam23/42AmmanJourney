@@ -6,7 +6,7 @@
 /*   By: halragga <halragga@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/06 12:40:58 by halragga          #+#    #+#             */
-/*   Updated: 2025/08/06 12:41:00 by halragga         ###   ########.fr       */
+/*   Updated: 2025/08/07 10:11:57 by halragga         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 
 
-int	main(void)
+int	ft_toupper(void)
 {
 	return (0);
 }
