@@ -6,29 +6,26 @@
 /*   By: halragga <halragga@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/05 14:39:29 by halragga          #+#    #+#             */
-/*   Updated: 2025/08/06 19:26:12 by halragga         ###   ########.fr       */
+/*   Updated: 2025/08/07 12:13:12 by halragga         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
-// #include <stdio.h>
-// #include <bsd/string.h>
 
 #include "libft.h"
 
 size_t		ft_strlcpy(char *dst, const char *src, size_t size)
 {
 	size_t		i;
-	size_t		dstlen;
+	size_t		srclen;
 
 	i = 0;
-	while (i < size)
+	while (i < size-1)
 	{
 		dst[i] = src[i];
 		i++;
 	}
 	dst[i] = '\0';
-	dstlen = ft_strlen(dst);
-	return (dstlen);
+	srclen = ft_strlen(src);
+	return (srclen);
 }
 
 int	main(int argc, char *argv[])
@@ -39,8 +36,10 @@ int	main(int argc, char *argv[])
 		printf("Missing ARGUMENTS...\n");
 	else
 	{
-		printf("My Result: %zu\n", ft_strlcpy(argv[2], argv[1], 5));
-		printf("Standard Result: %zu\n", strlcpy(argv[2], argv[1], 5));
+		printf("Src length before: %zu\n\n", ft_strlen(argv[1]));
+		printf("My Result: %zu\n\n", ft_strlcpy(argv[2], argv[1], 5));
+		printf("Standard Result: %zu\n\n", strlcpy(argv[2], argv[1], 5));
+		printf("Src length after: %zu\n", ft_strlen(argv[1]));
 	}
 	return (0);
 }

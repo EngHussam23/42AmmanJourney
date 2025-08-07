@@ -6,7 +6,7 @@
 /*   By: halragga <halragga@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/05 17:30:34 by halragga          #+#    #+#             */
-/*   Updated: 2025/08/06 19:22:19 by halragga         ###   ########.fr       */
+/*   Updated: 2025/08/07 13:47:04 by halragga         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,8 @@
 
 # include <stdio.h>
 # include <bsd/string.h>
+# include <string.h>
+# include <ctype.h>
 
 int			ft_isalnum(int c);
 int			ft_isprint(int c);
@@ -27,5 +29,19 @@ void		*ft_memcpy(void *dest, const void *src, size_t cpysize);
 void		*ft_memmove(void *dest, const void *src, size_t mvsize0);
 size_t		ft_strlen(const char *s);
 size_t		ft_strlcpy(char *dst, const char *src, size_t size);
+size_t		ft_strlcat(char *dst, const char *src, size_t dstsize);
+//Update the prototypes bellow.
+int			ft_atoi(void);
+int			ft_toupper(void);
+int			ft_tolower(void);
+int			ft_strrchr(void);
+int			ft_strnstr(void);
+int			ft_strncmp(void);
+int			ft_strdub(void);
+int			ft_strchr(void);
+int			ft_memcmp(void);
+int			ft_memchr(void);
+int			ft_malloc(void);
+int			ft_calloc(void);
 
 #endif

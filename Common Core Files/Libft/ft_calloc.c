@@ -6,7 +6,7 @@
 /*   By: halragga <halragga@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/06 12:39:19 by halragga          #+#    #+#             */
-/*   Updated: 2025/08/06 12:39:21 by halragga         ###   ########.fr       */
+/*   Updated: 2025/08/07 11:14:48 by halragga         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 
 
-int	main(void)
+int	ft_calloc(void)
 {
 	return (0);
 }
