@@ -6,7 +6,7 @@
 /*   By: halragga <halragga@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/06 12:40:52 by halragga          #+#    #+#             */
-/*   Updated: 2025/08/07 10:14:01 by halragga         ###   ########.fr       */
+/*   Updated: 2025/08/09 17:59:37 by halragga         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,5 @@
 
 
 
-int	ft_strrchr(void)
-{
-	return (0);
-}
+char	*ft_strrchr(const char *s, int c)
+{}

@@ -6,7 +6,7 @@
 #    By: halragga <halragga@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/08/03 20:17:30 by halragga          #+#    #+#              #
-#    Updated: 2025/08/07 11:28:49 by halragga         ###   ########.fr        #
+#    Updated: 2025/08/09 10:48:49 by halragga         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -15,7 +15,7 @@ NAME = libft.a
 
 #Compilation cmmand and flags
 CC = cc
-CFLAGS = -Wall -Wextra -Werror
+CFLAGS = -Wall -Wextra -Werror -lbsd -g
 
 RM = rm -f
 

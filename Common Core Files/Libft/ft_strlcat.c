@@ -6,30 +6,34 @@
 /*   By: halragga <halragga@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/06 12:40:31 by halragga          #+#    #+#             */
-/*   Updated: 2025/08/07 14:18:20 by halragga         ###   ########.fr       */
+/*   Updated: 2025/08/09 16:31:35 by halragga         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-
-
 size_t		ft_strlcat(char *dst, const char *src, size_t dstsize)
 {
 	size_t		dstlen;
 	size_t		srclen;
-	size_t		spc;
-	size_t		i;
+	size_t		dst_index;
+	size_t		src_index;
 	
 	dstlen = ft_strlen(dst);
 	srclen = ft_strlen(src);
-	spc = dstsize - dstlen;
-	i = dstlen;
-	if (spc == 0)
+	dst_index = dstlen;
+	src_index = 0;
+	if (dstsize <= dstlen)
 		return (srclen + dstlen);
 	else
 	{
-		if (spc > src)
-		
+		while (src_index < srclen && dst_index < (dstsize - 1))
+		{
+			dst[dst_index ] = src[src_index];
+			dst_index++;
+			src_index++;
+		}
+		dst[dst_index] = '\0';
 	}
+	return (srclen + dstlen);
 }

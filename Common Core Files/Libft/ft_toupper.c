@@ -6,15 +6,15 @@
 /*   By: halragga <halragga@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/06 12:40:58 by halragga          #+#    #+#             */
-/*   Updated: 2025/08/07 10:11:57 by halragga         ###   ########.fr       */
+/*   Updated: 2025/08/09 16:58:13 by halragga         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-
-
-int	ft_toupper(void)
+int	ft_toupper(int c)
 {
-	return (0);
+	if (ft_isalpha(c))
+		return(c - 32);
+	return (c);
 }
