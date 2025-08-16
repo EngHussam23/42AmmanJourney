@@ -6,7 +6,7 @@
 /*   By: halragga <halragga@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/05 14:39:29 by halragga          #+#    #+#             */
-/*   Updated: 2025/08/07 12:13:12 by halragga         ###   ########.fr       */
+/*   Updated: 2025/08/09 16:19:42 by halragga         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ size_t		ft_strlcpy(char *dst, const char *src, size_t size)
 	return (srclen);
 }
 
-int	main(int argc, char *argv[])
+/*int	main(int argc, char *argv[])
 {
 	if (argc > 3)
 		printf("Too many ARGUMENTS...\n");
@@ -42,4 +42,4 @@ int	main(int argc, char *argv[])
 		printf("Src length after: %zu\n", ft_strlen(argv[1]));
 	}
 	return (0);
-}
+}*/

@@ -6,7 +6,7 @@
 /*   By: halragga <halragga@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/05 17:30:34 by halragga          #+#    #+#             */
-/*   Updated: 2025/08/07 13:47:04 by halragga         ###   ########.fr       */
+/*   Updated: 2025/08/09 17:41:33 by halragga         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,10 @@ int			ft_isprint(int c);
 int			ft_isdigit(int d);
 int			ft_isascii(int c);
 int			ft_isalpha(int c);
+int			ft_toupper(int c);
+int			ft_tolower(int c);
+char		*ft_strchr(const char *s, int c);
+char		*ft_strrchr(const char *s, int c);
 void		ft_bzero(void *ptr, size_t size);
 void		*ft_memset(void *ptr, int fill, size_t size);
 void		*ft_memcpy(void *dest, const void *src, size_t cpysize);
@@ -32,13 +36,9 @@ size_t		ft_strlcpy(char *dst, const char *src, size_t size);
 size_t		ft_strlcat(char *dst, const char *src, size_t dstsize);
 //Update the prototypes bellow.
 int			ft_atoi(void);
-int			ft_toupper(void);
-int			ft_tolower(void);
-int			ft_strrchr(void);
 int			ft_strnstr(void);
 int			ft_strncmp(void);
 int			ft_strdub(void);
-int			ft_strchr(void);
 int			ft_memcmp(void);
 int			ft_memchr(void);
 int			ft_malloc(void);
