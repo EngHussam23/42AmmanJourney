@@ -43,4 +43,38 @@ malloc
 Allocates memory (using malloc(3)) and returns a
 copy of ’s1’ with characters from ’set’ removed
 from the beginning and the end.
+
+char    *ft_strtrim(const char *s1, const char *set)
+{
+    char *trimmed_str;
+    int i;
+    int j;
+    int z;
+
+    i = 0;
+    j = strlen(s1) - 1;
+    z = strlen(set) - 1;
+    trimmed_str = malloc(strlen(s1) * sizeof(char) + 1);
+    if (!trimmed_str)
+        return (NULL);
+    if (s1)
+    {
+      while (s1[i] == set[i])
+          i++;
+      while (s1[j] == set[z])
+          {
+            j--;
+            z--;
+          }
+    }
+    z = 0;
+    while (i <= j)
+    {
+      trimmed_str[z] = s1[i];
+      z++;
+      i++;
+    }
+    trimmed_str[z] = '\0';
+    return (trimmed_str);
+}
 */
