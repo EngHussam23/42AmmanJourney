@@ -1,25 +1,39 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_tolower.c                                       :+:      :+:    :+:   */
+/*   ft_substr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: halragga <halragga@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/08/06 12:40:55 by halragga          #+#    #+#             */
-/*   Updated: 2025/08/17 11:44:46 by halragga         ###   ########.fr       */
+/*   Created: 2025/08/13 18:07:43 by halragga          #+#    #+#             */
+/*   Updated: 2025/08/20 20:39:28 by halragga         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	ft_tolower(int c)
+char	*ft_substr(char const *s, unsigned int start, size_t len)
 {
-	if (ft_isalpha(c))
+	size_t		j;
+	size_t		i;
+	char		*sub_s;
+
+	j = 0;
+	i = 0;
+	if (ft_strlen(s) <= len)
+		j = ft_strlen(s);
+	else
+		j = len;
+	if (ft_strlen(s) < start)
+		return (ft_calloc(1, 1));
+	sub_s = malloc((j + 1) * sizeof(char));
+	if (!sub_s)
+		return (NULL);
+	while (i < j)
 	{
-		if (c >= 65 && c <= 90)
-			return (c + 32);
-		else
-			return (c);
+		sub_s[i] = s[start + i];
+		i++;
 	}
-	return (c);
+	sub_s[i] = '\0';
+	return (sub_s);
 }
