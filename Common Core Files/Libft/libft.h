@@ -6,7 +6,7 @@
 /*   By: halragga <halragga@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/05 17:30:34 by halragga          #+#    #+#             */
-/*   Updated: 2025/08/20 18:54:49 by halragga         ###   ########.fr       */
+/*   Updated: 2025/08/21 16:22:32 by halragga         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ int			ft_toupper(int c);
 int			ft_tolower(int c);
 int			ft_strncmp(const char *s1, const char *s2, size_t len);
 int			ft_memcmp(const void *s1, const void *s2, size_t n);
-int			ft_atoi(char *ptr);
+int			ft_atoi(char const *ptr);
 char		*ft_strchr(const char *s, int c);
 char		*ft_strrchr(const char *s, int c);
 char		*ft_strnstr(const char *big, const char *small, size_t length);

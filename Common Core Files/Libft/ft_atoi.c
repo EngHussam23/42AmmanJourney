@@ -6,13 +6,13 @@
 /*   By: halragga <halragga@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/06 12:38:48 by halragga          #+#    #+#             */
-/*   Updated: 2025/08/14 14:14:13 by halragga         ###   ########.fr       */
+/*   Updated: 2025/08/21 13:50:11 by halragga         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	ft_atoi(char *ptr)
+int	ft_atoi(char const *ptr)
 {
 	int	result;
 	int	sign;
@@ -35,15 +35,3 @@ int	ft_atoi(char *ptr)
 	}
 	return (result * sign);
 }
-/*int	main (int argc, char **argv)
-{
-	if (argc > 2)
-		printf("Too many ARGUMENTS!!!\n");
-	else if (argc < 2)
-		printf("Missing ARGUMENT!!!\n");
-	else
-	{
-		printf("Standard: %d\n", atoi(argv[1]));
-		printf("Reproduced: %d\n", ft_atoi(argv[1]));
-	}
-}*/

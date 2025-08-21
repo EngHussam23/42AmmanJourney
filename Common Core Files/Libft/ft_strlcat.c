@@ -6,7 +6,7 @@
 /*   By: halragga <halragga@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/06 12:40:31 by halragga          #+#    #+#             */
-/*   Updated: 2025/08/17 11:40:28 by halragga         ###   ########.fr       */
+/*   Updated: 2025/08/21 14:49:48 by halragga         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,12 +34,3 @@ size_t	ft_strlcat(char *dst, const char *src, size_t dstsize)
 	}
 	return (srclen + dstlen);
 }
-
-/*int main(void) {
-  char *str = "the cake is a lie !\0I'm hidden lol\r\n";
-     char buff2[0xF00] = "there is no stars in the sky";
-     size_t max = strlen(str) + 4;
-     size_t r2 = ft_strlcat(buff2, str, max);
-     printf("%zu\n", r2);
-  return 0;
-}*/

@@ -6,19 +6,13 @@
 /*   By: halragga <halragga@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/20 12:20:09 by halragga          #+#    #+#             */
-/*   Updated: 2025/08/20 16:20:07 by halragga         ###   ########.fr       */
+/*   Updated: 2025/08/21 16:21:03 by halragga         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-/*will this work:
-while ((n/=10) > 0) count++;
-and then
-if (n > 1- ) count++;
-*/
-
-char	*malloc_and_fill(int count, int sign, long n)
+static char	*malloc_and_fill(int count, int sign, long n)
 {
 	char	*str;
 
@@ -70,8 +64,3 @@ char	*ft_itoa(int n)
 		count++;
 	return (malloc_and_fill(count, sign, n));
 }
-
-/*int	main(void)
-{
-	printf("%d\n", 12345%10);
-}*/

@@ -6,11 +6,9 @@
 /*   By: halragga <halragga@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/03 15:45:30 by halragga          #+#    #+#             */
-/*   Updated: 2025/08/09 16:56:34 by halragga         ###   ########.fr       */
+/*   Updated: 2025/08/21 14:51:44 by halragga         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
-//#include <stdio.h>
 
 #include "libft.h"
 
@@ -21,18 +19,3 @@ int	ft_isalpha(int c)
 	else
 		return (0);
 }
-
-// int	main(int argc, char *argv[])
-// {
-// 	if (argc > 2)
-// 		printf("Too many arguments...\n");
-// 	else if (argc < 2)
-// 		printf("Missing arguments...\n");
-// 	else
-// 	{
-// 		printf("Checking...\n");
-// 		printf("Done.\n");
-// 		printf("Result: %d\n", ft_isalpha(argv[1][0]));
-// 	}
-// 	return (0);
-// }

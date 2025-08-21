@@ -6,7 +6,7 @@
 /*   By: halragga <halragga@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/18 14:29:01 by halragga          #+#    #+#             */
-/*   Updated: 2025/08/20 20:12:04 by halragga         ###   ########.fr       */
+/*   Updated: 2025/08/21 14:44:31 by halragga         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -101,19 +101,3 @@ char	**ft_split(char const *s, char c)
 	result[words_count] = NULL;
 	return (result);
 }
-// int main(void)
-// {
-// 	char *s = "split  ||this|for|me|||||!|";
-// 	char **result = ft_split(s, '|');
-// 	char **tmp = result;
-// 	if (!result)
-// 		return (1);
-// 	while (*tmp)
-// 	{
-// 		printf("Result:%s\n", *tmp);
-// 		free(*tmp);
-// 		tmp++;
-// 	}
-// 	free(result);
-// 	return (0);
-// }
