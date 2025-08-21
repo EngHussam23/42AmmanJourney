@@ -6,13 +6,13 @@
 /*   By: halragga <halragga@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/06 12:38:48 by halragga          #+#    #+#             */
-/*   Updated: 2025/08/14 14:14:13 by halragga         ###   ########.fr       */
+/*   Updated: 2025/08/21 11:24:45 by halragga         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	ft_atoi(char *ptr)
+int	ft_atoi(char const *ptr)
 {
 	int	result;
 	int	sign;

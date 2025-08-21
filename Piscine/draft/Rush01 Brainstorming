@@ -1,0 +1,36 @@
+
+
+
+
+
+-We need Backtracking.
+
+- Process:
+a- Navigate through the array: x[i][l] => i++ < 4, l++ < 4.
+
+b- Fill the cell based on th game rules (use the clues): we need to know what each combination of 4 clues takes as height...
+
+c- Validate the value of the cell by comparing it with its surroundings x[i][l] (if equals):
+x[i-- >= 0][l]
+x[i++ < 4][l]
+x[i][l-- >= 0]
+x[i][l++ < 4]
+
+d- rewrite it if not valid.
+
+- Plan A:
+	Fill the table based on the clues only:
+		- Check all four views:
+			if(vt)
+			do;
+			if(vb)
+			do;
+			if(vl)
+			do;
+			if(vr)
+			do;
+		- Count the true checks if 4 excute, else don't then rest it.
+- Plan B: Plan A +:
+	check the current row and column for same occurances: if(validate):
+		-if a single true occurance is detected then rewrite immediatelly.
+		-else continue.

@@ -1,41 +1,52 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_substr.c                                        :+:      :+:    :+:   */
+/*   ft_memset.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: halragga <halragga@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/08/13 18:07:43 by halragga          #+#    #+#             */
-/*   Updated: 2025/08/21 11:20:08 by halragga         ###   ########.fr       */
+/*   Created: 2025/08/05 12:45:59 by halragga          #+#    #+#             */
+/*   Updated: 2025/08/05 18:54:28 by halragga         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+//#include <stdio.h>
+// #include <string.h>
+
 #include "libft.h"
 
-char	*ft_substr(char const *s, unsigned int start, size_t len)
+void	*ft_memset(void *ptr, int fill, size_t size)
 {
-	size_t		j;
+	char		*cptr;
 	size_t		i;
-	char		*sub_s;
 
-	j = 0;
+	cptr = ptr;
 	i = 0;
-	if (ft_strlen(s) - start < len)
-		j = ft_strlen(s) - start;
-	else if (ft_strlen(s) == len)
-		j = ft_strlen(s);
-	else
-		j = len;
-	if (ft_strlen(s) < start)
-		return (ft_calloc(1, 1));
-	sub_s = malloc((j + 1) * sizeof(char));
-	if (!sub_s)
-		return (NULL);
-	while (i < j)
+	while (i < size)
 	{
-		sub_s[i] = s[start + i];
+		cptr[i] = fill;
 		i++;
 	}
-	sub_s[i] = '\0';
-	return (sub_s);
+	return (ptr);
 }
+
+/*
+int	main(void)
+{
+	char		stdtst[10];
+	char		usrtst[10];
+	size_t		size;
+	size_t		i;
+
+	size = 10;
+	i = 0;
+	ft_memset(usrtst, 'y', size);
+	memset(stdtst, 'x', size);
+	while (i < size)
+	{
+		printf("%c, %c\n", stdtst[i], usrtst[i]);
+		i++;
+	}
+	return (0);
+}
+*/
