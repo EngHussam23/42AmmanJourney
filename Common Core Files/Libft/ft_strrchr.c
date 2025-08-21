@@ -6,7 +6,7 @@
 /*   By: halragga <halragga@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/06 12:40:52 by halragga          #+#    #+#             */
-/*   Updated: 2025/08/20 19:16:08 by halragga         ###   ########.fr       */
+/*   Updated: 2025/08/21 14:48:34 by halragga         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,10 +29,3 @@ char	*ft_strrchr(const char *s, int c)
 		return ((char *) s);
 	return (ptr);
 }
-
-/*int	main(void)
-{
-	printf("Standard result: %s\n", strrchr("Hello Hussam Alraggad", 'k'));
-	printf("Reproduced result: %s\n", ft_strrchr("Hello Hussam Alraggad", 'k'));
-	return (0);
-}*/

@@ -6,7 +6,7 @@
 /*   By: halragga <halragga@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/06 12:42:51 by halragga          #+#    #+#             */
-/*   Updated: 2025/08/17 11:13:37 by halragga         ###   ########.fr       */
+/*   Updated: 2025/08/21 14:50:33 by halragga         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,30 +41,3 @@ void	*ft_memmove(void *dest, const void *src, size_t mvsize)
 	else
 		return (cdest);
 }
-
-/*int    main(void)
-{
-    char    arr[10];
-    int        i;
-
-    arr[0] = 'W';
-    arr[1] = 'o';
-    arr[2] = 'r';
-    arr[3] = 'l';
-    arr[4] = 'd';
-    arr[5] = '0';
-    arr[6] = '0';
-    arr[7] = '0';
-    arr[8] = '0';
-    arr[9] = '0';
-    printf("Sending the array\n");
-    ft_memmove(arr + 2, arr, 5);
-    i = 0;
-    while (i < 10)
-    {
-        printf("%c", arr[i]);
-        i++;
-    }
-    printf("\n");
-    return (0);
-}*/

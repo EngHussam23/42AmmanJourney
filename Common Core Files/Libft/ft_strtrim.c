@@ -6,7 +6,7 @@
 /*   By: halragga <halragga@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/16 15:49:58 by halragga          #+#    #+#             */
-/*   Updated: 2025/08/21 13:14:48 by halragga         ###   ########.fr       */
+/*   Updated: 2025/08/21 14:48:25 by halragga         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,17 +58,3 @@ char	*ft_strtrim(char const *s1, char const *set)
 	trimmed_str[i] = '\0';
 	return (trimmed_str);
 }
-
-/*int main(void)
-{
-	// Example usage of ft_strtrim
-	char *input = "abcdba";
-	char *set = "abc";
-	char *s = ft_strtrim(input, set);
-	printf("Original: abcdba\n");
-	printf("Set: abc\n");
-	printf("Trimmed: %s\n", s);
-	// Free the allocated memory
-	free(s);
-	return (0);
-}*/

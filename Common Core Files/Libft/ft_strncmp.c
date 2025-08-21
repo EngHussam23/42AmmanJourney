@@ -6,7 +6,7 @@
 /*   By: halragga <halragga@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/06 12:40:40 by halragga          #+#    #+#             */
-/*   Updated: 2025/08/17 11:43:04 by halragga         ###   ########.fr       */
+/*   Updated: 2025/08/21 14:48:56 by halragga         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,17 +27,3 @@ int	ft_strncmp(const char *s1, const char *s2, size_t len)
 	}
 	return (0);
 }
-
-/*int	main(int argc, char **argv)
-{
-	if (argc > 3)
-		printf("Too many ARGUMENTS!!!!!!!!\n");
-	else if (argc < 3)
-		printf("Missing ARGUMENTS!!!!!!!!\n");
-	else
-	{
-		printf("%d\n", strncmp(argv[1], argv[2], 4));
-		printf("%d\n", ft_strncmp(argv[1], argv[2], 4));
-	}
-	return (0);
-}*/
