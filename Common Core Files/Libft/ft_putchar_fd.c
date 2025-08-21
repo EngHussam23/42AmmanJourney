@@ -1,25 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_tolower.c                                       :+:      :+:    :+:   */
+/*   ft_putchar_fd.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: halragga <halragga@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/08/06 12:40:55 by halragga          #+#    #+#             */
-/*   Updated: 2025/08/17 11:44:46 by halragga         ###   ########.fr       */
+/*   Created: 2025/08/20 17:16:18 by halragga          #+#    #+#             */
+/*   Updated: 2025/08/20 18:11:07 by halragga         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	ft_tolower(int c)
+void	ft_putchar_fd(char c, int fd)
 {
-	if (ft_isalpha(c))
-	{
-		if (c >= 65 && c <= 90)
-			return (c + 32);
-		else
-			return (c);
-	}
-	return (c);
+	write(fd, &c, 1);
 }

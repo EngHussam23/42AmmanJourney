@@ -6,15 +6,24 @@
 /*   By: halragga <halragga@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/06 12:40:27 by halragga          #+#    #+#             */
-/*   Updated: 2025/08/07 11:12:19 by halragga         ###   ########.fr       */
+/*   Updated: 2025/08/13 17:58:52 by halragga         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-
-
-int	ft_strdub(void)
+char	*ft_strdup(const char *s)
 {
-	return (0);
+	char		*str;
+	size_t		len;
+
+	len = ft_strlen(s);
+	str = malloc(len + 1);
+	if (!str)
+		return (NULL);
+	ft_memcpy(str, s, len);
+	str[len] = '\0';
+	if (!str)
+		return (NULL);
+	return (str);
 }

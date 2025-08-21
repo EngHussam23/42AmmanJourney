@@ -6,15 +6,19 @@
 /*   By: halragga <halragga@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/06 12:39:19 by halragga          #+#    #+#             */
-/*   Updated: 2025/08/07 11:14:48 by halragga         ###   ########.fr       */
+/*   Updated: 2025/08/17 11:50:35 by halragga         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-
-
-int	ft_calloc(void)
+void	*ft_calloc(size_t nmemb, size_t size)
 {
-	return (0);
+	void	*ptr;
+
+	ptr = malloc(nmemb * size);
+	if (!ptr)
+		return (NULL);
+	ft_bzero(ptr, nmemb * size);
+	return (ptr);
 }

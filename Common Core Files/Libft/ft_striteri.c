@@ -1,25 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_tolower.c                                       :+:      :+:    :+:   */
+/*   ft_striteri.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: halragga <halragga@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/08/06 12:40:55 by halragga          #+#    #+#             */
-/*   Updated: 2025/08/17 11:44:46 by halragga         ###   ########.fr       */
+/*   Created: 2025/08/20 16:53:22 by halragga          #+#    #+#             */
+/*   Updated: 2025/08/20 17:04:21 by halragga         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	ft_tolower(int c)
+void	ft_striteri(char *s, void (*f)(unsigned int, char*))
 {
-	if (ft_isalpha(c))
+	int	i;
+
+	i = 0;
+	if (!s)
+		return ;
+	while (i < (int)ft_strlen(s))
 	{
-		if (c >= 65 && c <= 90)
-			return (c + 32);
-		else
-			return (c);
+		f(i, &s[i]);
+		i++;
 	}
-	return (c);
 }
