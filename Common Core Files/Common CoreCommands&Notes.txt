@@ -22,3 +22,7 @@ make re         # clean then recompile
 # Debugging Memory:
 valgrind ./a.out                # check for memory leaks
 valgrind --leak-check=full ./a.out
+
+
+# Feedback:
+# Good job , he has some errors in the code like memcpy.c he handled the null check , and he understand everything in the code and i ask him a lot of questions and he answer every questions , good luck in next time :-)
