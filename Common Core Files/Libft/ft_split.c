@@ -6,7 +6,7 @@
 /*   By: halragga <halragga@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/18 14:29:01 by halragga          #+#    #+#             */
-/*   Updated: 2025/08/21 14:44:31 by halragga         ###   ########.fr       */
+/*   Updated: 2025/08/23 14:02:36 by halragga         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -97,7 +97,10 @@ char	**ft_split(char const *s, char c)
 		return (NULL);
 	fill_result = fill_the_table(s, c, result);
 	if (fill_result != -1)
-		return (free_all(result, fill_result), NULL);
+	{
+		free_all(result, fill_result);
+		return (NULL);
+	}
 	result[words_count] = NULL;
 	return (result);
 }

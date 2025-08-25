@@ -6,7 +6,7 @@
 /*   By: halragga <halragga@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/06 12:39:19 by halragga          #+#    #+#             */
-/*   Updated: 2025/08/17 11:50:35 by halragga         ###   ########.fr       */
+/*   Updated: 2025/08/24 14:47:16 by halragga         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,8 @@ void	*ft_calloc(size_t nmemb, size_t size)
 {
 	void	*ptr;
 
+	if (nmemb == 0 || size == 0)
+		return (malloc(nmemb * size));
 	ptr = malloc(nmemb * size);
 	if (!ptr)
 		return (NULL);

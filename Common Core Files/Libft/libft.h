@@ -6,16 +6,13 @@
 /*   By: halragga <halragga@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/05 17:30:34 by halragga          #+#    #+#             */
-/*   Updated: 2025/08/21 16:22:32 by halragga         ###   ########.fr       */
+/*   Updated: 2025/08/23 14:01:40 by halragga         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef LIBFT_H
 # define LIBFT_H
 
-# include <stdio.h>
-# include <string.h>
-# include <ctype.h>
 # include <stdlib.h>
 # include <unistd.h>
 

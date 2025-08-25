@@ -6,7 +6,7 @@
 /*   By: halragga <halragga@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/06 12:40:40 by halragga          #+#    #+#             */
-/*   Updated: 2025/08/21 14:48:56 by halragga         ###   ########.fr       */
+/*   Updated: 2025/08/24 16:48:15 by halragga         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,8 @@ int	ft_strncmp(const char *s1, const char *s2, size_t len)
 {
 	size_t		i;
 
+	if (len == 0)
+		return (0);
 	i = 0;
 	while (i < len)
 	{

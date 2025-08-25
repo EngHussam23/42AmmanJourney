@@ -6,7 +6,7 @@
 /*   By: halragga <halragga@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/05 19:58:01 by halragga          #+#    #+#             */
-/*   Updated: 2025/08/21 14:50:38 by halragga         ###   ########.fr       */
+/*   Updated: 2025/08/24 14:35:10 by halragga         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,9 +18,9 @@ void	*ft_memcpy(void *dest, const void *src, size_t cpysize)
 	char			*cdest;
 	const char		*csrc;
 
-	i = 0;
 	if ((!dest && !src) || cpysize == 0)
 		return (dest);
+	i = 0;
 	csrc = (const char *)src;
 	cdest = (char *)dest;
 	while (i < cpysize)

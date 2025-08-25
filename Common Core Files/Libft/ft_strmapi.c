@@ -6,7 +6,7 @@
 /*   By: halragga <halragga@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/20 16:25:08 by halragga          #+#    #+#             */
-/*   Updated: 2025/08/20 17:00:37 by halragga         ###   ########.fr       */
+/*   Updated: 2025/08/24 17:03:02 by halragga         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,8 @@ char	*ft_strmapi(char const *s, char (*f)(unsigned int, char))
 	int		i;
 	char	*result;
 
+	if (!s || !f)
+		return (NULL);
 	i = 0;
 	result = (char *)malloc((ft_strlen(s) + 1) * sizeof(char));
 	if (!result || !s)
