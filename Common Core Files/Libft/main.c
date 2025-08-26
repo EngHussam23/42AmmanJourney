@@ -1,23 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_isalnum.c                                       :+:      :+:    :+:   */
+/*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: halragga <halragga@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/08/04 18:31:55 by halragga          #+#    #+#             */
-/*   Updated: 2025/08/25 14:36:11 by halragga         ###   ########.fr       */
+/*   Created: 2025/08/25 13:35:11 by halragga          #+#    #+#             */
+/*   Updated: 2025/08/25 15:15:25 by halragga         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
+#include <stdio.h>
+#include <stdlib.h>
 
-int	ft_isalnum(int c)
+int	main(void)
 {
-	if ((c >= 65 && c <= 90) || (c >= 97 && c <= 122))
-		return (8);
-	else if (c >= 48 && c <= 57)
-		return (8);
-	else
-		return (0);
+	printf("substr return:%s\n", substr(NULL, 1, 3));
+	printf("ft_substr return:%s\n", ft_substr(NULL, 1, 3));
+	return (0);
 }

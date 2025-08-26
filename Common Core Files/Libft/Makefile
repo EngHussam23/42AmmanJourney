@@ -6,7 +6,7 @@
 #    By: halragga <halragga@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/08/03 20:17:30 by halragga          #+#    #+#              #
-#    Updated: 2025/08/21 16:38:45 by halragga         ###   ########.fr        #
+#    Updated: 2025/08/25 14:38:10 by halragga         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -25,8 +25,6 @@ SRC = ft_atoi.c ft_bzero.c ft_calloc.c ft_isalnum.c ft_isalpha.c ft_isascii.c ft
 # from .c to .o
 # The object files (.o) will be created from the source files
 OBJ = $(SRC:.c=.o)
-
-HEADER = libft.h
 
 all: $(NAME)
 
