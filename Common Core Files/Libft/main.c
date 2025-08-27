@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: halragga <halragga@student.42.fr>          +#+  +:+       +#+        */
+/*   By: hussam <hussam@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/25 13:35:11 by halragga          #+#    #+#             */
-/*   Updated: 2025/08/25 15:15:25 by halragga         ###   ########.fr       */
+/*   Updated: 2025/08/28 00:01:47 by hussam           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@
 
 int	main(void)
 {
-	printf("substr return:%s\n", substr(NULL, 1, 3));
-	printf("ft_substr return:%s\n", ft_substr(NULL, 1, 3));
+	// printf("atoi return:%d\n", atoi("123abc456"));
+	// printf("ft_atoi return:%d\n", ft_atoi("123abc456"));
 	return (0);
 }
