@@ -6,7 +6,7 @@
 /*   By: halragga <halragga@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/05 12:22:25 by halragga          #+#    #+#             */
-/*   Updated: 2025/08/21 15:49:15 by halragga         ###   ########.fr       */
+/*   Updated: 2025/08/25 15:51:26 by halragga         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 size_t	ft_strlen(const char *s)
 {
-	int		x;
+	size_t	x;
 
 	x = 0;
 	while (s[x] != '\0')

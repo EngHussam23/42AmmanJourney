@@ -6,7 +6,7 @@
 /*   By: halragga <halragga@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/20 12:20:09 by halragga          #+#    #+#             */
-/*   Updated: 2025/08/21 16:21:03 by halragga         ###   ########.fr       */
+/*   Updated: 2025/08/26 16:39:39 by halragga         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ static char	*malloc_and_fill(int count, int sign, long n)
 
 	if (n == 0)
 		count++;
-	str = (char *)malloc(sizeof(char) * (count + 1));
+	str = (char *)malloc(sizeof(char) * (count));
 	if (!str)
 		return (NULL);
 	str[count--] = '\0';
@@ -38,9 +38,9 @@ static char	*malloc_and_fill(int count, int sign, long n)
 
 char	*ft_itoa(int n)
 {
-	int		sign;
-	int		count;
-	int		temp;
+	int	sign;
+	int	count;
+	int	temp;
 
 	sign = 0;
 	if (n >= 0)

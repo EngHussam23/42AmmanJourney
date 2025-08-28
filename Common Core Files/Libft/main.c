@@ -3,20 +3,26 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hussam <hussam@student.42.fr>              +#+  +:+       +#+        */
+/*   By: halragga <halragga@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/25 13:35:11 by halragga          #+#    #+#             */
-/*   Updated: 2025/08/28 00:01:47 by hussam           ###   ########.fr       */
+/*   Updated: 2025/08/25 19:49:35 by halragga         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-#include <stdio.h>
-#include <stdlib.h>
+
+// #include <stdio.h>
+// #include <stdlib.h>
+#include <string.h>
 
 int	main(void)
 {
-	// printf("atoi return:%d\n", atoi("123abc456"));
-	// printf("ft_atoi return:%d\n", ft_atoi("123abc456"));
+    char *dest;
+    char *src;
+    dest = NULL;
+    src = 0       sudo apt update
+       sudo apt install nodejs npm;
+    printf("memcy: %s", memcpy(dest, src, 4));
 	return (0);
 }

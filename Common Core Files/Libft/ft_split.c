@@ -6,7 +6,7 @@
 /*   By: halragga <halragga@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/18 14:29:01 by halragga          #+#    #+#             */
-/*   Updated: 2025/08/23 14:02:36 by halragga         ###   ########.fr       */
+/*   Updated: 2025/08/25 17:53:28 by halragga         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -90,6 +90,8 @@ char	**ft_split(char const *s, char c)
 	int		words_count;
 	int		fill_result;
 
+	if (!s || c == '\0')
+		return (NULL);
 	words_count = count_the_words(s, c);
 	fill_result = 0;
 	result = (char **)malloc(sizeof(char *) * (words_count + 1));
