@@ -6,7 +6,7 @@
 /*   By: halragga <halragga@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/25 13:35:11 by halragga          #+#    #+#             */
-/*   Updated: 2025/08/25 15:15:25 by halragga         ###   ########.fr       */
+/*   Updated: 2025/08/28 11:52:39 by halragga         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,10 @@
 
 int	main(void)
 {
-	printf("substr return:%s\n", substr(NULL, 1, 3));
-	printf("ft_substr return:%s\n", ft_substr(NULL, 1, 3));
+	char	*str;
+
+	str = "i just want this part #############";
+	printf("ft_substr return:%s\n", ft_substr(str, 0, 22));
+	free(str);
 	return (0);
 }
