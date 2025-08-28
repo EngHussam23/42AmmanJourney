@@ -6,7 +6,7 @@
 /*   By: halragga <halragga@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/06 12:40:04 by halragga          #+#    #+#             */
-/*   Updated: 2025/08/24 14:43:46 by halragga         ###   ########.fr       */
+/*   Updated: 2025/08/28 13:15:25 by halragga         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,3 +29,12 @@ int	ft_memcmp(const void *s1, const void *s2, size_t n)
 	}
 	return (0);
 }
+
+// int main(void)
+// {
+// 	char str1[] = "Hellzo, World!";
+// 	char str2[] = "Hello, World!";
+// 	printf("%d\n", ft_memcmp(str1, str2, 13));
+// 	printf("%d\n", memcmp(str1, str2, 13));
+// 	return (0);
+// }

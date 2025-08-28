@@ -6,7 +6,7 @@
 /*   By: halragga <halragga@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/04 18:31:55 by halragga          #+#    #+#             */
-/*   Updated: 2025/08/25 14:36:11 by halragga         ###   ########.fr       */
+/*   Updated: 2025/08/28 13:23:34 by halragga         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,7 @@
 
 int	ft_isalnum(int c)
 {
-	if ((c >= 65 && c <= 90) || (c >= 97 && c <= 122))
-		return (8);
-	else if (c >= 48 && c <= 57)
+	if (ft_isalpha(c) || ft_isdigit(c))
 		return (8);
 	else
 		return (0);

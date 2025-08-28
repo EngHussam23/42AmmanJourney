@@ -6,7 +6,7 @@
 /*   By: halragga <halragga@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/06 12:39:19 by halragga          #+#    #+#             */
-/*   Updated: 2025/08/25 14:35:55 by halragga         ###   ########.fr       */
+/*   Updated: 2025/08/28 13:08:53 by halragga         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,12 +15,14 @@
 void	*ft_calloc(size_t nmemb, size_t size)
 {
 	void	*ptr;
+	size_t	total_size;
 
-	if (nmemb == 0 || size == 0)
-		return (malloc(0));
-	ptr = malloc(nmemb * size);
+	total_size = nmemb * size;
+	if (!total_size)
+		total_size = 1;
+	ptr = malloc(total_size);
 	if (!ptr)
 		return (NULL);
-	ft_bzero(ptr, nmemb * size);
+	ft_bzero(ptr, total_size);
 	return (ptr);
 }

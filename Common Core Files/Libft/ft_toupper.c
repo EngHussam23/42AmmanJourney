@@ -6,7 +6,7 @@
 /*   By: halragga <halragga@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/06 12:40:58 by halragga          #+#    #+#             */
-/*   Updated: 2025/08/17 11:45:10 by halragga         ###   ########.fr       */
+/*   Updated: 2025/08/28 13:16:43 by halragga         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,12 +14,8 @@
 
 int	ft_toupper(int c)
 {
-	if (ft_isalpha(c))
-	{
-		if (c >= 97 && c <= 122)
-			return (c - 32);
-		else
-			return (c);
-	}
-	return (c);
+	if (c >= 97 && c <= 122)
+		return (c - 32);
+	else
+		return (c);
 }
