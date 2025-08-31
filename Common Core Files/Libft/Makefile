@@ -6,7 +6,7 @@
 #    By: halragga <halragga@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/08/03 20:17:30 by halragga          #+#    #+#              #
-#    Updated: 2025/08/25 14:38:10 by halragga         ###   ########.fr        #
+#    Updated: 2025/08/31 13:50:58 by halragga         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -15,7 +15,7 @@ NAME = libft.a
 
 # Compilation cmmand and flags
 CC = cc
-CFLAGS = -Wall -Wextra -Werror -g
+CFLAGS = -Wall -Wextra -Werror
 
 RM = rm -f
 
@@ -30,6 +30,7 @@ all: $(NAME)
 
 # Archive the object files into a static library
 # The static library will be named libft.a
+# $(OBJ) can be replaced by $(SRC:.c=.o)
 $(NAME): $(OBJ)
 	ar rcs $(NAME) $(OBJ)
 

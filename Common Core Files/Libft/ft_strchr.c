@@ -6,7 +6,7 @@
 /*   By: halragga <halragga@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/06 12:40:19 by halragga          #+#    #+#             */
-/*   Updated: 2025/08/28 13:20:10 by halragga         ###   ########.fr       */
+/*   Updated: 2025/08/31 11:13:41 by halragga         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,7 @@
 
 char	*ft_strchr(const char *s, int c)
 {
-	
-	while (*s != '\0')
+		while (*s != '\0')
 	{
 		if (!ft_isascii(*s))
 			return (NULL);
