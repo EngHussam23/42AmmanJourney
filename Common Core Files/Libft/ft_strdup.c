@@ -21,7 +21,7 @@ char	*ft_strdup(const char *s)
 	str = malloc(len + 1);
 	if (!str)
 		return (NULL);
-	ft_memcpy(str, s, len);//strlcpy!!!!
+	ft_memcpy(str, s, len); // Consider using strlcpy instead of memcpy
 	str[len] = '\0';
 	return (str);
 }
