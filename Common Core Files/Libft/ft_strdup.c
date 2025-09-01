@@ -23,7 +23,5 @@ char	*ft_strdup(const char *s)
 		return (NULL);
 	ft_memcpy(str, s, len);//strlcpy!!!!
 	str[len] = '\0';
-	// if (!str)
-	// 	return (NULL);
 	return (str);
 }
