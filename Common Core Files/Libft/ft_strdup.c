@@ -6,7 +6,7 @@
 /*   By: halragga <halragga@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/06 12:40:27 by halragga          #+#    #+#             */
-/*   Updated: 2025/09/01 13:35:17 by halragga         ###   ########.fr       */
+/*   Updated: 2025/09/01 14:22:22 by halragga         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,6 @@ char	*ft_strdup(const char *s)
 	str = malloc(len + 1);
 	if (!str)
 		return (NULL);
-	ft_strcpy(str, s, len);
-	str[len] = '\0';
+	ft_strlcpy(str, s, len + 1);
 	return (str);
 }
