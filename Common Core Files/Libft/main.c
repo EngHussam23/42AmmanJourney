@@ -17,7 +17,12 @@
 int main(void)
 {
 	char *email = "engraggad@gmail.com";
-	printf("%s\n", ft_split(email, '@')[0]);
-	printf("%s\n", ft_split(email, '@')[1]);
+	char **parts = ft_split(email, '@');
+	printf("%s\n", parts[0]);
+	printf("%s\n", parts[1]);
+	// Free the memory allocated by ft_split
+	for (int i = 0; parts[i] != NULL; i++)
+		free(parts[i]);
+	free(parts);
 	return (0);
 }
