@@ -11,8 +11,6 @@
 /* ************************************************************************** */
 
 #include "libft.h"
-#include <string.h>
-#include <stdio.h>
 
 static void	*reverse_fill(char *dest, const char *src, size_t mvsize)
 {
