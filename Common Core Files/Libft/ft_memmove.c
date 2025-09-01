@@ -41,9 +41,3 @@ void	*ft_memmove(void *dest, const void *src, size_t mvsize)
 	else
 		return (cdest);
 }
-// int main(void)
-// {
-// 	char str[] = "Hello, World!";
-// 	printf("%s", (char *)memmove(str+9, str, 4));
-// 	return (0);
-// }
