@@ -30,11 +30,3 @@ int	ft_memcmp(const void *s1, const void *s2, size_t n)
 	return (0);
 }
 
-// int main(void)
-// {
-// 	char str1[] = "Hellzo, World!";
-// 	char str2[] = "Hello, World!";
-// 	printf("%d\n", ft_memcmp(str1, str2, 13));
-// 	printf("%d\n", memcmp(str1, str2, 13));
-// 	return (0);
-// }
