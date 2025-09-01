@@ -1,0 +1,37 @@
+#######################################################################################################
+#######################################################################################################
+
+Notes:
+
+# open() function:
+- Use: open a file to read, write, or both.
+- Return: file descriptor if succeeded, and (-1) if failed.
+
+# This code will be compiled using:
+	- make fclean
+	- make
+
+# Two argument only:
+	- if only one arg is passed this means it is the value we need to convert.
+	- if two this mean that the first is the new ref dictionary file, and the second is the value.
+
+# if the argument is not positive show an error + \n.
+
+# The program must exceed the unsigned int.
+
+# Any memory allocation must be freed.
+
+# We must use the .dict file + it's modifiable.
+
+# .dict file rule: [a number][0 to n spaces]:[0 to n spaces][any printable characters]\n
+	- handle numbers same as atoi does.
+	- trim the spaces before and after the value in the dictionary.
+	- ex: if we enter 23 the result will be twenty three, which means we will use:
+		- 20: twenty
+		- 3: three
+	- any error in the .dict file must output this:
+		- Dict Error\n
+	- if the .dict file doesn't allow resolving the asked value, then output this error:
+		- Dict Error
+
+# Learn how to create a make file and run it.
