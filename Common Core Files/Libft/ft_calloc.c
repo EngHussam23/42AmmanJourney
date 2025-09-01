@@ -27,4 +27,3 @@ void	*ft_calloc(size_t nmemb, size_t size)
 	return (ptr);
 }
 
-/*Follow this link please: https://search.brave.com/search?q=Explain+this&source=desktop&conversation=501335496d4b5aca162ac9&summary=1*/
