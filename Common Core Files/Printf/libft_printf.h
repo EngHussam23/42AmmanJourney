@@ -1,27 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_bzero.c                                         :+:      :+:    :+:   */
+/*   libft_printf.h                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: halragga <halragga@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/09/02 13:53:08 by halragga          #+#    #+#             */
-/*   Updated: 2025/09/02 13:53:19 by halragga         ###   ########.fr       */
+/*   Created: 2025/09/01 19:57:05 by halragga          #+#    #+#             */
+/*   Updated: 2025/09/01 20:01:06 by halragga         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#ifndef LIBFTPRINTF_H
+# define LIBFTPRINTF_H
 
-void	ft_bzero(void *ptr, size_t size)
-{
-	size_t	i;
-	char	*cptr;
+# include <stdlib.h>
+# include <unistd.h>
+# include <stdarg.h>
 
-	i = 0;
-	cptr = (char *)ptr;
-	while (i < size)
-	{
-		cptr[i] = '\0';
-		i++;
-	}
-}
+#endif

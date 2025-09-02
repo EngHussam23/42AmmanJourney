@@ -6,7 +6,7 @@
 /*   By: halragga <halragga@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/31 17:16:08 by halragga          #+#    #+#             */
-/*   Updated: 2025/09/01 14:39:19 by halragga         ###   ########.fr       */
+/*   Updated: 2025/09/01 20:46:09 by halragga         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,16 +14,18 @@
 #include <stdio.h>
 #include <string.h>
 
-int main(void)
+
+
+char	t_strlen(unsigned int u, char str)	
 {
-	char *email = "engraggad@gmail.com";
-	char **parts = ft_split(email, '@');
+	return (str - 32);
+}
 
-	printf("%s\n", parts[0]);
-	printf("%s\n", parts[1]);
+int	main(void)
+{
+	char	*str;
 
-	for (int i = 0; parts[i] != NULL; i++)
-		free(parts[i]);
-	free(parts);
+	str = "helloworld";
+	printf ("%s", ft_strmapi(str, t_strlen)) ;
 	return (0);
 }

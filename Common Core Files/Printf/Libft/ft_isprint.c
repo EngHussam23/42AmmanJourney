@@ -1,27 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_bzero.c                                         :+:      :+:    :+:   */
+/*   ft_isprint.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: halragga <halragga@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/09/02 13:53:08 by halragga          #+#    #+#             */
-/*   Updated: 2025/09/02 13:53:19 by halragga         ###   ########.fr       */
+/*   Created: 2025/08/05 10:11:44 by halragga          #+#    #+#             */
+/*   Updated: 2025/08/21 16:13:18 by halragga         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_bzero(void *ptr, size_t size)
+int	ft_isprint(int c)
 {
-	size_t	i;
-	char	*cptr;
-
-	i = 0;
-	cptr = (char *)ptr;
-	while (i < size)
-	{
-		cptr[i] = '\0';
-		i++;
-	}
+	if (c >= 32 && c <= 126)
+		return (16384);
+	else
+		return (0);
 }

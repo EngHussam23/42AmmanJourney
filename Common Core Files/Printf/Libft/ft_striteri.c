@@ -1,27 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_bzero.c                                         :+:      :+:    :+:   */
+/*   ft_striteri.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: halragga <halragga@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/09/02 13:53:08 by halragga          #+#    #+#             */
-/*   Updated: 2025/09/02 13:53:19 by halragga         ###   ########.fr       */
+/*   Created: 2025/08/20 16:53:22 by halragga          #+#    #+#             */
+/*   Updated: 2025/08/24 17:28:54 by halragga         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_bzero(void *ptr, size_t size)
+// Iterates over each character of the string 's', applying the function 'f' to
+// each character.
+void	ft_striteri(char *s, void (*f)(unsigned int, char*))
 {
-	size_t	i;
-	char	*cptr;
+	int	i;
 
 	i = 0;
-	cptr = (char *)ptr;
-	while (i < size)
+	if (!s)
+		return ;
+	while (i < (int)ft_strlen(s))
 	{
-		cptr[i] = '\0';
+		f(i, &s[i]);
 		i++;
 	}
 }

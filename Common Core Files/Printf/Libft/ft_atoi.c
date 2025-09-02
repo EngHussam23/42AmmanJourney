@@ -1,27 +1,37 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_bzero.c                                         :+:      :+:    :+:   */
+/*   ft_atoi.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: halragga <halragga@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/09/02 13:53:08 by halragga          #+#    #+#             */
-/*   Updated: 2025/09/02 13:53:19 by halragga         ###   ########.fr       */
+/*   Created: 2025/08/06 12:38:48 by halragga          #+#    #+#             */
+/*   Updated: 2025/08/25 13:09:43 by halragga         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_bzero(void *ptr, size_t size)
+int	ft_atoi(char const *ptr)
 {
-	size_t	i;
-	char	*cptr;
+	int	result;
+	int	sign;
 
-	i = 0;
-	cptr = (char *)ptr;
-	while (i < size)
+	result = 0;
+	sign = 1;
+	while ((*ptr >= 9 && *ptr <= 13) || *ptr == 32)
+		ptr++;
+	if (*ptr == '-')
 	{
-		cptr[i] = '\0';
-		i++;
+		sign = -1;
+		ptr++;
 	}
+	else if (*ptr == '+')
+		ptr++;
+	while (ft_isdigit(*ptr))
+	{
+		result = result * 10 + (*ptr - 48);
+		ptr++;
+	}
+	return (result * sign);
 }
