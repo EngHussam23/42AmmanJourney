@@ -6,7 +6,7 @@
 /*   By: halragga <halragga@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/06 19:40:38 by halragga          #+#    #+#             */
-/*   Updated: 2025/09/06 19:41:53 by halragga         ###   ########.fr       */
+/*   Updated: 2025/09/06 20:25:27 by halragga         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,5 +14,8 @@
 
 int	ft_printf(const char *str, ...)
 {
+	va_list	args;
+
+	
 	return (0);
 }
