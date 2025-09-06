@@ -1,19 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   test.c                                             :+:      :+:    :+:   */
+/*   ft_printf.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: halragga <halragga@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/09/06 18:44:45 by halragga          #+#    #+#             */
-/*   Updated: 2025/09/06 19:23:15 by halragga         ###   ########.fr       */
+/*   Created: 2025/09/06 19:40:38 by halragga          #+#    #+#             */
+/*   Updated: 2025/09/06 19:41:53 by halragga         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdio.h>
-#include "../Header_files/libft_printf.h"
+#include "libft_printf.h"
 
-void	ft_test(void)
+int	ft_printf(const char *str, ...)
 {
-	printf("Hello");
+	return (0);
 }

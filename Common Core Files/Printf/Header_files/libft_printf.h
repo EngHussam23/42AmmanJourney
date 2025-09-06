@@ -6,7 +6,7 @@
 /*   By: halragga <halragga@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/01 19:57:05 by halragga          #+#    #+#             */
-/*   Updated: 2025/09/06 18:47:13 by halragga         ###   ########.fr       */
+/*   Updated: 2025/09/06 19:40:17 by halragga         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,6 @@
 # include <stdarg.h>
 # include "libft.h"
 
-void	ft_test(void);
+int	ft_printf(const char *str, ...);
 
 #endif

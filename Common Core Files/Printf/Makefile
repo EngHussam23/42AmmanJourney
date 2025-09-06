@@ -6,12 +6,12 @@
 #    By: halragga <halragga@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/08/03 20:17:30 by halragga          #+#    #+#              #
-#    Updated: 2025/09/06 19:33:27 by halragga         ###   ########.fr        #
+#    Updated: 2025/09/06 19:45:27 by halragga         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 # The library file name
-NAME = libft_printf.a
+NAME = libftprintf.a
 
 # Compilation cmmand and flags
 CC = cc
@@ -21,7 +21,7 @@ RM = rm -f
 
 #Source files (.c)
 SRC_DIR = C_files
-SRC = $(SRC_DIR)/test.c
+SRC = $(SRC_DIR)/ft_printf.c
 
 # from .c to .o
 OBJ_DIR = Object_files
