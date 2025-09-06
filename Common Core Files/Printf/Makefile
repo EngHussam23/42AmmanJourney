@@ -6,25 +6,29 @@
 #    By: halragga <halragga@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/08/03 20:17:30 by halragga          #+#    #+#              #
-#    Updated: 2025/08/31 13:50:58 by halragga         ###   ########.fr        #
+#    Updated: 2025/09/06 19:33:27 by halragga         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 # The library file name
-NAME = libft.a
+NAME = libft_printf.a
 
 # Compilation cmmand and flags
 CC = cc
-CFLAGS = -Wall -Wextra -Werror
+CFLAGS = -Wall -Wextra -Werror -IHeader_files
 
 RM = rm -f
 
 #Source files (.c)
-SRC = ft_atoi.c ft_bzero.c ft_calloc.c ft_isalnum.c ft_isalpha.c ft_isascii.c ft_isdigit.c ft_isprint.c ft_memchr.c ft_memcmp.c ft_memcpy.c ft_memmove.c ft_memset.c ft_strchr.c ft_strdup.c ft_strlcat.c ft_strlcpy.c ft_strlen.c ft_strncmp.c ft_strnstr.c ft_strrchr.c ft_tolower.c ft_toupper.c ft_substr.c ft_strjoin.c ft_strtrim.c ft_split.c ft_itoa.c ft_strmapi.c ft_striteri.c ft_putchar_fd.c ft_putstr_fd.c ft_putendl_fd.c ft_putnbr_fd.c
+SRC_DIR = C_files
+SRC = $(SRC_DIR)/test.c
 
 # from .c to .o
+OBJ_DIR = Object_files
+OBJ = $(SRC:$(SRC_DIR)/%.c=$(OBJ_DIR)/%.o)
 # The object files (.o) will be created from the source files
-OBJ = $(SRC:.c=.o)
+$(OBJ_DIR)/%.o: $(SRC_DIR)/%.c
+	$(CC) $(CFLAGS) -c $< -o $@
 
 all: $(NAME)
 

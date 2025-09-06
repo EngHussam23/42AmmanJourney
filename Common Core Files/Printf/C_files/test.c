@@ -1,23 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   libft_printf.h                                     :+:      :+:    :+:   */
+/*   test.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: halragga <halragga@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/09/01 19:57:05 by halragga          #+#    #+#             */
-/*   Updated: 2025/09/06 18:47:13 by halragga         ###   ########.fr       */
+/*   Created: 2025/09/06 18:44:45 by halragga          #+#    #+#             */
+/*   Updated: 2025/09/06 19:23:15 by halragga         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef LIBFT_PRINTF_H
-# define LIBFT_PRINTF_H
+#include <stdio.h>
+#include "../Header_files/libft_printf.h"
 
-# include <stdlib.h>
-# include <unistd.h>
-# include <stdarg.h>
-# include "libft.h"
-
-void	ft_test(void);
-
-#endif
+void	ft_test(void)
+{
+	printf("Hello");
+}
