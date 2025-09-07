@@ -6,16 +6,63 @@
 /*   By: halragga <halragga@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/06 19:40:38 by halragga          #+#    #+#             */
-/*   Updated: 2025/09/06 20:25:27 by halragga         ###   ########.fr       */
+/*   Updated: 2025/09/07 19:06:29 by halragga         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft_printf.h"
+#include "../Header_files/libft_printf.h"
 
-int	ft_printf(const char *str, ...)
+// ToDo:
+/*
+	1- print void pointers in hexadecimal (base 16)
+	2- print numbers in small case hexadecimal (base 16)
+	3- print numbers in capital case hexadecimal (base 16)
+*/
+
+static int	find_format(const char *str_fmt, va_list args)
 {
+	int	count;
+
+	count = 0;
+	if (*str_fmt == 'c')
+		ft_putchar_fd(va_arg(args, int), 1);
+	else if (*str_fmt == 's')
+		ft_putstr_fd(va_arg(args, char *), 1);
+	else if (*str_fmt == 'd' || *str_fmt == 'i')
+		ft_putnbr_fd(va_arg(args, int), 1);
+	else if (*str_fmt == 'u')
+		count += print_unsigned_int(va_arg(args, unsigned int), 1);
+	else if (*str_fmt == 'p')
+		write(1, str_fmt, 1);
+	else if (*str_fmt == 'x' || *str_fmt == 'X')
+		write(1, str_fmt, 1);
+	else if (*str_fmt == '%')
+		write(1, str_fmt, 1);
+	return (count);
+}
+
+int	ft_printf(const char *str_fmt, ...)
+{
+	int		count;
 	va_list	args;
 
-	
-	return (0);
+	va_start(args, str_fmt);
+	count = 0;
+	while (*str_fmt)
+	{
+		if (*str_fmt == '%')
+		{
+			str_fmt++;
+			find_format(str_fmt, args);
+			str_fmt++;
+		}
+		if (*str_fmt)
+		{
+			write(1, str_fmt, 1);
+			count++;
+			str_fmt++;
+		}
+	}
+	va_end(args);
+	return (count);
 }
