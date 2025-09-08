@@ -6,7 +6,7 @@
 #    By: halragga <halragga@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/08/03 20:17:30 by halragga          #+#    #+#              #
-#    Updated: 2025/09/08 19:00:05 by halragga         ###   ########.fr        #
+#    Updated: 2025/09/08 19:09:28 by halragga         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -42,7 +42,7 @@ libft_lib:
 # The static library will be named libft.a
 # $(OBJ) can be replaced by $(SRC:.c=.o)
 $(NAME): $(OBJ)
-	ar rcs $(NAME) $(OBJ)
+	ar rcs $(NAME) $(libft_lib) $(OBJ)
 
 clean:
 	$(RM) $(OBJ)
