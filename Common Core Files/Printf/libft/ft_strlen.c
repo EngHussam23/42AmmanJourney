@@ -1,25 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_strlen.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: halragga <halragga@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/08/31 17:16:08 by halragga          #+#    #+#             */
-/*   Updated: 2025/09/08 18:25:10 by halragga         ###   ########.fr       */
+/*   Created: 2025/08/05 12:22:25 by halragga          #+#    #+#             */
+/*   Updated: 2025/08/31 13:06:33 by halragga         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Header_files/libft_printf.h"
-#include <stdio.h>
+#include "libft.h"
 
-int	main(void)
+size_t	ft_strlen(const char *s)
 {
-	char	*ptr;
+	size_t		x;
 
-	ptr = "123546";
-	ft_printf("%p\n", ptr);
-	printf("%p\n", ptr);
-	return (0);
+	x = 0;
+	while (s[x] != '\0')
+		x++;
+	return (x);
 }
-//0x402004

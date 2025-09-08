@@ -1,25 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_memcmp.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: halragga <halragga@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/08/31 17:16:08 by halragga          #+#    #+#             */
-/*   Updated: 2025/09/08 18:25:10 by halragga         ###   ########.fr       */
+/*   Created: 2025/08/06 12:40:04 by halragga          #+#    #+#             */
+/*   Updated: 2025/09/01 13:33:46 by halragga         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Header_files/libft_printf.h"
-#include <stdio.h>
+#include "libft.h"
 
-int	main(void)
+int	ft_memcmp(const void *s1, const void *s2, size_t n)
 {
-	char	*ptr;
+	unsigned char			*cs1;
+	unsigned char			*cs2;
+	size_t					i;
 
-	ptr = "123546";
-	ft_printf("%p\n", ptr);
-	printf("%p\n", ptr);
+	i = 0;
+	cs1 = (unsigned char *)s1;
+	cs2 = (unsigned char *)s2;
+	while (i < n)
+	{
+		if (cs1[i] != cs2[i])
+			return (cs1[i] - cs2[i]);
+		i++;
+	}
 	return (0);
 }
-//0x402004

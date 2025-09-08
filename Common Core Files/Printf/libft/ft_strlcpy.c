@@ -1,25 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_strlcpy.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: halragga <halragga@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/08/31 17:16:08 by halragga          #+#    #+#             */
-/*   Updated: 2025/09/08 18:25:10 by halragga         ###   ########.fr       */
+/*   Created: 2025/08/05 14:39:29 by halragga          #+#    #+#             */
+/*   Updated: 2025/08/21 14:49:40 by halragga         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Header_files/libft_printf.h"
-#include <stdio.h>
+#include "libft.h"
 
-int	main(void)
+size_t	ft_strlcpy(char *dst, const char *src, size_t size)
 {
-	char	*ptr;
+	size_t		i;
+	size_t		srclen;
 
-	ptr = "123546";
-	ft_printf("%p\n", ptr);
-	printf("%p\n", ptr);
-	return (0);
+	i = 0;
+	srclen = ft_strlen(src);
+	if (size == 0)
+		return (srclen);
+	while (i < size - 1 && src[i] != '\0')
+	{
+		dst[i] = src[i];
+		i++;
+	}
+	dst[i] = '\0';
+	return (srclen);
 }
-//0x402004

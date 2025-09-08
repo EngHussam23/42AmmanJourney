@@ -1,25 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_memset.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: halragga <halragga@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/08/31 17:16:08 by halragga          #+#    #+#             */
-/*   Updated: 2025/09/08 18:25:10 by halragga         ###   ########.fr       */
+/*   Created: 2025/08/05 12:45:59 by halragga          #+#    #+#             */
+/*   Updated: 2025/09/01 13:34:40 by halragga         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Header_files/libft_printf.h"
-#include <stdio.h>
+#include "libft.h"
 
-int	main(void)
+void	*ft_memset(void *ptr, int fill, size_t size)
 {
-	char	*ptr;
+	char		*cptr;
+	size_t		i;
 
-	ptr = "123546";
-	ft_printf("%p\n", ptr);
-	printf("%p\n", ptr);
-	return (0);
+	cptr = ptr;
+	i = 0;
+	while (i < size)
+	{
+		cptr[i] = fill;
+		i++;
+	}
+	return (ptr);
 }
-//0x402004

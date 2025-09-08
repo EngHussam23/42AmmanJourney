@@ -1,25 +1,37 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_atoi.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: halragga <halragga@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/08/31 17:16:08 by halragga          #+#    #+#             */
-/*   Updated: 2025/09/08 18:25:10 by halragga         ###   ########.fr       */
+/*   Created: 2025/08/06 12:38:48 by halragga          #+#    #+#             */
+/*   Updated: 2025/09/01 17:11:03 by halragga         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Header_files/libft_printf.h"
-#include <stdio.h>
+#include "libft.h"
 
-int	main(void)
+int	ft_atoi(char const *ptr)
 {
-	char	*ptr;
+	int	result;
+	int	sign;
 
-	ptr = "123546";
-	ft_printf("%p\n", ptr);
-	printf("%p\n", ptr);
-	return (0);
+	result = 0;
+	sign = 1;
+	while ((*ptr >= 9 && *ptr <= 13) || *ptr == 32)
+		ptr++;
+	if (*ptr == '-')
+	{
+		sign = -1;
+		ptr++;
+	}
+	else if (*ptr == '+')
+		ptr++;
+	while (ft_isdigit(*ptr))
+	{
+		result = result * 10 + (*ptr - 48);
+		ptr++;
+	}
+	return (result * sign);
 }
-//0x402004

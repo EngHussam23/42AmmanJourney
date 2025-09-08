@@ -1,25 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_memcpy.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: halragga <halragga@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/08/31 17:16:08 by halragga          #+#    #+#             */
-/*   Updated: 2025/09/08 18:25:10 by halragga         ###   ########.fr       */
+/*   Created: 2025/08/05 19:58:01 by halragga          #+#    #+#             */
+/*   Updated: 2025/08/25 12:54:46 by halragga         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Header_files/libft_printf.h"
-#include <stdio.h>
+#include "libft.h"
 
-int	main(void)
+void	*ft_memcpy(void *dest, const void *src, size_t cpysize)
 {
-	char	*ptr;
+	size_t		i;
+	char		*cdest;
+	const char	*csrc;
 
-	ptr = "123546";
-	ft_printf("%p\n", ptr);
-	printf("%p\n", ptr);
-	return (0);
+	if (cpysize == 0)
+		return (dest);
+	i = 0;
+	csrc = (const char *)src;
+	cdest = (char *)dest;
+	while (i < cpysize)
+	{
+		cdest[i] = csrc[i];
+		i++;
+	}
+	return (dest);
 }
-//0x402004

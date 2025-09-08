@@ -6,7 +6,7 @@
 /*   By: halragga <halragga@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/06 19:40:38 by halragga          #+#    #+#             */
-/*   Updated: 2025/09/07 19:06:29 by halragga         ###   ########.fr       */
+/*   Updated: 2025/09/08 18:45:45 by halragga         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,20 @@
 	2- print numbers in small case hexadecimal (base 16)
 	3- print numbers in capital case hexadecimal (base 16)
 */
+
+static int	print_unsigned_int(unsigned int n, int fd)
+{
+	int		count;
+	char	c;
+
+	count = 0;
+	if (n > 9)
+		count += print_unsigned_int(n / 10, fd);
+	c = '0' + (n % 10);
+	ft_putchar_fd(c, fd);
+	count++;
+	return (count);
+}
 
 static int	find_format(const char *str_fmt, va_list args)
 {
@@ -33,7 +47,7 @@ static int	find_format(const char *str_fmt, va_list args)
 	else if (*str_fmt == 'u')
 		count += print_unsigned_int(va_arg(args, unsigned int), 1);
 	else if (*str_fmt == 'p')
-		write(1, str_fmt, 1);
+		print_void_ptr(va_arg(args, void *), 1);
 	else if (*str_fmt == 'x' || *str_fmt == 'X')
 		write(1, str_fmt, 1);
 	else if (*str_fmt == '%')

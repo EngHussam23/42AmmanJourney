@@ -1,27 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   print_unsigned_int.c                               :+:      :+:    :+:   */
+/*   ft_strrchr.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: halragga <halragga@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/09/07 18:23:04 by halragga          #+#    #+#             */
-/*   Updated: 2025/09/07 19:05:38 by halragga         ###   ########.fr       */
+/*   Created: 2025/08/06 12:40:52 by halragga          #+#    #+#             */
+/*   Updated: 2025/08/21 14:48:34 by halragga         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft_printf.h"
+#include "libft.h"
 
-int	print_unsigned_int(unsigned int n, int fd)
+char	*ft_strrchr(const char *s, int c)
 {
-	int		count;
-	char	c;
+	int		i;
+	char	*ptr;
 
-	count = 0;
-	if (n > 9)
-		count += print_unsigned_int(n / 10, fd);
-	c = '0' + (n % 10);
-	ft_putchar_fd(c, fd);
-	count++;
-	return (count);
+	i = 0;
+	ptr = NULL;
+	while (*s)
+	{
+		if (s[i] == (unsigned char)c)
+			ptr = (char *) s;
+		s++;
+	}
+	if (s[i] == '\0' && (unsigned char)c == '\0')
+		return ((char *) s);
+	return (ptr);
 }

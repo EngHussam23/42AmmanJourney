@@ -1,25 +1,38 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_strnstr.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: halragga <halragga@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/08/31 17:16:08 by halragga          #+#    #+#             */
-/*   Updated: 2025/09/08 18:25:10 by halragga         ###   ########.fr       */
+/*   Created: 2025/08/06 12:40:46 by halragga          #+#    #+#             */
+/*   Updated: 2025/08/24 16:40:43 by halragga         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Header_files/libft_printf.h"
-#include <stdio.h>
+#include "libft.h"
 
-int	main(void)
+char	*ft_strnstr(const char *big, const char *small, size_t length)
 {
-	char	*ptr;
+	size_t		i;
+	size_t		j;
 
-	ptr = "123546";
-	ft_printf("%p\n", ptr);
-	printf("%p\n", ptr);
-	return (0);
+	i = 0;
+	if (ft_strlen(small) == 0)
+		return ((char *) big);
+	while (i < length && big[i])
+	{
+		j = 0;
+		while (small[j] && i + j < length)
+		{
+			if (big[i + j] == small[j])
+				j++;
+			else
+				break ;
+			if (j == ft_strlen(small))
+				return ((char *)big + i);
+		}
+		i++;
+	}
+	return (NULL);
 }
-//0x402004
