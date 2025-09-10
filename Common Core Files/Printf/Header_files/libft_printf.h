@@ -19,7 +19,7 @@
 # include <stdint.h>
 # include "../libft/libft.h"
 
-int	ft_printf(const char *str, ...);
-int	print_void_ptr(void *ptr, int fd);
+int	ft_printf(const char* str, ...);
+int	print_void_ptr(void* ptr, int fd);
 
 #endif
