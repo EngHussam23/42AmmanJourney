@@ -12,11 +12,11 @@
 
 #include "libft.h"
 
-static void	*reverse_fill(char *dest, const char *src, size_t mvsize)
+static void* reverse_fill(char* dest, const char* src, size_t mvsize)
 {
 	int	i;
 
-	i = (int) mvsize - 1;
+	i = (int)mvsize - 1;
 	while (i >= 0)
 	{
 		dest[i] = src[i];
@@ -25,15 +25,13 @@ static void	*reverse_fill(char *dest, const char *src, size_t mvsize)
 	return (dest);
 }
 
-void	*ft_memmove(void *dest, const void *src, size_t mvsize)
+void* ft_memmove(void* dest, const void* src, size_t mvsize)
 {
-	const char		*csrc;
-	char			*cdest;
-	size_t			i;
+	const char* csrc;
+	char* cdest;
 
-	csrc = (const char *)src;
-	cdest = (char *)dest;
-	i = 0;
+	csrc = (const char*)src;
+	cdest = (char*)dest;
 	if (dest < src)
 		return (ft_memcpy(cdest, csrc, mvsize));
 	else if (dest > src)
