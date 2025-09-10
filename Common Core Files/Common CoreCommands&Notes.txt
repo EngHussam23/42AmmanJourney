@@ -23,6 +23,10 @@ make re         # clean then recompile
 valgrind ./a.out                # check for memory leaks
 valgrind --leak-check=full ./a.out
 
-
-# Feedback:
-# Good job , he has some errors in the code like memcpy.c he handled the null check , and he understand everything in the code and i ask him a lot of questions and he answer every questions , good luck in next time :-)
+# Generating and ssh key and getting it for github
+1- ssh-keygen -t ed25519 -C "your github email"
+2- accept the default save location
+3- add a password
+4- git using: cat ~/.ssh/filename.pub
+5- go to github and add it through the settings
+Hint: download the setup_github_ssh.sh file and run it with bash.

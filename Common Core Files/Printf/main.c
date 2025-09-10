@@ -22,4 +22,3 @@ int	main(void)
 	printf("%p\n", ptr);
 	return (0);
 }
-//0x402004
