@@ -1,33 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   print_void_ptr.c                                   :+:      :+:    :+:   */
+/*   ft_print_void_ptr.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: halragga <halragga@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/08 18:42:53 by halragga          #+#    #+#             */
-/*   Updated: 2025/09/08 18:44:05 by halragga         ###   ########.fr       */
+/*   Updated: 2025/09/10 17:28:02 by halragga         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft_printf.h"
 
-int	print_void_ptr(void *ptr, int fd)
+static int	convert_and_write(uintptr_t ptr, int count, int fd)
 {
-	uintptr_t	address;
-	int			count;
-	char		*hex_addr;
-
-	count = 0;
-	address = (uintptr_t)ptr;
-	hex_addr = "";
-	write(fd, "0x", 2);
-	count += 2;
 	if (address == 0)
 	{
 		write(fd, "0", 1);
 		return (count + 1);
 	}
+	while (address > 0)
+	{
+		
+	}
+	return (count);
+}
+
+/*
 	while (address > 0)
 	{
 		if (address % 16 < 10)
@@ -38,5 +37,18 @@ int	print_void_ptr(void *ptr, int fd)
 		address /= 16;
 		count++;
 	}
+*/
+
+int	print_void_ptr(void *ptr, int fd)
+{
+	uintptr_t	address;
+	int			count;
+	char		*hex_addr[20];
+
+	count = 0;
+	address = (uintptr_t)ptr;
+	write(fd, "0x", 2);
+	count += 2;
+	convert_and_write(address, count, fd);
 	return (count);
 }
