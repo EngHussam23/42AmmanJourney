@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_printf.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: halragga <halragga@student.42.fr>          +#+  +:+       +#+        */
+/*   By: hussam <hussam@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/06 19:40:38 by halragga          #+#    #+#             */
-/*   Updated: 2025/09/10 16:08:01 by halragga         ###   ########.fr       */
+/*   Updated: 2025/09/10 19:25:39 by hussam           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,6 @@
 
 // ToDo:
 /*
-	1- print void pointers in hexadecimal (base 16)
 	2- print numbers in small case hexadecimal (base 16)
 	3- print numbers in capital case hexadecimal (base 16)
 */
