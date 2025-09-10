@@ -20,7 +20,8 @@ CFLAGS = -Wall -Wextra -Werror -IHeader_files
 RM = rm -f
 
 #Libft library
-LIBFT_PATH = libft/libft.a
+LIBFT_PATH = libft
+LIBFT = $(LIBFT_PATH)/libft.a
 
 #Source files (.c)
 SRC_DIR = C_files
@@ -35,19 +36,21 @@ $(OBJ_DIR)/%.o: $(SRC_DIR)/%.c
 
 all: $(NAME)
 
-libft_lib:
+$(LIBFT):
 	make -C $(LIBFT_PATH)
 
 # Archive the object files into a static library
 # The static library will be named libft.a
 # $(OBJ) can be replaced by $(SRC:.c=.o)
-$(NAME): $(OBJ)
-	ar rcs $(NAME) $(libft_lib) $(OBJ)
+$(NAME): $(OBJ) $(LIBFT)
+	ar rcs $(NAME) $(notdir LIBFT) $(OBJ)
 
 clean:
 	$(RM) $(OBJ)
+	make -C $(LIBFT_PATH) clean
 fclean: clean
 	$(RM) $(NAME)
+	make -C $(LIBFT_PATH) fclean
 
 re: fclean all
 
