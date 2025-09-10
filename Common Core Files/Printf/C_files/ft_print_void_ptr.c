@@ -6,7 +6,7 @@
 /*   By: hussam <hussam@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/08 18:42:53 by halragga          #+#    #+#             */
-/*   Updated: 2025/09/10 18:49:04 by hussam           ###   ########.fr       */
+/*   Updated: 2025/09/10 19:03:01 by hussam           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,12 +22,12 @@ static int	convert_and_write(uintptr_t ptr, int count, int fd)
 		else
 			ft_putchar_fd('a' + ((ptr % 16) - 10), fd);
 		count++;
-		break;
+		break ;
 	}
 	return (count);
 }
 
-int	print_void_ptr(void* ptr, int fd)
+int	print_void_ptr(void *ptr, int fd)
 {
 	uintptr_t	address;
 	int			count;
