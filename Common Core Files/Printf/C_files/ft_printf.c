@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   ft_printf.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hussam <hussam@student.42.fr>              +#+  +:+       +#+        */
+/*   By: halragga <halragga@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/06 19:40:38 by halragga          #+#    #+#             */
-/*   Updated: 2025/09/10 19:25:39 by hussam           ###   ########.fr       */
+/*   Updated: 2025/09/11 13:52:59 by halragga         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../Header_files/libft_printf.h"
+#include "../ft_printf.h"
 
 // ToDo:
 /*
@@ -32,25 +32,25 @@ static int	print_unsigned_int(unsigned int n, int fd)
 	return (count);
 }
 
-static int	find_format(const char *str_fmt, va_list args)
+static int	find_format(const char str_fmt, va_list args)
 {
 	int	count;
 
 	count = 0;
-	if (*str_fmt == 'c')
+	if (str_fmt == 'c')
 		ft_putchar_fd(va_arg(args, int), 1);
-	else if (*str_fmt == 's')
+	else if (str_fmt == 's')
 		ft_putstr_fd(va_arg(args, char *), 1);
-	else if (*str_fmt == 'd' || *str_fmt == 'i')
+	else if (str_fmt == 'd' || str_fmt == 'i')
 		ft_putnbr_fd(va_arg(args, int), 1);
-	else if (*str_fmt == 'u')
+	else if (str_fmt == 'u')
 		count += print_unsigned_int(va_arg(args, unsigned int), 1);
-	else if (*str_fmt == 'p')
+	else if (str_fmt == 'p')
 		print_void_ptr(va_arg(args, void *), 1);
-	else if (*str_fmt == 'x' || *str_fmt == 'X')
-		write(1, str_fmt, 1);
-	else if (*str_fmt == '%')
-		write(1, str_fmt, 1);
+	else if (str_fmt == 'x' || str_fmt == 'X')
+		count += ft_print_hex(str_fmt, va_arg(args, unsigned int), count, 1);
+	else if (str_fmt == '%')
+		write(1, &str_fmt, 1);
 	return (count);
 }
 
@@ -66,10 +66,10 @@ int	ft_printf(const char *str_fmt, ...)
 		if (*str_fmt == '%')
 		{
 			str_fmt++;
-			find_format(str_fmt, args);
+			find_format(*str_fmt, args);
 			str_fmt++;
 		}
-		if (*str_fmt)
+		else if (*str_fmt)
 		{
 			write(1, str_fmt, 1);
 			count++;
