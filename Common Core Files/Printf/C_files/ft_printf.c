@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_printf.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hussam <hussam@student.42.fr>              +#+  +:+       +#+        */
+/*   By: halragga <halragga@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/06 19:40:38 by halragga          #+#    #+#             */
-/*   Updated: 2025/09/13 12:22:51 by hussam           ###   ########.fr       */
+/*   Updated: 2025/09/13 18:17:44 by halragga         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,10 +27,9 @@ static int	find_format(const char str_fmt, va_list args, int count)
 	else if (str_fmt == 'x' || str_fmt == 'X')
 		count = ft_print_hex(str_fmt, va_arg(args, unsigned int), count, 1);
 	else if (str_fmt == '%')
-		{
-			write(1, &str_fmt, 1);
-			count++;
-		}
+		count += write(1, &str_fmt, 1);
+	else
+		return (0);
 	return (count);
 }
 
@@ -51,8 +50,7 @@ int	ft_printf(const char *str_fmt, ...)
 		}
 		else if (*str_fmt)
 		{
-			write(1, str_fmt, 1);
-			count++;
+			count += write(1, str_fmt, 1);
 			str_fmt++;
 		}
 	}

@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: hussam <hussam@student.42.fr>              +#+  +:+       +#+         #
+#    By: halragga <halragga@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/08/03 20:17:30 by halragga          #+#    #+#              #
-#    Updated: 2025/09/13 12:18:11 by hussam           ###   ########.fr        #
+#    Updated: 2025/09/13 15:52:41 by halragga         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -26,6 +26,7 @@ LIBFT = $(LIBFT_PATH)/libft.a
 #Source files (.c)
 SRC_DIR = C_files
 SRC = $(SRC_DIR)/ft_printf.c $(SRC_DIR)/ft_print_void_ptr.c $(SRC_DIR)/ft_print_hex.c $(SRC_DIR)/ft_print_unsigned_int.c $(SRC_DIR)/ft_write_nbr.c $(SRC_DIR)/ft_write_str.c $(SRC_DIR)/ft_write_char.c
+
 # from .c to .o
 OBJ_DIR = Object_files
 OBJ = $(SRC:$(SRC_DIR)/%.c=$(OBJ_DIR)/%.o)
@@ -35,14 +36,16 @@ $(OBJ_DIR)/%.o: $(SRC_DIR)/%.c
 
 all: $(NAME)
 
+# Archive the object files into a static library
+# The static library will be named libftprintf.a
+# $(OBJ) can be replaced by $(SRC:.c=.o)$(LIBFT)
 $(LIBFT):
 	make -C $(LIBFT_PATH)
-
-# Archive the object files into a static library
-# The static library will be named libft.a
-# $(OBJ) can be replaced by $(SRC:.c=.o)
 $(NAME): $(OBJ) $(LIBFT)
-	ar rcs $(NAME) $(LIBFT) $(OBJ)
+	cp $(LIBFT) Libfttemp.a
+	ar x Libfttemp.a
+	ar rcs $(NAME) $(OBJ) *.o
+	rm -f Libfttemp.a *.o
 
 clean:
 	$(RM) $(OBJ)

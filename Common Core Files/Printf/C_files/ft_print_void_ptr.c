@@ -3,27 +3,24 @@
 /*                                                        :::      ::::::::   */
 /*   ft_print_void_ptr.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hussam <hussam@student.42.fr>              +#+  +:+       +#+        */
+/*   By: halragga <halragga@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/08 18:42:53 by halragga          #+#    #+#             */
-/*   Updated: 2025/09/13 12:22:11 by hussam           ###   ########.fr       */
+/*   Updated: 2025/09/13 18:07:40 by halragga         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../ft_printf.h"
 
-static int	convert_and_write(uintptr_t ptr, int count, int fd)
+static int	convert_and_write(uintptr_t ptr, int fd, int count)
 {
-	while (ptr > 0)
-	{
+	if (ptr % 16 < 10)
+		count = ft_write_char('0' + (ptr % 16), fd, count);
+	else if (ptr % 16 >= 10)
+		count = ft_write_char('a' + ((ptr % 16) - 10), fd, count);
+	else
 		convert_and_write(ptr / 16, count, fd);
-		if (ptr % 16 < 10)
-			ft_putchar_fd('0' + (ptr % 16), fd);
-		else
-			ft_putchar_fd('a' + ((ptr % 16) - 10), fd);
-		count++;
-		break ;
-	}
+	count++;
 	return (count);
 }
 
@@ -34,16 +31,10 @@ int	ft_print_void_ptr(void *ptr, int fd)
 
 	count = 0;
 	address = (uintptr_t)ptr;
-	write(fd, "0x", 2);
-	count += 2;
-	if (ptr == 0)
-	{
-		write(fd, "0", 1);
-		return (count + 1);
-	}
-	else if (!ptr)
-		write(fd, "(nil)", 5);
+	count += write(fd, "0x", 2);
+	if (!ptr)
+		count += write(fd, "0", 1);
 	else
-		convert_and_write(address, count, fd);
+		count = convert_and_write(address, count, fd);
 	return (count);
 }
