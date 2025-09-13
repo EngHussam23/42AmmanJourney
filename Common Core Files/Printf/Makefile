@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: halragga <halragga@student.42.fr>          +#+  +:+       +#+         #
+#    By: hussam <hussam@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/08/03 20:17:30 by halragga          #+#    #+#              #
-#    Updated: 2025/09/11 13:22:56 by halragga         ###   ########.fr        #
+#    Updated: 2025/09/13 12:18:11 by hussam           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -25,8 +25,7 @@ LIBFT = $(LIBFT_PATH)/libft.a
 
 #Source files (.c)
 SRC_DIR = C_files
-SRC = $(SRC_DIR)/ft_printf.c $(SRC_DIR)/ft_print_void_ptr.c $(SRC_DIR)/ft_print_hex.c
-
+SRC = $(SRC_DIR)/ft_printf.c $(SRC_DIR)/ft_print_void_ptr.c $(SRC_DIR)/ft_print_hex.c $(SRC_DIR)/ft_print_unsigned_int.c $(SRC_DIR)/ft_write_nbr.c $(SRC_DIR)/ft_write_str.c $(SRC_DIR)/ft_write_char.c
 # from .c to .o
 OBJ_DIR = Object_files
 OBJ = $(SRC:$(SRC_DIR)/%.c=$(OBJ_DIR)/%.o)

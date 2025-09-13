@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_print_void_ptr.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: halragga <halragga@student.42.fr>          +#+  +:+       +#+        */
+/*   By: hussam <hussam@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/08 18:42:53 by halragga          #+#    #+#             */
-/*   Updated: 2025/09/11 14:31:09 by halragga         ###   ########.fr       */
+/*   Updated: 2025/09/13 12:22:11 by hussam           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ static int	convert_and_write(uintptr_t ptr, int count, int fd)
 	return (count);
 }
 
-int	print_void_ptr(void *ptr, int fd)
+int	ft_print_void_ptr(void *ptr, int fd)
 {
 	uintptr_t	address;
 	int			count;
