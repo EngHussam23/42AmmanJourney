@@ -6,7 +6,7 @@
 /*   By: hussam <hussam@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/13 13:59:45 by halragga          #+#    #+#             */
-/*   Updated: 2025/09/14 18:56:59 by hussam           ###   ########.fr       */
+/*   Updated: 2025/09/14 19:14:31 by hussam           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,8 @@
 
 int	main(void)
 {
-	ft_printf("s: %x\n","0123456789abcdef");
+	printf("p: %p\n%p\n\n\n\n", 0, 0);
+	ft_printf("p: %p\n%p\n",0, 0);
 	return (0);
 }
 
