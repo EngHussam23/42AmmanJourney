@@ -6,7 +6,7 @@
 /*   By: hussam <hussam@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/13 13:59:45 by halragga          #+#    #+#             */
-/*   Updated: 2025/09/14 14:26:48 by hussam           ###   ########.fr       */
+/*   Updated: 2025/09/14 17:54:36 by hussam           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,12 +16,12 @@
 
 int	main(void)
 {
-	int x = 42;
-	int *px = &x;
-	char *str = "hello";
-
-	ft_printf("%p\n", px);   // prints the actual address of x
-	ft_printf("%p\n", str);  // prints the address of the string
-	ft_printf("%p\n", (void *)(uintptr_t)-ULONG_MAX);  // huge hex value
+	char	test_moulitest_06;
+	ft_printf("s: %s, p: %p, d:%d\n", "a string", &test_moulitest_06, 42);
 	return (0);
 }
+
+/*
+ASSERT_PRINTF("s: %s, p: %p, d:%d", "a string", &test_moulitest_06, 42);
+ASSERT_PRINTF("%s%p%d%d%p%s%p%p%s", "a", &free, 1, 2, &malloc, "b", &free, &malloc, "c");
+*/
