@@ -6,7 +6,7 @@
 /*   By: hussam <hussam@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/08 18:42:53 by halragga          #+#    #+#             */
-/*   Updated: 2025/09/14 18:46:57 by hussam           ###   ########.fr       */
+/*   Updated: 2025/09/15 15:19:36 by hussam           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,11 +29,10 @@ int	ft_print_void_ptr(void *ptr, int fd)
 	int			count;
 
 	count = 0;
+	if (!ptr)
+		return (count += write(fd, "(nil)", 5));
 	address = (uintptr_t)ptr;
 	count += write(fd, "0x", 2);
-	if (!ptr)
-		count += write(fd, "0", 1);
-	else
-		count = convert_and_write(address, fd, count);
+	count = convert_and_write(address, fd, count);
 	return (count);
 }
