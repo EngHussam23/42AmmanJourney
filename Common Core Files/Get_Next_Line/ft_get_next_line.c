@@ -1,21 +1,17 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_get_next_line.h                                 :+:      :+:    :+:   */
+/*   ft_get_next_line.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: halragga <halragga@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/09/01 19:57:05 by halragga          #+#    #+#             */
-/*   Updated: 2025/09/16 14:12:30 by halragga         ###   ########.fr       */
+/*   Created: 2025/09/16 13:54:08 by halragga          #+#    #+#             */
+/*   Updated: 2025/09/16 14:12:41 by halragga         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FT_GET_NEXT_LINE_H
-# define FT_GET_NEXT_LINE_H
+#include "ft_get_next_line.h"
 
-# include <stdlib.h>
-# include <unistd.h>
-
-char	*ft_get_next_line(int fd);
-
-#endif
+char	*ft_get_next_line(int fd)
+{
+}
