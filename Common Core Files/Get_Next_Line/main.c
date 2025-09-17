@@ -3,25 +3,24 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hussam <hussam@student.42.fr>              +#+  +:+       +#+        */
+/*   By: halragga <halragga@student.42amman.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/13 13:59:45 by halragga          #+#    #+#             */
-/*   Updated: 2025/09/14 17:54:36 by hussam           ###   ########.fr       */
+/*   Updated: 2025/09/17 16:50:17 by halragga         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
 #include <stdio.h>
-#include <limits.h>
+#include <fcntl.h>
+#include <unistd.h>
+#include "ft_get_next_line.h"
 
-int	main(void)
+int    main(void)
 {
-	char	test_moulitest_06;
-	ft_printf("s: %s, p: %p, d:%d\n", "a string", &test_moulitest_06, 42);
-	return (0);
-}
+    int    fd;
 
-/*
-ASSERT_PRINTF("s: %s, p: %p, d:%d", "a string", &test_moulitest_06, 42);
-ASSERT_PRINTF("%s%p%d%d%p%s%p%p%s", "a", &free, 1, 2, &malloc, "b", &free, &malloc, "c");
-*/
+    fd = open("file2.txt", O_CREAT | O_RDWR);
+    write(fd, "123\n456\n789\n-0-", 15);
+    printf("the content of 'file.txt' is: %s\n", ft_get_next_line(fd));
+    return (0);
+}
