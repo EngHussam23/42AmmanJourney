@@ -6,7 +6,7 @@
 /*   By: halragga <halragga@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/16 13:54:08 by halragga          #+#    #+#             */
-/*   Updated: 2025/09/18 13:36:18 by halragga         ###   ########.fr       */
+/*   Updated: 2025/09/18 13:45:30 by halragga         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ static int	get_line_length(char *stash)
 	int	count;
 
 	count = 0;
-	while (*stash != '\n')
+	while (*stash != '\n' && *stash)
 	{
 		stash++;
 		count++;
@@ -67,9 +67,9 @@ char	*ft_get_next_line(int fd)
 		line = ft_substr(stash, 0, get_line_length(stash));
 		stash = trim_stash(stash, get_line_length(stash));
 	}
-	else
+	if (nbytes == 0 && stash)
 	{
-		line = ft_substr(stash, 0, nbytes);
+		line = ft_substr(stash, 0, ft_strlen(stash));
 		stash = NULL;
 	}
 	return (line);
