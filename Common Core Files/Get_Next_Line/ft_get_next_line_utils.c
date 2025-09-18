@@ -6,33 +6,25 @@
 /*   By: halragga <halragga@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/17 20:04:08 by halragga          #+#    #+#             */
-/*   Updated: 2025/09/17 20:23:44 by halragga         ###   ########.fr       */
+/*   Updated: 2025/09/18 12:06:16 by halragga         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_get_next_line.h"
 
-size_t	ft_strlcat(char *dst, const char *src, size_t dstsize)
+char	*ft_strjoin(char const *s1, char const *s2)
 {
-	size_t	dstlen;
-	size_t	srclen;
-	size_t	dst_index;
-	size_t	src_index;
+	char	*s3;
 
-	dstlen = ft_strlen(dst);
-	srclen = ft_strlen(src);
-	dst_index = ft_strlen(dst);
-	src_index = 0;
-	if (dstsize <= dstlen)
-		return (srclen + dstsize);
-	else
-	{
-		while (src_index < srclen && dst_index < (dstsize - 1)
-			&& src[src_index] != '\0')
-			dst[dst_index++] = src[src_index++];
-		dst[dst_index] = '\0';
-	}
-	return (srclen + dstlen);
+	if (!s1 || !s2)
+		return (NULL);
+	s3 = malloc((ft_strlen(s1) + ft_strlen(s2)) * sizeof(char) + 1);
+	if (!s3)
+		return (NULL);
+	ft_strlcpy(s3, s1, ft_strlen(s1) + 1);
+	ft_strlcat(s3, s2, ft_strlen(s1) + ft_strlen(s2) + 1);
+	s3[ft_strlen(s3)] = '\0';
+	return (s3);
 }
 
 char	*ft_strchr(const char *s, int c)
@@ -48,4 +40,28 @@ char	*ft_strchr(const char *s, int c)
 	if (*s == '\0' && (unsigned char)c == '\0')
 		return ((char *)s);
 	return (NULL);
+}
+
+char	*ft_substr(char const *s, unsigned int start, size_t len)
+{
+	size_t	slen;
+	size_t	sub_len;
+	char	*sub_s;
+
+	sub_len = 0;
+	if (!s)
+		return (NULL);
+	slen = ft_strlen(s);
+	if (slen - start < len)
+		sub_len = ft_strlen(s) - start;
+	else
+		sub_len = len;
+	if (slen < start)
+		return (ft_calloc(1, 1));
+	sub_s = malloc((sub_len + 1) * sizeof(char));
+	if (!sub_s)
+		return (NULL);
+	ft_memcpy(sub_s, s + start, sub_len);
+	sub_s[sub_len] = '\0';
+	return (sub_s);
 }

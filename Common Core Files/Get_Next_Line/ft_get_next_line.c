@@ -6,7 +6,7 @@
 /*   By: halragga <halragga@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/16 13:54:08 by halragga          #+#    #+#             */
-/*   Updated: 2025/09/17 20:25:51 by halragga         ###   ########.fr       */
+/*   Updated: 2025/09/18 12:16:09 by halragga         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,8 +31,11 @@ char	*ft_get_next_line(int fd)
 		return (NULL);
 	}
 	buff[nbytes] = '\0';
-	stash = ft_strlcat(stash, buff, nbytes);
+	stash = ft_strjoin(stash, buff);
 	if (ft_strchr(stash, '\n'))
-		line = ......
+		line = ft_substr(stash, 0, get_line_length(stash));
+	else
+		line = ft_substr(stash, 0, nbytes);
+	free(stash);
 	return (line);
 }
