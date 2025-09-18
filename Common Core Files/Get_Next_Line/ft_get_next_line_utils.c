@@ -6,7 +6,7 @@
 /*   By: halragga <halragga@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/17 20:04:08 by halragga          #+#    #+#             */
-/*   Updated: 2025/09/18 12:06:16 by halragga         ###   ########.fr       */
+/*   Updated: 2025/09/18 13:20:35 by halragga         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,4 +64,14 @@ char	*ft_substr(char const *s, unsigned int start, size_t len)
 	ft_memcpy(sub_s, s + start, sub_len);
 	sub_s[sub_len] = '\0';
 	return (sub_s);
+}
+
+size_t	ft_strlen(const char *s)
+{
+	size_t		x;
+
+	x = 0;
+	while (s[x] != '\0')
+		x++;
+	return (x);
 }
