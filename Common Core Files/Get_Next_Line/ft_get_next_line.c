@@ -6,7 +6,7 @@
 /*   By: halragga <halragga@student.42amman.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/16 13:54:08 by halragga          #+#    #+#             */
-/*   Updated: 2025/09/18 18:07:45 by halragga         ###   ########.fr       */
+/*   Updated: 2025/09/18 18:08:19 by halragga         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,5 +43,8 @@ static int	get_line_length(char *stash)
 
 char	*ft_get_next_line(int fd)
 {
-	//Redo the project, it'n working!!!!!!!!!!!!!!
+	char		*line;
+	char		*buff;
+	static char	*stash;
+	int			nbytes;
 }
