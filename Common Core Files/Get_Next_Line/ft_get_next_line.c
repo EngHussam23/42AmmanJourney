@@ -3,16 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   ft_get_next_line.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: halragga <halragga@student.42.fr>          +#+  +:+       +#+        */
+/*   By: halragga <halragga@student.42amman.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/16 13:54:08 by halragga          #+#    #+#             */
-/*   Updated: 2025/09/18 14:00:20 by halragga         ###   ########.fr       */
+/*   Updated: 2025/09/18 18:07:45 by halragga         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_get_next_line.h"
-
-
 
 static char	*trim_stash(char *stash, int trim_length)
 {
@@ -45,36 +43,5 @@ static int	get_line_length(char *stash)
 
 char	*ft_get_next_line(int fd)
 {
-	char		*line;
-	char		*buff;
-	static char	*stash;
-	int			nbytes;
-
-	if (fd < 0 || BUFFER_SIZE <= 0)
-		return (NULL);
-	buff = malloc(BUFFER_SIZE + 1);
-	if (!buff)
-		return (NULL);
-	nbytes = read(fd, buff, BUFFER_SIZE);
-	if (nbytes < 0)
-	{
-		free(buff);
-		return (NULL);
-	}
-	buff[nbytes] = '\0';
-	stash = ft_strjoin(stash, buff);
-	free(buff);
-	if (ft_strchr(stash, '\n'))
-	{
-		line = ft_substr(stash, 0, get_line_length(stash));
-		stash = trim_stash(stash, get_line_length(stash));
-	}
-	else if (nbytes == 0 && stash && *stash)
-	{
-		line = ft_substr(stash, 0, ft_strlen(stash));
-		stash = NULL;
-	}
-	else
-		return (NULL);
-	return (line);
+	//Redo the project, it'n working!!!!!!!!!!!!!!
 }
