@@ -6,11 +6,29 @@
 /*   By: halragga <halragga@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/17 20:04:08 by halragga          #+#    #+#             */
-/*   Updated: 2025/09/18 13:20:35 by halragga         ###   ########.fr       */
+/*   Updated: 2025/09/18 13:58:38 by halragga         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_get_next_line.h"
+
+size_t	ft_strlcpy(char *dst, const char *src, size_t size)
+{
+	size_t		i;
+	size_t		srclen;
+
+	i = 0;
+	srclen = ft_strlen(src);
+	if (size == 0)
+		return (srclen);
+	while (i < size - 1 && src[i] != '\0')
+	{
+		dst[i] = src[i];
+		i++;
+	}
+	dst[i] = '\0';
+	return (srclen);
+}
 
 char	*ft_strjoin(char const *s1, char const *s2)
 {

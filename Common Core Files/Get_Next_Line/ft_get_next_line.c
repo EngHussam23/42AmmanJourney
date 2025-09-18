@@ -6,11 +6,13 @@
 /*   By: halragga <halragga@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/16 13:54:08 by halragga          #+#    #+#             */
-/*   Updated: 2025/09/18 13:49:15 by halragga         ###   ########.fr       */
+/*   Updated: 2025/09/18 14:00:20 by halragga         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_get_next_line.h"
+
+
 
 static char	*trim_stash(char *stash, int trim_length)
 {
@@ -72,5 +74,7 @@ char	*ft_get_next_line(int fd)
 		line = ft_substr(stash, 0, ft_strlen(stash));
 		stash = NULL;
 	}
+	else
+		return (NULL);
 	return (line);
 }
