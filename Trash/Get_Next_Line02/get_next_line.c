@@ -6,7 +6,7 @@
 /*   By: halragga <halragga@student.42amman.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/16 13:54:08 by halragga          #+#    #+#             */
-/*   Updated: 2025/09/21 19:42:32 by halragga         ###   ########.fr       */
+/*   Updated: 2025/09/21 20:01:11 by halragga         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,6 +50,7 @@ char* get_next_line(int fd)
 			stash[i] = buff[i];
 		i++;
 	}
+	line[i] = '\0';
 	free(buff);
 	return(line);
 }
