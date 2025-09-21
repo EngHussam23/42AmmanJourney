@@ -30,3 +30,20 @@ valgrind --leak-check=full ./a.out
 4- git using: cat ~/.ssh/filename.pub
 5- go to github and add it through the settings
 Hint: download the setup_github_ssh.sh file and run it with bash.
+
+# Debugging code errors:
+After compiling with the -g flag, you use gdb (GNU Debugger) to debug your program:
+    Compile with debug info:
+    cc -g -Wall -Wextra -Werror main.c get_next_line.c -o program
+    
+    Run with gdb:
+    gdb ./program
+    
+    Common gdb commands:
+        1- run - start the program
+        2- bt - show backtrace (where it crashed)
+        3- list - show source code around crash
+        4- print variable_name - examine variables
+        5- step - step through code line by line
+        6- continue - continue execution
+        7- quit - exit gdb
