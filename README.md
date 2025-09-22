@@ -1,11 +1,3 @@
-:::tabs
-
-@Commands\_&_Notes
-
-[Check this for some helpful Commands & tips](Commands&Notes.md)
-
-:::
-
 # 42 Amman
 
 ![42Logo](63114141.png)
