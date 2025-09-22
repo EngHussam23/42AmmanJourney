@@ -1,3 +1,11 @@
+:::tabs
+
+@Commands\_&_Notes
+
+[Check this for some helpful Commands & tips](Commands&Notes.md)
+
+:::
+
 # 42 Amman
 
 ![42Logo](63114141.png)
@@ -27,11 +35,3 @@ I finally got to the Common Core porgram.
 #### Sep 4th 2025: Libft ✅
 
 #### Sep 6th 2025: Printf 🧑‍💻
-
-:::tabs
-
-@Commands\_&_Notes
-
-[Check this for some helpful Commands & tips](Commands&Notes.md)
-
-:::
