@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   ft_print_hex.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hussam <hussam@student.42.fr>              +#+  +:+       +#+        */
+/*   By: halragga <halragga@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/11 12:43:16 by halragga          #+#    #+#             */
-/*   Updated: 2025/09/14 18:48:55 by hussam           ###   ########.fr       */
+/*   Updated: 2025/09/22 14:28:46 by halragga         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../ft_printf.h"
+#include "libft.h"
 
 static int	convert_and_write(char c, unsigned int value, int count, int fd)
 {
@@ -25,7 +25,7 @@ static int	convert_and_write(char c, unsigned int value, int count, int fd)
 
 int	ft_print_hex(char str_fmt, unsigned int value, int count, int fd)
 {
-	char		c;
+	char	c;
 
 	c = '0';
 	if (str_fmt == 'x')

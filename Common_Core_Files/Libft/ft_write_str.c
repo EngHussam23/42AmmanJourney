@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   ft_write_str.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hussam <hussam@student.42.fr>              +#+  +:+       +#+        */
+/*   By: halragga <halragga@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/13 11:57:40 by hussam            #+#    #+#             */
-/*   Updated: 2025/09/13 12:20:41 by hussam           ###   ########.fr       */
+/*   Updated: 2025/09/22 14:29:40 by halragga         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../ft_printf.h"
+#include "libft.h"
 
 int	ft_write_char(char c, int fd, int count)
 {

@@ -6,11 +6,11 @@
 /*   By: halragga <halragga@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/06 19:40:38 by halragga          #+#    #+#             */
-/*   Updated: 2025/09/13 18:23:12 by halragga         ###   ########.fr       */
+/*   Updated: 2025/09/22 14:27:00 by halragga         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../ft_printf.h"
+#include "libft.h"
 
 static int	find_format(const char str_fmt, va_list args, int count)
 {

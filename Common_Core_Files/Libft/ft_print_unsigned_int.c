@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   ft_print_unsigned_int.c                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hussam <hussam@student.42.fr>              +#+  +:+       +#+        */
+/*   By: halragga <halragga@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/13 11:55:46 by hussam            #+#    #+#             */
-/*   Updated: 2025/09/13 12:23:43 by hussam           ###   ########.fr       */
+/*   Updated: 2025/09/22 14:29:10 by halragga         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../ft_printf.h"
+#include "libft.h"
 
 int	ft_print_unsigned_int(unsigned int n, int fd)
 {

@@ -6,11 +6,11 @@
 /*   By: halragga <halragga@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/13 12:07:47 by hussam            #+#    #+#             */
-/*   Updated: 2025/09/13 13:55:26 by halragga         ###   ########.fr       */
+/*   Updated: 2025/09/22 14:29:45 by halragga         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../ft_printf.h"
+#include "libft.h"
 
 int	ft_write_nbr(int n, int fd, int count)
 {
