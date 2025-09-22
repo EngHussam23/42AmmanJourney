@@ -30,4 +30,4 @@ I finally got to the Common Core porgram.
 
 ## Commands & Notes
 
-[Check this for some helpful Commands & tips](Commands&Notes.md)
+[Check this for some helpful Commands & tips](Common_Core_Files/Commands&Notes.md)
