@@ -6,13 +6,19 @@
 /*   By: halragga <halragga@student.42amman.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/21 22:16:42 by halragga          #+#    #+#             */
-/*   Updated: 2025/09/22 00:39:10 by halragga         ###   ########.fr       */
+/*   Updated: 2025/09/22 12:04:55 by halragga         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "get_next_line.h"
 
-char* get_next_line(int fd)
+static char	*stash_line(char *stash, char *buff, char *line, int nbytes)
+{
+	if (nbytes == BUFFER_SIZE)
+	{}
+}
+
+char	*get_next_line(int fd)
 {
 	int			nbytes;
 	char		*buff;
@@ -23,7 +29,7 @@ char* get_next_line(int fd)
 	if (!buff)
 		return (NULL);
 	nbytes = read(fd, buff, BUFFER_SIZE);
-	buff[BUFFER_SIZE] = '\0';
+	buff[nbytes] = '\0';
 	if (nbytes == 0)
 		return (NULL);
 	else
@@ -36,6 +42,7 @@ char* get_next_line(int fd)
 			free(buff);
 			return (line);
 		}
-		// else the line is exactly of BUFFER_SIZE of bigger, so you'll get is.
+		stash_line(stash, buff, line, nbytes);
 	}
+	return (line);
 }
