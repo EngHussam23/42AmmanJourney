@@ -1,0 +1,56 @@
+# File & Navigation:
+
+ls # list files
+cd # change directory
+pwd # print working directory
+mkdir libft # make new folder
+touch file.c # create file
+rm file.c # delete file
+rm -rf dir/ # force delete folder
+
+# Compilation Commands:
+
+cc -Wall -Wextra -Werror file.c # compile C file with 42 flags
+Note: use -g flag to compile with debug info (for gdb), then gdb ./a.out (Hint: Usefull commands bellow)
+ar rcs libft.a file1.o file2.o # create your .a archive (your library)
+
+# Makefile Shourtcuts:
+
+make: runs the default rule (usually all)
+make bonus: compile your bonus part
+make clean: deletes object files
+make fclean: deletes object files + libft.a
+make re: clean then recompile
+
+# Debugging Memory:
+
+valgrind ./a.out # check for memory leaks
+valgrind --leak-check=full ./a.out (shows the full leak report for each leak)
+valgrind --leak-check=full --show-leak-kinds=all ./a.out (shows EVERY kind of leak in your code)
+
+# Generating and ssh key and getting it for github
+
+1- ssh-keygen -t ed25519 -C "your github email"
+2- accept the default save location
+3- add a password (optional)
+4- git using: cat ~/.ssh/filename.pub
+5- go to github and add it through the settings
+Hint: download the Bash_Scripting/setup_github_ssh.sh file and run it with bash.
+
+# Debugging code errors:
+
+After compiling with the -g flag, you use gdb (GNU Debugger) to debug your program:
+Compile with debug info:
+cc -g -Wall -Wextra -Werror main.c get_next_line.c -o program
+Run with gdb:
+
+    gdb ./program (the excutable file)
+
+    Common gdb commands:
+        1- run - start the program
+        2- bt - show backtrace (where it crashed)
+        3- list - show source code around crash
+        4- print variable_name - examine variables
+        5- step - step through code line by line
+        6- continue - continue execution
+        7- quit - exit gdb
