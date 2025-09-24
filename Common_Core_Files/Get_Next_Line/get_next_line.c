@@ -3,14 +3,21 @@
 /*                                                        :::      ::::::::   */
 /*   get_next_line.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: halragga <halragga@student.42.fr>          +#+  +:+       +#+        */
+/*   By: halragga <halragga@student.42amman.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/21 22:16:42 by halragga          #+#    #+#             */
-/*   Updated: 2025/09/22 14:32:33 by halragga         ###   ########.fr       */
+/*   Updated: 2025/09/23 13:53:17 by halragga         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "get_next_line.h"
+
+static char	*my_malloc(char *mem, int mem_size)
+{
+	mem = malloc(mem_size);
+	if (!mem)
+		return (mem);
+}
 
 static char	*store_line(char *stash, char *buff, char *line, int nbytes)
 {
@@ -19,7 +26,7 @@ static char	*store_line(char *stash, char *buff, char *line, int nbytes)
 	i = 0;
 	if (nbytes <= BUFFER_SIZE)
 	{
-		my_malloc(&line, nbytes + 1);
+		my_malloc(line, nbytes + 1);
 		if (!line)
 			free(buff);
 		while (i < nbytes)
@@ -41,13 +48,6 @@ static char	*store_line(char *stash, char *buff, char *line, int nbytes)
 	}
 }
 
-static void	my_malloc(char *mem, int mem_size)
-{
-	mem = malloc(mem_size);
-	if (!mem)
-		return (NULL);
-}
-
 char	*get_next_line(int fd)
 {
 	int			nbytes;
@@ -65,6 +65,7 @@ char	*get_next_line(int fd)
 	if (nbytes == 0)
 		return (NULL);
 	else
-		store_line(&stash, buff, line, nbytes);
+		store_line(stash, buff, line, nbytes);
+	free(buff);
 	return (line);
 }
