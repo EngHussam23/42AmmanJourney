@@ -74,3 +74,26 @@ char	*get_next_line(int fd)
 }
 
 #########################################################################
+
+static char	*stash_read(char *stash, char *buff, int nbytes)
+{
+	int		i;
+	char	*line;
+
+	i = -1;
+	stash = malloc(nbytes + 1);
+	if (!stash)
+		return (NULL);
+	while (++i < nbytes && buff[i] != '\n')
+		stash[i] = buff[i];
+	stash[i] = '\n';
+	concatinate(line, stash, i);
+	line[i + 1] = '\0';
+	while (++i < nbytes)
+	{
+		stash[i] = buff[i];
+	}
+	return (line);
+}
+
+##################################################################################
