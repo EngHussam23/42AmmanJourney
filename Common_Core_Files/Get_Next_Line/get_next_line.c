@@ -3,56 +3,45 @@
 /*                                                        :::      ::::::::   */
 /*   get_next_line.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: halragga <halragga@student.42amman.com>    +#+  +:+       +#+        */
+/*   By: halragga <halragga@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/21 22:16:42 by halragga          #+#    #+#             */
-/*   Updated: 2025/09/23 13:53:17 by halragga         ###   ########.fr       */
+/*   Updated: 2025/09/24 18:14:18 by halragga         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "get_next_line.h"
 
-static char	*my_malloc(char *mem, int mem_size)
+static char	*stash_read(char *stash, char *buff, int nbytes)
 {
-	mem = malloc(mem_size);
-	if (!mem)
-		return (mem);
+	int		i;
+	char	*line;
+
+	i = -1;
+	stash = malloc(nbytes + 1);
+	if (!stash)
+		return (NULL);
+	while (++i < nbytes && buff[i] != '\n')
+		stash[i] = buff[i];
+	stash[i] = '\n';
+	concatinate(line, stash, i);
+	line[i + 1] = '\0';
+	while (++i < nbytes)
+	{
+		stash[i] = buff[i];
+	}
+	return (line);
 }
 
-static char	*store_line(char *stash, char *buff, char *line, int nbytes)
+static char	*extract_line(char **stash)
 {
-	int	i;
-
-	i = 0;
-	if (nbytes <= BUFFER_SIZE)
-	{
-		my_malloc(line, nbytes + 1);
-		if (!line)
-			free(buff);
-		while (i < nbytes)
-		{
-			if (buff[i] == '\n')
-			{
-				line[i] = buff[i++];
-				break ;
-			}
-			line[i] = buff[i++];
-		}
-		line[i] = '\0';
-		while (i < nbytes)
-		{
-			stash[i] = buff[i++];
-		}
-		free(buff);
-		return (line);
-	}
+	
 }
 
 char	*get_next_line(int fd)
 {
 	int			nbytes;
 	char		*buff;
-	char		*line;
 	static char	*stash;
 
 	if (fd < 0 || BUFFER_SIZE <= 0)
@@ -60,12 +49,36 @@ char	*get_next_line(int fd)
 	buff = malloc(BUFFER_SIZE + 1);
 	if (!buff)
 		return (NULL);
-	nbytes = read(fd, buff, BUFFER_SIZE);
-	buff[nbytes] = '\0';
-	if (nbytes == 0)
-		return (NULL);
-	else
-		store_line(stash, buff, line, nbytes);
+	while (!find_new_line(stash))
+	{
+		nbytes = read(fd, buff, BUFFER_SIZE);
+		if (nbytes <= 0)
+			return (NULL);
+		buff[nbytes] = '\0';
+		stash = join(stash, buff);
+		if (stash)
+		{
+			free(buff);
+			return (NULL);
+		}
+	}
 	free(buff);
-	return (line);
+	return ();
 }
+
+/*
+	nbytes = read(fd, buff, BUFFER_SIZE);
+	if (nbytes <= 0)
+	{
+		free(buff);
+		free(stash);
+		return (NULL);
+	}
+	else
+	{
+		buff[nbytes] = '\0';
+		line = stash_read(stash, buff, nbytes);
+		free(buff);
+	}
+	return (line);
+*/

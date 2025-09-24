@@ -6,7 +6,7 @@
 /*   By: halragga <halragga@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/21 22:11:39 by halragga          #+#    #+#             */
-/*   Updated: 2025/09/22 12:19:25 by halragga         ###   ########.fr       */
+/*   Updated: 2025/09/24 17:58:58 by halragga         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,5 +21,9 @@
 # include <unistd.h>
 
 char	*get_next_line(int fd);
+size_t	get_len(const char *s);
+char	*find_new_line(const char *s);
+char	*join(char *s1, char *s2);
+char	substr(char const *s, unsigned int start, size_t len);
 
 #endif

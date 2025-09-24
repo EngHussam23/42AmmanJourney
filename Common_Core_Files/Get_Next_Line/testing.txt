@@ -6,3 +6,71 @@ Nice
 To
 Meet
 You!
+
+###########################################################################
+
+halragga/MyWork/MyDrafts/42AmmanJourney/Common_Core_Files/Get_Next_Line/get_next_line.c
+#include "get_next_line.h"
+
+static char	*extract_line(char **stash)
+{
+    char	*line;
+    char	*newline_pos;
+    char	*temp;
+    size_t	line_len;
+
+    if (!*stash)
+        return (NULL);
+    newline_pos = ft_strchr(*stash, '\n');
+    if (newline_pos)
+    {
+        line_len = newline_pos - *stash + 1;
+        line = ft_substr(*stash, 0, line_len);
+        temp = ft_substr(*stash, line_len, ft_strlen(*stash) - line_len);
+        free(*stash);
+        *stash = temp;
+        if (*stash && **stash == '\0')
+        {
+            free(*stash);
+            *stash = NULL;
+        }
+        return (line);
+    }
+    line = ft_substr(*stash, 0, ft_strlen(*stash));
+    free(*stash);
+    *stash = NULL;
+    return (line);
+}
+
+char	*get_next_line(int fd)
+{
+    static char	*stash;
+    char		*buffer;
+    char		*temp;
+    int			bytes_read;
+
+    if (fd < 0 || BUFFER_SIZE <= 0)
+        return (NULL);
+    buffer = malloc(BUFFER_SIZE + 1);
+    if (!buffer)
+        return (NULL);
+    while (!ft_strchr(stash, '\n'))
+    {
+        bytes_read = read(fd, buffer, BUFFER_SIZE);
+        if (bytes_read <= 0)
+            break;
+        buffer[bytes_read] = '\0';
+        temp = ft_strjoin(stash ? stash : "", buffer);
+        free(stash);
+        stash = temp;
+        if (!stash)
+        {
+            free(buffer);
+            return (NULL);
+        }
+    }
+    free(buffer);
+    return (extract_line(&stash));
+}
+
+#########################################################################
