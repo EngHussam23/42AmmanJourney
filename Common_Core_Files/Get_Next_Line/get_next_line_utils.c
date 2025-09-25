@@ -6,7 +6,7 @@
 /*   By: halragga <halragga@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/24 14:01:33 by halragga          #+#    #+#             */
-/*   Updated: 2025/09/24 17:57:05 by halragga         ###   ########.fr       */
+/*   Updated: 2025/09/25 18:23:02 by halragga         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ size_t	get_len(const char *s)
 	size_t	x;
 
 	x = 0;
-	while (s[x] != '\0')
+	while (s[x])
 		x++;
 	return (x);
 }
@@ -40,6 +40,8 @@ char	*join(char *s1, char *s2)
 	int		i;
 	int		j;
 
+	if (!s1)
+		s1 = str_duplicate("", 1);
 	result = malloc(get_len(s1) + get_len(s2) + 1);
 	i = 0;
 	while (s1[i])
@@ -55,10 +57,11 @@ char	*join(char *s1, char *s2)
 		i++;
 	}
 	result[i] = '\0';
+	free(s1);
 	return (result);
 }
 
-char	substr(char const *s, unsigned int start, size_t len)
+char	*substr(char const *s, unsigned int start, size_t len)
 {
 	size_t	slen;
 	size_t	sub_len;
@@ -67,17 +70,41 @@ char	substr(char const *s, unsigned int start, size_t len)
 	sub_len = 0;
 	if (!s)
 		return (NULL);
-	slen = ft_strlen(s);
+	slen = get_len(s);
 	if (slen - start < len)
-		sub_len = ft_strlen(s) - start;
+		sub_len = get_len(s) - start;
 	else
 		sub_len = len;
 	if (slen < start)
-		return (ft_calloc(1, 1));
+		return (NULL);
 	sub_s = malloc((sub_len + 1) * sizeof(char));
 	if (!sub_s)
 		return (NULL);
-	ft_memcpy(sub_s, s + start, sub_len);
+	cpy(sub_s, s + start, sub_len);
 	sub_s[sub_len] = '\0';
 	return (sub_s);
+}
+
+char	*str_duplicate(const char *src, size_t size)
+{
+	char	*str;
+	size_t	len;
+	size_t	i;
+	size_t	srclen;
+
+	len = get_len(src);
+	str = malloc(len + 1);
+	if (!str)
+		return (NULL);
+	i = 0;
+	srclen = get_len(src);
+	if (size == 0)
+		return (NULL);
+	while (i < size - 1 && src[i])
+	{
+		str[i] = src[i];
+		i++;
+	}
+	str[i] = '\0';
+	return (str);
 }
