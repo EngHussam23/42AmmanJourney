@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   get_next_line_utils.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: halragga <halragga@student.42.fr>          +#+  +:+       +#+        */
+/*   By: halragga <halragga@student.42amman.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/24 14:01:33 by halragga          #+#    #+#             */
-/*   Updated: 2025/09/25 18:23:02 by halragga         ###   ########.fr       */
+/*   Updated: 2025/09/26 18:12:54 by halragga         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ char	*find_new_line(const char *s)
 	{
 		if (*s != '\n')
 			s++;
-		if (*s == '\n')
+		else
 			return ((char *)s);
 	}
 	return (NULL);
@@ -90,14 +90,12 @@ char	*str_duplicate(const char *src, size_t size)
 	char	*str;
 	size_t	len;
 	size_t	i;
-	size_t	srclen;
 
 	len = get_len(src);
 	str = malloc(len + 1);
 	if (!str)
 		return (NULL);
 	i = 0;
-	srclen = get_len(src);
 	if (size == 0)
 		return (NULL);
 	while (i < size - 1 && src[i])

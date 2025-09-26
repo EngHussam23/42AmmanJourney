@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   get_next_line.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: halragga <halragga@student.42.fr>          +#+  +:+       +#+        */
+/*   By: halragga <halragga@student.42amman.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/21 22:16:42 by halragga          #+#    #+#             */
-/*   Updated: 2025/09/25 18:06:55 by halragga         ###   ########.fr       */
+/*   Updated: 2025/09/26 18:25:16 by halragga         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -91,6 +91,7 @@ char	*get_next_line(int fd)
 			free(buff);
 			return (NULL);
 		}
+		nbytes = read(fd, buff, BUFFER_SIZE);//Something is wrong here
 	}
 	free(buff);
 	return (extract_line(&stash));
