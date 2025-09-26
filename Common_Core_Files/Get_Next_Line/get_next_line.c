@@ -6,7 +6,7 @@
 /*   By: halragga <halragga@student.42amman.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/21 22:16:42 by halragga          #+#    #+#             */
-/*   Updated: 2025/09/26 18:25:16 by halragga         ###   ########.fr       */
+/*   Updated: 2025/09/26 23:14:12 by halragga         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,7 +77,7 @@ char	*get_next_line(int fd)
 		return (NULL);
 	}
 	nbytes = read(fd, buff, BUFFER_SIZE);
-	while (!find_new_line(buff))
+	while (!find_new_line(buff))// try to loop over the buffer itself...
 	{
 		if (nbytes <= 0)
 		{
@@ -91,7 +91,7 @@ char	*get_next_line(int fd)
 			free(buff);
 			return (NULL);
 		}
-		nbytes = read(fd, buff, BUFFER_SIZE);//Something is wrong here
+		nbytes = read(fd, buff, BUFFER_SIZE);
 	}
 	free(buff);
 	return (extract_line(&stash));
