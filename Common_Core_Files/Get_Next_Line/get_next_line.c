@@ -6,7 +6,7 @@
 /*   By: halragga <halragga@student.42amman.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/21 22:16:42 by halragga          #+#    #+#             */
-/*   Updated: 2025/09/26 23:14:12 by halragga         ###   ########.fr       */
+/*   Updated: 2025/09/27 14:36:20 by halragga         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,7 @@ static char	*extract_line(char **stash)
 	int		j;
 
 	i = 0;
-	while (*stash[i] != '\n' && *stash[i])
+	while (*stash[i] && *stash[i] != '\n')
 		i++;
 	if (*stash[i] == '\n')
 		line = malloc(i + 2);
@@ -70,20 +70,20 @@ char	*get_next_line(int fd)
 
 	if (fd < 0 || BUFFER_SIZE <= 0)
 		return (NULL);
-	buff = malloc(BUFFER_SIZE + 1);
+	buff = (char *)malloc(BUFFER_SIZE + 1);
 	if (!buff)
 	{
 		free(buff);
 		return (NULL);
 	}
 	nbytes = read(fd, buff, BUFFER_SIZE);
-	while (!find_new_line(buff))// try to loop over the buffer itself...
+	if (nbytes <= 0)
 	{
-		if (nbytes <= 0)
-		{
-			free(buff);
-			return (NULL);
-		}
+		free(buff);
+		return (NULL);
+	}
+	while (nbytes > 0 && buff)
+	{
 		buff[nbytes] = '\0';
 		stash = join(stash, buff);
 		if (!stash)

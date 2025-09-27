@@ -6,7 +6,7 @@
 /*   By: halragga <halragga@student.42amman.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/24 14:01:33 by halragga          #+#    #+#             */
-/*   Updated: 2025/09/26 18:12:54 by halragga         ###   ########.fr       */
+/*   Updated: 2025/09/27 13:54:53 by halragga         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -92,7 +92,7 @@ char	*str_duplicate(const char *src, size_t size)
 	size_t	i;
 
 	len = get_len(src);
-	str = malloc(len + 1);
+	str = (char *)malloc(len + 1);
 	if (!str)
 		return (NULL);
 	i = 0;
