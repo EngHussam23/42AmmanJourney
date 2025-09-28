@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   get_next_line_utils.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: halragga <halragga@student.42amman.com>    +#+  +:+       +#+        */
+/*   By: halragga <halragga@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/24 14:01:33 by halragga          #+#    #+#             */
-/*   Updated: 2025/09/27 18:21:00 by halragga         ###   ########.fr       */
+/*   Updated: 2025/09/28 15:39:16 by halragga         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,8 @@ size_t	get_len(const char *s)
 	size_t	x;
 
 	x = 0;
+	if (!s)
+		return (x);
 	while (s[x])
 		x++;
 	return (x);
@@ -28,7 +30,7 @@ char	*join(char *s1, char *s2)
 	int		i;
 	int		j;
 
-	if (s1)
+	if (!s1)
 		s1 = str_duplicate("", 1);
 	if (!s2)
 		s2 = str_duplicate("", 1);

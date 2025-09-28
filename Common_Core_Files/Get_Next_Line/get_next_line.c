@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   get_next_line.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: halragga <halragga@student.42amman.com>    +#+  +:+       +#+        */
+/*   By: halragga <halragga@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/21 22:16:42 by halragga          #+#    #+#             */
-/*   Updated: 2025/09/28 12:18:43 by halragga         ###   ########.fr       */
+/*   Updated: 2025/09/28 17:29:34 by halragga         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,7 @@ static char	*extract_line(char **stash)
 	leftovers = NULL;
 	if ((*stash)[i] == '\n' && (*stash)[i + 1])
 		leftovers = str_duplicate(&(*stash)[i + 1],
-				get_len((*stash)) - (j + 1));
+									get_len((*stash)) - (j + 1));
 	free((*stash));
 	(*stash) = leftovers;
 	return (line);
@@ -46,7 +46,7 @@ static char	*extract_line(char **stash)
 
 static void	stash_data(int fd, int nbytes, char *buff, char **stash)
 {
-	while (nbytes > 0 && buff)
+	while (buff)
 	{
 		buff[nbytes] = '\0';
 		(*stash) = join((*stash), buff);
@@ -69,10 +69,8 @@ char	*get_next_line(int fd)
 		return (NULL);
 	buff = (char *)malloc(BUFFER_SIZE + 1);
 	if (!buff)
-	{
-		free(buff);
 		return (NULL);
-	}
+	// read_file
 	nbytes = read(fd, buff, BUFFER_SIZE);
 	if (nbytes <= 0)
 	{
