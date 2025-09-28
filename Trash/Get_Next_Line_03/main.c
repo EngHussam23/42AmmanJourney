@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: halragga <halragga@student.42amman.com>    +#+  +:+       +#+        */
+/*   By: halragga <halragga@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/23 13:21:55 by halragga          #+#    #+#             */
-/*   Updated: 2025/09/27 16:10:41 by halragga         ###   ########.fr       */
+/*   Updated: 2025/09/28 16:15:19 by halragga         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,16 +19,14 @@ int	main(void)
 	char	*line;
 	int		fd;
 
-
 	fd = open("testing.txt", O_RDONLY);
 	if (fd < 0)
 		return (0);
 	line = get_next_line(fd);
-	while (line)
+	while ((line = get_next_line(fd)) != NULL)
 	{
 		printf("line: %s\n", line);
-		line = get_next_line(fd);
+		free(line);
 	}
-	free(line);
 	return (0);
 }

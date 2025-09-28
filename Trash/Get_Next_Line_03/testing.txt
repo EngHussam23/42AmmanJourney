@@ -1,0 +1,57 @@
+Lorem
+ipsum
+dolor
+// char	*find_new_line(const char *s)
+// {
+// 	while (*s)
+// 	{
+// 		if (*s != '\n')
+// 			s++;
+// 		else
+// 			return ((char *)s);
+// 	}
+// 	return (NULL);
+// }
+
+// char	*substr(char const *s, unsigned int start, size_t len)
+// {
+// 	size_t	slen;
+// 	size_t	sub_len;
+// 	char	*sub_s;
+//
+// 	sub_len = 0;
+// 	if (!s)
+// 		return (NULL);
+// 	slen = get_len(s);
+// 	if (slen - start < len)
+// 		sub_len = get_len(s) - start;
+// 	else
+// 		sub_len = len;
+// 	if (slen < start)
+// 		return (NULL);
+// 	sub_s = malloc((sub_len + 1) * sizeof(char));
+// 	if (!sub_s)
+// 		return (NULL);
+// 	cpy(sub_s, s + start, sub_len);
+// 	sub_s[sub_len] = '\0';
+// 	return (sub_s);
+// }
+//
+// void	*cpy(void *dest, const void *src, size_t cpysize)
+// {
+// 	size_t		i;
+// 	char		*cdest;
+// 	const char	*csrc;
+//
+// 	if (cpysize == 0)
+// 		return (dest);
+// 	i = 0;
+// 	csrc = (const char *)src;
+// 	cdest = (char *)dest;
+// 	while (i < cpysize)
+// 	{
+// 		cdest[i] = csrc[i];
+// 		i++;
+// 	}
+// 	return (dest);
+// }
