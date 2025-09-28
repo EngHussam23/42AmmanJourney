@@ -6,7 +6,7 @@
 /*   By: halragga <halragga@student.42amman.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/21 22:16:42 by halragga          #+#    #+#             */
-/*   Updated: 2025/09/27 19:49:59 by halragga         ###   ########.fr       */
+/*   Updated: 2025/09/28 12:18:43 by halragga         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,7 +53,7 @@ static void	stash_data(int fd, int nbytes, char *buff, char **stash)
 		if (!(*stash))
 		{
 			free(buff);
-			return (NULL);
+			return ;
 		}
 		nbytes = read(fd, buff, BUFFER_SIZE);
 	}
