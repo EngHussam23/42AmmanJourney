@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   get_next_line.h                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: halragga <halragga@student.42amman.com>    +#+  +:+       +#+        */
+/*   By: halragga <halragga@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/21 22:11:39 by halragga          #+#    #+#             */
-/*   Updated: 2025/09/27 18:07:51 by halragga         ###   ########.fr       */
+/*   Updated: 2025/09/28 20:16:21 by halragga         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,9 +22,9 @@
 
 char	*get_next_line(int fd);
 size_t	get_len(const char *s);
-// char	*find_new_line(const char *s);
+char	*find_new_line(const char *s);
 char	*join(char *s1, char *s2);
-// char	*substr(char const *s, unsigned int start, size_t len);
+char	*ft_substr(char const *s, unsigned int start, size_t len);
 char	*str_duplicate(const char *src, size_t size);
 // void	*cpy(void *dest, const void *src, size_t cpysize);
 

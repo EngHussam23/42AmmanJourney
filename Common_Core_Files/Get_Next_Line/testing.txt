@@ -55,3 +55,34 @@ dolor
 // 	}
 // 	return (dest);
 // }
+static char	*extract_line(char **stash)
+{
+	char	*line;
+	char	*leftovers;
+	int		i;
+	int		j;
+
+	i = 0;
+	while ((*stash)[i] && (*stash)[i] != '\n')
+		i++;
+	if ((*stash)[i] == '\n')
+		line = malloc(i + 2);
+	else
+		line = malloc(i + 1);
+	if (!line)
+		return (NULL);
+	j = 0;
+	while (j <= i)
+	{
+		line[j] = (*stash)[j];
+		j++;
+	}
+	line[j] = '\0';
+	leftovers = NULL;
+	if ((*stash)[i] == '\n' && (*stash)[i + 1])
+		leftovers = str_duplicate(&(*stash)[i + 1],
+									get_len((*stash)) - (j + 1));
+	free((*stash));
+	(*stash) = leftovers;
+	return (line);
+}

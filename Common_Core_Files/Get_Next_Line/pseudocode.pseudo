@@ -1,0 +1,146 @@
+//PSEUDOCODE — CORE LOGIC FOR get_next_line (STRICT BEHAVIOR)
+
+CONSTANT NEWLINE_CHARACTER = '\n'
+
+FUNCTION append_to_remainder(INOUT remainder, IN chunk) RETURNS SUCCESS_OR_FAIL
+    IF chunk IS NULL THEN
+        RETURN FAIL
+    ENDIF
+
+    IF remainder IS NULL THEN
+        remainder ← ""           // allocate empty string
+        IF allocation_failed(remainder) THEN RETURN FAIL ENDIF
+    ENDIF
+
+    new_length ← LENGTH(remainder) + LENGTH(chunk)
+    new_block ← ALLOCATE(new_length + 1)
+    IF allocation_failed(new_block) THEN
+        RETURN FAIL
+    ENDIF
+
+    COPY_BYTES(destination=new_block, source=remainder, count=LENGTH(remainder))
+    COPY_BYTES(destination=new_block + LENGTH(remainder),
+               source=chunk,
+               count=LENGTH(chunk) + 1)  // include terminator
+    FREE(remainder)
+    remainder ← new_block
+    RETURN SUCCESS
+END FUNCTION
+
+
+FUNCTION make_line_from_remainder(IN remainder) RETURNS line_or_null
+    IF remainder IS NULL OR remainder[0] IS STRING_TERMINATOR THEN
+        RETURN NULL
+    ENDIF
+
+    i ← 0
+    WHILE remainder[i] IS NOT STRING_TERMINATOR AND remainder[i] ≠ NEWLINE_CHARACTER
+        i ← i + 1
+    ENDWHILE
+    IF remainder[i] = NEWLINE_CHARACTER THEN
+        i ← i + 1                   // include the newline in the returned line
+    ENDIF
+
+    line ← ALLOCATE(i + 1)
+    IF allocation_failed(line) THEN
+        RETURN NULL
+    ENDIF
+    COPY_BYTES(line, remainder, i)
+    line[i] ← STRING_TERMINATOR
+    RETURN line
+END FUNCTION
+
+
+FUNCTION update_remainder_after_line(INOUT remainder)
+    IF remainder IS NULL THEN
+        RETURN
+    ENDIF
+
+    // advance to the first character AFTER the extracted line
+    i ← 0
+    WHILE remainder[i] IS NOT STRING_TERMINATOR AND remainder[i] ≠ NEWLINE_CHARACTER
+        i ← i + 1
+    ENDWHILE
+    IF remainder[i] = NEWLINE_CHARACTER THEN
+        i ← i + 1
+    ENDIF
+
+    remaining_length ← LENGTH(remainder + i)
+    IF remaining_length = 0 THEN
+        FREE(remainder)
+        remainder ← NULL
+        RETURN
+    ENDIF
+
+    new_rem ← ALLOCATE(remaining_length + 1)
+    IF allocation_failed(new_rem) THEN
+        // conservative: drop remainder to avoid inconsistent state
+        FREE(remainder)
+        remainder ← NULL
+        RETURN
+    ENDIF
+
+    COPY_BYTES(new_rem, remainder + i, remaining_length + 1)
+    FREE(remainder)
+    remainder ← new_rem
+END FUNCTION
+
+
+FUNCTION read_until_line_or_eof(IN file_descriptor, INOUT remainder)
+         RETURNS STATUS   // one of: ERROR, EOF_EMPTY, LINE_READY, EOF_WITH_LEFTOVER
+    buffer ← ALLOCATE(BUFFER_SIZE + 1)
+    IF allocation_failed(buffer) THEN
+        RETURN ERROR
+    ENDIF
+
+    // read as little as possible; stop as soon as a newline appears in remainder
+    WHILE remainder IS NULL OR FIND_CHAR(remainder, NEWLINE_CHARACTER) IS NULL
+        bytes_read ← READ(file_descriptor, buffer, BUFFER_SIZE)
+
+        IF bytes_read = -1 THEN                // system read error
+            FREE(buffer)
+            RETURN ERROR
+        ENDIF
+
+        IF bytes_read = 0 THEN                 // end of file
+            FREE(buffer)
+            IF remainder IS NULL OR remainder[0] IS STRING_TERMINATOR THEN
+                RETURN EOF_EMPTY               // nothing left at all
+            ELSE
+                RETURN EOF_WITH_LEFTOVER       // leftover without newline
+            ENDIF
+        ENDIF
+
+        buffer[bytes_read] ← STRING_TERMINATOR
+        IF append_to_remainder(remainder, buffer) = FAIL THEN
+            FREE(buffer)
+            RETURN ERROR
+        ENDIF
+        // loop continues; will exit once newline exists in remainder
+    ENDWHILE
+
+    FREE(buffer)
+    RETURN LINE_READY
+END FUNCTION
+
+
+FUNCTION get_next_line(IN file_descriptor) RETURNS line_or_null
+    STATIC remainder   // persists across calls
+
+    // strict input validation (no reading if obviously invalid)
+    IF file_descriptor < 0 OR BUFFER_SIZE ≤ 0 THEN
+        RETURN NULL
+    ENDIF
+
+    // pre-read shortcut: if remainder already contains a newline, do not read
+    IF remainder IS NOT NULL AND FIND_CHAR(remainder, NEWLINE_CHARACTER) IS NOT NULL THEN
+        line ← make_line_from_remainder(remainder)              // includes newline if present
+        IF line IS NULL THEN
+            // allocation failed while building the line
+            FREE(remainder)
+            remainder ← NULL
+            RETURN NULL
+        ENDIF
+        update_remainder_after_line(remainder)
+        RETURN line
+    ENDIF
