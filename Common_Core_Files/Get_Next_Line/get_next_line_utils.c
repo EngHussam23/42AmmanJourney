@@ -6,7 +6,7 @@
 /*   By: halragga <halragga@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/24 14:01:33 by halragga          #+#    #+#             */
-/*   Updated: 2025/09/28 20:29:26 by halragga         ###   ########.fr       */
+/*   Updated: 2025/09/28 20:45:53 by halragga         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,10 +48,6 @@ char	*join(char *s1, char *s2)
 	int		i;
 	int		j;
 
-	if (!s1)
-		s1 = str_duplicate("", 1);
-	if (!s2)
-		s2 = str_duplicate("", 1);
 	result = malloc(get_len(s1) + get_len(s2) + 1);
 	i = 0;
 	while (s1[i])
@@ -71,7 +67,7 @@ char	*join(char *s1, char *s2)
 	return (result);
 }
 
-char	*str_duplicate(const char *src, size_t size)
+char	*str_duplicate(const char *src)
 {
 	char	*str;
 	size_t	len;
@@ -82,9 +78,7 @@ char	*str_duplicate(const char *src, size_t size)
 	if (!str)
 		return (NULL);
 	i = 0;
-	if (size == 0)
-		return (NULL);
-	while (i < size - 1 && src[i])
+	while (src[i])
 	{
 		str[i] = src[i];
 		i++;
