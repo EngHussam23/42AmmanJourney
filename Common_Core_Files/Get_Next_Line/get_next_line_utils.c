@@ -3,32 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   get_next_line_utils.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: halragga <halragga@student.42.fr>          +#+  +:+       +#+        */
+/*   By: halragga <halragga@student.42amman.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/24 14:01:33 by halragga          #+#    #+#             */
-/*   Updated: 2025/09/29 20:33:04 by halragga         ###   ########.fr       */
+/*   Updated: 2025/09/30 01:16:14 by halragga         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "get_next_line.h"
-
-/*
-** FT_STRCHR => find_new_line
-** Hint: use this approach:
-**			line = str_duplicate(stash, (find_new_line(stash) - stash + 1));
-**			leftovers = find_new_line(stash) + 1;
-**			free(*stash);
-**			stash = malloc(get_len(leftovers));
-**			stash = leftovers;
-**
-** FT_STRDUP => str_duplicate
-**
-** FT_STRLEN => get_len
-**
-** FT_SUBSTR
-**
-** FT_STRJOIN => join
-*/
 
 size_t	get_len(const char *s)
 {
