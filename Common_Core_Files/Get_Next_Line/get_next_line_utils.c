@@ -6,7 +6,7 @@
 /*   By: halragga <halragga@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/24 14:01:33 by halragga          #+#    #+#             */
-/*   Updated: 2025/09/28 20:45:53 by halragga         ###   ########.fr       */
+/*   Updated: 2025/09/29 20:33:04 by halragga         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,7 +48,13 @@ char	*join(char *s1, char *s2)
 	int		i;
 	int		j;
 
+	if (!s1 && !s2)
+		return (NULL);
+	if (!s1)
+		return (str_duplicate(s2));
 	result = malloc(get_len(s1) + get_len(s2) + 1);
+	if (!result)
+		return (NULL);
 	i = 0;
 	while (s1[i])
 	{
@@ -57,11 +63,7 @@ char	*join(char *s1, char *s2)
 	}
 	j = 0;
 	while (s2[j])
-	{
-		result[i] = s2[j];
-		j++;
-		i++;
-	}
+		result[i++] = s2[j++];
 	result[i] = '\0';
 	free(s1);
 	return (result);
@@ -73,6 +75,8 @@ char	*str_duplicate(const char *src)
 	size_t	len;
 	size_t	i;
 
+	if (!src)
+		return (NULL);
 	len = get_len(src);
 	str = (char *)malloc(len + 1);
 	if (!str)
@@ -108,17 +112,17 @@ char	*ft_substr(char const *s, unsigned int start, size_t len)
 	sub_len = 0;
 	if (!s)
 		return (NULL);
-	slen = ft_strlen(s);
+	slen = get_len(s);
 	if (slen - start < len)
-		sub_len = ft_strlen(s) - start;
+		sub_len = get_len(s) - start;
 	else
 		sub_len = len;
 	if (slen < start)
-		return (ft_calloc(1, 1));
+		return (str_duplicate(""));
 	sub_s = malloc((sub_len + 1) * sizeof(char));
 	if (!sub_s)
 		return (NULL);
-	ft_memcpy(sub_s, s + start, sub_len);
+	cpy(sub_s, s + start, sub_len);
 	sub_s[sub_len] = '\0';
 	return (sub_s);
 }

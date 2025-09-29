@@ -6,60 +6,58 @@
 /*   By: halragga <halragga@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/21 22:16:42 by halragga          #+#    #+#             */
-/*   Updated: 2025/09/28 20:56:18 by halragga         ###   ########.fr       */
+/*   Updated: 2025/09/29 20:33:03 by halragga         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "get_next_line.h"
+
+void	*cpy(void *dest, const void *src, size_t cpysize)
+{
+	size_t		i;
+	char		*cdest;
+	const char	*csrc;
+
+	if (cpysize == 0)
+		return (dest);
+	i = 0;
+	csrc = (const char *)src;
+	cdest = (char *)dest;
+	while (i < cpysize)
+	{
+		cdest[i] = csrc[i];
+		i++;
+	}
+	return (dest);
+}
 
 static char	*extract_line(char **stash)
 {
 	char	*line;
 	char	*leftovers;
 
-	line = ft_substr((*stash), 0, (find_new_line(stash) - stash + 1));
-	leftovers = find_new_line((*stash)) + 1;
-	free((*stash));
-	(*stash) = malloc(get_len(leftovers) + 1);
-	(*stash) = leftovers;
-	(*stash)[get_len(leftovers)] = '\0';
-	return (line);
-}
-
-static void	stash_data(int fd, int nbytes, char *buff, char **stash)
-{
-	while (buff && !find_new_line(buff))
+	if (!*stash || !**stash)
+		return (NULL);
+	if (find_new_line(*stash))
 	{
-		buff[nbytes] = '\0';
-		(*stash) = join((*stash), buff);
-		if (!(*stash))
+		line = ft_substr(*stash, 0, find_new_line(*stash) - *stash + 1);
+		if ((find_new_line((*stash)) + 1))
 		{
-			free(buff);
-			return ;
+			leftovers = str_duplicate(find_new_line((*stash)) + 1);
+			free((*stash));
+			*stash = leftovers;
 		}
-		nbytes = read(fd, buff, BUFFER_SIZE);
-	}
-	(*stash) = join((*stash), buff);
-	return (extract_line(&(*stash)));
-}
-
-static char	*read_to_buff(int fd, int nbytes, char *buff, char **stash)
-{
-	nbytes = read(fd, buff, BUFFER_SIZE);
-	if (nbytes <= 0)
-	{
-		free(buff);
-		if (nbytes == 0)
-			return ((*stash));
 		else
-			return (NULL);
+		{
+			free(*stash);
+			*stash = NULL;
+		}
+		return (line);
 	}
-	else
-	{
-		if (!stash)
-			stash = str_duplicate("");
-		stash_data(fd, nbytes, buff, &(*stash));
-	}
+	line = str_duplicate(*stash);
+	free(*stash);
+	*stash = NULL;
+	return (line);
 }
 
 char	*get_next_line(int fd)
@@ -68,12 +66,23 @@ char	*get_next_line(int fd)
 	char		*buff;
 	static char	*stash;
 
-	if (fd < 0 || BUFFER_SIZE <= 0)
+	if (BUFFER_SIZE <= 0 || fd < 0)
 		return (NULL);
 	buff = (char *)malloc(BUFFER_SIZE + 1);
 	if (!buff)
 		return (NULL);
-	stash = read_to_buff(fd, nbytes, buff, &stash);
+	if (!stash)
+		stash = str_duplicate("");
+	while (!find_new_line(stash))
+	{
+		nbytes = read(fd, buff, BUFFER_SIZE);
+		if (nbytes <= 0)
+			break ;
+		buff[nbytes] = '\0';
+		stash = join(stash, buff);
+		if (!stash)
+			return (NULL);
+	}
 	free(buff);
 	return (extract_line(&stash));
 }
