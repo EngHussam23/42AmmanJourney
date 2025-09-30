@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   get_next_line.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: halragga <halragga@student.42.fr>          +#+  +:+       +#+        */
+/*   By: halragga <halragga@student.42amman.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/21 22:16:42 by halragga          #+#    #+#             */
-/*   Updated: 2025/09/29 20:33:03 by halragga         ###   ########.fr       */
+/*   Updated: 2025/09/30 01:20:38 by halragga         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,7 @@ static char	*extract_line(char **stash)
 	if (find_new_line(*stash))
 	{
 		line = ft_substr(*stash, 0, find_new_line(*stash) - *stash + 1);
-		if ((find_new_line((*stash)) + 1))
+		if (find_new_line((*stash) + 1))
 		{
 			leftovers = str_duplicate(find_new_line((*stash)) + 1);
 			free((*stash));

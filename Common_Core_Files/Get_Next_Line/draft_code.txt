@@ -186,3 +186,22 @@ static char	*extract_line(char **stash)
 // 	}
 // 	return (stash_data(fd, nbytes, &*buff, &*stash));
 // }
+//
+//
+/*
+** FT_STRCHR => find_new_line
+** Hint: use this approach:
+**			line = str_duplicate(stash, (find_new_line(stash) - stash + 1));
+**			leftovers = find_new_line(stash) + 1;
+**			free(*stash);
+**			stash = malloc(get_len(leftovers));
+**			stash = leftovers;
+**
+** FT_STRDUP => str_duplicate
+**
+** FT_STRLEN => get_len
+**
+** FT_SUBSTR
+**
+** FT_STRJOIN => join
+*/
