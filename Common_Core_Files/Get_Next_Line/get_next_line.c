@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   get_next_line.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: halragga <halragga@student.42amman.com>    +#+  +:+       +#+        */
+/*   By: halragga <halragga@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/21 22:16:42 by halragga          #+#    #+#             */
-/*   Updated: 2025/09/30 01:20:38 by halragga         ###   ########.fr       */
+/*   Updated: 2025/09/30 18:40:39 by halragga         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,9 +41,9 @@ static char	*extract_line(char **stash)
 	if (find_new_line(*stash))
 	{
 		line = ft_substr(*stash, 0, find_new_line(*stash) - *stash + 1);
-		if (find_new_line((*stash) + 1))
+		if (*(find_new_line(*stash) + 1))
 		{
-			leftovers = str_duplicate(find_new_line((*stash)) + 1);
+			leftovers = str_duplicate(find_new_line(*stash) + 1);
 			free((*stash));
 			*stash = leftovers;
 		}
@@ -64,15 +64,13 @@ char	*get_next_line(int fd)
 {
 	int			nbytes;
 	char		*buff;
-	static char	*stash;
+	static char	*stash = NULL;
 
 	if (BUFFER_SIZE <= 0 || fd < 0)
 		return (NULL);
 	buff = (char *)malloc(BUFFER_SIZE + 1);
 	if (!buff)
 		return (NULL);
-	if (!stash)
-		stash = str_duplicate("");
 	while (!find_new_line(stash))
 	{
 		nbytes = read(fd, buff, BUFFER_SIZE);
