@@ -28,9 +28,9 @@ Note: use -g flag to compile with debug info (for gdb), then gdb ./a.out (Hint: 
 
     valgrind ./a.out # check for memory leaks
     flags:
-        -s:                     shows the list of detected and supressed errors
-        --leak-check=full:      shows the full leak report for each leak
-        --show-leak-kinds=all:  shows EVERY kind of leak in your code
+        -s:                         shows the list of detected and supressed errors
+        --leak-check=full:          shows the full leak report for each leak
+        --show-leak-kinds=all:      shows EVERY kind of leak in your code
 
 
 # Generating and ssh key and getting it for github
@@ -54,15 +54,15 @@ Run with gdb:
     gdb ./program_name (the excutable file)
 
     Common gdb commands:
-        1- run                 -         start the program
-        2- bt                  -         show backtrace (where it crashed)
-        3- list                -         show source code around crash
-        4- br                  -         add a breakpoint to go through it while debugging
-        5- n                   -         move to the next step / line
-        6- print variable_name -         examine / print "variables_name"
-        7- step                -         step through code line by line
-        8- continue            -         continue execution
-        9- quit                -         exit gdb
+        1- run                      -         start the program
+        2- bt                       -         show backtrace (where it crashed)
+        3- list                     -         show source code around crash
+        4- br                       -         add a breakpoint to go through it while debugging
+        5- n                        -         move to the next step / line
+        6- print variable_name      -         examine / print "variables_name"
+        7- step                     -         step through code line by line
+        8- continue                 -         continue execution
+        9- quit                     -         exit gdb
 
 
 
