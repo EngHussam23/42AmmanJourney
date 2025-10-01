@@ -4,7 +4,14 @@
 
 Virtual Machine (VM): a machine created inside the physical machine.
 
-Virtualization: 
+#### Virtualization:
+creating a virtual machine (VM) using your physical machine's resources.
+
+#### How does it work?
+virtualization give the virtual machine (VM) it's own isolated environment include it's CPU, OS, Memory (RAM), Storage, Network interface, all taken from the physical device. One of the perks of <strong>virtualization</strong> is that it allows using multiples operating systems within a single physical machine, like: running MacOS or Windows on Linux or the opposite.
+
+#### Hypervisors -aka Virtual Machine Monitor (VMM)-
+
 
 ### links:
 
