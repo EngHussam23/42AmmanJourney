@@ -8,8 +8,6 @@ Virtualization:
 
 ### links:
 
-https://www.redhat.com/en/topics/virtualization/what-is-virtualization
-
 https://www.ibm.com/think/topics/virtualization
 
 https://42-cursus.gitbook.io/guide/1-rank-01/born2beroot/whats-a-virtual-machine
