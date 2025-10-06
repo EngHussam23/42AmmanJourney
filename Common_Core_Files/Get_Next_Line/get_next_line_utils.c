@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   get_next_line_utils.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: halragga <halragga@student.42amman.com>    +#+  +:+       +#+        */
+/*   By: halragga <halragga@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/24 14:01:33 by halragga          #+#    #+#             */
-/*   Updated: 2025/09/30 01:16:14 by halragga         ###   ########.fr       */
+/*   Updated: 2025/09/30 18:38:06 by halragga         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,10 +30,10 @@ char	*join(char *s1, char *s2)
 	int		i;
 	int		j;
 
+	if (!s1)
+		s1 = str_duplicate("");
 	if (!s1 && !s2)
 		return (NULL);
-	if (!s1)
-		return (str_duplicate(s2));
 	result = malloc(get_len(s1) + get_len(s2) + 1);
 	if (!result)
 		return (NULL);
@@ -75,6 +75,8 @@ char	*str_duplicate(const char *src)
 
 char	*find_new_line(const char *s)
 {
+	if (!s)
+		return (NULL);
 	while (*s)
 	{
 		if (*s != '\n')
@@ -87,20 +89,20 @@ char	*find_new_line(const char *s)
 
 char	*ft_substr(char const *s, unsigned int start, size_t len)
 {
-	size_t	slen;
+	size_t	s_len;
 	size_t	sub_len;
 	char	*sub_s;
 
 	sub_len = 0;
 	if (!s)
 		return (NULL);
-	slen = get_len(s);
-	if (slen - start < len)
+	s_len = get_len(s);
+	if (s_len - start < len)
 		sub_len = get_len(s) - start;
 	else
 		sub_len = len;
-	if (slen < start)
-		return (str_duplicate(""));
+	if (s_len <= start)
+		return (malloc(1));
 	sub_s = malloc((sub_len + 1) * sizeof(char));
 	if (!sub_s)
 		return (NULL);
@@ -108,3 +110,5 @@ char	*ft_substr(char const *s, unsigned int start, size_t len)
 	sub_s[sub_len] = '\0';
 	return (sub_s);
 }
+
+// return (malloc(1));

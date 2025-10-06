@@ -10,7 +10,7 @@
 
 # Compilation Commands:
 
-    cc -Wall -Wextra -Werror file.c # compile C file with 42 flags
+    cc -Wall -Wextra -Werror file.c # compile C file with flags to treat all warnings as errors
 
 Note: use -g flag to compile with debug info (for gdb), then gdb ./a.out (Hint: Usefull commands bellow)
 
@@ -27,8 +27,11 @@ Note: use -g flag to compile with debug info (for gdb), then gdb ./a.out (Hint: 
 # Debugging Memory:
 
     valgrind ./a.out # check for memory leaks
-    valgrind --leak-check=full ./a.out (shows the full leak report for each leak)
-    valgrind --leak-check=full --show-leak-kinds=all ./a.out (shows EVERY kind of leak in your code)
+    flags:
+        -s:                         shows the list of detected and supressed errors
+        --leak-check=full:          shows the full leak report for each leak
+        --show-leak-kinds=all:      shows EVERY kind of leak in your code
+
 
 # Generating and ssh key and getting it for github
 
@@ -51,10 +54,31 @@ Run with gdb:
     gdb ./program_name (the excutable file)
 
     Common gdb commands:
-        1- run - start the program
-        2- bt - show backtrace (where it crashed)
-        3- list - show source code around crash
-        4- print variable_name - examine variables
-        5- step - step through code line by line
-        6- continue - continue execution
-        7- quit - exit gdb
+        1- run                      -         start the program
+        2- bt                       -         show backtrace (where it crashed)
+        3- list                     -         show source code around crash
+        4- br                       -         add a breakpoint to go through it while debugging
+        5- n                        -         move to the next step / line
+        6- print variable_name      -         examine / print "variables_name"
+        7- step                     -         step through code line by line
+        8- continue                 -         continue execution
+        9- quit                     -         exit gdb
+
+
+
+        A good a proach for debugging is (step by step):
+        =====================================================================================
+        |                                                                                   |
+        |   Note: be careful while debugging, any mistake may require you to start over!!   |
+        |                                                                                   |
+        =====================================================================================
+
+        1- gdb ./excutable
+        2- (run) the program
+        3- backtrace using (bt)
+        4- (list) the code causing the problem
+        5- add breakpoints using (br) for the functions shown in the backtrace
+        6- (run) the program again
+        7- use (n) to move step by step in the program
+        8- (print) the any varible at anytime just to double check that everything is working smoothely
+        9- Good luck debugging!!! XD
