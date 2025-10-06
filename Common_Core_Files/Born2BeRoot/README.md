@@ -19,14 +19,26 @@ For more check the [subject](subject.pdf)
 Virtual Machine (VM): a machine created inside the physical machine.
 
 #### Virtualization:
+
 creating a virtual machine (VM) using your physical machine's resources.
 
 #### How does it work?
+
 virtualization give the virtual machine (VM) it's own isolated environment include it's CPU, OS, Memory (RAM), Storage, Network interface, all taken from the physical device. One of the perks of <strong>virtualization</strong> is that it allows using multiples operating systems within a single physical machine, like: running MacOS or Windows on Linux or the opposite.
 
 #### Hypervisors -aka Virtual Machine Monitor (VMM)-
 
-A software that distributes the resources given to the (VM) so the virtual envirnoment can use them as needed. 
+A software that distributes the resources given to the (VM) so the virtual envirnoment can use them as needed. When the physical device's hardware get's used as hypervisors it's considered the host and the (VM)s are the guests.The hypervisor relays every issued instruction to the physical system and caches the changes.
+
+<a id="Types of hypervisors">Types of hypervisors:</a>
+
+Type 1: "Native / Bare Metal" hypervisor, ex: [KVMs](<####Kernal-BasedVirtualMachine(KVM)>).
+
+Type 2: "Hosted" hypervisor.
+
+#### Kernal-Based Virtual Machine (KVM)
+
+An open source [Type1](#Typesofhypervisors) hypervisor, which is a component of modern Linux distributions.
 
 ### links:
 
@@ -36,11 +48,14 @@ https://42-cursus.gitbook.io/guide/1-rank-01/born2beroot/whats-a-virtual-machine
 
 https://cdn.intra.42.fr/pdf/pdf/177141/en.subject.pdf
 
+# Getting started 👨‍💻
+
 ## STEP1: Download the VirtualBox
 
     If you do not have installed VirtualBox you can go at this link https://www.virtualbox.org/ and download it. We will need to use it to install the operating system we want to use.
 
 ## STEP2: Choosing the operating system
+
     DEBIAN OR ROCKY LINUX
 
     Based on the requirements provided in the subject, Debian is highly recommended "Born to be Root" project. Here's why:
@@ -62,6 +77,7 @@ https://cdn.intra.42.fr/pdf/pdf/177141/en.subject.pdf
 Overall, Debian offers a reliable, stable, and well-supported platform that aligns closely with the project's objectives and requirements. It provides a solid foundation for learning system administration and implementing the necessary configurations and tasks outlined in the project description.
 
 ## STEP 3: New Virtual Machine with Oracle VirtualBox
+
 1- Open Oracle VirtualBox
 
 2- Click on the new command on the top
@@ -88,6 +104,7 @@ settings to start with the next step of mounting an ISO file.
 ![VmCreated](photos/installation/VmCreated.png)
 
 ## STEP4: Mount iso file and Start VM
+
 1- Controller: Under the "Controller: IDE" or "Controller: SATA" section (depending on your VM's configuration), you'll find an empty optical drive (usually labeled "Empty"). Click on the optical drive.
 Attributes: In the attributes section to the right, you'll see a small disk icon next to "IDE Secondary Master" or "SATA Port 1." Click on the disk icon.
 Choose a Disk File: In the dropdown menu, select "Choose a disk file..." Navigate to the location of the ISO file on your computer and select it.
@@ -104,8 +121,9 @@ step to install Debian.
 ## STEP5: Installing Debian
 
 ### 1- Setting up the languange, time zone, keyboard layout
+
 1- It will have the view like below. To have a larger view for your eyes, right click with your
-mouse, choose the option Virtual Screen 1 and scale it to 200%. After choose the install 
+mouse, choose the option Virtual Screen 1 and scale it to 200%. After choose the install
 option since we will use it without Graphical Interface.
 ![Install](photos/installation/installOption.png)
 
@@ -131,6 +149,7 @@ After I select Germany.
 ![Finished Language, Area and Keyboard Configuration](photos/installation/configuredLanguageAndKeyboard.png)
 
 ### 2- Configuring the Network
+
 1- It will first require the hostname which by the subject we have to put the user intraname
 followed by 42 -> eseferi42 in my case
 ![Setting the Hostname](photos/installation/Hostname.png)
@@ -138,9 +157,9 @@ followed by 42 -> eseferi42 in my case
 2- Domain name. We will leave this section empty, since the subject does not mention anything about Domain name.
 ![Setting the Domain Name](photos/installation/DomainName.png)
 
-3- We must enter a password for the system administration account. It is important to write it 
-down or take a photo, since we will use it. If you want to see the password to make sure you 
-have written it correctly, you must tab until you reach the Show Password in Clear option, you 
+3- We must enter a password for the system administration account. It is important to write it
+down or take a photo, since we will use it. If you want to see the password to make sure you
+have written it correctly, you must tab until you reach the Show Password in Clear option, you
 must press the space bar and the password will be displayed. So you should see something like
 the photo below:
 ![Setting Password](photos/installation/Pasword.png)
@@ -153,7 +172,7 @@ a normal user account. Since for the root account I put eseferi42 for the user I
 eseferi
 ![Non root-user](photos/installation/NonRootUser.png)
 
-6- Now it will require a nickname or username for this non-root user, but I'm proceeding with 
+6- Now it will require a nickname or username for this non-root user, but I'm proceeding with
 the previous User name also for the nickname;
 ![Nickname for the Non root-user](photos/installation/Nickname.png)
 
@@ -165,35 +184,36 @@ Root User, Kinda have bad memory 🥱
 ![Password confirmation for the Non root-user](photos/installation/NonRootUserPasswordConfirmation.png)
 
 ### Setting up the partitions
+
 Partitioning is essential for organizing disk space on your server. It divides the disk into separate sections, each serving a specific purpose.
 
-1- use entire disk and set up encrypted LVM: This refers to selecting the guided partitioning 
-option in the installation process, which will automatically partition the disk and set up 
-encrypted Logical Volume Manager (LVM). This option is chosen because the project specifies 
-that encrypted partitions must be used. 
+1- use entire disk and set up encrypted LVM: This refers to selecting the guided partitioning
+option in the installation process, which will automatically partition the disk and set up
+encrypted Logical Volume Manager (LVM). This option is chosen because the project specifies
+that encrypted partitions must be used.
 BUT...
-⚠️❗️ If you want to do the bonus you must click Manual and click here ❗️⚠️: This part serves 
-as a reminder or alert for users who wish to complete the bonus part of the project. It 
-instructs them that if they want to deviate from the automatic guided partitioning and set up 
-the partitions manually (which may be necessary for certain bonus tasks), they should select 
-the "Manual" option instead. I will do first what is required for the bonus but if you want 
+⚠️❗️ If you want to do the bonus you must click Manual and click here ❗️⚠️: This part serves
+as a reminder or alert for users who wish to complete the bonus part of the project. It
+instructs them that if they want to deviate from the automatic guided partitioning and set up
+the partitions manually (which may be necessary for certain bonus tasks), they should select
+the "Manual" option instead. I will do first what is required for the bonus but if you want
 you can skip it and go straight here.
 ![Manual Partitioning](photos/installation/ManualConfiguringPartitions.png)
 
-2- In this section it shows us a general description of our partitions and mount points. 
-Currently, we do not have partitions made. To create a new partition table we must choose the 
-device where we want to create them. In our case we will choose the only one available, 
+2- In this section it shows us a general description of our partitions and mount points.
+Currently, we do not have partitions made. To create a new partition table we must choose the
+device where we want to create them. In our case we will choose the only one available,
 SCSI2 (0, 0, 0) (sda) - 32.2 GB ATA VBOX HARDDISK in my case. Don't be confused if you have
-SCSI3 because in VirtualBox, the SCSI controller number is assigned automatically by the   
-software and may vary between installations or configurations. It's essentially a virtual 
-representation of the disk controller used by the virtual machine. As long as you're referring 
+SCSI3 because in VirtualBox, the SCSI controller number is assigned automatically by the  
+software and may vary between installations or configurations. It's essentially a virtual
+representation of the disk controller used by the virtual machine. As long as you're referring
 to the correct disk (sda) and its capacity (32.2GB ATA VBOX HARDDISK), you should be fine.
 ![Device](photos/installation/SCSI2.png)
 
 3- Click yes to confirm the device
 ![Confirm Device](photos/installation/ConfirmDevice.png)
 
-4- Once we have completed the previous step we can see how our empty partition table appears. 
+4- Once we have completed the previous step we can see how our empty partition table appears.
 Now we must configure it, to do this we must select the FREE SPACE to create the partitions.
 ![Selec FREE SPACE](photos/installation/FreeSpace.png)
 
@@ -213,14 +233,15 @@ Now we must configure it, to do this we must select the FREE SPACE to create the
     ◦ Secondary/Extended: It was designed to break the limitation of 4 primary partitions on a single physical disk. There can only be one partition of this type per disk, and it is only used to contain logical partitions.
 
     ◦ Logical: Occupies a portion of the extended/primary partition or its entirety, which has been formatted with a specific type of file system (in our case we will use ext4) and a drive has been assigned to it, thus the system The operating system recognizes the logical partitions or their file system. There can be a maximum of 23 logical partitions in an extended partition, however, Linux, the OS we currently work with, reduces this to 15, more than enough to carry out this project.
+
 For this step we will choose primary since it will be the partition where the Operating System will be installed.
 ![Set partition to primary](photos/installation/Primary.png)
 
-9- We will select beginning since we want the new partition to be created at the beginning of 
+9- We will select beginning since we want the new partition to be created at the beginning of
 the available space.
 ![Set partition to the beginning of the available space.](photos/installation/BeginningSda1.png)
 
-10- The following screenshot shows us the details of the partition. We will modify the mount 
+10- The following screenshot shows us the details of the partition. We will modify the mount
 point to which the subject specifies.
 ![Configure Mount point for sda1](photos/installation/MountPointSda1.png)
 
@@ -230,8 +251,8 @@ point to which the subject specifies.
 12- We finish configuring the current partition.
 ![Finishing sda1 partition](photos/installation/doneWithSda1.png)
 
-13- Once we have completed the previous step, the partition should appear. Now we must create 
-a logical partition with all the available disk space, which has no mount point and which is 
+13- Once we have completed the previous step, the partition should appear. Now we must create
+a logical partition with all the available disk space, which has no mount point and which is
 encrypted. To do this, we select the free space where we want to create it.
 ![Create sda5 partition](photos/installation/CreateSda5.png)
 
@@ -250,9 +271,9 @@ encrypted. To do this, we select the free space where we want to create it.
 18- Select the mount point
 ![Choose mount point](photos/installation/MountPointSda1.png)
 
-19- in the context of virtual machines (VMs) and disk management, logical partitions are       
-typically not mounted directly because they are part of a larger virtual disk image or disk 
-file. 
+19- in the context of virtual machines (VMs) and disk management, logical partitions are  
+typically not mounted directly because they are part of a larger virtual disk image or disk
+file.
 ![Do not mount it](photos/installation/DoNotMountIt.png)
 
 20- Finish this partition
@@ -267,7 +288,7 @@ file.
 23- We start to create encrypted volumes.
 ![Create Encrypted Volumes](photos/installation/CreateEncryptedVolumes.png)
 
-24- We select which partition we want to perform the encryption on. Move with arrows to 
+24- We select which partition we want to perform the encryption on. Move with arrows to
 /dev/sda5/ and select it with space.
 ![Select sda5 for encryption](photos/installation/SelectSda5ForEncryption.png)
 
@@ -277,16 +298,16 @@ file.
 26- We are done, since we do not want to create more encrypted volumes.
 ![Finish Encryption](photos/installation/FinishEncryption.png)
 
-27- We accept the confirmation message which tells us that everything inside the partition 
+27- We accept the confirmation message which tells us that everything inside the partition
 will be encrypted and that it shouldn't take long to finish.
 ![Confirm Finishing Encryption](photos/installation/ConfirmFinishingEncription.png)
 
-28- We don't care if it takes a long time or a short time, we click cancel, since there is 
+28- We don't care if it takes a long time or a short time, we click cancel, since there is
 nothing to encrypt, because the partition is empty.
 ![Wait till encryption finishes](photos/installation/WaitTillEncryptionFinishes.png)
 
-29- Again we will have to enter a password, this time it will be the encryption phrase. As I 
-have previously told you, you must repeat the process and you must write it down, since it 
+29- Again we will have to enter a password, this time it will be the encryption phrase. As I
+have previously told you, you must repeat the process and you must write it down, since it
 will be important in the future.
 ![Put password for Encryption](photos/installation/EncryptionPassword.png)
 
@@ -313,12 +334,12 @@ disk.
 ![Logical Partitions Example](photos/installation/LogicalPartitionsExample.png)
 ![Create First Logical Volume](photos/installation/CreateFirstLogicalVolume.png)
 
-37- We will start by choosing the group where we want them to be created. We select the only 
+37- We will start by choosing the group where we want them to be created. We select the only
 one available (the one we just created).
 ![Select Logical Volumes Group](photos/installation/SelectVolumeGroup.png)
 
-38- The order of creating the logical units will be the same as indicated in the subject, so 
-we will start with root and end with var-log. Then we will select the name of the logical 
+38- The order of creating the logical units will be the same as indicated in the subject, so
+we will start with root and end with var-log. Then we will select the name of the logical
 volume.
 ![Put Root Name](photos/installation/putRootName.png)
 
@@ -331,9 +352,9 @@ and give the same name and size the same as in the example above
 41- If you made them all you should have exact window like below, and type finish.
 ![Finish logical Partitions](photos/installation/finishedLogicalPartitions.png)
 
-42- Now we can see how in the section where they show us all our partitions and free space, 
-all the logical partitions that we just created already appear. Well, we must configure all of 
-them to select the file system we want and the mount point indicated by the subject. Again we 
+42- Now we can see how in the section where they show us all our partitions and free space,
+all the logical partitions that we just created already appear. Well, we must configure all of
+them to select the file system we want and the mount point indicated by the subject. Again we
 will go in order and select by pressing enter the first one that appears to us, which is home.
 ![Set up Home](photos/installation/setupHome.png)
 
@@ -354,7 +375,7 @@ repeat the same thing
 ![Done setting up partition](photos/installation/DoneSettingUpPartitionHome.png)
 
 46- Go now and do the same for all partitions.
-Only for the var/log you have to enter the mounting point manually and for the swap do not 
+Only for the var/log you have to enter the mounting point manually and for the swap do not
 choose Journalist File System but choose swap area after you click use as do not use.
 In the end Finish partitioning and write changes to disk.
 ![Finish partitioning](photos/installation/FinishingPartWriteChangesToDisk.png)
@@ -405,8 +426,8 @@ We now have everything ready to start configuring our Debian virtual machine �
 
 ## Installing sudo and configuring users and groups
 
-1- To install sudo we must first be in the root user, to do this we will put Su in the 
-terminal and enter the root password. Once we have accessed the root user, we must enter the 
+1- To install sudo we must first be in the root user, to do this we will put Su in the
+terminal and enter the root password. Once we have accessed the root user, we must enter the
 apt install sudo command to install the necessary packages.
 ![Installing sudo](photos/MachineConfiguration/InstallingSudo.png)
 
@@ -414,23 +435,22 @@ apt install sudo command to install the necessary packages.
 
 ![sudo reboot](photos/MachineConfiguration/sudoReboot.png)
 
-
-3- Once restarted we must re-enter the encryption and user passwords. To verify that we have 
-installed sudo correctly, we will enter the root user again and enter the command sudo -V. 
-This command, in addition to showing us the version of sudo, will also show the arguments 
-passed to configure when sudo was created and the plugins that can show more information. 
-Optional: Since the output of the command is very long, if we want to see it completely we 
-must redirect its output to a file sudo -V > file.txt and then edit the file nano file.txt. Or 
+3- Once restarted we must re-enter the encryption and user passwords. To verify that we have
+installed sudo correctly, we will enter the root user again and enter the command sudo -V.
+This command, in addition to showing us the version of sudo, will also show the arguments
+passed to configure when sudo was created and the plugins that can show more information.
+Optional: Since the output of the command is very long, if we want to see it completely we
+must redirect its output to a file sudo -V > file.txt and then edit the file nano file.txt. Or
 put | more after the command.
 
 ![check sudo](photos/MachineConfiguration/sudo-v.png)
 
 4- Continuing with the root user, we will create a user with the name of our non root user
-which is loged in with the command sudo adduser login, as we have already created the user in 
+which is loged in with the command sudo adduser login, as we have already created the user in
 the installation, it should appear that the user already exists.
 ![sudo add user](photos/MachineConfiguration/sudoAddUsser.png)
 
-5- Now we will have to create a new group called user42. To create it we must do sudo addgroup 
+5- Now we will have to create a new group called user42. To create it we must do sudo addgroup
 user42.
 
 ![sudo add group](photos/MachineConfiguration/sudoAddGroups.png)
@@ -444,22 +464,23 @@ user42.
 And this will be the output of <b>cat /etc/group</b>
 ![cat /etc/group](photos/MachineConfiguration/catetcgroup.png)
 
-6- With the command <b>sudo adduser user group</b> we will include the user in the group. We 
+6- With the command <b>sudo adduser user group</b> we will include the user in the group. We
 must include the user in the sudo and user42 groups.
-Once we have entered them, to check that everything has been done correctly, we can execute 
-the command getent group group_name or we can also edit the file /etc/group nano /etc/group 
+Once we have entered them, to check that everything has been done correctly, we can execute
+the command getent group group_name or we can also edit the file /etc/group nano /etc/group
 and our user should appear in the sudo and login42 groups.
 ![Add eseferi to user42 and sudo](photos/MachineConfiguration/addEseferiToSudo.png)
 
 ## Installation and Configuration of SSH
+
 🔒 SSH, or Secure Shell, is both a protocol and a program used for remote access to servers. It establishes a secure channel, encrypting all data exchanged between the client and server. This ensures confidentiality and integrity, making SSH a vital tool for secure remote administration and file transfer.
 
-1- The first thing we will do is do sudo apt update to update the repositories that we defined 
+1- The first thing we will do is do sudo apt update to update the repositories that we defined
 in the /etc/apt/sources.list file
 ![Update](photos/MachineConfiguration/sudoaptupdate.png)
 
-2- Next we will install the main connectivity tool for remote login with the SSH protocol, 
-this tool is OpenSSH. To install it we must enter the command <b><i>sudo apt install openssh-server</i></b>. 
+2- Next we will install the main connectivity tool for remote login with the SSH protocol,
+this tool is OpenSSH. To install it we must enter the command <b><i>sudo apt install openssh-server</i></b>.
 In the confirmation message we put Y, then we will wait for the installation to finish.
 ![Install openshh-server](photos/MachineConfiguration/installopenssh.png)
 
@@ -471,29 +492,28 @@ To check that it has been installed correctly we will do <b><i>sudo service ssh 
 
 ![Check ssh status](photos/MachineConfiguration/sshCheckstatus.png)
 
-3- After completing the installation, there are configuration files we need to adjust. We'll 
-utilize Nano, or any preferred text editor, for this task. The initial file to modify is 
-located at /etc/ssh/sshd_config. If you're not logged in as the root user, writing permissions 
-may be restricted. In such cases, you can either switch to the root user using 'su' followed 
+3- After completing the installation, there are configuration files we need to adjust. We'll
+utilize Nano, or any preferred text editor, for this task. The initial file to modify is
+located at /etc/ssh/sshd_config. If you're not logged in as the root user, writing permissions
+may be restricted. In such cases, you can either switch to the root user using 'su' followed
 by the root password, or alternatively, prepend 'sudo' to the command, like so: '<b><i>sudo nano etc/ssh/sshd_config</b></i>'."
 
 ![open sshd_config with nano](photos/MachineConfiguration/nano-sshd_config.png)
 
-
-🕒 By the way, if you're planning to take a break like I did between sections, I highly 
-recommend creating a snapshot of your virtual machine before shutting it down. You can do this 
-easily by navigating to the 'Machine' menu at the top of your VM window, selecting 'Take 
-Snapshot,' and giving it a name. This way, when you restart your machine later, you can simply 
+🕒 By the way, if you're planning to take a break like I did between sections, I highly
+recommend creating a snapshot of your virtual machine before shutting it down. You can do this
+easily by navigating to the 'Machine' menu at the top of your VM window, selecting 'Take
+Snapshot,' and giving it a name. This way, when you restart your machine later, you can simply
 use this snapshot to restore it to its previous state. 📸
 
 ![Take snapshot](photos/MachineConfiguration/snapshoot.png)
 
-This is the way how you can start it 
+This is the way how you can start it
 
 ![Restore snapshot](photos/MachineConfiguration/startSnapshot.png)
 
-Let's go back where we left it. The # at the beginning of a line means that it is commented, 
-the lines that we are going to modify you must remove the comment. Once we are editing the 
+Let's go back where we left it. The # at the beginning of a line means that it is commented,
+the lines that we are going to modify you must remove the comment. Once we are editing the
 file we must modify the following lines:
 
 #Port 22 -> Port 4242
@@ -508,26 +528,27 @@ Uncoment the Port 22 and change it to 4242
 
 ![Uncoment port of the ssh_config](photos/MachineConfiguration/activatePort.png)
 
-7- Finally, we must restart the ssh service so that the modifications we have just made are 
-updated. To do this we must write the command <b><i>sudo service ssh restart</b></i> and once 
-reset we will look at the current status with sudo service ssh status and to confirm that the 
+7- Finally, we must restart the ssh service so that the modifications we have just made are
+updated. To do this we must write the command <b><i>sudo service ssh restart</b></i> and once
+reset we will look at the current status with sudo service ssh status and to confirm that the
 changes have been made to the server listening, Port 4242 should appear.
 
 ![Restart ssh after updating it](photos/MachineConfiguration/restartSSH.png)
 
 ## Installing and Configuring UFW
+
 🔒 UFW, or Uncomplicated Firewall, is a user-friendly front-end for managing iptables, the default firewall configuration tool for many Linux distributions. It simplifies the process of configuring firewall rules through a straightforward command-line interface, allowing users to easily control network traffic and enhance system security with just a few simple commands. With UFW, even users with limited experience in firewall management can efficiently set up and maintain robust firewall policies to safeguard their systems against unauthorized access and potential threats.
 
-1- 🛡️ To begin, the initial step is to install UFW. Execute the command <b><i>sudo apt 
-install ufw</b></i> in your terminal. When prompted, type 'y' to confirm your intention to 
-install the package, then patiently wait for the process to complete. This sets the stage for 
+1- 🛡️ To begin, the initial step is to install UFW. Execute the command <b><i>sudo apt
+install ufw</b></i> in your terminal. When prompted, type 'y' to confirm your intention to
+install the package, then patiently wait for the process to complete. This sets the stage for
 configuring your firewall and bolstering your system's security.
 
 ![Instal ufw](photos/MachineConfiguration/installufw.png)
 
-2- 🔥 Once UFW is installed, the next crucial step is to enable it. Simply enter the command 
-<b><i>sudo ufw enable</b></i> in your terminal. Upon execution, you should receive an 
-immediate indication confirming that the firewall is now active. This ensures that your system 
+2- 🔥 Once UFW is installed, the next crucial step is to enable it. Simply enter the command
+<b><i>sudo ufw enable</b></i> in your terminal. Upon execution, you should receive an
+immediate indication confirming that the firewall is now active. This ensures that your system
 is fortified against unauthorized access, bolstering its overall security posture.
 
 ⚙️ Now, let's configure our firewall to allow connections through port 4242. Execute the command sudo ufw allow 4242 in your terminal. This command ensures that traffic on port 4242 is permitted, enabling smooth communication for your desired services or applications.
@@ -536,12 +557,11 @@ is fortified against unauthorized access, bolstering its overall security postur
 
 ![Check ufw after configuring](photos/MachineConfiguration/checkUfw.png)
 
-## Set strong password for sudo 
+## Set strong password for sudo
 
 1- 🔐 Next, we'll create a file at the path /etc/sudoers.d/ to store our password configuration. I've opted to name the file sudo_config for clarity. Execute the command touch /etc/sudoers.d/sudo_config in your terminal to create the file. This file will play a crucial role in managing password settings securely.
 
 ![create sudo_config](photos/MachineConfiguration/create_sudo_config.png)
-
 
 2- 📁 To meet the requirement of storing all sudo commands' input and output, we need to create a directory named sudo within the /var/log path. Execute the command mkdir /var/log/sudo in your terminal to create this directory. This ensures that all sudo activities are centrally logged, aiding in system administration and security monitoring.
 
@@ -550,7 +570,6 @@ is fortified against unauthorized access, bolstering its overall security postur
 3- ✏️ Now, let's edit the file created in the previous step. As mentioned earlier, you can use your preferred text editor, but for simplicity, I'll demonstrate using nano. Execute the command nano /etc/sudoers.d/sudo_config in your terminal to open the file for editing. This step allows us to configure password policies securely and effectively.
 
 ![configure sudo_config](photos/MachineConfiguration/config_sudoers.d.png)
-
 
 ## Strong Password Policy Settings 🔑
 
@@ -565,31 +584,31 @@ PASS_MIN_DAYS 0 -> PASS_MIN_DAYS 2
 
 🔐 Let's delve into configuring password policies:
 
-    PASS_MAX_DAYS: This parameter sets the expiration time for passwords, with the number 
+    PASS_MAX_DAYS: This parameter sets the expiration time for passwords, with the number
     representing the duration in days.
 
-    PASS_MIN_DAYS: Here, you define the minimum number of days a password must be used before 
+    PASS_MIN_DAYS: Here, you define the minimum number of days a password must be used before
     it can be changed.
 
-    PASS_WARN_AGE: This setting triggers a warning message to users, notifying them of the 
+    PASS_WARN_AGE: This setting triggers a warning message to users, notifying them of the
     impending expiration of their password within the specified number of days.
 
-3- 🛠️ To proceed with the configuration, we need to install the necessary packages. Execute 
-the command sudo apt install libpam-pwquality in your terminal. When prompted, type 'Y' to 
-confirm the installation and patiently wait for it to complete. These packages provide 
+3- 🛠️ To proceed with the configuration, we need to install the necessary packages. Execute
+the command sudo apt install libpam-pwquality in your terminal. When prompted, type 'Y' to
+confirm the installation and patiently wait for it to complete. These packages provide
 additional password quality checking capabilities, enhancing the security of your system.
 
 ![Install libpam-quality](photos/MachineConfiguration/installlibpam-pwquality.png)
 
 4- 🔐 Next, let's revisit editing a file and modify some lines. Use the command nano /etc/pam.
-d/common-password in your terminal to open the file for editing. This step allows us to 
-configure password policies effectively within the system's common password handling 
+d/common-password in your terminal to open the file for editing. This step allows us to
+configure password policies effectively within the system's common password handling
 configuration.
 
 ![nano common-password](photos/MachineConfiguration/nanocommon-password.png)
 
 5- After retry=3 we must add the following commands:
-    
+
     minlen=10
     ucredit=-1
     dcredit=-1
@@ -619,12 +638,12 @@ configuration.
 
     enforce_for_root: Enforces these password policies for the root user, enhancing security even for privileged accounts.
 
-## Connect from SSH 
+## Connect from SSH
 
-1- Before closing the virtual machine, don't forget to save a snapshot through VirtualBox's 
-configuration settings. This ensures that you can easily revert to the current state of the 
-machine if needed. Simply navigate to the snapshot manager and create a snapshot with a 
-descriptive name. This precautionary measure safeguards your progress and configurations while 
+1- Before closing the virtual machine, don't forget to save a snapshot through VirtualBox's
+configuration settings. This ensures that you can easily revert to the current state of the
+machine if needed. Simply navigate to the snapshot manager and create a snapshot with a
+descriptive name. This precautionary measure safeguards your progress and configurations while
 preparing for SSH connectivity.
 🔒 To establish an SSH connection, start by closing the virtual machine. Then, open VirtualBox and navigate to the machine's configuration settings. This step allows us to adjust network settings and enable SSH connectivity for the virtual machine.
 
@@ -634,14 +653,14 @@ And set the port
 
 ![set port](photos/MachineConfiguration/setport.png)
 
-2- To connect to the virtual machine from the host machine, open a terminal on the host and type 
+2- To connect to the virtual machine from the host machine, open a terminal on the host and type
 
-    ssh eseferi@localhost -p 4242. 
+    ssh eseferi@localhost -p 4242.
 
-This command initiates an SSH connection to the virtual machine, specifying the username 
-eseferi and port 4242. You'll be prompted to enter the user password. Once authenticated, the 
-login prompt will appear in green, indicating a successful connection. In case you are having a 
-problem like below: 
+This command initiates an SSH connection to the virtual machine, specifying the username
+eseferi and port 4242. You'll be prompted to enter the user password. Once authenticated, the
+login prompt will appear in green, indicating a successful connection. In case you are having a
+problem like below:
 
 ![Error on ssh connection](photos/MachineConfiguration/errorSsshConection.png)
 
@@ -658,7 +677,7 @@ Save the file and then try connecting again.
 
 ![delete previous local host](photos/MachineConfiguration/deletepreviouslocalhost.png)
 
-After try again to connect with 
+After try again to connect with
 
     ssh eseferi@localhost -p 4242.
 
@@ -670,27 +689,24 @@ Have your machine open while you connect with shh.
 
 ## 📜 Writing the script
 
-Entering this section requires careful attention to detail. It's crucial to grasp everything 
+Entering this section requires careful attention to detail. It's crucial to grasp everything
 presented here. Avoid taking shortcuts! During evaluation, you'll likely be questioned about t
 the script's functionality or how it operates.
 
-📝 What is a script? It is a file containing a sequence of commands. When executed, these 
+📝 What is a script? It is a file containing a sequence of commands. When executed, these
 commands perform the functions specified within the script.
 
 1- System Architecture
 
 To display the system's architecture, utilize the uname -a command. This command prints comprehensive information, excluding cases where the CPU or platform hardware is unknown.
 
-
 2- Physical Cores
 
 To determine the number of physical cores, access the file /proc/cpuinfo, which provides CPU-related information such as type, brand, model, and performance. Use the command grep "physical id" /proc/cpuinfo | wc -l to count the number of physical core identifiers.
 
-
 3- Virtual Cores
 
 Similarly, to ascertain the number of virtual cores, again access the file /proc/cpuinfo. This time, use the command grep processor /proc/cpuinfo | wc -l to count the number of processor identifiers.
-
 
 4- RAM
 
@@ -700,8 +716,7 @@ After executing this command, filter the output to display only the relevant inf
 
 To obtain total memory, use a similar command, but print the second word of each row instead of the third. Use free --mega | awk '$1 == "Mem:" {print $2}' to achieve this.
 
-Finally, calculate the percentage of used memory. Use printf to format the output to display only two decimal places. The command free --mega | awk '$1 == "Mem:" {printf("(%.2f%%)\n", $3/$2*100)}' accomplishes this.
-
+Finally, calculate the percentage of used memory. Use printf to format the output to display only two decimal places. The command free --mega | awk '$1 == "Mem:" {printf("(%.2f%%)\n", $3/$2\*100)}' accomplishes this.
 
 5- Disk Memory
 
@@ -709,8 +724,7 @@ To view disk memory usage, use the df command to obtain a summary of disk space 
 
 To obtain total disk space, use a similar command, but sum up the values in the second column instead of the third. Additionally, convert the result to gigabytes if necessary. The command df -m | grep "/dev/" | grep -v "/boot" | awk '{total_size += $2} END {print total_size/1024}' achieves this.
 
-To display the percentage of used memory, combine the previous commands to calculate the percentage and format the output accordingly. The command df -m | grep "/dev/" | grep -v "/boot" | awk '{use += $3} {total += $2} END {printf("(%.2f%%)\n", use/total*100)}' accomplishes this.
-
+To display the percentage of used memory, combine the previous commands to calculate the percentage and format the output accordingly. The command df -m | grep "/dev/" | grep -v "/boot" | awk '{use += $3} {total += $2} END {printf("(%.2f%%)\n", use/total\*100)}' accomplishes this.
 
 6- CPU Usage Percentage
 
@@ -718,36 +732,29 @@ To determine the CPU usage percentage, utilize the vmstat command to obtain syst
 
 Subtract the value obtained from 100 to determine the CPU usage percentage. Print the result with one decimal place and a "%" symbol. This operation completes the script.
 
-
 7- Last Reboot
 
 To view the date and time of the last system reboot, use the who -b command. Filter the output to display only the relevant information using awk. The command who -b | awk '$1 == "system" {print $3 " " $4}' prints the last reboot date and time.
-
 
 8- LVM Active
 
 To check if LVM (Logical Volume Manager) is active, use the lsblk command to show block device information. Filter the output using grep to search for LVM. Based on the result, print "Yes" or "No" accordingly. The command if [ $(lsblk | grep "lvm" | wc -l) -gt 0 ]; then echo yes; else echo no; fi accomplishes this.
 
-
 9- TCP Connections
 
 To determine the number of established TCP connections, we will utilize the ss command, which has replaced the now obsolete netstat. We will filter the output with the -ta flag to display only TCP connections. Then, we will use grep to identify established connections, as there are also connections in the listening state. Finally, we will count the number of lines using wc -l. The command is as follows: ss -ta | grep ESTAB | wc -l.
-
 
 10- Number of Users
 
 We will use the users command, which displays the names of active users. To count the number of words in the command output, we will use wc -w. The entire command is as follows: users | wc -w.
 
-
 11- IP Address & MAC
 
 To obtain the host's IP address, we will use the hostname -I command. For the MAC address, we will use the ip link command, which shows or modifies network interfaces. Since multiple interfaces, IPs, etc., are displayed, we will use grep to search for the desired information and print only what is requested. Use the command ip link | grep "link/ether" | awk '{print $2}' to display only the MAC address.
 
-
 12- Number of Commands Executed with sudo
 
-To obtain the number of commands executed with sudo, we will use the journalctl command, which collects and manages system logs. Specify _COMM=sudo to filter entries by the specified path. Once the search is filtered, further refine it by using grep COMMAND to display only command lines. Finally, use wc -l to count the lines. The entire command is as follows: journalctl _COMM=sudo | grep COMMAND | wc -l. To verify its correctness, execute the command in the terminal, run a sudo command, and then rerun the command to confirm that the count increases.
-
+To obtain the number of commands executed with sudo, we will use the journalctl command, which collects and manages system logs. Specify \_COMM=sudo to filter entries by the specified path. Once the search is filtered, further refine it by using grep COMMAND to display only command lines. Finally, use wc -l to count the lines. The entire command is as follows: journalctl \_COMM=sudo | grep COMMAND | wc -l. To verify its correctness, execute the command in the terminal, run a sudo command, and then rerun the command to confirm that the count increases.
 
 13- This is how the script should look
 
@@ -768,19 +775,18 @@ After running the script
 ## Crontab
 
 🧠 What is Crontab?
-Crontab is like the timekeeper of your system. It schedules background tasks to run at specific 
+Crontab is like the timekeeper of your system. It schedules background tasks to run at specific
 times or intervals. This enables automation of repetitive tasks without manual intervention.
 
-To configure crontab properly, you'll need to edit the crontab file using the command sudo 
+To configure crontab properly, you'll need to edit the crontab file using the command sudo
 crontab -u root -e.
 
-Within the file, you'll add the following command to execute your script every 10 minutes: */10 
-\* \* \* \* sh /path/to/your/script.
+Within the file, you'll add the following command to execute your script every 10 minutes: \*/10 \* \* \* \* sh /path/to/your/script.
 
-Remember, crontab is a powerful tool, but it requires careful configuration to ensure tasks run 
+Remember, crontab is a powerful tool, but it requires careful configuration to ensure tasks run
 smoothly and efficiently. 🕒
 
-So after typing 
+So after typing
 
     sudo crontab -u root -e
 
@@ -802,10 +808,10 @@ Operation of each crontab parameter:
 
     * command: Refers to the command or the absolute path of the script to be executed.
 
-# STEP7: Wordpress & services configuration 
+# STEP7: Wordpress & services configuration
 
-🧠 What is Lighttpd? Lighttpd is a web server engineered to deliver exceptional speed, 
-security, flexibility, and adherence to web standards. It's tailored for environments 
+🧠 What is Lighttpd? Lighttpd is a web server engineered to deliver exceptional speed,
+security, flexibility, and adherence to web standards. It's tailored for environments
 prioritizing speed, as it requires fewer CPU and RAM resources compared to alternative servers.
 
 1- Installation
@@ -813,7 +819,6 @@ prioritizing speed, as it requires fewer CPU and RAM resources compared to alter
     sudo apt install lighttpd
 
 ![install light tpd](photos/bonus/installlightpd.png)
-
 
 2- Allow connections through port 80
 
@@ -825,8 +830,8 @@ prioritizing speed, as it requires fewer CPU and RAM resources compared to alter
 
 ![check if lighttpd is allowd](photos/bonus/checkLighttpd.png)
 
-4- We include the rule that encompasses port 80. If you're uncertain about how to add rules in 
-port forwarding, navigate to Machine configuration → Network → Port forwarding, and replicate 
+4- We include the rule that encompasses port 80. If you're uncertain about how to add rules in
+port forwarding, navigate to Machine configuration → Network → Port forwarding, and replicate
 the capture.
 
 ![add port 80 to machine](photos/bonus/addport80.png)
@@ -845,7 +850,7 @@ First install <b><i>wget and zip</b></i>
 💡 What is wget? It is a versatile command-line tool used for downloading files from the internet. </br>
 💡 What is zip? It is a command-line utility for compressing and decompressing files in ZIP format. </br>
 
-2- We have to go to <b><i>www</b></i> directory inside <b><i>var</b></i> and download the 
+2- We have to go to <b><i>www</b></i> directory inside <b><i>var</b></i> and download the
 latest english version of WordPress.
 
     cd /var/www/
@@ -857,7 +862,7 @@ latest english version of WordPress.
 
     sudo unzip latest.zip
 
-4-  Rename html folder and call it html_old. Rename wordpress folder and call it html.
+4- Rename html folder and call it html_old. Rename wordpress folder and call it html.
 
     sudo mv html/ html_old/
     sudo mv wordpress/ html
@@ -870,11 +875,10 @@ latest english version of WordPress.
 
 ![Change Permissions](photos/bonus/ChangePermissions.png)
 
-
 ## Mariadb
 
-💡 What is MariaDB? MariaDB is a robust relational database management system (RDBMS) that 
-offers high performance, scalability, and reliability. It is widely used for various purposes, 
+💡 What is MariaDB? MariaDB is a robust relational database management system (RDBMS) that
+offers high performance, scalability, and reliability. It is widely used for various purposes,
 including data warehousing, e-commerce, enterprise-level functions, and logging applications.
 
 1- Installation
@@ -885,10 +889,10 @@ including data warehousing, e-commerce, enterprise-level functions, and logging 
 
 2- Securing Mariadb
 
-Due to the default configuration leaving your MariaDB installation unsecured, we will utilize a 
-script provided by the mariadb-server package to enhance security by restricting access to the 
-server and removing unused accounts. Execute the script using the following command: sudo 
-mysql_secure_installation. During execution, you may be prompted to switch to Unix socket 
+Due to the default configuration leaving your MariaDB installation unsecured, we will utilize a
+script provided by the mariadb-server package to enhance security by restricting access to the
+server and removing unused accounts. Execute the script using the following command: sudo
+mysql_secure_installation. During execution, you may be prompted to switch to Unix socket
 authentication. As we already have a protected root account, select 'N' to decline the switch.
 
     sudo mysql_secure_installation
@@ -944,16 +948,15 @@ authentication. As we already have a protected root account, select 'N' to decli
 
 ![nano wp-config.php](photos/bonus/nanoWpconfig.png)
 
-and modify from 
+and modify from
 
 ![Underlined has to be changed](photos/bonus/underlinedtochange.png)
 
-to 
+to
 
 ![Underlined that changed](photos/bonus/UnderlinedthatChanged.png)
 
-
-4- Activate the fastcgi-php module in Lighttpd to enhance the performance and speed of web 
+4- Activate the fastcgi-php module in Lighttpd to enhance the performance and speed of web
 applications on the server, and update it in the end
 
     sudo lighty-enable-mod fastcgi
@@ -970,7 +973,6 @@ applications on the server, and update it in the end
 
 ![Fill on the fields in Wordpress](photos/bonus/FillfieldsInWordPress.png)
 ![Installed Wordpress](photos/bonus/InstalledWordPress.png)
-
 
 7- If you sign in you will se your Wordpress dashboard
 
@@ -1056,7 +1058,7 @@ to uncommented like below
 
 ![nano vsftpd.userlist](photos/ftp/nanovsftpd.userlist.png)
 
-You should see an empty file like this 
+You should see an empty file like this
 
 ![Empty user list file](photos/ftp/emptyuserlist.png)
 
@@ -1064,21 +1066,21 @@ save the file and after run this command in terminal
 
     sudo nano /etc/vsftpd.userlist
 
-open again vsftpd.userlist file with nano 
+open again vsftpd.userlist file with nano
 
     sudo nano /etc/vsftpd.userlist
 
-and add this lines 
+and add this lines
 
     userlist_enable=YES
     userlist_file=/etc/vsftpd.userlist
     userlist_deny=NO
 
-You should have something like this 
+You should have something like this
 
 ![Configured vsftpd.userlist](photos/ftp/configurevsftpd.userlist.png)
 
-4- Add the port 21 in you VMbox 
+4- Add the port 21 in you VMbox
 
 ![Add port 21](photos/ftp/ADdport21.png)
 
@@ -1094,19 +1096,19 @@ We can also check if it is listening in port 21
 
 ![ftp listening in port 21](photos/ftp/ftpListeningon21.png)
 
-The output indicates that there is a service listening on port 21, which is typically the port used by the 
+The output indicates that there is a service listening on port 21, which is typically the port used by the
 FTP service. Here's what the output means:
 
     tcp: Indicates that the listening socket is using the TCP protocol.
 
     LISTEN: Indicates that the socket is in the listening state, waiting for incoming connections.
 
-    0 32: This column indicates the receive queue length and send queue length for the socket. In this 
-    case, 0 indicates that there are no connections in the receive queue, and 32 indicates the maximum 
+    0 32: This column indicates the receive queue length and send queue length for the socket. In this
+    case, 0 indicates that there are no connections in the receive queue, and 32 indicates the maximum
     queue length for pending connections.
 
     *:21: Indicates that the service is listening on all available network interfaces (*) on port 21.
-    
+
     *:*: Indicates that the service is listening on all available network interfaces for any source port.
 
 Based on this output, it appears that there is a service listening on port 21, which is likely your FTP service. This confirms that FTP is indeed enabled and running on your system.
