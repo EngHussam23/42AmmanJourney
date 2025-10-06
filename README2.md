@@ -11,11 +11,11 @@
 
 For more check the [subject](subject.pdf)
 
-# STEP1: Download the VirtualBox
+## STEP1: Download the VirtualBox
 
     If you do not have installed VirtualBox you can go at this link https://www.virtualbox.org/ and download it. We will need to use it to install the operating system we want to use.
 
-# STEP2: Choosing the operating system
+## STEP2: Choosing the operating system
     DEBIAN OR ROCKY LINUX
 
     Based on the requirements provided in the subject, Debian is highly recommended "Born to be Root" project. Here's why:
@@ -36,7 +36,7 @@ For more check the [subject](subject.pdf)
 
 Overall, Debian offers a reliable, stable, and well-supported platform that aligns closely with the project's objectives and requirements. It provides a solid foundation for learning system administration and implementing the necessary configurations and tasks outlined in the project description.
 
-# STEP 3: New Virtual Machine with Oracle VirtualBox
+## STEP 3: New Virtual Machine with Oracle VirtualBox
 1- Open Oracle VirtualBox
 
 2- Click on the new command on the top
@@ -62,7 +62,7 @@ for this project.
 settings to start with the next step of mounting an ISO file.
 ![VmCreated](photos/installation/VmCreated.png)
 
-# STEP4: Mount iso file and Start VM
+## STEP4: Mount iso file and Start VM
 1- Controller: Under the "Controller: IDE" or "Controller: SATA" section (depending on your VM's configuration), you'll find an empty optical drive (usually labeled "Empty"). Click on the optical drive.
 Attributes: In the attributes section to the right, you'll see a small disk icon next to "IDE Secondary Master" or "SATA Port 1." Click on the disk icon.
 Choose a Disk File: In the dropdown menu, select "Choose a disk file..." Navigate to the location of the ISO file on your computer and select it.
@@ -76,9 +76,9 @@ same results as below, and then type ok.
 step to install Debian.
 ![Start Machine](photos/installation/InstallDebian.png)
 
-# STEP5: Installing Debian
+## STEP5: Installing Debian
 
-## 1- Setting up the languange, time zone, keyboard layout
+### 1- Setting up the languange, time zone, keyboard layout
 1- It will have the view like below. To have a larger view for your eyes, right click with your
 mouse, choose the option Virtual Screen 1 and scale it to 200%. After choose the install 
 option since we will use it without Graphical Interface.
@@ -105,7 +105,7 @@ After I select Germany.
 7- Finally by finishing with this step we should the window below;
 ![Finished Language, Area and Keyboard Configuration](photos/installation/configuredLanguageAndKeyboard.png)
 
-## 2- Configuring the Network
+### 2- Configuring the Network
 1- It will first require the hostname which by the subject we have to put the user intraname
 followed by 42 -> eseferi42 in my case
 ![Setting the Hostname](photos/installation/Hostname.png)
@@ -139,7 +139,7 @@ Root User, Kinda have bad memory 🥱
 8- Again we have to confirm the password. As I showed while setting the passord for the root user, we can move with arrows do show password and press space.
 ![Password confirmation for the Non root-user](photos/installation/NonRootUserPasswordConfirmation.png)
 
-## Setting up the partitions
+### Setting up the partitions
 Partitioning is essential for organizing disk space on your server. It divides the disk into separate sections, each serving a specific purpose.
 
 1- use entire disk and set up encrypted LVM: This refers to selecting the guided partitioning 
@@ -368,7 +368,7 @@ GRUB plays a crucial role in the boot process of Linux-based operating systems, 
 
 Now your system will open and ask for password lets jump to the next steps :)
 
-# STEP6: Virtual Machine Configuration
+## STEP6: Virtual Machine Configuration
 
 1- The first thing we must do is select Debian GNU/Linux.
 We must enter the encryption password that we previously used.
