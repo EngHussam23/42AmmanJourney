@@ -12,6 +12,7 @@ virtualization give the virtual machine (VM) it's own isolated environment inclu
 
 #### Hypervisors -aka Virtual Machine Monitor (VMM)-
 
+A software that distributes the resources given to the (VM) so the virtual envirnoment can use them as needed. 
 
 ### links:
 
