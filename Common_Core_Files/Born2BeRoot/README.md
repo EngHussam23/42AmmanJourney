@@ -52,13 +52,34 @@ https://cdn.intra.42.fr/pdf/pdf/177141/en.subject.pdf
 
 ## STEP1: Download the VirtualBox
 
-    If you do not have installed VirtualBox you can go at this link https://www.virtualbox.org/ and download it. We will need to use it to install the operating system we want to use.
+If you do not have installed VirtualBox you can go at this link https://www.virtualbox.org/ and download it. We will need to use it to install the operating system we want to use.
+
+Use this command to find your he appropriate package for your Linux distribution: `hostnamectl`
+
+Example result:
+
+```
+john@john-MS-5r24:~$ hostnamectl
+ Static hostname: john-MS-5r24
+       Icon name: computer-laptop
+         Chassis: laptop 💻
+      Machine ID: your_machine_ID
+         Boot ID: your_boot_ID
+Operating System: Ubuntu 25.04
+          Kernel: Linux 6.14.0-33-generic
+    Architecture: x86-64
+ Hardware Vendor: Dell Inc.
+  Hardware Model: Inspiron 5570
+Firmware Version: 1.14.0
+   Firmware Date: Thu 2023-04-06
+    Firmware Age: 2y 6month 4d
+```
 
 ## STEP2: Choosing the operating system
 
-    DEBIAN OR ROCKY LINUX
+DEBIAN OR ROCKY LINUX
 
-    Based on the requirements provided in the subject, Debian is highly recommended "Born to be Root" project. Here's why:
+Based on the requirements provided in the subject, Debian is highly recommended "Born to be Root" project. Here's why:
 
     1- Stability and Ease of Use: Debian is known for its stability and reliability, making it an excellent choice for a server environment. It has a well-established release cycle and extensive documentation, making it suitable for both beginners and experienced users.
 
@@ -271,9 +292,9 @@ encrypted. To do this, we select the free space where we want to create it.
 18- Select the mount point
 ![Choose mount point](../../photos/installation/MountPointSda1.png)
 
-19- in the context of virtual machines (VMs) and disk management, logical partitions are       
-typically not mounted directly because they are part of a larger virtual disk image or disk 
-file. 
+19- in the context of virtual machines (VMs) and disk management, logical partitions are  
+typically not mounted directly because they are part of a larger virtual disk image or disk
+file.
 ![Do not mount it](../../photos/installation/DoNotMountIt.png)
 
 20- Finish this partition
@@ -435,7 +456,6 @@ apt install sudo command to install the necessary packages.
 
 ![sudo reboot](../../photos/MachineConfiguration/sudoReboot.png)
 
-
 3- Once restarted we must re-enter the encryption and user passwords. To verify that we have
 installed sudo correctly, we will enter the root user again and enter the command sudo -V.
 This command, in addition to showing us the version of sudo, will also show the arguments
@@ -501,7 +521,6 @@ by the root password, or alternatively, prepend 'sudo' to the command, like so: 
 
 ![open sshd_config with nano](../../photos/MachineConfiguration/nano-sshd_config.png)
 
-
 🕒 By the way, if you're planning to take a break like I did between sections, I highly
 recommend creating a snapshot of your virtual machine before shutting it down. You can do this
 easily by navigating to the 'Machine' menu at the top of your VM window, selecting 'Take
@@ -565,7 +584,6 @@ is fortified against unauthorized access, bolstering its overall security postur
 
 ![create sudo_config](../../photos/MachineConfiguration/create_sudo_config.png)
 
-
 2- 📁 To meet the requirement of storing all sudo commands' input and output, we need to create a directory named sudo within the /var/log path. Execute the command mkdir /var/log/sudo in your terminal to create this directory. This ensures that all sudo activities are centrally logged, aiding in system administration and security monitoring.
 
 ![create sudo directory](../../photos/MachineConfiguration/create_sudofolder.png)
@@ -573,7 +591,6 @@ is fortified against unauthorized access, bolstering its overall security postur
 3- ✏️ Now, let's edit the file created in the previous step. As mentioned earlier, you can use your preferred text editor, but for simplicity, I'll demonstrate using nano. Execute the command nano /etc/sudoers.d/sudo_config in your terminal to open the file for editing. This step allows us to configure password policies securely and effectively.
 
 ![configure sudo_config](../../photos/MachineConfiguration/config_sudoers.d.png)
-
 
 ## Strong Password Policy Settings 🔑
 
@@ -824,7 +841,6 @@ prioritizing speed, as it requires fewer CPU and RAM resources compared to alter
 
 ![install light tpd](../../photos/bonus/installlightpd.png)
 
-
 2- Allow connections through port 80
 
     sudo ufw allow 80
@@ -879,7 +895,6 @@ latest english version of WordPress.
     sudo chmod -R 755 html
 
 ![Change Permissions](../../photos/bonus/ChangePermissions.png)
-
 
 ## Mariadb
 
@@ -962,7 +977,6 @@ to
 
 ![Underlined that changed](../../photos/bonus/UnderlinedthatChanged.png)
 
-
 4- Activate the fastcgi-php module in Lighttpd to enhance the performance and speed of web
 applications on the server, and update it in the end
 
@@ -980,7 +994,6 @@ applications on the server, and update it in the end
 
 ![Fill on the fields in Wordpress](../../photos/bonus/FillfieldsInWordPress.png)
 ![Installed Wordpress](../../photos/bonus/InstalledWordPress.png)
-
 
 7- If you sign in you will se your Wordpress dashboard
 
