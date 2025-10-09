@@ -81,42 +81,42 @@ Overall, Debian offers a reliable, stable, and well-supported platform that alig
 1- Open Oracle VirtualBox
 
 2- Click on the new command on the top
-![New Virtual Machine](photos/installation/newVm.png)
+![New Virtual Machine](../../photos/installation/newVm.png)
 
 3- It will prompt to Create Virtual Machine window. Fill the specific fields like in the photo.
 If you are not a 42 student you can just store the Machine Folder where you want. After filling
 the fields type next.
-![Virtual Machine Name and Operating System](photos/installation/vmNameAndOs.png)
+![Virtual Machine Name and Operating System](../../photos/installation/vmNameAndOs.png)
 
 4- Now we have to set up the memory size we want to use for our VM. You are free to choose
 How much memory you want to use from your computer but I would suggest that 1024MB is enough
 for this project.
-![Hardware](photos/installation/Hardware.png)
+![Hardware](../../photos/installation/Hardware.png)
 
 5- Now the next prompts are asking to set up a virtual Hard disk. In the VirtualBox setup process, ensure to select 'Dynamically allocated' for storage on the physical hard disk. This option allows the virtual hard disk file to grow in size as needed, optimizing disk space usage. Avoid checking the option to pre-allocate the full size, as it may lead to unnecessary disk space allocation."
-![Virtual Hard Disk Memory](photos/installation/VirtualHardDiskSize.png)
+![Virtual Hard Disk Memory](../../photos/installation/VirtualHardDiskSize.png)
 
 6- So now you should have a summary similar with the photo below. Type finish.
-![Summary](photos/installation/vmSummary.png)
+![Summary](../../photos/installation/vmSummary.png)
 
 7- After pressing finished you should see your new Vm created like below. You should go to
 settings to start with the next step of mounting an ISO file.
-![VmCreated](photos/installation/VmCreated.png)
+![VmCreated](../../photos/installation/VmCreated.png)
 
 ## STEP4: Mount iso file and Start VM
 
 1- Controller: Under the "Controller: IDE" or "Controller: SATA" section (depending on your VM's configuration), you'll find an empty optical drive (usually labeled "Empty"). Click on the optical drive.
 Attributes: In the attributes section to the right, you'll see a small disk icon next to "IDE Secondary Master" or "SATA Port 1." Click on the disk icon.
 Choose a Disk File: In the dropdown menu, select "Choose a disk file..." Navigate to the location of the ISO file on your computer and select it.
-![Choose Disk File](photos/installation/ChooseDiskFile.png)
+![Choose Disk File](../../photos/installation/ChooseDiskFile.png)
 
 2- After choosing Debian ISO image that we dowloaded in the beginning you should have the
 same results as below, and then type ok.
-![Debian Iso Image](photos/installation/DebianIsoImage.png)
+![Debian Iso Image](../../photos/installation/DebianIsoImage.png)
 
 3- Now we start the machine by clicking at the Start icon, so we can continue with the next
 step to install Debian.
-![Start Machine](photos/installation/InstallDebian.png)
+![Start Machine](../../photos/installation/InstallDebian.png)
 
 ## STEP5: Installing Debian
 
@@ -125,63 +125,63 @@ step to install Debian.
 1- It will have the view like below. To have a larger view for your eyes, right click with your
 mouse, choose the option Virtual Screen 1 and scale it to 200%. After choose the install
 option since we will use it without Graphical Interface.
-![Install](photos/installation/installOption.png)
+![Install](../../photos/installation/installOption.png)
 
 2- Now it will ask for the languange im going with English.
-![Choose Language](photos/installation/EnglishLanguage.png)
+![Choose Language](../../photos/installation/EnglishLanguage.png)
 
 3- We enter our Country, territory or area. Since I'm in Germany I will put Other.
-![Choose Country](photos/installation/Country.png)
+![Choose Country](../../photos/installation/Country.png)
 
 4- We select the country. In my case Germany 🇩🇪
 First I select Europe.
-![Other section for Country select](photos/installation/europe.png)
+![Other section for Country select](../../photos/installation/europe.png)
 After I select Germany.
-![Germany](photos/installation/Germany.png)
+![Germany](../../photos/installation/Germany.png)
 
 5- Configuring locales: I will go with United States
-![Configuring Locales](photos/installation/configuringLocales.png)
+![Configuring Locales](../../photos/installation/configuringLocales.png)
 
 6- It is important to select American English as the keyboard configuration, otherwise we will have the keys linked incorrectly.
-![Keyboard Configuration](photos/installation/Keyboard.png)
+![Keyboard Configuration](../../photos/installation/Keyboard.png)
 
 7- Finally by finishing with this step we should the window below;
-![Finished Language, Area and Keyboard Configuration](photos/installation/configuredLanguageAndKeyboard.png)
+![Finished Language, Area and Keyboard Configuration](../../photos/installation/configuredLanguageAndKeyboard.png)
 
 ### 2- Configuring the Network
 
 1- It will first require the hostname which by the subject we have to put the user intraname
 followed by 42 -> eseferi42 in my case
-![Setting the Hostname](photos/installation/Hostname.png)
+![Setting the Hostname](../../photos/installation/Hostname.png)
 
 2- Domain name. We will leave this section empty, since the subject does not mention anything about Domain name.
-![Setting the Domain Name](photos/installation/DomainName.png)
+![Setting the Domain Name](../../photos/installation/DomainName.png)
 
 3- We must enter a password for the system administration account. It is important to write it
 down or take a photo, since we will use it. If you want to see the password to make sure you
 have written it correctly, you must tab until you reach the Show Password in Clear option, you
 must press the space bar and the password will be displayed. So you should see something like
 the photo below:
-![Setting Password](photos/installation/Pasword.png)
+![Setting Password](../../photos/installation/Pasword.png)
 
 4- Now we have to reconfirm our password
-![Confirming Password](photos/installation/PasswordConfirmation.png)
+![Confirming Password](../../photos/installation/PasswordConfirmation.png)
 
 5- For not using the root account for non-administrative activities it will request to create
 a normal user account. Since for the root account I put eseferi42 for the user I'm writing
 eseferi
-![Non root-user](photos/installation/NonRootUser.png)
+![Non root-user](../../photos/installation/NonRootUser.png)
 
 6- Now it will require a nickname or username for this non-root user, but I'm proceeding with
 the previous User name also for the nickname;
-![Nickname for the Non root-user](photos/installation/Nickname.png)
+![Nickname for the Non root-user](../../photos/installation/Nickname.png)
 
 7- We have to choose a password for the Non-root user, I'm proceeding with the same as for the
 Root User, Kinda have bad memory 🥱
-![Password for the Non root-user](photos/installation/NonRootUserPassword.png)
+![Password for the Non root-user](../../photos/installation/NonRootUserPassword.png)
 
 8- Again we have to confirm the password. As I showed while setting the passord for the root user, we can move with arrows do show password and press space.
-![Password confirmation for the Non root-user](photos/installation/NonRootUserPasswordConfirmation.png)
+![Password confirmation for the Non root-user](../../photos/installation/NonRootUserPasswordConfirmation.png)
 
 ### Setting up the partitions
 
@@ -198,7 +198,7 @@ instructs them that if they want to deviate from the automatic guided partitioni
 the partitions manually (which may be necessary for certain bonus tasks), they should select
 the "Manual" option instead. I will do first what is required for the bonus but if you want
 you can skip it and go straight here.
-![Manual Partitioning](photos/installation/ManualConfiguringPartitions.png)
+![Manual Partitioning](../../photos/installation/ManualConfiguringPartitions.png)
 
 2- In this section it shows us a general description of our partitions and mount points.
 Currently, we do not have partitions made. To create a new partition table we must choose the
@@ -208,23 +208,23 @@ SCSI3 because in VirtualBox, the SCSI controller number is assigned automaticall
 software and may vary between installations or configurations. It's essentially a virtual
 representation of the disk controller used by the virtual machine. As long as you're referring
 to the correct disk (sda) and its capacity (32.2GB ATA VBOX HARDDISK), you should be fine.
-![Device](photos/installation/SCSI2.png)
+![Device](../../photos/installation/SCSI2.png)
 
 3- Click yes to confirm the device
-![Confirm Device](photos/installation/ConfirmDevice.png)
+![Confirm Device](../../photos/installation/ConfirmDevice.png)
 
 4- Once we have completed the previous step we can see how our empty partition table appears.
 Now we must configure it, to do this we must select the FREE SPACE to create the partitions.
-![Selec FREE SPACE](photos/installation/FreeSpace.png)
+![Selec FREE SPACE](../../photos/installation/FreeSpace.png)
 
 5- Create new partition
-![Create New partition](photos/installation/CreateNewPartition.png)
+![Create New partition](../../photos/installation/CreateNewPartition.png)
 
 6- Taking the subject's image how the partitions should be we will create them one by one
-![Create New partition for Sda1](photos/installation/SettingSDA1.png)
+![Create New partition for Sda1](../../photos/installation/SettingSDA1.png)
 
 7- As the subject indicates, the size of the partition must be 500 megabytes.
-![Set size for the first sda](photos/installation/SDA1size.png)
+![Set size for the first sda](../../photos/installation/SDA1size.png)
 
 8- Brief description of all types of partitions:
 
@@ -235,182 +235,182 @@ Now we must configure it, to do this we must select the FREE SPACE to create the
     ◦ Logical: Occupies a portion of the extended/primary partition or its entirety, which has been formatted with a specific type of file system (in our case we will use ext4) and a drive has been assigned to it, thus the system The operating system recognizes the logical partitions or their file system. There can be a maximum of 23 logical partitions in an extended partition, however, Linux, the OS we currently work with, reduces this to 15, more than enough to carry out this project.
 
 For this step we will choose primary since it will be the partition where the Operating System will be installed.
-![Set partition to primary](photos/installation/Primary.png)
+![Set partition to primary](../../photos/installation/Primary.png)
 
 9- We will select beginning since we want the new partition to be created at the beginning of
 the available space.
-![Set partition to the beginning of the available space.](photos/installation/BeginningSda1.png)
+![Set partition to the beginning of the available space.](../../photos/installation/BeginningSda1.png)
 
 10- The following screenshot shows us the details of the partition. We will modify the mount
 point to which the subject specifies.
-![Configure Mount point for sda1](photos/installation/MountPointSda1.png)
+![Configure Mount point for sda1](../../photos/installation/MountPointSda1.png)
 
 11- We choose boot as the mount point of our partition.
-![Mounting with Boot option](photos/installation/BootMounting.png)
+![Mounting with Boot option](../../photos/installation/BootMounting.png)
 
 12- We finish configuring the current partition.
-![Finishing sda1 partition](photos/installation/doneWithSda1.png)
+![Finishing sda1 partition](../../photos/installation/doneWithSda1.png)
 
 13- Once we have completed the previous step, the partition should appear. Now we must create
 a logical partition with all the available disk space, which has no mount point and which is
 encrypted. To do this, we select the free space where we want to create it.
-![Create sda5 partition](photos/installation/CreateSda5.png)
+![Create sda5 partition](../../photos/installation/CreateSda5.png)
 
 14- Create new partition
-![Create New partition](photos/installation/CreateNewPartition.png)
+![Create New partition](../../photos/installation/CreateNewPartition.png)
 
 15- We will use the example from the subject
-![Sda5 subject example](photos/installation/sda5example.png)
+![Sda5 subject example](../../photos/installation/sda5example.png)
 
 16- We select max for this partition
-![set max size for sda5](photos/installation/maxsize.png)
+![set max size for sda5](../../photos/installation/maxsize.png)
 
 17- Since we have to create The LVM we have to choose Logical
-![Choose Logical](photos/installation/Logical.png)
+![Choose Logical](../../photos/installation/Logical.png)
 
 18- Select the mount point
-![Choose mount point](photos/installation/MountPointSda1.png)
+![Choose mount point](../../photos/installation/MountPointSda1.png)
 
-19- in the context of virtual machines (VMs) and disk management, logical partitions are  
-typically not mounted directly because they are part of a larger virtual disk image or disk
-file.
-![Do not mount it](photos/installation/DoNotMountIt.png)
+19- in the context of virtual machines (VMs) and disk management, logical partitions are       
+typically not mounted directly because they are part of a larger virtual disk image or disk 
+file. 
+![Do not mount it](../../photos/installation/DoNotMountIt.png)
 
 20- Finish this partition
-![Finish partition after not mounting](photos/installation/finishedAfterNotMounting.png)
+![Finish partition after not mounting](../../photos/installation/finishedAfterNotMounting.png)
 
 21- Lets configure the encrypred volumes now
-![Configure Encrypted Volumes](photos/installation/ConfigEncryptVolumes.png)
+![Configure Encrypted Volumes](../../photos/installation/ConfigEncryptVolumes.png)
 
 22- Accept the confirmation message.
-![Accept to configure Encrypted Volumes](photos/installation/ConfirmToConfigEnrcyptVolumes.png)
+![Accept to configure Encrypted Volumes](../../photos/installation/ConfirmToConfigEnrcyptVolumes.png)
 
 23- We start to create encrypted volumes.
-![Create Encrypted Volumes](photos/installation/CreateEncryptedVolumes.png)
+![Create Encrypted Volumes](../../photos/installation/CreateEncryptedVolumes.png)
 
 24- We select which partition we want to perform the encryption on. Move with arrows to
 /dev/sda5/ and select it with space.
-![Select sda5 for encryption](photos/installation/SelectSda5ForEncryption.png)
+![Select sda5 for encryption](../../photos/installation/SelectSda5ForEncryption.png)
 
 25- We finish configuring the current partition.
-![Done setting up partition](photos/installation/DoneSettingUpPartition.png)
+![Done setting up partition](../../photos/installation/DoneSettingUpPartition.png)
 
 26- We are done, since we do not want to create more encrypted volumes.
-![Finish Encryption](photos/installation/FinishEncryption.png)
+![Finish Encryption](../../photos/installation/FinishEncryption.png)
 
 27- We accept the confirmation message which tells us that everything inside the partition
 will be encrypted and that it shouldn't take long to finish.
-![Confirm Finishing Encryption](photos/installation/ConfirmFinishingEncription.png)
+![Confirm Finishing Encryption](../../photos/installation/ConfirmFinishingEncription.png)
 
 28- We don't care if it takes a long time or a short time, we click cancel, since there is
 nothing to encrypt, because the partition is empty.
-![Wait till encryption finishes](photos/installation/WaitTillEncryptionFinishes.png)
+![Wait till encryption finishes](../../photos/installation/WaitTillEncryptionFinishes.png)
 
 29- Again we will have to enter a password, this time it will be the encryption phrase. As I
 have previously told you, you must repeat the process and you must write it down, since it
 will be important in the future.
-![Put password for Encryption](photos/installation/EncryptionPassword.png)
+![Put password for Encryption](../../photos/installation/EncryptionPassword.png)
 
 30- Confirm the password
-![Confirm password for Encryption](photos/installation/ConfirmEncryptionPasword.png)
+![Confirm password for Encryption](../../photos/installation/ConfirmEncryptionPasword.png)
 
 31- We will configure the logical volume manager.
-![Configure Logical Volume Manager](photos/installation/ConfigLogVolMan.png)
+![Configure Logical Volume Manager](../../photos/installation/ConfigLogVolMan.png)
 
 32- We will accept the confirmation message, since we agree that the changes will be saved to  
 disk.
-![Confirm writing to disk](photos/installation/ConfirmWritingToDisk.png)
+![Confirm writing to disk](../../photos/installation/ConfirmWritingToDisk.png)
 
 33- Let's create a new volume group. Volume groups group partitions together.
-![Create Volume Group](photos/installation/CreateVolumeGroup.png)
+![Create Volume Group](../../photos/installation/CreateVolumeGroup.png)
 
 34- We have to give the name as indicated in the subject: LVMGroup.
-![Enter name LVMGroup](photos/installation/EnterLVMGroupName.png)
+![Enter name LVMGroup](../../photos/installation/EnterLVMGroupName.png)
 
 35- Select the partition where we should create the group.
-![Select Device](photos/installation/SelectSda5forVolumeGroup.png)
+![Select Device](../../photos/installation/SelectSda5forVolumeGroup.png)
 
 36- We have to create them as the example in the subject
-![Logical Partitions Example](photos/installation/LogicalPartitionsExample.png)
-![Create First Logical Volume](photos/installation/CreateFirstLogicalVolume.png)
+![Logical Partitions Example](../../photos/installation/LogicalPartitionsExample.png)
+![Create First Logical Volume](../../photos/installation/CreateFirstLogicalVolume.png)
 
 37- We will start by choosing the group where we want them to be created. We select the only
 one available (the one we just created).
-![Select Logical Volumes Group](photos/installation/SelectVolumeGroup.png)
+![Select Logical Volumes Group](../../photos/installation/SelectVolumeGroup.png)
 
 38- The order of creating the logical units will be the same as indicated in the subject, so
 we will start with root and end with var-log. Then we will select the name of the logical
 volume.
-![Put Root Name](photos/installation/putRootName.png)
+![Put Root Name](../../photos/installation/putRootName.png)
 
 39- Size, as the subject indicates, will be 10g.
-![Put size](photos/installation/putsize.png)
+![Put size](../../photos/installation/putsize.png)
 
 40- To not cause repetition, go on and do the same for all partitions in the group volume
 and give the same name and size the same as in the example above
 
 41- If you made them all you should have exact window like below, and type finish.
-![Finish logical Partitions](photos/installation/finishedLogicalPartitions.png)
+![Finish logical Partitions](../../photos/installation/finishedLogicalPartitions.png)
 
 42- Now we can see how in the section where they show us all our partitions and free space,
 all the logical partitions that we just created already appear. Well, we must configure all of
 them to select the file system we want and the mount point indicated by the subject. Again we
 will go in order and select by pressing enter the first one that appears to us, which is home.
-![Set up Home](photos/installation/setupHome.png)
+![Set up Home](../../photos/installation/setupHome.png)
 
 43- It shows us the partition configuration. We must choose a file system since it currently does not have one by pressing with enter at use as do not use.
-![Use Home as Do not Use](photos/installation/useHomeAsDoNotUse.png)
+![Use Home as Do not Use](../../photos/installation/useHomeAsDoNotUse.png)
 
 44- Choose the Ext4 file system, it is the most used file system in Linux distributions.
-![Journalist File System](photos/installation/Ext4.png)
+![Journalist File System](../../photos/installation/Ext4.png)
 
 45- We must select the mount point by pressing enter on it
-![Select Mount Point](photos/installation/SelectMountPoint.png)
+![Select Mount Point](../../photos/installation/SelectMountPoint.png)
 
 46- For home select home and for others in the future choose the specific for them to not
 repeat the same thing
-![Mount Home with home](photos/installation/homemount.png)
+![Mount Home with home](../../photos/installation/homemount.png)
 
 46- Done setting up partition
-![Done setting up partition](photos/installation/DoneSettingUpPartitionHome.png)
+![Done setting up partition](../../photos/installation/DoneSettingUpPartitionHome.png)
 
 46- Go now and do the same for all partitions.
 Only for the var/log you have to enter the mounting point manually and for the swap do not
 choose Journalist File System but choose swap area after you click use as do not use.
 In the end Finish partitioning and write changes to disk.
-![Finish partitioning](photos/installation/FinishingPartWriteChangesToDisk.png)
+![Finish partitioning](../../photos/installation/FinishingPartWriteChangesToDisk.png)
 Confirm and after it you will see the installation bar.
-![Installing base system](photos/installation/InstallingBaseSystem.png)
+![Installing base system](../../photos/installation/InstallingBaseSystem.png)
 
 47- It will ask for us to install additional packages but we select no since we don't need them
-![No Extra Packages](photos/installation/NoextraPackages.png)
+![No Extra Packages](../../photos/installation/NoextraPackages.png)
 
 48- Choose the country that is specific to you.
-![Choose a country](photos/installation/CountryForMirroringDebian.png)
+![Choose a country](../../photos/installation/CountryForMirroringDebian.png)
 
 49- I choose deb.debian.org, since taking into account my region, it is where we will have a
 better connection.
-![Choose the archive mirror](photos/installation/debianOrg.png)
+![Choose the archive mirror](../../photos/installation/debianOrg.png)
 
 50- Leave this field empty and continue.
-![Continue](photos/installation/httpProxy.png)
+![Continue](../../photos/installation/httpProxy.png)
 
 51- We do not want developers to see our statistics so select no
-![Don't sent statistics to no one](photos/installation/NoStatistics.png)
+![Don't sent statistics to no one](../../photos/installation/NoStatistics.png)
 
 52- We will remove all software options (with the space bar) and click Continue
 since in the subject they are forbidden.
-![Continue without softwares](photos/installation/Forbidden.png)
+![Continue without softwares](../../photos/installation/Forbidden.png)
 
 53- We will select Yes to install GRUB boot on the hard drive.
 GRUB plays a crucial role in the boot process of Linux-based operating systems, providing a flexible and customizable bootloader solution that facilitates system booting, kernel loading, and system recovery.
-![Accept to install GRUB](photos/installation/GRUB.png)
+![Accept to install GRUB](../../photos/installation/GRUB.png)
 
 53- Next choose the device for the /dev/sda bootloader installation (ata_VBOX_HARDDISK).
-![Config grup-pc](photos/installation/ConfigGrup-Pc.png)
+![Config grup-pc](../../photos/installation/ConfigGrup-Pc.png)
 
 54- Type continue to finish the installation.
-![Complete Installation](photos/installation/CompleteInstallation.png)
+![Complete Installation](../../photos/installation/CompleteInstallation.png)
 
 Now your system will open and ask for password lets jump to the next steps :)
 
@@ -418,10 +418,10 @@ Now your system will open and ask for password lets jump to the next steps :)
 
 1- The first thing we must do is select Debian GNU/Linux.
 We must enter the encryption password that we previously used.
-![Enter sda5 Password](photos/MachineConfiguration/EnterSda5Password.png)
+![Enter sda5 Password](../../photos/MachineConfiguration/EnterSda5Password.png)
 
 2- Enter Non root user username and password
-![Enter Non root user password](photos/MachineConfiguration/EnterNonRootUserPassword.png)
+![Enter Non root user password](../../photos/MachineConfiguration/EnterNonRootUserPassword.png)
 We now have everything ready to start configuring our Debian virtual machine 🥳
 
 ## Installing sudo and configuring users and groups
@@ -429,11 +429,12 @@ We now have everything ready to start configuring our Debian virtual machine �
 1- To install sudo we must first be in the root user, to do this we will put Su in the
 terminal and enter the root password. Once we have accessed the root user, we must enter the
 apt install sudo command to install the necessary packages.
-![Installing sudo](photos/MachineConfiguration/InstallingSudo.png)
+![Installing sudo](../../photos/MachineConfiguration/InstallingSudo.png)
 
 2- We must restart the machine for the changes to be applied. To do this we will use the sudo reboot command and wait for it to reboot.
 
-![sudo reboot](photos/MachineConfiguration/sudoReboot.png)
+![sudo reboot](../../photos/MachineConfiguration/sudoReboot.png)
+
 
 3- Once restarted we must re-enter the encryption and user passwords. To verify that we have
 installed sudo correctly, we will enter the root user again and enter the command sudo -V.
@@ -443,33 +444,33 @@ Optional: Since the output of the command is very long, if we want to see it com
 must redirect its output to a file sudo -V > file.txt and then edit the file nano file.txt. Or
 put | more after the command.
 
-![check sudo](photos/MachineConfiguration/sudo-v.png)
+![check sudo](../../photos/MachineConfiguration/sudo-v.png)
 
 4- Continuing with the root user, we will create a user with the name of our non root user
 which is loged in with the command sudo adduser login, as we have already created the user in
 the installation, it should appear that the user already exists.
-![sudo add user](photos/MachineConfiguration/sudoAddUsser.png)
+![sudo add user](../../photos/MachineConfiguration/sudoAddUsser.png)
 
 5- Now we will have to create a new group called user42. To create it we must do sudo addgroup
 user42.
 
-![sudo add group](photos/MachineConfiguration/sudoAddGroups.png)
+![sudo add group](../../photos/MachineConfiguration/sudoAddGroups.png)
 
 🤔 Ever heard of GID? It stands for Group Identifier, abbreviated as Group ID. Essentially, it's a unique identifier assigned to a group 🆔 in a Unix-like operating system. Just like how each user has a UID (User ID), each group gets its own GID. This identifier helps the system manage permissions and access control, allowing users within the same group to share resources and collaborate effectively. So, think of GID as the group's digital fingerprint—it ensures smooth coordination and organization within the operating system!
 
 🤔 Has the group been created correctly? The truth is that yes, since there has been no error message, we can still check if it has been created with the command getent group group_name or we can also do cat /etc/group and we can see all the groups and users there are inside them.
 
-![sudo getent group_name](photos/MachineConfiguration/sudoGetEnt.png)
+![sudo getent group_name](../../photos/MachineConfiguration/sudoGetEnt.png)
 
 And this will be the output of <b>cat /etc/group</b>
-![cat /etc/group](photos/MachineConfiguration/catetcgroup.png)
+![cat /etc/group](../../photos/MachineConfiguration/catetcgroup.png)
 
 6- With the command <b>sudo adduser user group</b> we will include the user in the group. We
 must include the user in the sudo and user42 groups.
 Once we have entered them, to check that everything has been done correctly, we can execute
 the command getent group group_name or we can also edit the file /etc/group nano /etc/group
 and our user should appear in the sudo and login42 groups.
-![Add eseferi to user42 and sudo](photos/MachineConfiguration/addEseferiToSudo.png)
+![Add eseferi to user42 and sudo](../../photos/MachineConfiguration/addEseferiToSudo.png)
 
 ## Installation and Configuration of SSH
 
@@ -477,20 +478,20 @@ and our user should appear in the sudo and login42 groups.
 
 1- The first thing we will do is do sudo apt update to update the repositories that we defined
 in the /etc/apt/sources.list file
-![Update](photos/MachineConfiguration/sudoaptupdate.png)
+![Update](../../photos/MachineConfiguration/sudoaptupdate.png)
 
 2- Next we will install the main connectivity tool for remote login with the SSH protocol,
 this tool is OpenSSH. To install it we must enter the command <b><i>sudo apt install openssh-server</i></b>.
 In the confirmation message we put Y, then we will wait for the installation to finish.
-![Install openshh-server](photos/MachineConfiguration/installopenssh.png)
+![Install openshh-server](../../photos/MachineConfiguration/installopenssh.png)
 
 You should see something like below:
 
-![Installed openshh-server](photos/MachineConfiguration/installedSSH.png)
+![Installed openshh-server](../../photos/MachineConfiguration/installedSSH.png)
 
 To check that it has been installed correctly we will do <b><i>sudo service ssh status</i></b> and it should appear active.
 
-![Check ssh status](photos/MachineConfiguration/sshCheckstatus.png)
+![Check ssh status](../../photos/MachineConfiguration/sshCheckstatus.png)
 
 3- After completing the installation, there are configuration files we need to adjust. We'll
 utilize Nano, or any preferred text editor, for this task. The initial file to modify is
@@ -498,7 +499,8 @@ located at /etc/ssh/sshd_config. If you're not logged in as the root user, writi
 may be restricted. In such cases, you can either switch to the root user using 'su' followed
 by the root password, or alternatively, prepend 'sudo' to the command, like so: '<b><i>sudo nano etc/ssh/sshd_config</b></i>'."
 
-![open sshd_config with nano](photos/MachineConfiguration/nano-sshd_config.png)
+![open sshd_config with nano](../../photos/MachineConfiguration/nano-sshd_config.png)
+
 
 🕒 By the way, if you're planning to take a break like I did between sections, I highly
 recommend creating a snapshot of your virtual machine before shutting it down. You can do this
@@ -506,11 +508,11 @@ easily by navigating to the 'Machine' menu at the top of your VM window, selecti
 Snapshot,' and giving it a name. This way, when you restart your machine later, you can simply
 use this snapshot to restore it to its previous state. 📸
 
-![Take snapshot](photos/MachineConfiguration/snapshoot.png)
+![Take snapshot](../../photos/MachineConfiguration/snapshoot.png)
 
 This is the way how you can start it
 
-![Restore snapshot](photos/MachineConfiguration/startSnapshot.png)
+![Restore snapshot](../../photos/MachineConfiguration/startSnapshot.png)
 
 Let's go back where we left it. The # at the beginning of a line means that it is commented,
 the lines that we are going to modify you must remove the comment. Once we are editing the
@@ -518,22 +520,22 @@ file we must modify the following lines:
 
 #Port 22 -> Port 4242
 #PermitRootLogin prohibit-password -> PermitRootLogin no
-![configure the sshd_config](photos/MachineConfiguration/configSshd_config.png)
+![configure the sshd_config](../../photos/MachineConfiguration/configSshd_config.png)
 
 4- Now we must edit the file /etc/ssh/ssh_config.
 
-![configure the ssh_config](photos/MachineConfiguration/configSsh_config.png)
+![configure the ssh_config](../../photos/MachineConfiguration/configSsh_config.png)
 
 Uncoment the Port 22 and change it to 4242
 
-![Uncoment port of the ssh_config](photos/MachineConfiguration/activatePort.png)
+![Uncoment port of the ssh_config](../../photos/MachineConfiguration/activatePort.png)
 
 7- Finally, we must restart the ssh service so that the modifications we have just made are
 updated. To do this we must write the command <b><i>sudo service ssh restart</b></i> and once
 reset we will look at the current status with sudo service ssh status and to confirm that the
 changes have been made to the server listening, Port 4242 should appear.
 
-![Restart ssh after updating it](photos/MachineConfiguration/restartSSH.png)
+![Restart ssh after updating it](../../photos/MachineConfiguration/restartSSH.png)
 
 ## Installing and Configuring UFW
 
@@ -544,7 +546,7 @@ install ufw</b></i> in your terminal. When prompted, type 'y' to confirm your in
 install the package, then patiently wait for the process to complete. This sets the stage for
 configuring your firewall and bolstering your system's security.
 
-![Instal ufw](photos/MachineConfiguration/installufw.png)
+![Instal ufw](../../photos/MachineConfiguration/installufw.png)
 
 2- 🔥 Once UFW is installed, the next crucial step is to enable it. Simply enter the command
 <b><i>sudo ufw enable</b></i> in your terminal. Upon execution, you should receive an
@@ -555,32 +557,34 @@ is fortified against unauthorized access, bolstering its overall security postur
 
 🔍 Lastly, let's ensure everything is correctly configured by checking the status of our firewall. Execute the command sudo ufw status in your terminal. Here, you should observe connections through port 4242 already listed as allowed. This provides reassurance that your firewall is effectively safeguarding your system while permitting necessary communications.
 
-![Check ufw after configuring](photos/MachineConfiguration/checkUfw.png)
+![Check ufw after configuring](../../photos/MachineConfiguration/checkUfw.png)
 
 ## Set strong password for sudo
 
 1- 🔐 Next, we'll create a file at the path /etc/sudoers.d/ to store our password configuration. I've opted to name the file sudo_config for clarity. Execute the command touch /etc/sudoers.d/sudo_config in your terminal to create the file. This file will play a crucial role in managing password settings securely.
 
-![create sudo_config](photos/MachineConfiguration/create_sudo_config.png)
+![create sudo_config](../../photos/MachineConfiguration/create_sudo_config.png)
+
 
 2- 📁 To meet the requirement of storing all sudo commands' input and output, we need to create a directory named sudo within the /var/log path. Execute the command mkdir /var/log/sudo in your terminal to create this directory. This ensures that all sudo activities are centrally logged, aiding in system administration and security monitoring.
 
-![create sudo directory](photos/MachineConfiguration/create_sudofolder.png)
+![create sudo directory](../../photos/MachineConfiguration/create_sudofolder.png)
 
 3- ✏️ Now, let's edit the file created in the previous step. As mentioned earlier, you can use your preferred text editor, but for simplicity, I'll demonstrate using nano. Execute the command nano /etc/sudoers.d/sudo_config in your terminal to open the file for editing. This step allows us to configure password policies securely and effectively.
 
-![configure sudo_config](photos/MachineConfiguration/config_sudoers.d.png)
+![configure sudo_config](../../photos/MachineConfiguration/config_sudoers.d.png)
+
 
 ## Strong Password Policy Settings 🔑
 
 1- The first step will be to edit the login.defs file.
 
-![nano login.defs file](photos/MachineConfiguration/nanologin.defs.png)
+![nano login.defs file](../../photos/MachineConfiguration/nanologin.defs.png)
 
 2- PASS_MAX_DAYS 99999 -> PASS_MAX_DAYS 30 </br>
 PASS_MIN_DAYS 0 -> PASS_MIN_DAYS 2
 
-![configure login.defs file](photos/MachineConfiguration/config_login.defs.png)
+![configure login.defs file](../../photos/MachineConfiguration/config_login.defs.png)
 
 🔐 Let's delve into configuring password policies:
 
@@ -598,14 +602,14 @@ the command sudo apt install libpam-pwquality in your terminal. When prompted, t
 confirm the installation and patiently wait for it to complete. These packages provide
 additional password quality checking capabilities, enhancing the security of your system.
 
-![Install libpam-quality](photos/MachineConfiguration/installlibpam-pwquality.png)
+![Install libpam-quality](../../photos/MachineConfiguration/installlibpam-pwquality.png)
 
 4- 🔐 Next, let's revisit editing a file and modify some lines. Use the command nano /etc/pam.
 d/common-password in your terminal to open the file for editing. This step allows us to
 configure password policies effectively within the system's common password handling
 configuration.
 
-![nano common-password](photos/MachineConfiguration/nanocommon-password.png)
+![nano common-password](../../photos/MachineConfiguration/nanocommon-password.png)
 
 5- After retry=3 we must add the following commands:
 
@@ -618,7 +622,7 @@ configuration.
     difok=7
     enforce_for_root
 
-![config common-password](photos/MachineConfiguration/config_common-password.png)
+![config common-password](../../photos/MachineConfiguration/config_common-password.png)
 
 🤔 Let's break down each command:
 
@@ -647,11 +651,11 @@ descriptive name. This precautionary measure safeguards your progress and config
 preparing for SSH connectivity.
 🔒 To establish an SSH connection, start by closing the virtual machine. Then, open VirtualBox and navigate to the machine's configuration settings. This step allows us to adjust network settings and enable SSH connectivity for the virtual machine.
 
-![open settings](photos/MachineConfiguration/GotoNetwork.png)
+![open settings](../../photos/MachineConfiguration/GotoNetwork.png)
 
 And set the port
 
-![set port](photos/MachineConfiguration/setport.png)
+![set port](../../photos/MachineConfiguration/setport.png)
 
 2- To connect to the virtual machine from the host machine, open a terminal on the host and type
 
@@ -662,7 +666,7 @@ eseferi and port 4242. You'll be prompted to enter the user password. Once authe
 login prompt will appear in green, indicating a successful connection. In case you are having a
 problem like below:
 
-![Error on ssh connection](photos/MachineConfiguration/errorSsshConection.png)
+![Error on ssh connection](../../photos/MachineConfiguration/errorSsshConection.png)
 
 The error message you received indicates that the ECDSA key for the host localhost on port 4242 has changed since the last time you connected, and your SSH client is configured to perform strict host key checking, which prevents the connection due to this change.
 
@@ -670,12 +674,12 @@ Go on and type in your terminal
 
     nano ~/.ssh/known_hosts
 
-![nano known_hosts](photos/MachineConfiguration/nano_known_hosts.png)
+![nano known_hosts](../../photos/MachineConfiguration/nano_known_hosts.png)
 
 Delete the line that looks like [localhost]:4242 ecdsa-sha2-nistp256 AAAA...
 Save the file and then try connecting again.
 
-![delete previous local host](photos/MachineConfiguration/deletepreviouslocalhost.png)
+![delete previous local host](../../photos/MachineConfiguration/deletepreviouslocalhost.png)
 
 After try again to connect with
 
@@ -683,7 +687,7 @@ After try again to connect with
 
 And it should ask for the password of the non root user like below:
 
-![success connection via ssh](photos/MachineConfiguration/Sshsucessconnection.png)
+![success connection via ssh](../../photos/MachineConfiguration/Sshsucessconnection.png)
 
 Have your machine open while you connect with shh.
 
@@ -762,15 +766,15 @@ To obtain the number of commands executed with sudo, we will use the journalctl 
 
 From your ssh connection open in super user mode and nano monitoring.sh to create the bash file
 
-![nano monitoring.sh](photos/MachineConfiguration/nanomonitoring_sh.png)
+![nano monitoring.sh](../../photos/MachineConfiguration/nanomonitoring_sh.png)
 
 And write the script inside like below
 
-![script.sh](photos/MachineConfiguration/Script_sh.png)
+![script.sh](../../photos/MachineConfiguration/Script_sh.png)
 
 After running the script
 
-![after running script.sh](photos/MachineConfiguration/AfterrunningScript.png)
+![after running script.sh](../../photos/MachineConfiguration/AfterrunningScript.png)
 
 ## Crontab
 
@@ -792,7 +796,7 @@ So after typing
 
 You should configure the crontab file
 
-![Configurign crotab](photos/MachineConfiguration/configuring_crontab.png)
+![Configurign crotab](../../photos/MachineConfiguration/configuring_crontab.png)
 
 Operation of each crontab parameter:
 
@@ -818,7 +822,8 @@ prioritizing speed, as it requires fewer CPU and RAM resources compared to alter
 
     sudo apt install lighttpd
 
-![install light tpd](photos/bonus/installlightpd.png)
+![install light tpd](../../photos/bonus/installlightpd.png)
+
 
 2- Allow connections through port 80
 
@@ -828,13 +833,13 @@ prioritizing speed, as it requires fewer CPU and RAM resources compared to alter
 
     sudo ufw status
 
-![check if lighttpd is allowd](photos/bonus/checkLighttpd.png)
+![check if lighttpd is allowd](../../photos/bonus/checkLighttpd.png)
 
 4- We include the rule that encompasses port 80. If you're uncertain about how to add rules in
 port forwarding, navigate to Machine configuration → Network → Port forwarding, and replicate
 the capture.
 
-![add port 80 to machine](photos/bonus/addport80.png)
+![add port 80 to machine](../../photos/bonus/addport80.png)
 
 ## WordPress
 
@@ -846,7 +851,7 @@ First install <b><i>wget and zip</b></i>
 
     sudo apt install wget zip
 
-![install wget and zip](photos/bonus/InstallWgetZip.png)
+![install wget and zip](../../photos/bonus/InstallWgetZip.png)
 💡 What is wget? It is a versatile command-line tool used for downloading files from the internet. </br>
 💡 What is zip? It is a command-line utility for compressing and decompressing files in ZIP format. </br>
 
@@ -856,7 +861,7 @@ latest english version of WordPress.
     cd /var/www/
     sudo wget https://wordpress.org/latest.zip
 
-![Download Wordpress](photos/bonus/DownloadWordpress.png)
+![Download Wordpress](../../photos/bonus/DownloadWordpress.png)
 
 3- Unzip the dowloaded file
 
@@ -867,13 +872,14 @@ latest english version of WordPress.
     sudo mv html/ html_old/
     sudo mv wordpress/ html
 
-![Rename Folders](photos/bonus/renamFolders.png)
+![Rename Folders](../../photos/bonus/renamFolders.png)
 
 5- Set the permissions on html folder.
 
     sudo chmod -R 755 html
 
-![Change Permissions](photos/bonus/ChangePermissions.png)
+![Change Permissions](../../photos/bonus/ChangePermissions.png)
+
 
 ## Mariadb
 
@@ -885,7 +891,7 @@ including data warehousing, e-commerce, enterprise-level functions, and logging 
 
     sudo apt install mariadb-server
 
-![Mariadb Installation](photos/bonus/MariaDbInstallation.png)
+![Mariadb Installation](../../photos/bonus/MariaDbInstallation.png)
 
 2- Securing Mariadb
 
@@ -897,19 +903,19 @@ authentication. As we already have a protected root account, select 'N' to decli
 
     sudo mysql_secure_installation
 
-![Securing Mariadb](photos/bonus/SecuringMariadb.png)
+![Securing Mariadb](../../photos/bonus/SecuringMariadb.png)
 
 3- Access mariadb.
 
     mariadb
 
-![Access mariadb](photos/bonus/accessMariaDb.png)
+![Access mariadb](../../photos/bonus/accessMariaDb.png)
 
 4- Create a database for Wordpress
 
     CREATE DATABASE wp_database;
 
-![Create database](photos/bonus/CreateDatabase.png)
+![Create database](../../photos/bonus/CreateDatabase.png)
 
 5- Create a user inside database and grant privileges to it and update the permissions
 
@@ -917,13 +923,13 @@ authentication. As we already have a protected root account, select 'N' to decli
     GRANT ALL PRIVILEGES ON wp_database.* TO 'eseferi'@'localhost';
     FLUSH PRIVILEGES;
 
-![Create User inside database](photos/bonus/CreateUser.png)
+![Create User inside database](../../photos/bonus/CreateUser.png)
 
 6- Exit
 
     exit
 
-![exit database](photos/bonus/ExitMariadb.png)
+![exit database](../../photos/bonus/ExitMariadb.png)
 
 ## PHP
 
@@ -933,28 +939,29 @@ authentication. As we already have a protected root account, select 'N' to decli
 
     sudo apt install php-cgi php-mysql
 
-![Install packages](photos/bonus/PackageInstallation.png)
+![Install packages](../../photos/bonus/PackageInstallation.png)
 
 2- Configure worpress. Lets start by going to html and copying wp-config-sample.php and renaming to wp-config.php
 
     cd /var/www/html
     cp wp-config-sample.php wp-config.php
 
-![copying wp-config-sample.php](photos/bonus/Copyingwp_config.png)
+![copying wp-config-sample.php](../../photos/bonus/Copyingwp_config.png)
 
 3- Edit wp-config.php
 
     nano wp-config.php
 
-![nano wp-config.php](photos/bonus/nanoWpconfig.png)
+![nano wp-config.php](../../photos/bonus/nanoWpconfig.png)
 
 and modify from
 
-![Underlined has to be changed](photos/bonus/underlinedtochange.png)
+![Underlined has to be changed](../../photos/bonus/underlinedtochange.png)
 
 to
 
-![Underlined that changed](photos/bonus/UnderlinedthatChanged.png)
+![Underlined that changed](../../photos/bonus/UnderlinedthatChanged.png)
+
 
 4- Activate the fastcgi-php module in Lighttpd to enhance the performance and speed of web
 applications on the server, and update it in the end
@@ -963,24 +970,25 @@ applications on the server, and update it in the end
     sudo lighty-enable-mod fastcgi-php
     sudo service lighttpd force-reload
 
-![Activate lighty-enable-mod](photos/bonus/activatelighty-enable-mod.png)
+![Activate lighty-enable-mod](../../photos/bonus/activatelighty-enable-mod.png)
 
 5- Go to your browser and type localhost
 
-![Local Host on Browser](photos/bonus/localhostOnBrowser.png)
+![Local Host on Browser](../../photos/bonus/localhostOnBrowser.png)
 
 6- Fill on the fields and press on <b><i>Install WordPress</i></b>
 
-![Fill on the fields in Wordpress](photos/bonus/FillfieldsInWordPress.png)
-![Installed Wordpress](photos/bonus/InstalledWordPress.png)
+![Fill on the fields in Wordpress](../../photos/bonus/FillfieldsInWordPress.png)
+![Installed Wordpress](../../photos/bonus/InstalledWordPress.png)
+
 
 7- If you sign in you will se your Wordpress dashboard
 
-![Wordpress Dashboard](photos/bonus/WordpressDashpoard.png)
+![Wordpress Dashboard](../../photos/bonus/WordpressDashpoard.png)
 
 8- If we access our localhost again from the browser, we can observe our functional page.
 
-![Functional Wordpress page](photos/bonus/FucntionalWordPressPage.png)
+![Functional Wordpress page](../../photos/bonus/FucntionalWordPressPage.png)
 
 # STEP8: Installing FTP as an optional service from the subject
 
@@ -990,23 +998,23 @@ applications on the server, and update it in the end
     dpkg -l | grep vsftpd
     sudo ufw allow 21
 
-![Install ftp](photos/ftp/Instalftp.png)
+![Install ftp](../../photos/ftp/Instalftp.png)
 
 2- Configure ftp by configuring vsftfpd.conf file
 
     sudo nano /etc/vsftpd.conf
 
-![nanoftp](photos/ftp/nanoftp.png)
+![nanoftp](../../photos/ftp/nanoftp.png)
 
     uncomment write_enable=YES
 
 It was like this
 
-![Commented write_enable option](photos/ftp/ComentedWriteEnable.png)
+![Commented write_enable option](../../photos/ftp/ComentedWriteEnable.png)
 
 Now it should be like below
 
-![Uncommented Write_enable option](photos/ftp/UncommentedWriteEnable.png)
+![Uncommented Write_enable option](../../photos/ftp/UncommentedWriteEnable.png)
 
 Navigate to the /home/user/ directory in my case /home/eseferi and write this commands
 
@@ -1020,7 +1028,7 @@ Navigate to the /home/user/ directory in my case /home/eseferi and write this co
     user_sub_token=$USER
     local_root=/home/$USER/ftp
 
-![Enter Command Lines](photos/ftp/EnterCommLines.png)
+![Enter Command Lines](../../photos/ftp/EnterCommLines.png)
 
     These lines are shell commands used to set up a basic FTP directory structure and permissions. Let's break down each line:
 
@@ -1040,27 +1048,27 @@ Open again vsftpd.conf
 
     nano vsftpd.conf
 
-![nanoftp](photos/ftp/nanoftp.png)
+![nanoftp](../../photos/ftp/nanoftp.png)
 
 And uncommend chroot_local_user=YES o prevent user from acessing files or using commands outside the directory tree
 
 so from commented
 
-![commented chroot](photos/ftp/ComentedChroot.png)
+![commented chroot](../../photos/ftp/ComentedChroot.png)
 
 to uncommented like below
 
-![uncommented chroot](photos/ftp/uncommentedChroot.png)
+![uncommented chroot](../../photos/ftp/uncommentedChroot.png)
 
 3- Create an empty user list file with this command
 
     sudo nano /etc/vsftpd.userlist
 
-![nano vsftpd.userlist](photos/ftp/nanovsftpd.userlist.png)
+![nano vsftpd.userlist](../../photos/ftp/nanovsftpd.userlist.png)
 
 You should see an empty file like this
 
-![Empty user list file](photos/ftp/emptyuserlist.png)
+![Empty user list file](../../photos/ftp/emptyuserlist.png)
 
 save the file and after run this command in terminal
 
@@ -1078,23 +1086,23 @@ and add this lines
 
 You should have something like this
 
-![Configured vsftpd.userlist](photos/ftp/configurevsftpd.userlist.png)
+![Configured vsftpd.userlist](../../photos/ftp/configurevsftpd.userlist.png)
 
 4- Add the port 21 in you VMbox
 
-![Add port 21](photos/ftp/ADdport21.png)
+![Add port 21](../../photos/ftp/ADdport21.png)
 
 5- Check Ftp status
 
     sudo systemctl status vsftpd
 
-![check ftp status](photos/ftp/CheckFtpStatus.png)
+![check ftp status](../../photos/ftp/CheckFtpStatus.png)
 
 We can also check if it is listening in port 21
 
     sudo ss -tuln | grep :21
 
-![ftp listening in port 21](photos/ftp/ftpListeningon21.png)
+![ftp listening in port 21](../../photos/ftp/ftpListeningon21.png)
 
 The output indicates that there is a service listening on port 21, which is typically the port used by the
 FTP service. Here's what the output means:
@@ -1119,14 +1127,14 @@ from this link https://cyberduck.io/download/ and installit.
 
 You should see something like below
 
-![Installed cyber duck](photos/ftp/InstalledCyberDuck.png)
+![Installed cyber duck](../../photos/ftp/InstalledCyberDuck.png)
 
 Press on oppen connection and fill the required fields
 
-![Fill cyber duck](photos/ftp/FillCyberDuck.png)
+![Fill cyber duck](../../photos/ftp/FillCyberDuck.png)
 
 Good job now you are connected and you can receive and send files with ftp
 
-![Connected ftp](photos/ftp/connectedFtp.png)
+![Connected ftp](../../photos/ftp/connectedFtp.png)
 
 🎉 Thank you for embarking on this journey with me! I trust that this guide has been a valuable resource for you, helping you navigate through your tasks smoothly. If you found this guide helpful and informative, consider showing your support by starring this repository. Your encouragement fuels my passion to create more helpful content and enhance existing guides. Don't hesitate to reach out if you have any feedback, suggestions, or questions. Keep shining and happy exploring! 🚀🌟
