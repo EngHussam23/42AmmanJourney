@@ -30,15 +30,15 @@ virtualization give the virtual machine (VM) it's own isolated environment inclu
 
 A software that distributes the resources given to the (VM) so the virtual envirnoment can use them as needed. When the physical device's hardware get's used as hypervisors it's considered the host and the (VM)s are the guests.The hypervisor relays every issued instruction to the physical system and caches the changes.
 
-<a id="Types of hypervisors">Types of hypervisors:</a>
+Types of hypervisors:
 
-Type 1: "Native / Bare Metal" hypervisor, ex: [KVMs](<####Kernal-BasedVirtualMachine(KVM)>).
+Type 1: "Native / Bare Metal" hypervisor, ex: KVMs.
 
 Type 2: "Hosted" hypervisor.
 
 #### Kernal-Based Virtual Machine (KVM)
 
-An open source [Type1](#Typesofhypervisors) hypervisor, which is a component of modern Linux distributions.
+An open source Type1 hypervisor, which is a component of modern Linux distributions.
 
 ### links:
 
