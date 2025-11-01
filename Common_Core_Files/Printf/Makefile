@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: halragga <halragga@student.42.fr>          +#+  +:+       +#+         #
+#    By: halragga <halragga@student.42amman.com>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/08/03 20:17:30 by halragga          #+#    #+#              #
-#    Updated: 2025/09/13 15:52:41 by halragga         ###   ########.fr        #
+#    Updated: 2025/11/01 13:17:25 by halragga         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -28,10 +28,10 @@ SRC_DIR = C_files
 SRC = $(SRC_DIR)/ft_printf.c $(SRC_DIR)/ft_print_void_ptr.c $(SRC_DIR)/ft_print_hex.c $(SRC_DIR)/ft_print_unsigned_int.c $(SRC_DIR)/ft_write_nbr.c $(SRC_DIR)/ft_write_str.c $(SRC_DIR)/ft_write_char.c
 
 # from .c to .o
-OBJ_DIR = Object_files
-OBJ = $(SRC:$(SRC_DIR)/%.c=$(OBJ_DIR)/%.o)
+# OBJ_DIR = Object_files
+OBJ = $(SRC:$(SRC_DIR)/%.c=$%.o) #(OBJ_DIR)/%.o
 # The object files (.o) will be created from the source files
-$(OBJ_DIR)/%.o: $(SRC_DIR)/%.c
+%.o: $(SRC_DIR)/%.c #$(OBJ_DIR)/%.o
 	$(CC) $(CFLAGS) -c $< -o $@
 
 all: $(NAME)
