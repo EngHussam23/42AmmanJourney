@@ -2,10 +2,12 @@
 
 ## Commands:
 
-- switch to root: ```su```
-- sitch to a user: ```su username```
-- verify the sudo version: ```sudo -v```
-- Adding / creating a user: ```sudo adduser username```
-- Adding / creating a group: ```sudo addgroup groupname```
-- listing the user groups: ```getent group```
-- checking the group existance: ```getent group group_name```
+- ```su```:
+  - if used on it's own it switches to root.
+  - if used with a username (```su username```) it switches to a user.
+- ```sudo -v```: verify the sudo version.
+- ```sudo adduser username```: add / create a user.
+- ```sudo addgroup groupname```: Adding / creating a group.
+- ```getent group```: listing the user groups.
+- ```getent group group_name```: checking the group existance.
+- 
