@@ -2,10 +2,50 @@
 
 ## Commands:
 
-- switch to root: ```su```
-- sitch to a user: ```su username```
-- verify the sudo version: ```sudo -v```
-- Adding / creating a user: ```sudo adduser username```
-- Adding / creating a group: ```sudo addgroup groupname```
-- listing the user groups: ```getent group```
-- checking the group existance: ```getent group group_name```
+- ```apt install```: a command for installing.
+- ```sudo```: gives the user the root previleges.
+- ```sudo reboot```: roboots the machine.
+- ```su```:
+  - if used on it's own it switches to root.
+  - if used with a username (```su username```) it switches to a user.
+- ```sudo -V```: verify the sudo version.
+- ```sudo adduser username```: add / create a user.
+- ```sudo addgroup groupname```: Adding / creating a group.
+- ```getent group```: listing the user groups.
+- ```getent group group_name```: checking the group existance.
+- ```getent group group_name user_name```: verfies the user ```user_name``` existance in the group ```group_name```.
+- ```sudo apt update```: update the system.
+- ```sudo service ssh status```.
+  - ```ssh``` part: is for the ssh server, in this command we check the ssh installation status and it's status too.
+  - the whole command checks the status for a specific service.
+  - other than ```status``` we have ```restart``` too: wich restarts the ssh service.
+  - ```ssh user_name@localhost -p 4241```: to connect via ssh from another machine (the physical machine in our case), "4241" is the port we connect to (specified by us).
+- ```nano```: is text editor recommend when using debian.
+- UFW:
+  - ```sudo apt isntall ufw```: install teh ufw (uncomplicated fire-wall).
+  - ```sudo ufw enable```: enable the ufw (uncomplicated fire-wall).
+  - ```sudo ufw allow 4241```: allow the port 4241 over the fire-wall to accept the connect.
+  - ```sudo ufw status```: check the status of the ufw.
+- ```touch /etc/sudoers.d/sudo_config```: create a sudo_config file to configure the "sudo" command and it's policy.
+- ```mkdir /var/log/sudo```: creates a log directory for "sudo".
+- ```nano /etc/sudoers.d/sudo_config```: open the sudo_config file with nano editor.
+  - ```Defaults  passwd_tries=3```: 3 tries total for the sudo (root) password.
+  - ```Defaults  badpass_message="Mensaje de error personalizado"```: the message to be shown when failing to enter the password.
+  - ```Defaults  logfile="/var/log/sudo/sudo_config"```: where to store "sudo" logs.
+  - ```Defaults  log_input, log_output```: what will be logged: the input & output logs.
+  - ```Defaults  iolog_dir="/var/log/sudo"```: where to be logged.
+  - ```Defaults  requiretty```: TTY is required.
+    - what is ```TTY```?
+      - .
+  - ```Defaults  secure_path="/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/snap/bin"```: directory that will be excluded from sudo.
+- ```nano /etc/login.defs```: edit the "login.defs" file to modify the login rules.
+  - password expiry days (max & min).
+  - when do you get the warning of the passoword expiry, like before how many days? 2, 6, 9 days before?
+- ```sudo apt install libpam-pwquality```: a library installed to enforce the passowrd quality rules.
+- ```nano /etc/pam.d/common-password```: edit PAM (Pluggable Authentication Modules) configurations.
+- ```sudo crontab -u root -e```: opens the crontab file to edit it.
+  - ```*/10 * * * * sh /path_to_file.sh```: enables the excution of the "path_to_file.sh" every 10 minutes.
+- Signautre file (signautre.txt):
+  - ???
+  - ```shasum machinename.vdi```: .
+- ```sudo apt install lighttpd```: install Lighttp.
