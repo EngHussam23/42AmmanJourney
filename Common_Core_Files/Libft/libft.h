@@ -3,15 +3,19 @@
 /*                                                        :::      ::::::::   */
 /*   libft.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: halragga <halragga@student.42.fr>          +#+  +:+       +#+        */
+/*   By: halragga <halragga@student.42amman.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/05 17:30:34 by halragga          #+#    #+#             */
-/*   Updated: 2025/09/22 14:29:18 by halragga         ###   ########.fr       */
+/*   Updated: 2025/11/25 20:40:32 by halragga         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef LIBFT_H
 # define LIBFT_H
+
+# ifndef BUFFER_SIZE
+#  define BUFFER_SIZE 4
+# endif
 
 # include <stdarg.h>
 # include <stdint.h>
@@ -61,5 +65,13 @@ void	ft_putnbr_fd(int n, int fd);
 size_t	ft_strlen(const char *s);
 size_t	ft_strlcpy(char *dst, const char *src, size_t size);
 size_t	ft_strlcat(char *dst, const char *src, size_t dstsize);
+//
+char	*get_next_line(int fd);
+size_t	get_len(const char *s);
+char	*find_new_line(const char *s);
+char	*join(char *s1, char *s2);
+char	*ft_substr(char const *s, unsigned int start, size_t len);
+char	*str_duplicate(const char *src);
+void	*cpy(void *dest, const void *src, size_t cpysize);
 
 #endif

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_memmove.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: halragga <halragga@student.42.fr>          +#+  +:+       +#+        */
+/*   By: halragga <halragga@student.42amman.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/06 12:42:51 by halragga          #+#    #+#             */
-/*   Updated: 2025/09/01 13:34:07 by halragga         ###   ########.fr       */
+/*   Updated: 2025/11/25 20:45:06 by halragga         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,11 +29,9 @@ void	*ft_memmove(void *dest, const void *src, size_t mvsize)
 {
 	const char		*csrc;
 	char			*cdest;
-	size_t			i;
 
 	csrc = (const char *)src;
 	cdest = (char *)dest;
-	i = 0;
 	if (dest < src)
 		return (ft_memcpy(cdest, csrc, mvsize));
 	else if (dest > src)
