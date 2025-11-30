@@ -6,7 +6,7 @@
 #    By: halragga <halragga@student.42amman.com>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/11/29 13:10:47 by halragga          #+#    #+#              #
-#    Updated: 2025/11/29 18:39:21 by halragga         ###   ########.fr        #
+#    Updated: 2025/11/30 13:47:31 by halragga         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -36,7 +36,7 @@ LIBFT = $(LIBFT_PATH)/libft.a
 SRC_DIR = C
 
 # Source files (.c)
-SRC = $(SRC_DIR)/ft_filename.c
+SRC = $(SRC_DIR)/init.c $(SRC_DIR)/render.c $(SRC_DIR)/colors.c $(SRC_DIR)/mandelbrot.c $(SRC_DIR)/julia.c $(SRC_DIR)/utils.c $(SRC_DIR)/events.c
 
 # Object files directory
 OBJ_DIR = Objects
@@ -53,16 +53,16 @@ OBJ = $(SRC:$(SRC_DIR)/%.c=$(OBJ_DIR)/%.o)
 $(OBJ_DIR)/%.o: $(SRC_DIR)/%.c
 	$(CC) $(CFLAGS) -c $< -o $@
 
-# Default target to run / build the project
-all: $(NAME)
-
 # Make the Libft library
 $(LIBFT):
 	make -C $(LIBFT_PATH)
 
 # Create the final executable by linking object files and Libft
-$(NAME): $(OBJ_DIR) $(OBJ) $(LIBFT)
+$(NAME): $(LIBFT) $(OBJ_DIR) $(OBJ)
 	$(CC) $(CFLAGS) $(OBJ) $(LIBFT) -o $(NAME)
+
+# Default target to run / build the project
+all: $(NAME)
 
 # clean the objects files
 clean:
