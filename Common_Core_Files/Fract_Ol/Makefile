@@ -6,16 +6,24 @@
 #    By: halragga <halragga@student.42amman.com>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/11/29 13:10:47 by halragga          #+#    #+#              #
-#    Updated: 2025/11/29 17:00:49 by halragga         ###   ########.fr        #
+#    Updated: 2025/11/29 18:39:21 by halragga         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-# The library file name
+# The executable file name:
 NAME = fractol
 
-# Compilation command and flags
+# Compilation command:
 CC = cc
-CFLAGS = -Wall -Wextra -Werror -lmlx -lXext -lX11 -lm
+
+# Compilation flags:
+# -lmlx: MiniLibX library linking command; graphics lib, needed to open windows, draw pixels, create images, etc.
+# -lX11: a library MiniLibX needs it to communicate with the display server.
+# -lXext: X11 Extension library linking command; provides additional functionality for the X11 library, like image handling.
+# -lm: Math library.
+# -lz : Compression library.
+MLX_FLAGS = -lmlx -lXext -lX11 -lm -lz
+CFLAGS = -Wall -Wextra -Werror $(MLX_FLAGS)
 
 # Remove command
 RM = rm -f
@@ -52,16 +60,9 @@ all: $(NAME)
 $(LIBFT):
 	make -C $(LIBFT_PATH)
 
-# Build MLX
-$(LIBFT):
-	make -C $(LIBFT_PATH)
-
 # Create the final executable by linking object files and Libft
-$(NAME): $(OBJ) $(LIBFT)
-	cp $(LIBFT) Libfttemp.a
-	ar x Libfttemp.a
-	ar rcs $(NAME) $(OBJ) *.o
-	rm -f Libfttemp.a *.o
+$(NAME): $(OBJ_DIR) $(OBJ) $(LIBFT)
+	$(CC) $(CFLAGS) $(OBJ) $(LIBFT) -o $(NAME)
 
 # clean the objects files
 clean:
