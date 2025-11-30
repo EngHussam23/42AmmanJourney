@@ -6,11 +6,11 @@
 /*   By: halragga <halragga@student.42amman.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/29 16:52:21 by halragga          #+#    #+#             */
-/*   Updated: 2025/11/29 17:13:48 by halragga         ###   ########.fr       */
+/*   Updated: 2025/11/29 17:19:51 by halragga         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <mlx.h>
+#include "fractol.h"
 
 int	main(void)
 {
