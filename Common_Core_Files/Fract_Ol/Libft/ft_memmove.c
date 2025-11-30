@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_memmove.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: halragga <halragga@student.42.fr>          +#+  +:+       +#+        */
+/*   By: halragga <halragga@student.42amman.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/06 12:42:51 by halragga          #+#    #+#             */
-/*   Updated: 2025/09/11 13:55:44 by halragga         ###   ########.fr       */
+/*   Updated: 2025/11/25 20:45:06 by halragga         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ static void	*reverse_fill(char *dest, const char *src, size_t mvsize)
 {
 	int	i;
 
-	i = (int)mvsize - 1;
+	i = (int) mvsize - 1;
 	while (i >= 0)
 	{
 		dest[i] = src[i];
@@ -27,8 +27,8 @@ static void	*reverse_fill(char *dest, const char *src, size_t mvsize)
 
 void	*ft_memmove(void *dest, const void *src, size_t mvsize)
 {
-	const char	*csrc;
-	char		*cdest;
+	const char		*csrc;
+	char			*cdest;
 
 	csrc = (const char *)src;
 	cdest = (char *)dest;
