@@ -1,27 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_print_unsigned_int.c                            :+:      :+:    :+:   */
+/*   movement.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: halragga <halragga@student.42.fr>          +#+  +:+       +#+        */
+/*   By: halragga <halragga@student.42amman.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/09/13 11:55:46 by hussam            #+#    #+#             */
-/*   Updated: 2025/09/22 14:29:10 by halragga         ###   ########.fr       */
+/*   Created: 2025/12/01 17:57:45 by halragga          #+#    #+#             */
+/*   Updated: 2025/12/01 17:57:59 by halragga         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "so_long.h"
 
-int	ft_print_unsigned_int(unsigned int n, int fd)
-{
-	int		count;
-	char	c;
-
-	count = 0;
-	if (n > 9)
-		count += ft_print_unsigned_int(n / 10, fd);
-	c = '0' + (n % 10);
-	ft_putchar_fd(c, fd);
-	count++;
-	return (count);
-}
+int		handle_key(int key, t_game *game);
+void	move_player(t_game *game, int dx, int dy);

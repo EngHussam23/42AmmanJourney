@@ -5,7 +5,12 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: halragga <halragga@student.42amman.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/11/30 13:04:14 by halragga          #+#    #+#             */
-/*   Updated: 2025/11/30 13:04:47 by halragga         ###   ########.fr       */
+/*   Created: 2025/12/01 17:53:11 by halragga          #+#    #+#             */
+/*   Updated: 2025/12/01 17:57:01 by halragga         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+#include "so_long.h"
+
+void	render(t_game *game);
+void	render_tile(t_game *game, int x, int y);

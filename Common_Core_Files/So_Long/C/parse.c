@@ -1,24 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_write_nbr.c                                     :+:      :+:    :+:   */
+/*   parse.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: halragga <halragga@student.42.fr>          +#+  +:+       +#+        */
+/*   By: halragga <halragga@student.42amman.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/09/13 12:07:47 by hussam            #+#    #+#             */
-/*   Updated: 2025/09/22 14:29:45 by halragga         ###   ########.fr       */
+/*   Created: 2025/12/01 17:57:09 by halragga          #+#    #+#             */
+/*   Updated: 2025/12/01 20:37:05 by halragga         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "so_long.h"
 
-int	ft_write_nbr(int n, int fd, int count)
+void	parse_map(t_game *game, char *file)
 {
-	char	*ptr;
 
-	ptr = ft_itoa(n);
-	count += ft_strlen(ptr);
-	ft_putstr_fd(ptr, fd);
-	free(ptr);
-	return (count);
+}
+
+int	has_valid_chars(t_game *game)
+{
+
+}
+
+int	is_recatngular(t_game *game)
+{
+
+}
+
+
+void	validate_map(t_game *game)
+{
+	int	fd;
+
+	fd = open();
 }

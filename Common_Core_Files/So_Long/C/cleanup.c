@@ -1,29 +1,17 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memchr.c                                        :+:      :+:    :+:   */
+/*   cleanup.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: halragga <halragga@student.42.fr>          +#+  +:+       +#+        */
+/*   By: halragga <halragga@student.42amman.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/08/06 12:39:58 by halragga          #+#    #+#             */
-/*   Updated: 2025/08/24 14:42:57 by halragga         ###   ########.fr       */
+/*   Created: 2025/12/01 17:58:11 by halragga          #+#    #+#             */
+/*   Updated: 2025/12/01 17:58:27 by halragga         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "so_long.h"
 
-void	*ft_memchr(const void *s, int c, size_t n)
-{
-	size_t			i;
-	unsigned char	*cs;
-
-	i = 0;
-	cs = (unsigned char *) s;
-	while (i < n)
-	{
-		if (cs[i] == (unsigned char)c)
-			return (cs + i);
-		i++;
-	}
-	return (NULL);
-}
+void	free_map(t_game *game);
+void	destroy_images(t_game *game);
+void	exit_game(t_game *game);

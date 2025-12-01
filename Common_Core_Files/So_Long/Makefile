@@ -5,79 +5,76 @@
 #                                                     +:+ +:+         +:+      #
 #    By: halragga <halragga@student.42amman.com>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2025/11/29 13:10:47 by halragga          #+#    #+#              #
-#    Updated: 2025/12/01 13:38:47 by halragga         ###   ########.fr        #
+#    Created: 2025/12/01 14:26:43 by halragga          #+#    #+#              #
+#    Updated: 2025/12/01 17:52:49 by halragga         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-# TODO: this file requires a lot of updates and changes, urgently!!!
-
-# The executable file name:
+# Excutable file:
 NAME = so_long
 
-# Compilation command:
-CC = cc
-
-# Compilation flags:
+# Flags:
+CFLAGS = -Wall -Wextra -Werror
 # -lmlx: MiniLibX library linking command; graphics lib, needed to open windows, draw pixels, create images, etc.
 # -lX11: a library MiniLibX needs it to communicate with the display server.
 # -lXext: X11 Extension library linking command; provides additional functionality for the X11 library, like image handling.
 # -lm: Math library.
 # -lz : Compression library.
-MLX_FLAGS = -lmlx -lXext -lX11 -lm -lz
-CFLAGS = -Wall -Wextra -Werror $(MLX_FLAGS)
+MLX_FLAGS = -lmlx -lXext -lX11 -lm
 
-# Remove command
+#Compilation Command "Full":
+CC = cc $(CFLAGS) $(MLX_FLAGS)
+
+# Force Remove:
 RM = rm -f
 
-#Libft library
-LIBFT_PATH = libft
-LIBFT = $(LIBFT_PATH)/libft.a
+# Libft:
+LIBFT_PATH = Libft
+LIBFT_ARC = $(LIBFT_PATH)/libft.a
 
-# Source files directory
+# Source Files:
 SRC_DIR = C
+SRCs = $(SRC_DIR)/cleanup.c $(SRC_DIR)/render.c $(SRC_DIR)/movement.c $(SRC_DIR)/parse.c
 
-# Source files (.c)
-SRC = $(SRC_DIR)/init.c $(SRC_DIR)/render.c $(SRC_DIR)/colors.c $(SRC_DIR)/mandelbrot.c $(SRC_DIR)/julia.c $(SRC_DIR)/utils.c $(SRC_DIR)/events.c
-
-# Object files directory
+# Objects directory:
 OBJ_DIR = Objects
 
-# Create the object files directory if it doesn't exist
+# Objects:
+# from (.c) to (.o):
+OBJ = $(SRCs:$(SRC_DIR)/%.c=$(OBJ_DIR)/%.o)
+
+# Initaite the compilation automation
+all: $(NAME)
+
+# Compile but don't re-link
+$(OBJ_DIR)/%.o: $(SRC_DIR)/%.c
+	cc $(CFLAGS) -c $< -o $@
+
+# Libft make:
+$(LIBFT_ARC):
+	make -C $(LIBFT_PATH)
+
+# Final compilation, where the linikng happens:
+$(NAME): $(LIBFT_ARC) $(OBJ_DIR) $(OBJ)
+	$(CC) $(OBJ) $(LIBFT_ARC) -o $(NAME)
+
+# PROTECTION! in case the objects directory is not created:
 $(OBJ_DIR):
 	mkdir -p $(OBJ_DIR)
 
-# Object files
-# from .c to .o
-OBJ = $(SRC:$(SRC_DIR)/%.c=$(OBJ_DIR)/%.o)
-
-# The object files (.o) will be created from the source files
-$(OBJ_DIR)/%.o: $(SRC_DIR)/%.c
-	$(CC) $(CFLAGS) -c $< -o $@
-
-# Make the Libft library
-$(LIBFT):
-	make -C $(LIBFT_PATH)
-
-# Create the final executable by linking object files and Libft
-$(NAME): $(LIBFT) $(OBJ_DIR) $(OBJ)
-	$(CC) $(CFLAGS) $(OBJ) $(LIBFT) -o $(NAME)
-
-# Default target to run / build the project
-all: $(NAME)
-
-# clean the objects files
+# Objects level cleaning:
 clean:
 	$(RM) $(OBJ)
 	make -C $(LIBFT_PATH) clean
 
-# fclean the executables, archives, and object files
-fclean: clean
-	$(RM) $(NAME)
+# Ecutable & Archives cleaning + $(clean):
+fclean:
+	$(RM) $(OBJ) $(NAME)
 	make -C $(LIBFT_PATH) fclean
 
-# force clean then compile all over again
+# Recombile from scratch:
 re: fclean all
 
+# Phony
 # This rule makes sure that the targets: {all clean fclean re} are always executed
 .PHONY: all clean fclean re
