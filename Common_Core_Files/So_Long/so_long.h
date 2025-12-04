@@ -6,7 +6,7 @@
 /*   By: halragga <halragga@student.42amman.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/29 16:52:21 by halragga          #+#    #+#             */
-/*   Updated: 2025/12/01 19:50:17 by halragga         ###   ########.fr       */
+/*   Updated: 2025/12/04 18:48:39 by halragga         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,7 @@
 # include <unistd.h> /*read from, write to, and close files*/
 # include <stdlib.h> /*memory management: malloc(), free(). And exit()*/
 # include <math.h> /*math unctions if needed*/
+# include <stdio.h>
 
 /*My defined includes*/
 # include "Libft/libft.h" /*My own library*/

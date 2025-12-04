@@ -1,0 +1,169 @@
+int key_handler(int keycode, t_vars *vars)
+{
+    if (keycode == KEY_ARROW_RIGHT)
+        vars->player.pos.x += 1;
+    else if (keycode == KEY_ARROW_LEFT)
+        vars->player.pos.x -= 1;
+    else if (keycode == KEY_ARROW_UP)
+        vars->player.pos.y -= 1;
+    else if (keycode == KEY_ARROW_DOWN)
+        vars->player.pos.y += 1;
+    return (0);
+}
+
+################################################
+
+Map parsing before validation:
+# Step 1: Reading the Map File
+
+Let me break down what we need to do in `parse_map()` to read the entire map file into memory.
+
+## Goal
+
+Read all lines from the `.ber` file and store them in `game->map` (a 2D array of strings).
+
+## Implementation Breakdown
+
+````c
+void	parse_map(t_game *game, char *file)
+{
+	int		fd;
+	char	*line;
+
+	fd = open(file, O_RDONLY);
+	if (fd < 0)
+	{
+		ft_printf("Error\n");
+		ft_printf("Cannot open map file\n");
+		exit(1);
+	}
+	game->map = NULL;
+	game->height = 0;
+	line = get_next_line(fd);
+	while (line)
+	{
+		if (!game->map)
+			game->map = malloc(sizeof(char *) * 100);
+		game->map[game->height] = ft_strtrim(line, "\n");
+		game->height++;
+		free(line);
+		line = get_next_line(fd);
+	}
+	close(fd);
+	game->width = ft_strlen(game->map[0]);
+}
+````
+
+## Line-by-Line Explanation
+
+### Initialize Variables
+```c
+game->map = NULL;
+game->height = 0;
+```
+- Start with no map data
+- Height counter starts at 0
+
+### First Read
+```c
+line = get_next_line(fd);
+```
+- Read first line from file (including `\n`)
+- Returns `NULL` when file ends
+
+### Main Loop
+```c
+while (line)
+{
+```
+- Continue while `get_next_line()` returns a line (not `NULL`)
+
+### Allocate Map Array (First Time Only)
+```c
+if (!game->map)
+    game->map = malloc(sizeof(char *) * 100);
+```
+- **First iteration only**: Allocate array of pointers
+- `100` is max map height (adjust if needed, or use dynamic realloc)
+- Each pointer will hold one line string
+
+### Store Line
+```c
+game->map[game->height] = ft_strtrim(line, "\n");
+```
+- **`ft_strtrim(line, "\n")`**: Remove trailing newline character
+- Store cleaned line at current height index
+- Example: `"111\n"` becomes `"111"`
+
+### Increment and Clean Up
+```c
+game->height++;
+free(line);
+line = get_next_line(fd);
+```
+1. Increment height counter
+2. Free the original line from `get_next_line()` (avoid leak)
+3. Read next line for next iteration
+
+### Finalize
+```c
+close(fd);
+game->width = ft_strlen(game->map[0]);
+```
+- Close file descriptor
+- Calculate width from first line (all lines should be same length)
+
+## Example with Map File
+
+**map.ber:**
+```
+1111
+1P01
+1CE1
+1111
+```
+
+**After `parse_map()`:**
+```c
+game->map[0] = "1111"
+game->map[1] = "1P01"
+game->map[2] = "1CE1"
+game->map[3] = "1111"
+game->height = 4
+game->width = 4
+```
+
+## Memory Layout
+
+```
+game->map → [ptr0] → "1111\0"
+            [ptr1] → "1P01\0"
+            [ptr2] → "1CE1\0"
+            [ptr3] → "1111\0"
+            [ptr4] → ???
+            ...
+            [ptr99] → ???
+```
+
+## What You Need in Header
+
+Add to `t_game` struct in `so_long.h`:
+```c
+typedef struct s_game
+{
+	char	**map;
+	int		width;
+	int		height;
+	// ...other fields...
+}	t_game;
+```
+
+## Next Steps
+
+After reading the map:
+- **Step 2**: Check if rectangular (`is_rectangular()`)
+- **Step 3**: Validate characters and count elements (`has_valid_chars()`)
+- **Step 4**: Check wall enclosure (`is_surrounded_by_walls()`)
+- **Step 5**: Path validation (flood fill)
+
+Does this clarify the reading process? Ready to implement it?
