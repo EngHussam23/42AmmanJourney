@@ -6,7 +6,7 @@
 /*   By: halragga <halragga@student.42amman.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/07 11:18:02 by halragga          #+#    #+#             */
-/*   Updated: 2025/12/07 12:01:42 by halragga         ###   ########.fr       */
+/*   Updated: 2025/12/07 18:31:56 by halragga         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 
 /* Standard Includes */
 # include <mlx.h> /*rendering visuals mlx_init(), mlx_new_window*/
+# include <X11/X.h> /*X11 window system definitions*/
 # include <unistd.h> /*read from, write to, and close files*/
 # include <stdlib.h> /*memory management: malloc(), free(). And exit()*/
 # include <math.h> /*math functions for the fractal calculations*/
@@ -69,5 +70,18 @@ typedef struct s_fractal
 	int		max_iter; /* Iteration limit (detail level) */
 	int		color; /* Current color scheme */
 }	t_fractal;
+
+/* Functions Signatures */
+
+/* Window rendering */
+void	init_fractal(t_fractal *fract);
+
+/* Drawing */
+void	put_pixel(t_img *img, int x, int y, int color);
+void	fill_window(t_fractal *fract, int color);
+
+/* Events Handling */
+int		handle_keypress(int keycode, t_fractal *fact);
+int		handle_close(t_fractal *fract);
 
 #endif

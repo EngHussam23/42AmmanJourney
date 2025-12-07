@@ -6,7 +6,7 @@
 #    By: halragga <halragga@student.42amman.com>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/12/07 09:58:17 by halragga          #+#    #+#              #
-#    Updated: 2025/12/07 12:22:52 by halragga         ###   ########.fr        #
+#    Updated: 2025/12/07 19:20:45 by halragga         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -20,10 +20,10 @@ CFLAGS = -Wall -Wextra -Werror
 # -lXext: X11 Extension library linking command; provides additional functionality for the X11 library, like image handling.
 # -lm: Math library.
 # -lz : Compression library.
-MLX_FLAGS = -lmlx -lXext -lX11 -lm
+MLX_FLAGS = -lXext -lX11 -lm
 
 #Compilation Command "Full":
-CC = cc $(CFLAGS) $(MLX_FLAGS)
+CC = cc
 
 # Force Remove:
 RM = rm -f
@@ -34,7 +34,7 @@ LIBFT_ARC = $(LIBFT_PATH)/libft.a
 
 # Source Files:
 SRC_DIR = C
-SRCs = $(SRC_DIR)/main.c
+SRCs = $(SRC_DIR)/main.c $(SRC_DIR)/events.c $(SRC_DIR)/init.c $(SRC_DIR)/render.c
 
 # Objects directory:
 OBJ_DIR = Objects
@@ -56,7 +56,7 @@ $(LIBFT_ARC):
 
 # Final compilation, where the linikng happens:
 $(NAME): $(LIBFT_ARC) $(OBJ_DIR) $(OBJ)
-	$(CC) $(OBJ) $(LIBFT_ARC) -o $(NAME)
+	$(CC) $(CFLAGS) $(OBJ) libmlx_Linux.a $(LIBFT_ARC) $(MLX_FLAGS) -o $(NAME)
 
 # PROTECTION! in case the objects directory is not created:
 $(OBJ_DIR):
