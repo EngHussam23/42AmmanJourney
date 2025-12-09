@@ -6,7 +6,7 @@
 /*   By: halragga <halragga@student.42amman.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/07 11:18:02 by halragga          #+#    #+#             */
-/*   Updated: 2025/12/07 18:31:56 by halragga         ###   ########.fr       */
+/*   Updated: 2025/12/09 19:55:28 by halragga         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,14 +14,13 @@
 # define FRACT_OL_H
 
 /* Standard Includes */
-# include <mlx.h> /*rendering visuals mlx_init(), mlx_new_window*/
-# include <X11/X.h> /*X11 window system definitions*/
-# include <unistd.h> /*read from, write to, and close files*/
-# include <stdlib.h> /*memory management: malloc(), free(). And exit()*/
-# include <math.h> /*math functions for the fractal calculations*/
+# include <mlx.h>
+# include <X11/X.h>
+# include <stdlib.h>
+# include <math.h>
 
 /* My defined includes */
-# include "Libft/libft.h" /*My own library*/
+# include "Libft/libft.h"
 
 /* Window Size */
 # define WIN_WIDTH 1500
@@ -48,40 +47,46 @@
 /* Image Structure */
 typedef struct s_img
 {
-	void	*img; /* MLX image pointer */
-	char	*addr; /* Pixel data address from mlx_get_data_addr */
-	int		bpp; /* Bits per pixel (color depth) */
-	int		line_len; /* Bytes per row in the image */
-	int		endian; /* Byte order: 0 = little, 1 = big */
+	void	*img;
+	char	*addr;
+	int		bpp;
+	int		line_len;
+	int		endian;
 }	t_img;
 
 /* Main Fractal Structure */
 typedef struct s_fractal
 {
-	void	*mlx; /* MLX connection pointer */
-	void	*win; /* Window pointer */
-	t_img	img; /* Image buffer for rendering */
-	int		type; /* MANDELBROT or JULIA */
-	double	zoom; /* Zoom level (smaller = more zoomed) */
-	double	offset_x; /* Horizontal pan offset */
-	double	offset_y; /* Vertical pan offset */
-	double	julia_x; /* Julia set constant (real part) */
-	double	julia_y; /* Julia set constant (imaginary part) */
-	int		max_iter; /* Iteration limit (detail level) */
-	int		color; /* Current color scheme */
+	void	*mlx;
+	void	*win;
+	t_img	img;
+	int		type;
+	double	zoom;
+	double	offset_x;
+	double	offset_y;
+	double	julia_x;
+	double	julia_y;
+	int		max_iter;
+	int		color;
 }	t_fractal;
 
-/* Functions Signatures */
+/* Init */
+void	init_fractal(t_fractal *f);
 
-/* Window rendering */
-void	init_fractal(t_fractal *fract);
-
-/* Drawing */
+/* Render */
+void	render_fractal(t_fractal *f);
 void	put_pixel(t_img *img, int x, int y, int color);
-void	fill_window(t_fractal *fract, int color);
 
-/* Events Handling */
-int		handle_keypress(int keycode, t_fractal *fact);
-int		handle_close(t_fractal *fract);
+/* Fractals */
+double	ft_atof(const char *str);
+int		mandelbrot(double cr, double ci, int max_iter);
+int		julia(double zr, double zi, t_fractal *f);
+
+/* Colors */
+int		get_color(int iter, int max_iter, int scheme);
+
+/* Events */
+int		handle_keypress(int key, t_fractal *f);
+int		handle_close(t_fractal *f);
 
 #endif

@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: halragga <halragga@student.42amman.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/12/07 17:32:04 by halragga          #+#    #+#             */
-/*   Updated: 2025/12/07 18:15:43 by halragga         ###   ########.fr       */
+/*   Created: 2025/12/09 18:00:00 by halragga          #+#    #+#             */
+/*   Updated: 2025/12/09 20:16:44 by halragga         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,15 +16,35 @@ void	put_pixel(t_img *img, int x, int y, int color)
 {
 	char	*dst;
 
-	dst = "";
-	if (x >= 0 && x < WIN_WIDTH && y >= 0 && y < WIN_HEIGHT)
-	{
-		dst = img->addr + (y * img->line_len + x * (img->bpp / 8));
-		*(unsigned int *)dst = color;
-	}
+	if (x < 0 || x >= WIN_WIDTH || y < 0 || y >= WIN_HEIGHT)
+		return ;
+	dst = img->addr + (y * img->line_len + x * (img->bpp / 8));
+	*(unsigned int *)dst = color;
 }
 
-void	fill_window(t_fractal *fract, int color)
+static void	map_pixel(int x, int y, double *cr, double *ci)
+{
+	*cr = (x - WIN_WIDTH / 2.0) * 4.0 / WIN_WIDTH;
+	*ci = (y - WIN_HEIGHT / 2.0) * 4.0 / WIN_HEIGHT;
+}
+
+static int	calc_pixel(int x, int y, t_fractal *f)
+{
+	double	cr;
+	double	ci;
+	int		iter;
+
+	map_pixel(x, y, &cr, &ci);
+	cr = cr / f->zoom + f->offset_x;
+	ci = ci / f->zoom + f->offset_y;
+	if (f->type == MANDELBROT)
+		iter = mandelbrot(cr, ci, f->max_iter);
+	else
+		iter = julia(cr, ci, f);
+	return (get_color(iter, f->max_iter, f->color));
+}
+
+void	render_fractal(t_fractal *f)
 {
 	int	x;
 	int	y;
@@ -35,10 +55,10 @@ void	fill_window(t_fractal *fract, int color)
 		x = 0;
 		while (x < WIN_WIDTH)
 		{
-			put_pixel(&fract->img, x, y, color);
+			put_pixel(&f->img, x, y, calc_pixel(x, y, f));
 			x++;
 		}
 		y++;
 	}
-	mlx_put_image_to_window(fract->mlx, fract->win, fract->img.img, 0, 0);
+	mlx_put_image_to_window(f->mlx, f->win, f->img.img, 0, 0);
 }
