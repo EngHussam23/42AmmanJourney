@@ -40,8 +40,8 @@ static void	start_fractal(t_fractal *f)
 {
 	init_fractal(f);
 	render_fractal(f);
-	mlx_key_hook(f->win, handle_keypress, f);
-	mlx_hook(f->win, 17, 0, handle_close, f);
+	mlx_key_hook(f->win, (int (*)())handle_keypress, f);
+	mlx_hook(f->win, 17, 0, (int (*)())handle_close, f);
 	mlx_loop(f->mlx);
 }
 
