@@ -6,7 +6,7 @@
 #    By: halragga <halragga@student.42amman.com>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/12/07 09:58:17 by halragga          #+#    #+#              #
-#    Updated: 2025/12/09 20:14:11 by halragga         ###   ########.fr        #
+#    Updated: 2025/12/11 17:20:54 by halragga         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -33,7 +33,7 @@ LIBFT_ARC = $(LIBFT_PATH)/libft.a
 
 # Source Files:
 SRC_DIR = C
-SRCs = $(SRC_DIR)/main.c
+SRCs = $(SRC_DIR)/main.c $(SRC_DIR)/colors.c $(SRC_DIR)/events.c $(SRC_DIR)/fractals.c $(SRC_DIR)/render.c $(SRC_DIR)/init.c
 
 # Objects directory:
 OBJ_DIR = Objects

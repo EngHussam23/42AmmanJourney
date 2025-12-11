@@ -1,31 +1,13 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   init.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: halragga <halragga@student.42amman.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/12/07 11:49:45 by halragga          #+#    #+#             */
-/*   Updated: 2025/12/11 17:25:26 by halragga         ###   ########.fr       */
+/*   Created: 2025/12/11 17:19:59 by halragga          #+#    #+#             */
+/*   Updated: 2025/12/11 17:20:16 by halragga         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../fract_ol.h"
-
-static void	show_guid(void)
-{
-	ft_printf("\nUsage:\n\n");
-	ft_printf("Mandelbrot:\n");
-	ft_printf("./fractol mandelbrot\n\n");
-	ft_printf("Julia:\n");
-	ft_printf("./fractol julia <real> <imaginary>\n\n");
-}
-
-int	main(int argc, char **argv)
-{
-	if (argc < 2 || argc > 4 || argc != 4)
-		show_guide();
-	else
-		open_window(argc, argv);
-	return (0);
-}

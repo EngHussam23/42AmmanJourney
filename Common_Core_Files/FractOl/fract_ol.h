@@ -6,7 +6,7 @@
 /*   By: halragga <halragga@student.42amman.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/07 11:18:02 by halragga          #+#    #+#             */
-/*   Updated: 2025/12/09 19:55:28 by halragga         ###   ########.fr       */
+/*   Updated: 2025/12/11 17:09:51 by halragga         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,7 +46,16 @@
 
 /* Data Structs */
 
+struct s_fract
+{
+	int	width;
+	int	height;
+} t_fract;
 /* Render */
+void	get_fractal(int argc, char **argv);
+
 /* Fractals */
+
 /* Colors */
+
 #endif
