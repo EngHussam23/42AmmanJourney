@@ -6,13 +6,13 @@
 /*   By: halragga <halragga@student.42amman.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/07 11:49:45 by halragga          #+#    #+#             */
-/*   Updated: 2025/12/11 17:25:26 by halragga         ###   ########.fr       */
+/*   Updated: 2025/12/13 20:00:10 by halragga         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../fract_ol.h"
 
-static void	show_guid(void)
+static void	show_guide(void)
 {
 	ft_printf("\nUsage:\n\n");
 	ft_printf("Mandelbrot:\n");
@@ -23,9 +23,11 @@ static void	show_guid(void)
 
 int	main(int argc, char **argv)
 {
-	if (argc < 2 || argc > 4 || argc != 4)
+	(void)argc;
+	(void)argv;
+	if (argc < 2 || argc > 4)
 		show_guide();
 	else
-		open_window(argc, argv);
+		open_window();
 	return (0);
 }

@@ -6,16 +6,16 @@
 /*   By: halragga <halragga@student.42amman.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/11 17:10:08 by halragga          #+#    #+#             */
-/*   Updated: 2025/12/11 17:18:18 by halragga         ###   ########.fr       */
+/*   Updated: 2025/12/13 15:55:31 by halragga         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../fract_ol.h"
 
-void	get_fractal(int argc, char **argv)
-{
-	if (argc == 2)
-		get_madelbrot();
-	else
-		get_julia();
-}
+// void	get_fractal(int argc, char **argv)
+// {
+// 	if (argc == 2)
+// 		get_madelbrot();
+// 	else
+// 		get_julia();
+// }

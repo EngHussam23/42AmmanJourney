@@ -6,7 +6,7 @@
 /*   By: halragga <halragga@student.42amman.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/07 11:18:02 by halragga          #+#    #+#             */
-/*   Updated: 2025/12/11 17:09:51 by halragga         ###   ########.fr       */
+/*   Updated: 2025/12/13 20:04:08 by halragga         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@
 # include "Libft/libft.h"
 
 /* Window Size */
-# define WIN_WIDTH 1080
+# define WIN_WIDTH 1440
 # define WIN_HEIGHT 920
 
 /* Key codes in Linux */
@@ -46,13 +46,15 @@
 
 /* Data Structs */
 
-struct s_fract
-{
-	int	width;
-	int	height;
-} t_fract;
+// struct s_fract
+// {
+// 	int	width;
+// 	int	height;
+// } t_fract;
+
 /* Render */
 void	get_fractal(int argc, char **argv);
+void	open_window(void);
 
 /* Fractals */
 
