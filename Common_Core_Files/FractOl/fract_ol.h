@@ -6,7 +6,7 @@
 /*   By: halragga <halragga@student.42amman.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/07 11:18:02 by halragga          #+#    #+#             */
-/*   Updated: 2025/12/13 20:04:08 by halragga         ###   ########.fr       */
+/*   Updated: 2025/12/14 18:37:14 by halragga         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,8 +23,8 @@
 # include "Libft/libft.h"
 
 /* Window Size */
-# define WIN_WIDTH 1440
-# define WIN_HEIGHT 920
+# define WIDTH 1440
+# define HEIGHT 920
 
 /* Key codes in Linux */
 # define ESC_KEY 65307
@@ -46,15 +46,48 @@
 
 /* Data Structs */
 
-// struct s_fract
-// {
-// 	int	width;
-// 	int	height;
-// } t_fract;
+/* Real & Imaginary axises values */
+typedef struct s_complex
+{
+	double	re;
+	double	im;
+}	t_complex;
 
+/* Image varibles */
+typedef struct s_img
+{
+	void	*img;
+	char	*addr;
+	int		bpp;
+	int		line_len;
+	int		endian;
+}	t_img;
+
+/* Fractol variables */
+typedef struct s_fract
+{
+	double	zoom;
+	double	offset_x;
+	double	offset_y;
+	int		max_itr;
+	char	*name;
+}	t_fract;
+
+/* MLX */
+typedef struct s_mlx_data
+{
+	void	*mlx;
+	void	*win;
+	t_img	img;
+}	t_mlx_data;
+
+/* Functions' Signatures */
 /* Render */
-void	get_fractal(int argc, char **argv);
 void	open_window(void);
+void	render_image(t_mlx_data data);
+
+/* Events handling */
+int		key_handler(int keycode, void *vars);
 
 /* Fractals */
 

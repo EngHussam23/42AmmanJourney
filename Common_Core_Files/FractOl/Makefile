@@ -6,7 +6,7 @@
 #    By: halragga <halragga@student.42amman.com>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/12/07 09:58:17 by halragga          #+#    #+#              #
-#    Updated: 2025/12/11 17:20:54 by halragga         ###   ########.fr        #
+#    Updated: 2025/12/14 14:55:55 by halragga         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,7 +14,7 @@
 NAME = fractol
 
 # Flags:
-CFLAGS = -Wall -Wextra -Werror
+CFLAGS = -Wall -Wextra -Werror -Wno-incompatible-pointer-types
 # -lmlx: MiniLibX library linking command; graphics lib, needed to open windows, draw pixels, create images, etc.
 # -lX11: a library MiniLibX needs it to communicate with the display server.
 # -lXext: X11 Extension library linking command; provides additional functionality for the X11 library, like image handling.
