@@ -6,7 +6,7 @@
 /*   By: halragga <halragga@student.42amman.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/07 11:18:02 by halragga          #+#    #+#             */
-/*   Updated: 2025/12/14 18:37:14 by halragga         ###   ########.fr       */
+/*   Updated: 2025/12/15 20:10:58 by halragga         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -90,6 +90,7 @@ void	render_image(t_mlx_data data);
 int		key_handler(int keycode, void *vars);
 
 /* Fractals */
+void	get_fractal(void);
 
 /* Colors */
 
