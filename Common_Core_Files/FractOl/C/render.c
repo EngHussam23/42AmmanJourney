@@ -6,7 +6,7 @@
 /*   By: halragga <halragga@student.42amman.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/11 17:10:08 by halragga          #+#    #+#             */
-/*   Updated: 2025/12/15 20:35:53 by halragga         ###   ########.fr       */
+/*   Updated: 2025/12/18 18:59:26 by halragga         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,15 +15,24 @@
 void	render_image(t_mlx_data data)
 {
 	char	*d_ad;
-	int		pxl;
-	int		x;
-	int		y;
 
 	data.img.img = mlx_new_image(data.mlx, WIDTH, HEIGHT);
 	d_ad = mlx_get_data_addr(data.img.img, &data.img.bpp,
 			&data.img.line_len, &data.img.endian);
-	y = 0;
-	x = 0;
+	if (data.fract.name == MANDELBROT)
+		mandelbrot(data);
+	else
+		julia(data);
+	mlx_put_image_to_window(data.mlx, data.win, data.img.img, 0, 0);
+}
+
+/*
+int		pxl;
+int		x;
+int		y;
+
+y = 0;
+x = 0;
 	while (y < HEIGHT)
 	{
 		while (x < WIDTH)
@@ -38,5 +47,4 @@ void	render_image(t_mlx_data data)
 		x = 0;
 		y++;
 	}
-	mlx_put_image_to_window(data.mlx, data.win, data.img.img, 0, 0);
-}
+*/

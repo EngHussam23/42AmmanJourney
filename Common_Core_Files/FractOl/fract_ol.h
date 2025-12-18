@@ -6,7 +6,7 @@
 /*   By: halragga <halragga@student.42amman.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/07 11:18:02 by halragga          #+#    #+#             */
-/*   Updated: 2025/12/15 20:10:58 by halragga         ###   ########.fr       */
+/*   Updated: 2025/12/18 19:00:59 by halragga         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,21 +76,24 @@ typedef struct s_fract
 /* MLX */
 typedef struct s_mlx_data
 {
-	void	*mlx;
-	void	*win;
-	t_img	img;
+	void		*mlx;
+	void		*win;
+	t_fract		fract;
+	t_complex	cmp;
+	t_img		img;
 }	t_mlx_data;
 
 /* Functions' Signatures */
 /* Render */
-void	open_window(void);
+void	open_window(char **argv);
 void	render_image(t_mlx_data data);
 
 /* Events handling */
 int		key_handler(int keycode, void *vars);
 
 /* Fractals */
-void	get_fractal(void);
+void	julia(t_mlx_data data);
+void	mandelbrot(t_mlx_data data);
 
 /* Colors */
 
