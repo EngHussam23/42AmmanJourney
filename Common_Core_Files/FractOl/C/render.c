@@ -6,45 +6,25 @@
 /*   By: halragga <halragga@student.42amman.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/11 17:10:08 by halragga          #+#    #+#             */
-/*   Updated: 2025/12/18 18:59:26 by halragga         ###   ########.fr       */
+/*   Updated: 2025/12/21 19:19:21 by halragga         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../fract_ol.h"
 
-void	render_image(t_mlx_data data)
+void	render_image(t_mlx_data *data)
 {
-	char	*d_ad;
+	char	*fract_name;
 
-	data.img.img = mlx_new_image(data.mlx, WIDTH, HEIGHT);
-	d_ad = mlx_get_data_addr(data.img.img, &data.img.bpp,
-			&data.img.line_len, &data.img.endian);
-	if (data.fract.name == MANDELBROT)
-		mandelbrot(data);
+	fract_name = "mandelbrot";
+	if (data->img.img)
+		mlx_destroy_image(data->mlx, data->img.img);
+	data->img.img = mlx_new_image(data->mlx, WIDTH, HEIGHT);
+	data->img.addr = mlx_get_data_addr(data->img.img, &data->img.bpp,
+			&data->img.line_len, &data->img.endian);
+	if (!ft_strncmp(data->fract.name, fract_name, ft_strlen(fract_name)))
+		mandelbrot(*data);
 	else
-		julia(data);
-	mlx_put_image_to_window(data.mlx, data.win, data.img.img, 0, 0);
+		julia(*data);
+	mlx_put_image_to_window(data->mlx, data->win, data->img.img, 0, 0);
 }
-
-/*
-int		pxl;
-int		x;
-int		y;
-
-y = 0;
-x = 0;
-	while (y < HEIGHT)
-	{
-		while (x < WIDTH)
-		{
-			pxl = (y * data.img.line_len) + (x * 4);
-			d_ad[pxl + 0] = 0xF0;
-			d_ad[pxl + 1] = 0x0F;
-			d_ad[pxl + 2] = 0xF0;
-			d_ad[pxl + 3] = 0x0F;
-			x++;
-		}
-		x = 0;
-		y++;
-	}
-*/
