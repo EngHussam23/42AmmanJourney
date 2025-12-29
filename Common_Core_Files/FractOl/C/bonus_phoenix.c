@@ -6,7 +6,7 @@
 /*   By: halragga <halragga@student.42amman.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/22 14:47:26 by halragga          #+#    #+#             */
-/*   Updated: 2025/12/22 15:12:57 by halragga         ###   ########.fr       */
+/*   Updated: 2025/12/29 17:22:42 by halragga         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ static int	calc(t_complex z, t_complex c, int max_itr)
 		temp = z.re * z.re - z.im * z.im + c.im * z_prev.re;
 		z_prev.re = z.re;
 		z_prev.im = z.im;
-		z.im = 2 * z.re *z.im + c.im * z_prev.im;
+		z.im = 2 * z.re * z.im + c.im * z_prev.im;
 		z.re = temp;
 		i++;
 	}

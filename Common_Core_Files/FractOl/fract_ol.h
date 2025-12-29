@@ -6,7 +6,7 @@
 /*   By: halragga <halragga@student.42amman.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/07 11:18:02 by halragga          #+#    #+#             */
-/*   Updated: 2025/12/22 15:11:17 by halragga         ###   ########.fr       */
+/*   Updated: 2025/12/29 17:23:24 by halragga         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -89,8 +89,8 @@ typedef struct s_mlx_data
 
 /* Functions' Signatures */
 /* Render */
-void	open_window(char **argv);
-void	render_image(t_mlx_data *data);
+int		open_window(t_mlx_data *data, char **argv);
+int		render_image(t_mlx_data *data);
 
 /* Events handling */
 int		key_handler(int keycode, void *vars);

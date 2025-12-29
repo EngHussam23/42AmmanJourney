@@ -6,7 +6,7 @@
 /*   By: halragga <halragga@student.42amman.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/11 17:19:59 by halragga          #+#    #+#             */
-/*   Updated: 2025/12/23 15:08:40 by halragga         ###   ########.fr       */
+/*   Updated: 2025/12/29 17:20:35 by halragga         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,18 +38,15 @@ static void	init_fract(t_mlx_data *data, char **argv)
 	}
 }
 
-void	open_window(char **argv)
+int	open_window(t_mlx_data *data, char **argv)
 {
-	t_mlx_data	data;
-
-	data.mlx = mlx_init();
-	data.win = mlx_new_window(data.mlx, WIDTH, HEIGHT, "MLX window Test");
-	data.img.img = NULL;
-	init_fract(&data, argv);
-	render_image(&data);
-	mlx_key_hook(data.win, key_handler, &data);
-	mlx_mouse_hook(data.win, mouse_handler, &data);
-	mlx_hook(data.win, 6, 1L << 6, mouse_move, &data);
-	mlx_hook(data.win, 17, 0, close_window, &data);
-	mlx_loop(data.mlx);
+	data->mlx = mlx_init();
+	if (!(data->mlx))
+		return (2);
+	data->win = mlx_new_window(data->mlx, WIDTH, HEIGHT, "MLX window Test");
+	if (!(data->win))
+		return (3);
+	data->img.img = NULL;
+	init_fract(data, argv);
+	return (0);
 }

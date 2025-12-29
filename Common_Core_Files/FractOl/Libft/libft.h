@@ -6,7 +6,7 @@
 /*   By: halragga <halragga@student.42amman.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/05 17:30:34 by halragga          #+#    #+#             */
-/*   Updated: 2025/12/21 18:00:39 by halragga         ###   ########.fr       */
+/*   Updated: 2025/12/29 18:20:49 by halragga         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,5 +75,6 @@ char	*str_duplicate(const char *src);
 void	*cpy(void *dest, const void *src, size_t cpysize);
 //
 double	ft_atof(const char *str);
+int		ft_strcmp(char *s1, char *s2);
 
 #endif

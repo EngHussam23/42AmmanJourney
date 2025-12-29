@@ -6,7 +6,7 @@
 /*   By: halragga <halragga@student.42amman.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/07 11:49:45 by halragga          #+#    #+#             */
-/*   Updated: 2025/12/22 15:18:33 by halragga         ###   ########.fr       */
+/*   Updated: 2025/12/29 19:51:37 by halragga         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,11 +14,11 @@
 
 static int	valid_fractal(char *fract_name)
 {
-	if (!ft_strncmp(fract_name, "mandelbrot", 10))
+	if (!ft_strcmp(fract_name, "mandelbrot"))
 		return (1);
-	else if (!ft_strncmp(fract_name, "julia", 5))
+	else if (!ft_strcmp(fract_name, "julia"))
 		return (1);
-	else if (!ft_strncmp(fract_name, "phoenix", 7))
+	else if (!ft_strcmp(fract_name, "phoenix"))
 		return (1);
 	else
 		return (0);
@@ -38,13 +38,35 @@ static void	show_guide(void)
 	ft_printf("./fractol phoenix\n\n");
 }
 
+static void	ft_exit(/*t_mlx_data *data*/ int code, char *msg, void *func(void))
+{
+	// mlx_destroy_image(data->mlx, data->img.img);
+	// mlx_destroy_window(data->mlx, data->win);
+	// mlx_destroy_display(data->mlx);
+	// free(data->mlx);
+	// (void)data;
+	if (msg)
+		ft_printf("\n%s", msg);
+	if (func)
+		func();
+	exit(code);
+}
+
 int	main(int argc, char **argv)
 {
+	t_mlx_data	data;
+
 	if (argc < 2 || argc > 4 || !valid_fractal(argv[1]))
-	{
-		show_guide();
-		return (1);
-	}
-	open_window(argv);
+		ft_exit(1, "Incorrect fractal name, check this \n", show_guide);
+	if (open_window(&data, argv) != 0)
+		ft_exit(2, "Err: failed to open the window", NULL);
+	if (render_image(&data) != 0)
+		ft_exit(3, "Unable to render the image", NULL);
+	mlx_key_hook(data.win, key_handler, &data);
+	mlx_mouse_hook(data.win, mouse_handler, &data);
+	mlx_hook(data.win, 6, 1L << 6, mouse_move, &data);
+	mlx_hook(data.win, 17, 0, close_window, &data);
+	mlx_loop(data.mlx);
+	// ft_exit(&data, 0, NULL, NULL);
 	return (0);
 }
