@@ -6,7 +6,7 @@
 /*   By: halragga <halragga@student.42amman.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/07 11:49:45 by halragga          #+#    #+#             */
-/*   Updated: 2025/12/21 19:48:45 by halragga         ###   ########.fr       */
+/*   Updated: 2025/12/22 15:18:33 by halragga         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,8 @@ static int	valid_fractal(char *fract_name)
 	if (!ft_strncmp(fract_name, "mandelbrot", 10))
 		return (1);
 	else if (!ft_strncmp(fract_name, "julia", 5))
+		return (1);
+	else if (!ft_strncmp(fract_name, "phoenix", 7))
 		return (1);
 	else
 		return (0);
@@ -31,6 +33,9 @@ static void	show_guide(void)
 	ft_printf("The default value is:\n");
 	ft_printf("./fractol julia -0.7 0.27015\n");
 	ft_printf("./fractol julia <real> <imaginary>\n\n");
+	ft_printf("\nBONUS!\n");
+	ft_printf("Phoenix:\n");
+	ft_printf("./fractol phoenix\n\n");
 }
 
 int	main(int argc, char **argv)
