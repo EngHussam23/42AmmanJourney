@@ -6,7 +6,7 @@
 /*   By: halragga <halragga@student.42amman.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/11 17:19:59 by halragga          #+#    #+#             */
-/*   Updated: 2025/12/29 17:20:35 by halragga         ###   ########.fr       */
+/*   Updated: 2025/12/30 00:41:28 by halragga         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,10 +42,10 @@ int	open_window(t_mlx_data *data, char **argv)
 {
 	data->mlx = mlx_init();
 	if (!(data->mlx))
-		return (2);
+		return (4);
 	data->win = mlx_new_window(data->mlx, WIDTH, HEIGHT, "MLX window Test");
 	if (!(data->win))
-		return (3);
+		return (5);
 	data->img.img = NULL;
 	init_fract(data, argv);
 	return (0);

@@ -6,7 +6,7 @@
 /*   By: halragga <halragga@student.42amman.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/29 18:18:34 by halragga          #+#    #+#             */
-/*   Updated: 2025/12/29 18:37:22 by halragga         ###   ########.fr       */
+/*   Updated: 2025/12/30 00:14:42 by halragga         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,5 +23,5 @@ int	ft_strcmp(char *s1, char *s2)
 			return (0);
 		i++;
 	}
-	return (1);
+	return (s1[i] - s2[i]);
 }

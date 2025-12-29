@@ -6,7 +6,7 @@
 /*   By: halragga <halragga@student.42amman.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/07 11:18:02 by halragga          #+#    #+#             */
-/*   Updated: 2025/12/29 17:23:24 by halragga         ###   ########.fr       */
+/*   Updated: 2025/12/30 01:58:43 by halragga         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,8 +32,6 @@
 # define UP_KEY 65362
 # define RIGHT_KEY 65363
 # define DOWN_KEY 65364
-# define Z_KEY 122
-# define X_KEY 120
 # define C_KEY 99
 # define R_KEY 114
 
