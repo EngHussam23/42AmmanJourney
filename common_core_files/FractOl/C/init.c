@@ -6,12 +6,13 @@
 /*   By: halragga <halragga@student.42amman.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/11 17:19:59 by halragga          #+#    #+#             */
-/*   Updated: 2025/12/30 00:41:28 by halragga         ###   ########.fr       */
+/*   Updated: 2026/01/15 13:54:17 by halragga         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../fract_ol.h"
 
+/* TODO: Julia validation is not accurate: Julia fractal must have 3 params!!!*/
 static void	init_fract(t_mlx_data *data, char **argv)
 {
 	data->fract.clr_shift = 0;

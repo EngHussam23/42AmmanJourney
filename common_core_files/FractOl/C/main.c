@@ -6,7 +6,7 @@
 /*   By: halragga <halragga@student.42amman.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/07 11:49:45 by halragga          #+#    #+#             */
-/*   Updated: 2025/12/30 01:59:44 by halragga         ###   ########.fr       */
+/*   Updated: 2026/01/15 13:43:18 by halragga         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,13 +38,14 @@ static void	show_guide(void)
 	ft_printf("./fractol phoenix\n\n");
 }
 
+// mlx_destroy_image(data->mlx, data->img.img);
+// mlx_destroy_window(data->mlx, data->win);
+// mlx_destroy_display(data->mlx);
+// free(data->mlx);
+// (void)data;
+
 static void	ft_exit(/*t_mlx_data *data*/ int code, char *msg, void *func(void))
 {
-	// mlx_destroy_image(data->mlx, data->img.img);
-	// mlx_destroy_window(data->mlx, data->win);
-	// mlx_destroy_display(data->mlx);
-	// free(data->mlx);
-	// (void)data;
 	if (msg)
 		ft_printf("\n%s", msg);
 	if (func)
@@ -67,6 +68,6 @@ int	main(int argc, char **argv)
 	mlx_hook(data.win, 6, 1L << 6, mouse_move, &data);
 	mlx_hook(data.win, 17, 0, close_window, &data);
 	mlx_loop(data.mlx);
-	// ft_exit(&data, 0, NULL, NULL);
 	return (0);
 }
+// ft_exit(&data, 0, NULL, NULL);
