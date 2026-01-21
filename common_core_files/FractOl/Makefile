@@ -6,7 +6,7 @@
 #    By: halragga <halragga@student.42amman.com>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/12/07 09:58:17 by halragga          #+#    #+#              #
-#    Updated: 2025/12/30 00:44:28 by halragga         ###   ########.fr        #
+#    Updated: 2026/01/21 16:48:21 by halragga         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -63,12 +63,12 @@ $(OBJ_DIR):
 
 # Objects level cleaning:
 clean:
-	$(RM) $(OBJ)
+	$(RM) -rf $(OBJ_DIR) $(OBJ)
 	make -C $(LIBFT_PATH) clean
 
 # Ecutable & Archives cleaning + $(clean):
-fclean:
-	$(RM) $(OBJ) $(NAME)
+fclean: clean
+	$(RM) $(NAME)
 	make -C $(LIBFT_PATH) fclean
 
 # Recombile from scratch:

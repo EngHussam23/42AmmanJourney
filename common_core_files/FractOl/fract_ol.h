@@ -6,7 +6,7 @@
 /*   By: halragga <halragga@student.42amman.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/07 11:18:02 by halragga          #+#    #+#             */
-/*   Updated: 2026/01/15 14:13:28 by halragga         ###   ########.fr       */
+/*   Updated: 2026/01/21 16:49:38 by halragga         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,8 +23,8 @@
 # include "Libft/libft.h"
 
 /* Window Size */
-# define WIDTH 1440
-# define HEIGHT 920
+# define WIDTH 500
+# define HEIGHT 500
 
 /* Key codes in Linux */
 # define ESC_KEY 65307
@@ -34,6 +34,8 @@
 # define DOWN_KEY 65364
 # define C_KEY 99
 # define R_KEY 114
+# define PLUS_KEY 61
+# define MINUS_KEY 45
 
 /* Mouse Codes */
 # define MOUSE_SCROLL_UP 4
@@ -88,20 +90,20 @@ typedef struct s_mlx_data
 /* Functions' Signatures */
 /* Render */
 void	show_guide(void);
-int		open_window(t_mlx_data *data, char **argv);
+int		open_window(t_mlx_data *data);
 int		render_image(t_mlx_data *data);
 
 /* Events handling */
 int		key_handler(int keycode, void *vars);
 int		mouse_move(int x, int y, t_mlx_data *data);
 int		mouse_handler(int button, int x, int y, t_mlx_data *data);
-int		close_window(t_mlx_data *data);
 
 /* Fractals */
 void	put_pixel(t_mlx_data *data, int x, int y, int color);
-void	julia(t_mlx_data data);
-void	mandelbrot(t_mlx_data data);
-void	phoenix(t_mlx_data data);
+void	julia(t_mlx_data *data);
+void	mandelbrot(t_mlx_data *data);
+void	phoenix(t_mlx_data *data);
+int		init_fract(t_mlx_data *data, int argc, char **argv);
 
 /* Colors */
 int		colorize(int itr, int max_itr, int shift);

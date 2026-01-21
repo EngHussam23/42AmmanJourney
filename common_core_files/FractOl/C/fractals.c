@@ -6,7 +6,7 @@
 /*   By: halragga <halragga@student.42amman.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/11 17:10:08 by halragga          #+#    #+#             */
-/*   Updated: 2025/12/29 17:33:36 by halragga         ###   ########.fr       */
+/*   Updated: 2026/01/21 15:04:13 by halragga         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,8 @@ void	put_pixel(t_mlx_data *data, int x, int y, int color)
 static int	calc_mandel(t_complex cplx, int max_itr)
 {
 	t_complex	z;
-	double		temp;
+	double		zr2;
+	double		zi2;
 	int			i;
 
 	z.re = 0;
@@ -35,11 +36,12 @@ static int	calc_mandel(t_complex cplx, int max_itr)
 	i = 0;
 	while (i < max_itr)
 	{
-		if (((z.re * z.re) + (z.im * z.im)) > 4.0)
+		zr2 = z.re * z.re;
+		zi2 = z.im * z.im;
+		if (zr2 + zi2 > 4.0)
 			return (i);
-		temp = z.re * z.re - z.im * z.im + cplx.re;
 		z.im = 2 * z.re * z.im + cplx.im;
-		z.re = temp;
+		z.re = zr2 - zi2 + cplx.re;
 		i++;
 	}
 	return (i);
@@ -47,74 +49,77 @@ static int	calc_mandel(t_complex cplx, int max_itr)
 
 static int	calc_julia(t_complex z_cplx, t_complex c_cplx, int max_itr)
 {
-	double	temp;
+	double	zr2;
+	double	zi2;
 	int		i;
 
 	i = 0;
 	while (i < max_itr)
 	{
-		if ((z_cplx.re * z_cplx.re + z_cplx.im * z_cplx.im) > 4.0)
+		zr2 = z_cplx.re * z_cplx.re;
+		zi2 = z_cplx.im * z_cplx.im;
+		if (zr2 + zi2 > 4.0)
 			return (i);
-		temp = z_cplx.re * z_cplx.re - z_cplx.im * z_cplx.im + c_cplx.re;
 		z_cplx.im = 2 * z_cplx.re * z_cplx.im + c_cplx.im;
-		z_cplx.re = temp;
+		z_cplx.re = zr2 - zi2 + c_cplx.re;
 		i++;
 	}
 	return (i);
 }
 
-void	mandelbrot(t_mlx_data data)
+void	mandelbrot(t_mlx_data *data)
 {
-	int	x;
-	int	y;
-	int	itr;
+	int		x;
+	int		y;
+	int		itr;
+	double	scale_x;
+	double	scale_y;
 
-	y = 0;
-	while (y < HEIGHT)
+	scale_x = 4.0 / WIDTH * data->fract.zoom;
+	scale_y = 4.0 / WIDTH * data->fract.zoom;
+	y = -1;
+	while (++y < HEIGHT)
 	{
-		x = 0;
-		while (x < WIDTH)
+		data->cmp.im = (y - HEIGHT / 2.0) * scale_y + data->fract.offset_y;
+		x = -1;
+		while (++x < WIDTH)
 		{
-			data.cmp.re = (x - WIDTH / 2.0) * 4.0 / WIDTH * data.fract.zoom
-				+ data.fract.offset_x;
-			data.cmp.im = (y - HEIGHT / 2.0) * 4.0 / HEIGHT * data.fract.zoom
-				+ data.fract.offset_y;
-			itr = calc_mandel(data.cmp, data.fract.max_itr);
-			if (itr == data.fract.max_itr)
-				put_pixel(&data, x, y, 0x000000);
+			data->cmp.re = (x - WIDTH / 2.0) * scale_x + data->fract.offset_x;
+			itr = calc_mandel(data->cmp, data->fract.max_itr);
+			if (itr == data->fract.max_itr)
+				put_pixel(data, x, y, 0x000000);
 			else
-				put_pixel(&data, x, y,
-					colorize(itr, data.fract.max_itr, data.fract.clr_shift));
-			x++;
+				put_pixel(data, x, y,
+					colorize(itr, data->fract.max_itr, data->fract.clr_shift));
 		}
-		y++;
 	}
 }
 
-void	julia(t_mlx_data data)
+void	julia(t_mlx_data *data)
 {
-	int	x;
-	int	y;
-	int	itr;
+	int		x;
+	int		y;
+	int		itr;
+	double	scale_x;
+	double	scale_y;
 
-	y = 0;
-	while (y < HEIGHT)
+	scale_x = 4.0 / WIDTH * data->fract.zoom;
+	scale_y = 4.0 / WIDTH * data->fract.zoom;
+	y = -1;
+	while (++y < HEIGHT)
 	{
-		x = 0;
-		while (x < WIDTH)
+		data->cmp.im = (y - HEIGHT / 2.0) * scale_y + data->fract.offset_y;
+		x = -1;
+		while (++x < WIDTH)
 		{
-			data.cmp.re = (x - WIDTH / 2.0) * 4.0 / WIDTH * data.fract.zoom
-				+ data.fract.offset_x;
-			data.cmp.im = (y - HEIGHT / 2.0) * 4.0 / HEIGHT * data.fract.zoom
-				+ data.fract.offset_y;
-			itr = calc_julia(data.cmp, data.fract.julia_c, data.fract.max_itr);
-			if (itr == data.fract.max_itr)
-				put_pixel(&data, x, y, 0x000000);
+			data->cmp.re = (x - WIDTH / 2.0) * scale_x + data->fract.offset_x;
+			itr = calc_julia(data->cmp, data->fract.julia_c,
+					data->fract.max_itr);
+			if (itr == data->fract.max_itr)
+				put_pixel(data, x, y, 0x000000);
 			else
-				put_pixel(&data, x, y,
-					colorize(itr, data.fract.max_itr, data.fract.clr_shift));
-			x++;
+				put_pixel(data, x, y,
+					colorize(itr, data->fract.max_itr, data->fract.clr_shift));
 		}
-		y++;
 	}
 }

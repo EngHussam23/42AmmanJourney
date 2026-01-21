@@ -6,7 +6,7 @@
 /*   By: halragga <halragga@student.42amman.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/22 14:47:26 by halragga          #+#    #+#             */
-/*   Updated: 2025/12/30 01:49:05 by halragga         ###   ########.fr       */
+/*   Updated: 2026/01/21 15:04:17 by halragga         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,7 +44,7 @@ static void	set_pxl_clr(t_mlx_data *data, int x, int y, int itr)
 			colorize(itr, data->fract.max_itr, data->fract.clr_shift));
 }
 
-void	phoenix(t_mlx_data data)
+void	phoenix(t_mlx_data *data)
 {
 	int			x;
 	int			y;
@@ -61,11 +61,11 @@ void	phoenix(t_mlx_data data)
 		x = 0;
 		while (x < WIDTH)
 		{
-			data.cmp.re = (y - HEIGHT / 2.0) * 4.0 / HEIGHT * data.fract.zoom
-				+ data.fract.offset_y;
-			data.cmp.im = (x - WIDTH / 2.0) * 4.0 / WIDTH * data.fract.zoom
-				+ data.fract.offset_x;
-			set_pxl_clr(&data, x, y, calc(data.cmp, c, p, data.fract.max_itr));
+			data->cmp.re = (y - HEIGHT / 2.0) * 4.0 / HEIGHT * data->fract.zoom
+				+ data->fract.offset_y;
+			data->cmp.im = (x - WIDTH / 2.0) * 4.0 / WIDTH * data->fract.zoom
+				+ data->fract.offset_x;
+			set_pxl_clr(data, x, y, calc(data->cmp, c, p, data->fract.max_itr));
 			x++;
 		}
 		y++;
