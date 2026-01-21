@@ -6,7 +6,7 @@
 /*   By: halragga <halragga@student.42amman.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/07 11:49:45 by halragga          #+#    #+#             */
-/*   Updated: 2026/01/15 13:43:18 by halragga         ###   ########.fr       */
+/*   Updated: 2026/01/15 14:12:37 by halragga         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ static int	valid_fractal(char *fract_name)
 		return (0);
 }
 
-static void	show_guide(void)
+void	show_guide(void)
 {
 	ft_printf("\nUsage:\n\n");
 	ft_printf("Mandelbrot:\n");
@@ -43,8 +43,8 @@ static void	show_guide(void)
 // mlx_destroy_display(data->mlx);
 // free(data->mlx);
 // (void)data;
-
-static void	ft_exit(/*t_mlx_data *data*/ int code, char *msg, void *func(void))
+/*t_mlx_data *data*/
+static void	ft_exit(int code, char *msg, void *func(void))
 {
 	if (msg)
 		ft_printf("\n%s", msg);

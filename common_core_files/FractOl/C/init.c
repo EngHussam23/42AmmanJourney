@@ -6,7 +6,7 @@
 /*   By: halragga <halragga@student.42amman.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/11 17:19:59 by halragga          #+#    #+#             */
-/*   Updated: 2026/01/15 13:54:17 by halragga         ###   ########.fr       */
+/*   Updated: 2026/01/15 14:14:28 by halragga         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,22 +22,28 @@ static void	init_fract(t_mlx_data *data, char **argv)
 	data->fract.offset_x = 0.0;
 	data->fract.offset_y = 0.0;
 	data->fract.max_itr = 100;
-	if (!ft_strncmp(argv[1], "julia", 5) && argv[2] && argv[3])
+	if (!ft_strncmp(argv[1], "julia", 5))
 	{
-		data->fract.julia_c.re = ft_atof(argv[2]);
-		data->fract.julia_c.im = ft_atof(argv[3]);
+		if (argv[2] && argv[3])
+		{
+			data->fract.julia_c.re = ft_atof(argv[2]);
+			data->fract.julia_c.im = ft_atof(argv[3]);
+		}
+		else
+			show_guide();
 	}
 	else if (!ft_strncmp(argv[1], "phoenix", 7))
 	{
 		data->fract.julia_c.re = 0.56667;
 		data->fract.julia_c.im = -0.5;
 	}
-	else
-	{
-		data->fract.julia_c.re = -0.7;
-		data->fract.julia_c.im = 0.27015;
-	}
 }
+
+// else
+// {
+// 	data->fract.julia_c.re = -0.7;
+// 	data->fract.julia_c.im = 0.27015;
+// }
 
 int	open_window(t_mlx_data *data, char **argv)
 {

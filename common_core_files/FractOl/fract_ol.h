@@ -6,7 +6,7 @@
 /*   By: halragga <halragga@student.42amman.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/07 11:18:02 by halragga          #+#    #+#             */
-/*   Updated: 2025/12/30 01:58:43 by halragga         ###   ########.fr       */
+/*   Updated: 2026/01/15 14:13:28 by halragga         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -87,6 +87,7 @@ typedef struct s_mlx_data
 
 /* Functions' Signatures */
 /* Render */
+void	show_guide(void);
 int		open_window(t_mlx_data *data, char **argv);
 int		render_image(t_mlx_data *data);
 
