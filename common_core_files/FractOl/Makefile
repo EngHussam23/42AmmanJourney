@@ -6,20 +6,28 @@
 #    By: halragga <halragga@student.42amman.com>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/12/07 09:58:17 by halragga          #+#    #+#              #
-#    Updated: 2026/01/21 16:48:21 by halragga         ###   ########.fr        #
+#    Updated: 2026/01/24 13:41:01 by halragga         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 # Excutable file:
 NAME = fractol
 
+# Libft:
+LIBFT_PATH = Libft
+LIBFT_ARC = $(LIBFT_PATH)/libft.a
+
+# mlx
+MLX_PATH = minilibx-linux
+MLX_ARC = minilibx-linux/libmlx_Linux.a
+
 # Flags:
-CFLAGS = -Wall -Wextra -Werror -g -Wno-incompatible-pointer-types
+CFLAGS = -Wall -Wextra -Werror -I. -I$(LIBFT_PATH) -I$(MLX_PATH)
 # -lmlx: MiniLibX library linking command; graphics lib, needed to open windows, draw pixels, create images, etc.
 # -lX11: a library MiniLibX needs it to communicate with the display server.
 # -lXext: X11 Extension library linking command; provides additional functionality for the X11 library, like image handling.
 # -lm: Math library.
-MLX_FLAGS = -lXext -lX11 -lm # -lmlx
+MLX_FLAGS = -lXext -lX11 -lm
 
 #Compilation Command "Full":
 CC = cc
@@ -27,13 +35,16 @@ CC = cc
 # Force Remove:
 RM = rm -f
 
-# Libft:
-LIBFT_PATH = Libft
-LIBFT_ARC = $(LIBFT_PATH)/libft.a
 
 # Source Files:
 SRC_DIR = C
-SRCs = $(SRC_DIR)/main.c $(SRC_DIR)/colors.c $(SRC_DIR)/events.c $(SRC_DIR)/fractals.c $(SRC_DIR)/render.c $(SRC_DIR)/init.c $(SRC_DIR)/phoenix.c
+SRCs =  $(SRC_DIR)/main.c \
+		$(SRC_DIR)/colors.c \
+		$(SRC_DIR)/events.c \
+		$(SRC_DIR)/fractals.c \
+		$(SRC_DIR)/render.c \
+		$(SRC_DIR)/init.c \
+		$(SRC_DIR)/phoenix.c
 
 # Objects directory:
 OBJ_DIR = Objects
@@ -53,9 +64,15 @@ $(OBJ_DIR)/%.o: $(SRC_DIR)/%.c
 $(LIBFT_ARC):
 	make -C $(LIBFT_PATH)
 
+$(MLX_ARC): $(MLX_PATH)
+	make -C $(MLX_PATH)
+
+$(MLX_PATH):
+	git clone https://github.com/42paris/minilibx-linux
+
 # Final compilation, where the linikng happens:
-$(NAME): $(OBJ_DIR) $(LIBFT_ARC) $(OBJ)
-	$(CC) $(CFLAGS) $(OBJ) $(LIBFT_ARC) ./libmlx_Linux.a $(MLX_FLAGS) -o $(NAME)
+$(NAME): $(OBJ_DIR) $(LIBFT_ARC) $(MLX_ARC) $(OBJ)
+	$(CC) $(CFLAGS) $(OBJ) -L$(LIBFT_PATH) -L$(MLX_PATH) -lft -lmlx_Linux $(MLX_FLAGS) -o $(NAME)
 
 # PROTECTION! in case the objects directory is not created:
 $(OBJ_DIR):
@@ -65,6 +82,7 @@ $(OBJ_DIR):
 clean:
 	$(RM) -rf $(OBJ_DIR) $(OBJ)
 	make -C $(LIBFT_PATH) clean
+	make -C $(MLX_PATH) clean
 
 # Ecutable & Archives cleaning + $(clean):
 fclean: clean

@@ -6,7 +6,7 @@
 /*   By: halragga <halragga@student.42amman.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/07 11:49:45 by halragga          #+#    #+#             */
-/*   Updated: 2026/01/21 16:50:25 by halragga         ###   ########.fr       */
+/*   Updated: 2026/01/24 13:41:33 by halragga         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,8 +38,17 @@ void	show_guide(void)
 	ft_printf("./fractol phoenix\n\n");
 }
 
-static void	ft_exit(int code, char *msg, void *func(void))
+static void	ft_exit(t_mlx_data	*data, int code, char *msg, void func(void))
 {
+	if (data && data->img.img)
+		mlx_destroy_image(data->mlx, data->img.img);
+	if (data && data->win)
+		mlx_destroy_window(data->mlx, data->win);
+	if (data && data->mlx)
+	{
+		mlx_destroy_display(data->mlx);
+		free(data->mlx);
+	}
 	if (msg)
 		ft_printf("\n%s", msg);
 	if (func)
@@ -51,19 +60,20 @@ int	main(int argc, char **argv)
 {
 	t_mlx_data	data;
 
+	ft_memset(&data, 0, sizeof(data));
 	if (argc < 2 || argc > 4 || !valid_fractal(argv[1]))
-		ft_exit(1, "Incorrect fractal name, check this \n", show_guide);
+		ft_exit(&data, 1, "Incorrect fractal name, check this \n", show_guide);
 	if (init_fract(&data, argc, argv) != 0)
-		ft_exit(1, "Err: bad input \n", show_guide);
+		ft_exit(&data, 1, "Err: bad input \n", show_guide);
 	if (open_window(&data) != 0)
-		ft_exit(2, "Err: failed to open the window", NULL);
+		ft_exit(&data, 2, "Err: failed to open the window", NULL);
 	if (render_image(&data) != 0)
-		ft_exit(3, "Unable to render the image", NULL);
+		ft_exit(&data, 3, "Unable to render the image", NULL);
 	mlx_key_hook(data.win, key_handler, &data);
 	mlx_mouse_hook(data.win, mouse_handler, &data);
 	mlx_hook(data.win, 6, 1L << 6, mouse_move, &data);
 	mlx_hook(data.win, 17, 0, mlx_loop_end, data.mlx);
 	mlx_loop(data.mlx);
-	ft_exit(0, NULL, NULL);
+	ft_exit(&data, 0, NULL, NULL);
 	return (0);
 }

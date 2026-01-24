@@ -6,7 +6,7 @@
 /*   By: halragga <halragga@student.42amman.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/11 17:19:59 by halragga          #+#    #+#             */
-/*   Updated: 2026/01/21 16:49:06 by halragga         ###   ########.fr       */
+/*   Updated: 2026/01/21 20:20:26 by halragga         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,7 +50,7 @@ int	init_fract(t_mlx_data *data, int argc, char **argv)
 	data->fract.offset_x = 0.0;
 	data->fract.offset_y = 0.0;
 	data->fract.max_itr = 30;
-	if (!ft_strncmp(argv[1], "julia", 5))
+	if (!ft_strcmp(argv[1], "julia"))
 	{
 		if (is_valid_double(argv[2]) && is_valid_double(argv[3]))
 		{
@@ -62,7 +62,7 @@ int	init_fract(t_mlx_data *data, int argc, char **argv)
 	}
 	if (argc != 2)
 		return (2);
-	if (!ft_strncmp(argv[1], "phoenix", 7))
+	if (!ft_strcmp(argv[1], "phoenix"))
 	{
 		data->fract.julia_c.re = 0.56667;
 		data->fract.julia_c.im = -0.5;

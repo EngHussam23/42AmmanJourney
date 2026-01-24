@@ -6,7 +6,7 @@
 /*   By: halragga <halragga@student.42amman.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/22 14:47:26 by halragga          #+#    #+#             */
-/*   Updated: 2026/01/21 15:04:17 by halragga         ###   ########.fr       */
+/*   Updated: 2026/01/24 13:28:45 by halragga         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,7 +63,7 @@ void	phoenix(t_mlx_data *data)
 		{
 			data->cmp.re = (y - HEIGHT / 2.0) * 4.0 / HEIGHT * data->fract.zoom
 				+ data->fract.offset_y;
-			data->cmp.im = (x - WIDTH / 2.0) * 4.0 / WIDTH * data->fract.zoom
+			data->cmp.im = (x - WIDTH / 2.0) * 4.0 / HEIGHT * data->fract.zoom
 				+ data->fract.offset_x;
 			set_pxl_clr(data, x, y, calc(data->cmp, c, p, data->fract.max_itr));
 			x++;

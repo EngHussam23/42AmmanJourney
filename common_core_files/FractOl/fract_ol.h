@@ -6,7 +6,7 @@
 /*   By: halragga <halragga@student.42amman.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/07 11:18:02 by halragga          #+#    #+#             */
-/*   Updated: 2026/01/21 16:49:38 by halragga         ###   ########.fr       */
+/*   Updated: 2026/01/24 13:38:42 by halragga         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,10 +20,10 @@
 # include <math.h>
 
 /* My defined includes */
-# include "Libft/libft.h"
+# include "libft.h"
 
 /* Window Size */
-# define WIDTH 500
+# define WIDTH 1000
 # define HEIGHT 500
 
 /* Key codes in Linux */
@@ -89,21 +89,21 @@ typedef struct s_mlx_data
 
 /* Functions' Signatures */
 /* Render */
-void	show_guide(void);
 int		open_window(t_mlx_data *data);
 int		render_image(t_mlx_data *data);
 
 /* Events handling */
+void	show_guide(void);
 int		key_handler(int keycode, void *vars);
 int		mouse_move(int x, int y, t_mlx_data *data);
 int		mouse_handler(int button, int x, int y, t_mlx_data *data);
 
 /* Fractals */
-void	put_pixel(t_mlx_data *data, int x, int y, int color);
-void	julia(t_mlx_data *data);
-void	mandelbrot(t_mlx_data *data);
-void	phoenix(t_mlx_data *data);
 int		init_fract(t_mlx_data *data, int argc, char **argv);
+void	put_pixel(t_mlx_data *data, int x, int y, int color);
+void	mandelbrot(t_mlx_data *data);
+void	julia(t_mlx_data *data);
+void	phoenix(t_mlx_data *data);
 
 /* Colors */
 int		colorize(int itr, int max_itr, int shift);

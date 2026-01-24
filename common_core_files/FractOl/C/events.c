@@ -6,7 +6,7 @@
 /*   By: halragga <halragga@student.42amman.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/14 14:21:07 by halragga          #+#    #+#             */
-/*   Updated: 2026/01/21 15:19:27 by halragga         ###   ########.fr       */
+/*   Updated: 2026/01/24 13:19:06 by halragga         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,9 +76,7 @@ int	key_handler(int keycode, void *params)
 		mlx_loop_end(vars->mlx);
 	else if (keycode == LEFT_KEY || keycode == UP_KEY
 		|| keycode == RIGHT_KEY || keycode == DOWN_KEY)
-	{
 		handle_pan(keycode, vars);
-	}
 	else if (keycode == C_KEY)
 		vars->fract.clr_shift += 42;
 	else if (keycode == R_KEY)
