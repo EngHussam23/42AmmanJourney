@@ -6,7 +6,7 @@
 /*   By: halragga <halragga@student.42amman.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/29 14:47:04 by halragga          #+#    #+#             */
-/*   Updated: 2026/01/29 19:57:30 by halragga         ###   ########.fr       */
+/*   Updated: 2026/01/30 02:51:09 by halragga         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ static int	is_sign(char c)
 	return (c == '+' || c == '-');
 }
 
-static void	validate_args(int argc, char **argv)
+static void	validate_args(int argc, char **t)
 {
 	int	row;
 	int	col;
@@ -31,19 +31,16 @@ static void	validate_args(int argc, char **argv)
 	while (row < argc)
 	{
 		col = 0;
-		while (argv[row][col] == '\0' || is_space(argv[row][col]))
+		while (is_space(t[row][col]))
+			col++;
+		while (t[row][col])
 		{
-			if (argv[row][col] == '\0')
+			if ((!ft_isdigit(t[row][col]) && !is_space(t[row][col])
+				&& !is_sign(t[row][col])) || (is_sign(t[row][col])
+				&& (!ft_isdigit(t[row][col + 1])
+				|| (col > 0 && ft_isdigit(t[row][col - 1])))))
 				ft_printf("Error");//fix
 			col++;
-		}
-		while (argv[row][col])
-		{
-			if ((!ft_isdigit(argv[row][col]) && !is_space(argv[row][col])
-				&& !is_sign(argv[row][col])) || (is_sign(argv[row][col])
-				&& (!ft_isdigit(argv[row][col + 1])
-				|| (col > 0 && ft_isdigit(argv[row][col - 1])))))
-				ft_printf("Error");//fix
 		}
 		row++;
 	}
