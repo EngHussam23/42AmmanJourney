@@ -1,21 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   error_handling.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: halragga <halragga@student.42amman.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/01/29 14:47:04 by halragga          #+#    #+#             */
-/*   Updated: 2026/01/30 17:29:44 by halragga         ###   ########.fr       */
+/*   Created: 2026/01/30 17:27:19 by halragga          #+#    #+#             */
+/*   Updated: 2026/01/30 20:06:35 by halragga         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap.h"
 
-int	main(int argc, char **argv)
+void	ft_exit_error(int code)
 {
-	if (argc < 2)
-		return (0);
-	else
-		validate_args(argc, argv);
+	write(2, "Error\n", 6);
+	exit(code);
 }
