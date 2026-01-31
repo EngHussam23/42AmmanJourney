@@ -6,7 +6,7 @@
 #    By: halragga <halragga@student.42amman.com>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/12/07 09:58:17 by halragga          #+#    #+#              #
-#    Updated: 2026/01/31 17:26:52 by halragga         ###   ########.fr        #
+#    Updated: 2026/01/31 19:41:21 by halragga         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -36,6 +36,7 @@ SRCs =  $(SRC_DIR)/main.c \
         $(SRC_DIR)/error_handling.c \
         $(SRC_DIR)/stack_ops_1.c \
         $(SRC_DIR)/indexing.c \
+        $(SRC_DIR)/small_sort.c \
         $(SRC_DIR)/radix_sort.c
 
 # Objects directory:

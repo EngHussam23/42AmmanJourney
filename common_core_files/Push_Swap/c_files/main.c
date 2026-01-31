@@ -6,7 +6,7 @@
 /*   By: halragga <halragga@student.42amman.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/29 14:47:04 by halragga          #+#    #+#             */
-/*   Updated: 2026/01/31 17:30:54 by halragga         ###   ########.fr       */
+/*   Updated: 2026/01/31 18:33:47 by halragga         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,8 +28,7 @@ int	main(int argc, char **argv)
 		return (0);
 	}
 	stk_b = NULL;
-	give_index(stk_a);
-	radix_sort(&stk_a, &stk_b);
+	sort_stack(&stk_a, &stk_b);
 	free_stack(&stk_a);
 	return (0);
 }

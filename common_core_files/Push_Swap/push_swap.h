@@ -6,7 +6,7 @@
 /*   By: halragga <halragga@student.42amman.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/29 14:50:27 by halragga          #+#    #+#             */
-/*   Updated: 2026/01/31 17:24:46 by halragga         ###   ########.fr       */
+/*   Updated: 2026/01/31 19:41:15 by halragga         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,7 +56,10 @@ void	rev_rot_a(t_stack **stk_a);
 // Indexing
 int		get_stack_size(t_stack *stack);
 void	give_index(t_stack *stack);
-// Radix sort
+/* Radix sort */
+// Small sorts
+void	sort_stack(t_stack **stk_a, t_stack **stk_b);
+// Main Raidix sort
 void	radix_sort(t_stack **stk_a, t_stack **stk_b);
 
 #endif
