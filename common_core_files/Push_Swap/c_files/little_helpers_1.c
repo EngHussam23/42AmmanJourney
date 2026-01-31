@@ -6,7 +6,7 @@
 /*   By: halragga <halragga@student.42amman.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/30 23:52:59 by halragga          #+#    #+#             */
-/*   Updated: 2026/01/31 12:20:37 by halragga         ###   ########.fr       */
+/*   Updated: 2026/01/31 20:04:47 by halragga         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,7 @@ void	free_stack(t_stack **stack)
 
 int	is_sorted(t_stack *stack)
 {
-	t_stack *crnt;
+	t_stack	*crnt;
 
 	if (!stack)
 		return (1);
