@@ -6,7 +6,7 @@
 /*   By: halragga <halragga@student.42amman.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/31 18:24:23 by halragga          #+#    #+#             */
-/*   Updated: 2026/01/31 19:41:03 by halragga         ###   ########.fr       */
+/*   Updated: 2026/01/31 19:42:44 by halragga         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -93,7 +93,7 @@ static void	sort_five(t_stack **stk_a, t_stack **stk_b)
 		size--;
 	}
 	sort_three(stk_a);
-	while (*stk_a)
+	while (*stk_b)
 		push_to_a_op(stk_a, stk_b);
 }
 
