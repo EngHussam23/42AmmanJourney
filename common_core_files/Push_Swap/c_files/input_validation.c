@@ -6,7 +6,7 @@
 /*   By: halragga <halragga@student.42amman.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/30 17:29:55 by halragga          #+#    #+#             */
-/*   Updated: 2026/01/31 00:10:08 by halragga         ###   ########.fr       */
+/*   Updated: 2026/01/31 12:37:39 by halragga         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,6 +43,24 @@ void	validate_args(int c, char **t)
 	}
 }
 
-void	check_dups(t_stack *stack)
+void	check_dups(t_stack **stk)
 {
+	t_stack	*crnt;
+	t_stack	*chkr;
+
+	crnt = *stk;
+	while (crnt)
+	{
+		chkr = crnt->next;
+		while (chkr)
+		{
+			if (crnt->value == chkr->value)
+			{
+				free_stack(stk);
+				ft_exit_error(6);
+			}
+			chkr = chkr->next;
+		}
+		crnt = crnt->next;
+	}
 }

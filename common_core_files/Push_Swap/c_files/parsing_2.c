@@ -6,7 +6,7 @@
 /*   By: halragga <halragga@student.42amman.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/30 20:51:44 by halragga          #+#    #+#             */
-/*   Updated: 2026/01/30 23:43:12 by halragga         ###   ########.fr       */
+/*   Updated: 2026/01/31 14:09:38 by halragga         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,18 +62,20 @@ long	ft_atol(const char *str)
 
 	i = 0;
 	res = 0;
-	sign = -1;
+	sign = 1;
 	while (str[i] == ' ')
 		i++;
-	if (str[i] == '-')
+	if (str[i] == '+' || str[i] == '-')
 	{
-		sign *= -1;
+		if (str[i] == '-')
+			sign = -1;
 		i++;
 	}
-	while (str[i] == '+')
-		i++;
 	while (str[i] >= '0' && str[i] <= '9')
 	{
+		if (res > LONG_MAX / 10
+			|| (res == LONG_MAX / 10 && (str[i] - '0') > LONG_MAX % 10))
+			ft_exit_error(4);
 		res = res * 10 + (str[i] - '0');
 		i++;
 	}

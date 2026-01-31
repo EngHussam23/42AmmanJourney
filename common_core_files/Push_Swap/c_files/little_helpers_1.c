@@ -6,7 +6,7 @@
 /*   By: halragga <halragga@student.42amman.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/30 23:52:59 by halragga          #+#    #+#             */
-/*   Updated: 2026/01/31 00:05:02 by halragga         ###   ########.fr       */
+/*   Updated: 2026/01/31 12:20:37 by halragga         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,7 +48,7 @@ int	is_sorted(t_stack *stack)
 	crnt = stack;
 	while (crnt->next)
 	{
-		if (crnt->value > crnt->next->index)
+		if (crnt->value > crnt->next->value)
 			return (0);
 		crnt = crnt->next;
 	}

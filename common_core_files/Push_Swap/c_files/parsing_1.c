@@ -6,7 +6,7 @@
 /*   By: halragga <halragga@student.42amman.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/30 20:21:21 by halragga          #+#    #+#             */
-/*   Updated: 2026/01/30 23:42:01 by halragga         ###   ########.fr       */
+/*   Updated: 2026/01/31 12:23:29 by halragga         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,9 +27,10 @@ void	parse_input(t_stack **stk, char *argv)
 		free(numbers[i]);
 		i++;
 	}
+	free(numbers);
 }
 
-t_stack	parser_main(int argc, char **argv)
+t_stack	*parser_main(int argc, char **argv)
 {
 	t_stack	*stk_a;
 	int		i;
@@ -41,4 +42,5 @@ t_stack	parser_main(int argc, char **argv)
 		parse_input(&stk_a, argv[i]);
 		i++;
 	}
+	return (stk_a);
 }
