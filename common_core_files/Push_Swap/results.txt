@@ -23,14 +23,14 @@
 [0;32m[PASS][0m Multiple duplicates - Correctly returned Error
 
 === BASIC SORTING ===
-[0;32m[PASS][0m 2 numbers (reverse) - 1 operations
-[0;32m[PASS][0m 2 numbers (random) - 1 operations
-[0;32m[PASS][0m 3 numbers (reverse) - 2 operations
-[0;32m[PASS][0m 3 numbers (random 1) - 1 operations
-[0;32m[PASS][0m 3 numbers (random 2) - 1 operations
-[0;32m[PASS][0m 4 numbers - 5 operations
-[0;32m[PASS][0m 5 numbers (reverse) - 8 operations
-[0;32m[PASS][0m 5 numbers (random) - 9 operations
+[0;32m[PASS][0m 2 numbers (reverse) - 1 operations (no leaks)
+[0;32m[PASS][0m 2 numbers (random) - 1 operations (no leaks)
+[0;32m[PASS][0m 3 numbers (reverse) - 2 operations (no leaks)
+[0;32m[PASS][0m 3 numbers (random 1) - 1 operations (no leaks)
+[0;32m[PASS][0m 3 numbers (random 2) - 1 operations (no leaks)
+[0;32m[PASS][0m 4 numbers - 5 operations (no leaks)
+[0;32m[PASS][0m 5 numbers (reverse) - 8 operations (no leaks)
+[0;32m[PASS][0m 5 numbers (random) - 9 operations (no leaks)
 
 === WITH QUOTES ===
 [0;31m[FAIL][0m Quoted string (3) - Got Error output
@@ -38,28 +38,28 @@
 [0;31m[FAIL][0m Mixed format - Got Error output
 
 === NEGATIVE NUMBERS ===
-[0;32m[PASS][0m All negative - 5 operations
-[0;32m[PASS][0m Mixed positive/negative - 5 operations
-[0;32m[PASS][0m INT_MIN and INT_MAX - 1 operations
+[0;32m[PASS][0m All negative - 5 operations (no leaks)
+[0;32m[PASS][0m Mixed positive/negative - 5 operations (no leaks)
+[0;32m[PASS][0m INT_MIN and INT_MAX - 1 operations (no leaks)
 
 === SIGNS ===
-[0;32m[PASS][0m Positive sign - 2 operations
-[0;32m[PASS][0m Mixed signs - 1 operations
-[0;32m[PASS][0m Zero with sign - 1 operations
+[0;32m[PASS][0m Positive sign - 2 operations (no leaks)
+[0;32m[PASS][0m Mixed signs - 1 operations (no leaks)
+[0;32m[PASS][0m Zero with sign - 1 operations (no leaks)
 
 === MEDIUM SETS ===
-[0;32m[PASS][0m 10 numbers - 65 operations
-[0;32m[PASS][0m 25 numbers - 196 operations
-[0;32m[PASS][0m 50 numbers - 467 operations
+[0;32m[PASS][0m 10 numbers - 65 operations (no leaks)
+[0;32m[PASS][0m 25 numbers - 196 operations (no leaks)
+[0;32m[PASS][0m 50 numbers - 467 operations (no leaks)
 
 === LARGE SETS (Performance) ===
-[1;33m[WARN][0m 100 numbers - 1084 ops (expected ≤ 700)
-[1;33m[WARN][0m 500 numbers - 6784 ops (expected ≤ 5500)
+[1;33m[WARN][0m 100 numbers - 1084 ops (expected ≤ 700, no leaks)
+[1;33m[WARN][0m 500 numbers - 6784 ops (expected ≤ 5500, no leaks)
 
 === SPECIAL PATTERNS ===
-[0;32m[PASS][0m Descending order (10) - 65 operations
-[0;32m[PASS][0m Almost sorted - 6 operations
-[0;32m[PASS][0m Rotated - 6 operations
+[0;32m[PASS][0m Descending order (10) - 65 operations (no leaks)
+[0;32m[PASS][0m Almost sorted - 6 operations (no leaks)
+[0;32m[PASS][0m Rotated - 6 operations (no leaks)
 
 =========================================
    TEST SUMMARY
