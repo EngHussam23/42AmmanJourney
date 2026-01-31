@@ -35,12 +35,19 @@ test_case() {
     # Check with checker
     CHECK=$(echo "$RESULT" | ./checker_linux $ARGS 2>&1)
     
+    # Valgrind memory leak check
+    VALGRIND_OUT=$(valgrind --leak-check=full --error-exitcode=1 ./push_swap $ARGS 2>&1 > /dev/null)
+    VALGRIND_STATUS=$?
+    
     if [ "$CHECK" = "OK" ]; then
-        if [ -z "$MAX_OPS" ] || [ "$OPS" -le "$MAX_OPS" ]; then
-            echo -e "${GREEN}[PASS]${NC} $NAME - $OPS operations"
+        if [ $VALGRIND_STATUS -ne 0 ]; then
+            echo -e "${RED}[FAIL]${NC} $NAME - Memory leak detected"
+            ((FAILED++))
+        elif [ -z "$MAX_OPS" ] || [ "$OPS" -le "$MAX_OPS" ]; then
+            echo -e "${GREEN}[PASS]${NC} $NAME - $OPS operations (no leaks)"
             ((PASSED++))
         else
-            echo -e "${YELLOW}[WARN]${NC} $NAME - $OPS ops (expected ≤ $MAX_OPS)"
+            echo -e "${YELLOW}[WARN]${NC} $NAME - $OPS ops (expected ≤ $MAX_OPS, no leaks)"
             ((PASSED++))
         fi
     elif [ "$CHECK" = "KO" ]; then
