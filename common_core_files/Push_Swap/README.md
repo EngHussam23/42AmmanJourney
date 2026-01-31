@@ -120,5 +120,6 @@ Run tests:
 
 ## Author
 
-**halragga** - 42 Amman  
-Project completed: January 2026
+Name: **Hussam Alraggad**   
+Intra: **halragga** - 42 Amman  
+Project completed: February 2026
