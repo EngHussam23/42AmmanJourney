@@ -6,7 +6,7 @@
 /*   By: halragga <halragga@student.42amman.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/29 14:50:27 by halragga          #+#    #+#             */
-/*   Updated: 2026/01/31 12:49:41 by halragga         ###   ########.fr       */
+/*   Updated: 2026/01/31 17:24:46 by halragga         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,5 +47,16 @@ long	ft_atol(const char *str);
 int		parse_number(char *str);
 t_stack	*create_node(int val);
 void	add_to_stack(t_stack **stk, int val);
+// Swap OPs (for Radix sort)
+void	swap_a_op(t_stack **stk_a);
+void	push_to_a_op(t_stack **stk_a, t_stack **stk_b);
+void	push_to_b_op(t_stack **stk_a, t_stack **stk_b);
+void	rotate_a_op(t_stack **stk_a);
+void	rev_rot_a(t_stack **stk_a);
+// Indexing
+int		get_stack_size(t_stack *stack);
+void	give_index(t_stack *stack);
+// Radix sort
+void	radix_sort(t_stack **stk_a, t_stack **stk_b);
 
 #endif

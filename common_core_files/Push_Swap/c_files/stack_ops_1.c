@@ -6,7 +6,7 @@
 /*   By: halragga <halragga@student.42amman.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/31 14:30:37 by halragga          #+#    #+#             */
-/*   Updated: 2026/01/31 15:52:32 by halragga         ###   ########.fr       */
+/*   Updated: 2026/01/31 16:44:39 by halragga         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ void	swap_a_op(t_stack **stk_a)
 		return ;
 	first = *stk_a;
 	second = first->next;
-	first->next = second->index;
+	first->next = second->next;
 	second->next = first;
 	*stk_a = second;
 	ft_printf("sa\n");
@@ -36,9 +36,9 @@ void	push_to_a_op(t_stack **stk_a, t_stack **stk_b)
 	if (!*stk_b)
 		return ;
 	temp = *stk_b;
-	stk_b = (*stk_b)->next;
+	*stk_b = (*stk_b)->next;
 	temp->next = *stk_a;
-	stk_a = temp;
+	*stk_a = temp;
 	ft_printf("pa\n");
 }
 
@@ -50,9 +50,9 @@ void	push_to_b_op(t_stack **stk_a, t_stack **stk_b)
 	if (!*stk_a)
 		return ;
 	temp = *stk_a;
-	stk_a = (*stk_a)->next;
+	*stk_a = (*stk_a)->next;
 	temp->next = *stk_b;
-	stk_b = temp;
+	*stk_b = temp;
 	ft_printf("pb\n");
 }
 
@@ -67,7 +67,7 @@ void	rotate_a_op(t_stack **stk_a)
 		return ;
 	first = *stk_a;
 	last = *stk_a;
-	while (last->index)
+	while (last->next)
 		last = last->next;
 	*stk_a = first->next;
 	first->next = NULL;
@@ -88,7 +88,7 @@ void	rev_rot_a(t_stack **stk_a)
 	while (last->next)
 	{
 		sec_last = last;
-		last = sec_last->next;
+		last = last->next;
 	}
 	sec_last->next = NULL;
 	last->next = *stk_a;

@@ -6,7 +6,7 @@
 #    By: halragga <halragga@student.42amman.com>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/12/07 09:58:17 by halragga          #+#    #+#              #
-#    Updated: 2026/01/30 00:42:36 by halragga         ###   ########.fr        #
+#    Updated: 2026/01/31 17:26:52 by halragga         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -26,16 +26,17 @@ CC = cc
 # Force Remove:
 RM = rm -f
 
-
 # Source Files:
 SRC_DIR = c_files
 SRCs =  $(SRC_DIR)/main.c \
-		$(SRC_DIR)/ \
-		$(SRC_DIR)/ \
-		$(SRC_DIR)/ \
-		$(SRC_DIR)/ \
-		$(SRC_DIR)/ \
-		$(SRC_DIR)/
+        $(SRC_DIR)/input_validation.c \
+        $(SRC_DIR)/parsing_1.c \
+        $(SRC_DIR)/parsing_2.c \
+        $(SRC_DIR)/little_helpers_1.c \
+        $(SRC_DIR)/error_handling.c \
+        $(SRC_DIR)/stack_ops_1.c \
+        $(SRC_DIR)/indexing.c \
+        $(SRC_DIR)/radix_sort.c
 
 # Objects directory:
 OBJ_DIR = Objects
