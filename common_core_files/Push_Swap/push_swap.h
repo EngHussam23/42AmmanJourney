@@ -6,7 +6,7 @@
 /*   By: halragga <halragga@student.42amman.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/29 14:50:27 by halragga          #+#    #+#             */
-/*   Updated: 2026/01/31 19:41:15 by halragga         ###   ########.fr       */
+/*   Updated: 2026/02/01 16:41:55 by halragga         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,6 +39,7 @@ int		is_sign(char c);
 void	validate_args(int c, char **t);
 void	check_dups(t_stack **stk);
 int		is_sorted(t_stack *stack);
+// Memory management
 void	free_stack(t_stack **stack);
 // Parsing
 void	parse_input(t_stack **stk, char *argv);
