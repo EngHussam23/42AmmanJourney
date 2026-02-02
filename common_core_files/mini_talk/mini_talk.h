@@ -6,7 +6,7 @@
 /*   By: halragga <halragga@student.42amman.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/02 14:58:22 by halragga          #+#    #+#             */
-/*   Updated: 2026/02/02 17:55:57 by halragga         ###   ########.fr       */
+/*   Updated: 2026/02/02 19:16:52 by halragga         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,7 @@
 
 // Standard libraries (allowed functions)
 # include <unistd.h>
+# include <stdio.h>
 # include <signal.h>
 # include <stdlib.h>
 

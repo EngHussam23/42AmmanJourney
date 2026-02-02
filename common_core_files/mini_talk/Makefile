@@ -6,12 +6,13 @@
 #    By: halragga <halragga@student.42amman.com>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/12/07 09:58:17 by halragga          #+#    #+#              #
-#    Updated: 2026/01/31 19:41:21 by halragga         ###   ########.fr        #
+#    Updated: 2026/02/02 18:43:20 by halragga         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-# Excutable file:
-NAME = push_swap
+# Excutable file name (./server or ./client):
+NAME_SERVER = server
+NAME_CLIENT = client
 
 # Libft:
 LIBFT_PATH = Libft
@@ -28,51 +29,67 @@ RM = rm -f
 
 # Source Files:
 SRC_DIR = c_files
-SRCs =  $(SRC_DIR)/main.c \
-        $(SRC_DIR)/input_validation.c \
-        $(SRC_DIR)/parsing_1.c \
-        $(SRC_DIR)/parsing_2.c \
-        $(SRC_DIR)/little_helpers_1.c \
-        $(SRC_DIR)/error_handling.c \
-        $(SRC_DIR)/stack_ops_1.c \
-        $(SRC_DIR)/indexing.c \
-        $(SRC_DIR)/small_sort.c \
-        $(SRC_DIR)/radix_sort.c
+SERVER_SRCs = $(SRC_DIR)/server_main.c
+CLIENT_SRCs = $(SRC_DIR)/client_main.c
 
-# Objects directory:
-OBJ_DIR = Objects
+# Objects directory (server):
+SERVER_OBJ_DIR = server_objects
+
+# Objects directory (client):
+CLIENT_OBJ_DIR = client_objects
 
 # Objects:
 # from (.c) to (.o):
-OBJ = $(SRCs:$(SRC_DIR)/%.c=$(OBJ_DIR)/%.o)
+# Server
+SERVER_OBJ = $(SERVER_SRCs:$(SRC_DIR)/%.c=$(SERVER_OBJ_DIR)/%.o)
+# Client
+CLIENT_OBJ = $(CLIENT_SRCs:$(SRC_DIR)/%.c=$(CLIENT_OBJ_DIR)/%.o)
 
+##############################
+#                            #
+#   PROCESS STARTS HERE!!!   #
+#                            #
+##############################
 # Initaite the compilation automation
-all: $(NAME)
+all: $(NAME_SERVER) $(NAME_CLIENT)
 
-# Compile but don't re-link
-$(OBJ_DIR)/%.o: $(SRC_DIR)/%.c
+# Compile but don't re-link (server)
+$(SERVER_OBJ_DIR)/server_main.o: $(SRC_DIR)/server_main.c
+	cc $(CFLAGS) -c $< -o $@
+
+# Compile but don't re-link (client)
+$(CLIENT_OBJ_DIR)/client_main.o: $(SRC_DIR)/client_main.c
 	cc $(CFLAGS) -c $< -o $@
 
 # Libft make:
 $(LIBFT_ARC):
 	make -C $(LIBFT_PATH)
 
-# Final compilation, where the linikng happens:
-$(NAME): $(OBJ_DIR) $(LIBFT_ARC) $(OBJ)
-	$(CC) $(CFLAGS) $(OBJ) -L$(LIBFT_PATH) -lft -o $(NAME)
+# Final compilation, where the linikng happens (server):
+$(NAME_SERVER): $(SERVER_OBJ_DIR) $(LIBFT_ARC) $(SERVER_OBJ)
+	$(CC) $(CFLAGS) $(SERVER_OBJ) -L$(LIBFT_PATH) -lft -o $(NAME_SERVER)
+
+# Final compilation, where the linikng happens (client):
+$(NAME_CLIENT): $(CLIENT_OBJ_DIR) $(LIBFT_ARC) $(CLIENT_OBJ)
+	$(CC) $(CFLAGS) $(CLIENT_OBJ) -L$(LIBFT_PATH) -lft -o $(NAME_CLIENT)
 
 # PROTECTION! in case the objects directory is not created:
-$(OBJ_DIR):
-	mkdir -p $(OBJ_DIR)
+$(SERVER_OBJ_DIR):
+	mkdir -p $(SERVER_OBJ_DIR)
+
+$(CLIENT_OBJ_DIR):
+	mkdir -p $(CLIENT_OBJ_DIR)
 
 # Objects level cleaning:
 clean:
-	$(RM) -rf $(OBJ_DIR) $(OBJ)
+	$(RM) -rf $(SERVER_OBJ_DIR) $(SERVER_OBJ)
+	$(RM) -rf $(CLIENT_OBJ_DIR) $(CLIENT_OBJ)
 	make -C $(LIBFT_PATH) clean
 
 # Ecutable & Archives cleaning + $(clean):
 fclean: clean
-	$(RM) $(NAME)
+	$(RM) $(NAME_SERVER)
+	$(RM) $(NAME_CLIENT)
 	make -C $(LIBFT_PATH) fclean
 
 # Recombile from scratch:
