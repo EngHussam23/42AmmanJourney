@@ -1,61 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   server_main.c                                      :+:      :+:    :+:   */
+/*   server_main_bonus.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: halragga <halragga@student.42amman.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/02 14:57:57 by halragga          #+#    #+#             */
-/*   Updated: 2026/02/03 10:41:32 by halragga         ###   ########.fr       */
+/*   Updated: 2026/02/02 20:49:15 by halragga         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../mini_talk.h"
 
-static int	server_error(unsigned char *str)
-{
-	if (str)
-		free(str);
-	write(2, "Server Error!\n", 13);
-	exit(3);
-}
-
-static unsigned char	*saver(unsigned char *rec, char new_c)
-{
-	unsigned char	*str;
-	int				i;
-
-	i = 0;
-	if (new_c == '\0')
-	{
-		if (rec)
-			ft_printf("%s", rec);
-	}
-}
-
 static void	handle_signal(int signum, siginfo_t *info, void *context)
 {
-	static int				bit_index;
-	static unsigned char	crnt_char;
-	static unsigned char	*msg;
-	int						val;
+	static int		bit_index;
+	static char		crnt_char;
+	static pid_t	c_pid;
 
-	(void)info;
 	(void)context;
-	val = 0;
+	if (c_pid == 0)
+		c_pid = info->si_pid;
 	crnt_char <<= 1;
 	if (signum == SIGUSR2)
 		crnt_char |= 1;
 	bit_index++;
 	if (bit_index == 8)
 	{
-		msg = ft_str_saver(msg, crnt_char);
+		write(1, &crnt_char, 1);
 		bit_index = 0;
 		crnt_char = 0;
 	}
-	val = kill(info->si_pid, SIGUSR2);
-	if (val == -1)
-		server_error(msg);
 }
 
 int	main(void)
