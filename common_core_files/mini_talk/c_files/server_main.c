@@ -3,33 +3,32 @@
 /*                                                        :::      ::::::::   */
 /*   server_main.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: halragga <halragga@student.42amman.com>    +#+  +:+       +#+        */
+/*   By: halragga <halragga@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/02 14:57:57 by halragga          #+#    #+#             */
-/*   Updated: 2026/02/03 10:41:32 by halragga         ###   ########.fr       */
+/*   Updated: 2026/02/03 13:21:17 by halragga         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../mini_talk.h"
 
-static int	server_error(unsigned char *str)
+static void	ft_str_saver(char new_c)
 {
-	if (str)
-		free(str);
-	write(2, "Server Error!\n", 13);
-	exit(3);
-}
+	static char	buffer[1024 * 1024];
+	static int	i;
 
-static unsigned char	*saver(unsigned char *rec, char new_c)
-{
-	unsigned char	*str;
-	int				i;
-
-	i = 0;
 	if (new_c == '\0')
 	{
-		if (rec)
-			ft_printf("%s", rec);
+		buffer[i] = new_c;
+		ft_putstr_fd(buffer, 1);
+		write(1, "\n", 1);
+		i = 0;
+		
+	}
+	else
+	{
+		if (i < (int)sizeof(buffer) - 1)
+			buffer[i++] = new_c;
 	}
 }
 
@@ -37,25 +36,19 @@ static void	handle_signal(int signum, siginfo_t *info, void *context)
 {
 	static int				bit_index;
 	static unsigned char	crnt_char;
-	static unsigned char	*msg;
-	int						val;
 
 	(void)info;
 	(void)context;
-	val = 0;
 	crnt_char <<= 1;
 	if (signum == SIGUSR2)
 		crnt_char |= 1;
 	bit_index++;
 	if (bit_index == 8)
 	{
-		msg = ft_str_saver(msg, crnt_char);
+		ft_str_saver(crnt_char);
 		bit_index = 0;
 		crnt_char = 0;
 	}
-	val = kill(info->si_pid, SIGUSR2);
-	if (val == -1)
-		server_error(msg);
 }
 
 int	main(void)
@@ -68,14 +61,15 @@ int	main(void)
 	ft_printf("Server PID: %d\n", getpid());
 	if (sigaction(SIGUSR1, &sa, NULL) == -1)
 	{
-		ft_printf("Error: sigaction failed!\n");
+		ft_putstr_fd("Error: sigaction failed!\n", 1);
 		exit(1);
 	}
 	if (sigaction(SIGUSR2, &sa, NULL) == -1)
 	{
-		ft_printf("Error: sigaction failed!\n");
+		ft_putstr_fd("Error: sigaction failed!\n", 1);
 		exit(2);
 	}
 	while (1)
 		pause();
+	return (0);
 }
