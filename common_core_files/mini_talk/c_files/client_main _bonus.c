@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   client_main _bonus.c                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: halragga <halragga@student.42amman.com>    +#+  +:+       +#+        */
+/*   By: halragga <halragga@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/02 18:43:36 by halragga          #+#    #+#             */
-/*   Updated: 2026/02/02 20:51:06 by halragga         ###   ########.fr       */
+/*   Updated: 2026/02/03 10:57:20 by halragga         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,13 +36,13 @@ int	main(int argc, char **argv)
 
 	if (argc != 3)
 	{
-		ft_printf("Error: bad input!\nUsage: ./client <PID> <MSG>\n");
+		ft_putstr_fd("Error: bad input!\nUsage: ./client <PID> <MSG>\n", 1);
 		return (1);
 	}
 	pid = (pid_t)ft_atoi(argv[1]);
 	if (pid <= 0)
 	{
-		ft_printf("Error: invalid PID\n");
+		ft_putstr_fd("Error: invalid PID\n", 1);
 		return (2);
 	}
 	str = argv[2];

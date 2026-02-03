@@ -3,14 +3,20 @@
 /*                                                        :::      ::::::::   */
 /*   server_main_bonus.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: halragga <halragga@student.42amman.com>    +#+  +:+       +#+        */
+/*   By: halragga <halragga@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/02 14:57:57 by halragga          #+#    #+#             */
-/*   Updated: 2026/02/02 20:49:15 by halragga         ###   ########.fr       */
+/*   Updated: 2026/02/03 11:49:28 by halragga         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../mini_talk.h"
+
+static void	server_error(void)
+{
+	write(2, "Server Error!\n", 13);
+	exit(3);
+}
 
 static void	handle_signal(int signum, siginfo_t *info, void *context)
 {
@@ -32,6 +38,11 @@ static void	handle_signal(int signum, siginfo_t *info, void *context)
 		crnt_char = 0;
 	}
 }
+/*
+	val = kill(info->si_pid, SIGUSR2);
+	if (val == -1)
+		server_error();
+*/
 
 int	main(void)
 {
@@ -43,12 +54,12 @@ int	main(void)
 	ft_printf("Server PID: %d\n", getpid());
 	if (sigaction(SIGUSR1, &sa, NULL) == -1)
 	{
-		ft_printf("Error: sigaction failed!\n");
+		ft_putstr_fd("Error: sigaction failed!\n", 1);
 		exit(1);
 	}
 	if (sigaction(SIGUSR2, &sa, NULL) == -1)
 	{
-		ft_printf("Error: sigaction failed!\n");
+		ft_putstr_fd("Error: sigaction failed!\n", 1);
 		exit(2);
 	}
 	while (1)

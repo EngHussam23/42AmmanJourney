@@ -3,17 +3,20 @@
 /*                                                        :::      ::::::::   */
 /*   mini_talk.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: halragga <halragga@student.42amman.com>    +#+  +:+       +#+        */
+/*   By: halragga <halragga@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/02 14:58:22 by halragga          #+#    #+#             */
-/*   Updated: 2026/02/02 19:16:52 by halragga         ###   ########.fr       */
+/*   Updated: 2026/02/03 11:52:32 by halragga         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef MINI_TALK_H
-// # define _POSIX_C_SOURCE 200809L
-# define _XOPEN_SOURCE 700
 # define MINI_TALK_H
+
+// required to enable usleep()
+# define _DEFAULT_SOURCE
+
+# define _XOPEN_SOURCE 700
 
 // Standard libraries (allowed functions)
 # include <unistd.h>
