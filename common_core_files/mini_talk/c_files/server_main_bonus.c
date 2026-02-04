@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   server_main_bonus.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: halragga <halragga@student.42.fr>          +#+  +:+       +#+        */
+/*   By: halragga <halragga@student.42amman.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/02 14:57:57 by halragga          #+#    #+#             */
-/*   Updated: 2026/02/03 11:49:28 by halragga         ###   ########.fr       */
+/*   Updated: 2026/02/04 18:48:10 by halragga         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../mini_talk.h"
+#include "../mini_talk_bonus.h"
 
 static void	server_error(void)
 {
@@ -39,9 +39,9 @@ static void	handle_signal(int signum, siginfo_t *info, void *context)
 	}
 }
 /*
-	val = kill(info->si_pid, SIGUSR2);
-	if (val == -1)
-		server_error();
+val = kill(info->si_pid, SIGUSR2);
+if (val == -1)
+	server_error();
 */
 
 int	main(void)

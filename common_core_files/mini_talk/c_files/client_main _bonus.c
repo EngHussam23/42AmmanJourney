@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   client_main _bonus.c                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: halragga <halragga@student.42.fr>          +#+  +:+       +#+        */
+/*   By: halragga <halragga@student.42amman.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/02 18:43:36 by halragga          #+#    #+#             */
-/*   Updated: 2026/02/03 10:57:20 by halragga         ###   ########.fr       */
+/*   Updated: 2026/02/04 17:28:48 by halragga         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../mini_talk.h"
+#include "../mini_talk_bonus.h"
 
 static void	ft_send(pid_t pid, char c)
 {
