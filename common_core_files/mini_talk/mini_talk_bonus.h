@@ -6,7 +6,7 @@
 /*   By: halragga <halragga@student.42amman.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/02 14:58:22 by halragga          #+#    #+#             */
-/*   Updated: 2026/02/04 20:22:45 by halragga         ###   ########.fr       */
+/*   Updated: 2026/02/05 01:57:57 by halragga         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,6 @@
 # include <stdio.h>
 # include <signal.h>
 # include <stdlib.h>
-
 
 // My headers:
 # include "libft.h"

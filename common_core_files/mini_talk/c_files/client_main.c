@@ -6,7 +6,7 @@
 /*   By: halragga <halragga@student.42amman.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/02 18:43:36 by halragga          #+#    #+#             */
-/*   Updated: 2026/02/05 00:13:09 by halragga         ###   ########.fr       */
+/*   Updated: 2026/02/05 01:57:49 by halragga         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,7 +48,6 @@ static void	handle_ack(int signum, siginfo_t *info, void *context)
 	else if (signum == SIGUSR2)
 		ft_exit(0, NULL);
 }
-
 
 int	main(int argc, char **argv)
 {
