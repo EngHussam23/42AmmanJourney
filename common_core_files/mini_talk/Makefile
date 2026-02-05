@@ -6,7 +6,7 @@
 #    By: halragga <halragga@student.42amman.com>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/12/07 09:58:17 by halragga          #+#    #+#              #
-#    Updated: 2026/02/02 20:46:39 by halragga         ###   ########.fr        #
+#    Updated: 2026/02/05 02:07:04 by halragga         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,7 +14,7 @@
 NAME_SERVER = server
 NAME_CLIENT = client
 NAME_SERVER_BONUS = server_bonus
-NAME_SERVER_BONUS = client_bonus
+NAME_CLIENT_BONUS = client_bonus
 
 # Libft:
 LIBFT_PATH = Libft
@@ -33,8 +33,8 @@ RM = rm -f
 SRC_DIR = c_files
 SERVER_SRCs = $(SRC_DIR)/server_main.c
 CLIENT_SRCs = $(SRC_DIR)/client_main.c
-SERVER_BONUS_SRCs = $(SRC_DIR)/server_main.c
-CLIENT_BONUS_SRCs = $(SRC_DIR)/client_main.c
+SERVER_BONUS_SRCs = $(SRC_DIR)/server_main_bonus.c
+CLIENT_BONUS_SRCs = $(SRC_DIR)/client_main_bonus.c
 
 # Objects directory (server):
 SERVER_OBJ_DIR = server_objects
@@ -68,7 +68,7 @@ $(SERVER_OBJ_DIR)/server_main.o: $(SRC_DIR)/server_main.c
 	cc $(CFLAGS) -c $< -o $@
 
 # Compile but don't re-link (server-bonus)
-$(SERVER_OBJ_BONUS_DIR)/server_main.o: $(SRC_DIR)/server_main_bonus.c
+$(SERVER_OBJ_BONUS_DIR)/server_main_bonus.o: $(SRC_DIR)/server_main_bonus.c
 	cc $(CFLAGS) -c $< -o $@
 
 # Compile but don't re-link (client)
@@ -76,7 +76,7 @@ $(CLIENT_OBJ_DIR)/client_main.o: $(SRC_DIR)/client_main.c
 	cc $(CFLAGS) -c $< -o $@
 
 # Compile but don't re-link (client-bonus)
-$(CLIENT_OBJ_BONUS_DIR)/client_main.o: $(SRC_DIR)/client_main_bonus.c
+$(CLIENT_OBJ_BONUS_DIR)/client_main_bonus.o: $(SRC_DIR)/client_main_bonus.c
 	cc $(CFLAGS) -c $< -o $@
 
 # Libft make:

@@ -1,16 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   client_main.c                                      :+:      :+:    :+:   */
+/*   client_main_bonus.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: halragga <halragga@student.42amman.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/02 18:43:36 by halragga          #+#    #+#             */
-/*   Updated: 2026/02/05 02:35:12 by halragga         ###   ########.fr       */
+/*   Updated: 2026/02/05 03:03:45 by halragga         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../mini_talk.h"
+#include "../mini_talk_bonus.h"
 
 static volatile sig_atomic_t	g_ack_received = 0;
 
@@ -41,12 +41,19 @@ static void	ft_send(pid_t pid, char c)
 
 static void	handle_ack(int signum, siginfo_t *info, void *context)
 {
+	static int	bit_received = 0;
+
 	(void)info;
 	(void)context;
 	if (signum == SIGUSR1)
+	{
 		g_ack_received = 1;
+		bit_received++;
+		if (bit_received % 8 == 0)
+			ft_putstr_fd("8 bits acknowledged\n", 1);
+	}
 	else if (signum == SIGUSR2)
-		ft_exit(0, NULL);
+		ft_exit(0, "\n##message received!##\n");
 }
 
 int	main(int argc, char **argv)
@@ -64,7 +71,7 @@ int	main(int argc, char **argv)
 		ft_exit(1, "Error: bad input!\nUsage: ./client <PID> <MSG>\n");
 	pid = (pid_t)ft_atoi(argv[1]);
 	if (pid <= 0)
-		ft_exit(1, "Error: invalid PID\n");
+		ft_exit(2, "Error: invalid PID\n");
 	i = 0;
 	while (argv[2][i])
 	{

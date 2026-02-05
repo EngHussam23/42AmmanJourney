@@ -6,7 +6,7 @@
 /*   By: halragga <halragga@student.42amman.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/02 14:58:22 by halragga          #+#    #+#             */
-/*   Updated: 2026/02/05 01:57:57 by halragga         ###   ########.fr       */
+/*   Updated: 2026/02/05 02:37:37 by halragga         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,5 @@
 
 // My headers:
 # include "libft.h"
-
-void	ft_exit(int code, char *msg);
 
 #endif

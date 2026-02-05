@@ -6,11 +6,18 @@
 /*   By: halragga <halragga@student.42amman.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/02 14:57:57 by halragga          #+#    #+#             */
-/*   Updated: 2026/02/04 20:57:36 by halragga         ###   ########.fr       */
+/*   Updated: 2026/02/05 02:23:19 by halragga         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../mini_talk.h"
+
+static void	ft_exit(int code, char *msg)
+{
+	if (msg)
+		ft_putstr_fd(msg, 1);
+	exit(code);
+}
 
 static void	ft_str_saver(char new_c, pid_t client_pid)
 {
@@ -49,13 +56,6 @@ static void	handle_signal(int signum, siginfo_t *info, void *context)
 		crnt_char = 0;
 	}
 	kill(info->si_pid, SIGUSR1);
-}
-
-static void	ft_exit(int code, char *msg)
-{
-	if (msg)
-		ft_putstr_fd(msg, 1);
-	exit(code);
 }
 
 int	main(void)
