@@ -6,7 +6,7 @@
 /*   By: halragga <halragga@student.42amman.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/02 14:57:57 by halragga          #+#    #+#             */
-/*   Updated: 2026/02/05 02:23:19 by halragga         ###   ########.fr       */
+/*   Updated: 2026/02/06 17:49:09 by halragga         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,13 +24,13 @@ static void	ft_str_saver(char new_c, pid_t client_pid)
 	static char	buffer[1024 * 1024];
 	static int	i;
 
+	(void) client_pid;
 	if (new_c == '\0')
 	{
 		buffer[i] = new_c;
 		ft_putstr_fd(buffer, 1);
 		write(1, "\n", 1);
 		i = 0;
-		kill(client_pid, SIGUSR2);
 	}
 	else
 	{
@@ -55,7 +55,7 @@ static void	handle_signal(int signum, siginfo_t *info, void *context)
 		bit_index = 0;
 		crnt_char = 0;
 	}
-	kill(info->si_pid, SIGUSR1);
+	kill(info->si_pid, SIGUSR1);;
 }
 
 int	main(void)
