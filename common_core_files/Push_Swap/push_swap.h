@@ -6,7 +6,7 @@
 /*   By: halragga <halragga@student.42amman.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/29 14:50:27 by halragga          #+#    #+#             */
-/*   Updated: 2026/02/01 16:41:55 by halragga         ###   ########.fr       */
+/*   Updated: 2026/02/06 19:54:44 by halragga         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,7 +45,6 @@ void	free_stack(t_stack **stack);
 void	parse_input(t_stack **stk, char *argv);
 t_stack	*parser_main(int argc, char **argv);
 long	ft_atol(const char *str);
-int		parse_number(char *str);
 t_stack	*create_node(int val);
 void	add_to_stack(t_stack **stk, int val);
 // Swap OPs (for Radix sort)

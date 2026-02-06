@@ -1,4 +1,4 @@
-_This project has been created as part of the 42 curriculum by alragga_
+_This project has been created as part of the 42 curriculum by halragga_
 
 # Push_swap
 

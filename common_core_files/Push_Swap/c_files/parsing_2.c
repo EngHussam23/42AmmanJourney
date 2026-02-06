@@ -6,7 +6,7 @@
 /*   By: halragga <halragga@student.42amman.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/30 20:51:44 by halragga          #+#    #+#             */
-/*   Updated: 2026/01/31 20:04:31 by halragga         ###   ########.fr       */
+/*   Updated: 2026/02/06 19:54:19 by halragga         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,18 +40,6 @@ t_stack	*create_node(int val)
 	new_n->index = -1;
 	new_n->next = NULL;
 	return (new_n);
-}
-
-//I used long to store the value in case it exceeds the integer limits, and to
-// able to check it.
-int	parse_number(char *str)
-{
-	long	num;
-
-	num = ft_atol(str);
-	if (num > 2147483647 || num < -2147483648)
-		ft_exit_error(4);
-	return ((int)num);
 }
 
 long	ft_atol(const char *str)
