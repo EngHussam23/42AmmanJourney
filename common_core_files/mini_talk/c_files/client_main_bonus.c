@@ -6,7 +6,7 @@
 /*   By: halragga <halragga@student.42amman.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/02 18:43:36 by halragga          #+#    #+#             */
-/*   Updated: 2026/02/05 03:03:45 by halragga         ###   ########.fr       */
+/*   Updated: 2026/02/07 11:22:51 by halragga         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,11 @@
 
 static volatile sig_atomic_t	g_ack_received = 0;
 
-static void	ft_exit(int code, char *msg)
+// error handling and exiting function with fd protection
+// (to preven the fd = 0, the std input)
+static void	ft_exit(int code, int fd, char *msg)
 {
-	if (msg)
+	if (msg && (fd == 1 || fd == 2))
 		ft_putstr_fd(msg, 1);
 	exit(code);
 }
@@ -53,7 +55,7 @@ static void	handle_ack(int signum, siginfo_t *info, void *context)
 			ft_putstr_fd("8 bits acknowledged\n", 1);
 	}
 	else if (signum == SIGUSR2)
-		ft_exit(0, "\n##message received!##\n");
+		ft_exit(0, 1, "\n##message received!##\n");
 }
 
 int	main(int argc, char **argv)
@@ -62,16 +64,16 @@ int	main(int argc, char **argv)
 	int					i;
 	struct sigaction	sb;
 
+	if (argc != 3)
+		ft_exit(1, 2, "Error: bad input!\nUsage: ./client <PID> <MSG>\n");
 	sigemptyset(&sb.sa_mask);
 	sb.sa_sigaction = handle_ack;
 	sb.sa_flags = SA_SIGINFO;
 	sigaction(SIGUSR2, &sb, NULL);
 	sigaction(SIGUSR1, &sb, NULL);
-	if (argc != 3)
-		ft_exit(1, "Error: bad input!\nUsage: ./client <PID> <MSG>\n");
 	pid = (pid_t)ft_atoi(argv[1]);
 	if (pid <= 0)
-		ft_exit(2, "Error: invalid PID\n");
+		ft_exit(2, 2, "Error: invalid PID\n");
 	i = 0;
 	while (argv[2][i])
 	{

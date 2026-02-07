@@ -6,36 +6,47 @@
 /*   By: halragga <halragga@student.42amman.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/02 14:57:57 by halragga          #+#    #+#             */
-/*   Updated: 2026/02/06 17:49:09 by halragga         ###   ########.fr       */
+/*   Updated: 2026/02/07 01:51:26 by halragga         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../mini_talk.h"
 
-static void	ft_exit(int code, char *msg)
+// error handling and exiting function with fd protection
+// (to preven the fd = 0, the std input)
+static void	ft_exit(int code, int fd, char *msg)
 {
-	if (msg)
+	if (msg && (fd == 1 || fd == 2))
 		ft_putstr_fd(msg, 1);
 	exit(code);
 }
 
-static void	ft_str_saver(char new_c, pid_t client_pid)
+/*
+TODO: switch to memory allocation
+*/
+static void	ft_str_saver(char new_c, char **msg_str)
 {
-	static char	buffer[1024 * 1024];
-	static int	i;
+	char	temp[2];
+	char	*new_str;
 
-	(void) client_pid;
 	if (new_c == '\0')
 	{
-		buffer[i] = new_c;
-		ft_putstr_fd(buffer, 1);
+		ft_putstr_fd(*msg_str, 1);
 		write(1, "\n", 1);
-		i = 0;
+		free(*msg_str);
+		*msg_str = ft_strdup("");
+		if (!*msg_str)
+			ft_exit(4, 2, "Error: failed to reset the message");
 	}
 	else
 	{
-		if (i < ((int) sizeof(buffer)) - 1)
-			buffer[i++] = new_c;
+		temp[0] = new_c;
+		temp[1] = '\0';
+		new_str = ft_strjoin(*msg_str, temp);
+		if (!new_str)
+			ft_exit(5, 2, "Error: failed to build the message\n");
+		free(*msg_str);
+		*msg_str = new_str;
 	}
 }
 
@@ -43,19 +54,23 @@ static void	handle_signal(int signum, siginfo_t *info, void *context)
 {
 	static int				bit_index;
 	static unsigned char	crnt_char;
+	static char				*msg_str = NULL;
 
 	(void)context;
+	if (!msg_str)
+		msg_str = ft_strdup("");
 	crnt_char <<= 1;
 	if (signum == SIGUSR2)
 		crnt_char |= 1;
 	bit_index++;
 	if (bit_index == 8)
 	{
-		ft_str_saver(crnt_char, info->si_pid);
+		ft_str_saver(crnt_char, &msg_str);
 		bit_index = 0;
 		crnt_char = 0;
 	}
-	kill(info->si_pid, SIGUSR1);;
+	if (kill(info->si_pid, SIGUSR1) == -1)
+		ft_exit(3, 2, "Error: signal sending failure\n");
 }
 
 int	main(void)
@@ -69,9 +84,9 @@ int	main(void)
 	sa.sa_flags = SA_SIGINFO;
 	ft_printf("Server PID: %d\n", getpid());
 	if (sigaction(SIGUSR1, &sa, NULL) == -1)
-		ft_exit(1, "Error: sigaction failed!\n");
+		ft_exit(1, 2, "Error: sigaction failed!\n");
 	if (sigaction(SIGUSR2, &sa, NULL) == -1)
-		ft_exit(2, "Error: sigaction failed!\n");
+		ft_exit(2, 2, "Error: sigaction failed!\n");
 	while (1)
 		pause();
 	return (0);

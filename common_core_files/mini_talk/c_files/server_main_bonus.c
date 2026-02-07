@@ -6,15 +6,17 @@
 /*   By: halragga <halragga@student.42amman.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/02 14:57:57 by halragga          #+#    #+#             */
-/*   Updated: 2026/02/05 02:44:39 by halragga         ###   ########.fr       */
+/*   Updated: 2026/02/06 23:48:47 by halragga         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../mini_talk_bonus.h"
 
-static void	ft_exit(int code, char *msg)
+// error handling and exiting function with fd protection
+// (to preven the fd = 0, the std input)
+static void	ft_exit(int code, int fd, char *msg)
 {
-	if (msg)
+	if (msg && (fd == 1 || fd == 2))
 		ft_putstr_fd(msg, 1);
 	exit(code);
 }
@@ -69,9 +71,9 @@ int	main(void)
 	sa.sa_flags = SA_SIGINFO;
 	ft_printf("Server PID: %d\n", getpid());
 	if (sigaction(SIGUSR1, &sa, NULL) == -1)
-		ft_exit(1, "Error: sigaction failed!\n");
+		ft_exit(1, 2, "Error: sigaction failed!\n");
 	if (sigaction(SIGUSR2, &sa, NULL) == -1)
-		ft_exit(2, "Error: sigaction failed!\n");
+		ft_exit(2, 2, "Error: sigaction failed!\n");
 	while (1)
 		pause();
 	return (0);
