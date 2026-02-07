@@ -6,74 +6,89 @@
 /*   By: halragga <halragga@student.42amman.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/02 14:57:57 by halragga          #+#    #+#             */
-/*   Updated: 2026/02/06 23:48:47 by halragga         ###   ########.fr       */
+/*   Updated: 2026/02/07 18:34:38 by halragga         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../mini_talk_bonus.h"
 
-// error handling and exiting function with fd protection
+// error handling and an pexiting function with fd protection
 // (to preven the fd = 0, the std input)
 static void	ft_exit(int code, int fd, char *msg)
 {
 	if (msg && (fd == 1 || fd == 2))
-		ft_putstr_fd(msg, 1);
+		write(fd, &msg, ft_strlen(msg));
 	exit(code);
 }
 
-static void	ft_str_saver(char new_c, pid_t client_pid)
+static void	ft_str_saver(char new_c, char **msg_str, pid_t client_pid)
 {
-	static char	buffer[1024 * 1024];
-	static int	i;
+	char	temp[2];
+	char	*new_str;
 
 	if (new_c == '\0')
 	{
-		buffer[i] = new_c;
-		ft_putstr_fd(buffer, 1);
+		write(1, *msg_str, ft_strlen(*msg_str));
 		write(1, "\n", 1);
-		i = 0;
-		kill(client_pid, SIGUSR2);
+		free(*msg_str);
+		*msg_str = ft_strdup("");
+		if (!*msg_str)
+			ft_exit(4, 2, "Error: failed to reset the message\n");
+		if (kill(client_pid, SIGUSR2))
+			ft_exit(5, 2, "Error: invalid kill call\n");
 	}
 	else
 	{
-		if (i < ((int) sizeof(buffer)) - 1)
-			buffer[i++] = new_c;
+		temp[0] = new_c;
+		temp[1] = '\0';
+		new_str = ft_strjoin(*msg_str, temp);
+		if (!new_str)
+			ft_exit(5, 2, "Error: failed to build the message\n");
+		free(*msg_str);
+		*msg_str = new_str;
 	}
 }
 
 static void	handle_signal(int signum, siginfo_t *info, void *context)
 {
-	static int		bit_index;
-	static char		crnt_char;
+	static int				bit_index;
+	static unsigned char	crnt_char;
+	static char				*msg_str = NULL;
 
 	(void)context;
+	if (!msg_str)
+		msg_str = ft_strdup("");
 	crnt_char <<= 1;
 	if (signum == SIGUSR2)
 		crnt_char |= 1;
 	bit_index++;
 	if (bit_index == 8)
 	{
-		ft_str_saver(crnt_char, info->si_pid);
+		ft_str_saver(crnt_char, &msg_str, info->si_pid);
 		bit_index = 0;
 		crnt_char = 0;
 	}
-	kill(info->si_pid, SIGUSR1);
+	if (kill(info->si_pid, SIGUSR1) == -1)
+		ft_exit(6, 2, "Error: signal sending failure\n");
 }
 
 int	main(void)
 {
 	struct sigaction	sa;
 
-	sigemptyset(&sa.sa_mask);
-	sigaddset(&sa.sa_mask, SIGUSR1);
-	sigaddset(&sa.sa_mask, SIGUSR2);
+	if (sigemptyset(&sa.sa_mask) == -1)
+		ft_exit(1, 2, "Error:\nsigemptyset: invalid argument\n");
+	if (sigaddset(&sa.sa_mask, SIGUSR1) == -1)
+		ft_exit(2, 2, "Error:\nsiggaddset: invalid argument\n");
+	if (sigaddset(&sa.sa_mask, SIGUSR2) == -1)
+		ft_exit(3, 2, "Error:\nsiggaddset: invalid argument\n");
 	sa.sa_sigaction = handle_signal;
 	sa.sa_flags = SA_SIGINFO;
 	ft_printf("Server PID: %d\n", getpid());
 	if (sigaction(SIGUSR1, &sa, NULL) == -1)
-		ft_exit(1, 2, "Error: sigaction failed!\n");
+		ft_exit(7, 2, "Error: sigaction failed!\n");
 	if (sigaction(SIGUSR2, &sa, NULL) == -1)
-		ft_exit(2, 2, "Error: sigaction failed!\n");
+		ft_exit(8, 2, "Error: sigaction failed!\n");
 	while (1)
 		pause();
 	return (0);

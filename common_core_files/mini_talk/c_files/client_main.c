@@ -6,7 +6,7 @@
 /*   By: halragga <halragga@student.42amman.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/02 18:43:36 by halragga          #+#    #+#             */
-/*   Updated: 2026/02/07 11:25:48 by halragga         ###   ########.fr       */
+/*   Updated: 2026/02/07 19:00:20 by halragga         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,8 +16,7 @@
 /*
  * volatile: it alerts or tells the compiler to check the value all the time;
  * cuz it may change. (compiler optimization prevention)
-*/
-/*
+ *
  * sig_atomic_t: keeps the operation in one CPU instruction and prevent
  * inturruptions.
  * safe to use in signal handlers.
@@ -30,7 +29,7 @@ static volatile sig_atomic_t	g_ack_received = 0;
 static void	ft_exit(int code, int fd, char *msg)
 {
 	if (msg && (fd == 1 || fd == 2))
-		ft_putstr_fd(msg, 1);
+		write(fd, msg, ft_strlen(msg));
 	exit(code);
 }
 
@@ -73,14 +72,17 @@ int	main(int argc, char **argv)
 
 	if (argc != 3)
 		ft_exit(1, 2, "Error: bad input!\nUsage: ./client <PID> <MSG>\n");
-	sigemptyset(&sb.sa_mask);
+	if (sigemptyset(&sb.sa_mask) == -1)
+		ft_exit(2, 2, "Error:\nsigemptyset: invalid argument\n");
 	sb.sa_handler = handle_ack;
 	sb.sa_flags = 0;
 	if (sigaction(SIGUSR1, &sb, NULL))
-		ft_exit(6, 2, "Error: failed to setup sig handler\n");
+		ft_exit(3, 2, "Error: failed to setup sig handler\n");
 	pid = (pid_t)ft_atoi(argv[1]);
 	if (pid <= 0)
-		ft_exit(2, 2, "Error: invalid PID\n");
+		ft_exit(4, 2, "Error: invalid PID\n");
+	if (kill(pid, 0) == -1)
+		ft_exit(5, 2, "Error: invalid kill call\n");
 	i = 0;
 	while (argv[2][i])
 	{

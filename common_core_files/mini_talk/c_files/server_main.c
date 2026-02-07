@@ -6,24 +6,21 @@
 /*   By: halragga <halragga@student.42amman.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/02 14:57:57 by halragga          #+#    #+#             */
-/*   Updated: 2026/02/07 01:51:26 by halragga         ###   ########.fr       */
+/*   Updated: 2026/02/07 18:54:41 by halragga         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../mini_talk.h"
 
-// error handling and exiting function with fd protection
+// error handling and an pexiting function with fd protection
 // (to preven the fd = 0, the std input)
 static void	ft_exit(int code, int fd, char *msg)
 {
 	if (msg && (fd == 1 || fd == 2))
-		ft_putstr_fd(msg, 1);
+		write(fd, &msg, ft_strlen(msg));
 	exit(code);
 }
 
-/*
-TODO: switch to memory allocation
-*/
 static void	ft_str_saver(char new_c, char **msg_str)
 {
 	char	temp[2];
@@ -31,7 +28,7 @@ static void	ft_str_saver(char new_c, char **msg_str)
 
 	if (new_c == '\0')
 	{
-		ft_putstr_fd(*msg_str, 1);
+		write(1, *msg_str, ft_strlen(*msg_str));
 		write(1, "\n", 1);
 		free(*msg_str);
 		*msg_str = ft_strdup("");
@@ -70,23 +67,26 @@ static void	handle_signal(int signum, siginfo_t *info, void *context)
 		crnt_char = 0;
 	}
 	if (kill(info->si_pid, SIGUSR1) == -1)
-		ft_exit(3, 2, "Error: signal sending failure\n");
+		ft_exit(6, 2, "Error: signal sending failure\n");
 }
 
 int	main(void)
 {
 	struct sigaction	sa;
 
-	sigemptyset(&sa.sa_mask);
-	sigaddset(&sa.sa_mask, SIGUSR1);
-	sigaddset(&sa.sa_mask, SIGUSR2);
+	if (sigemptyset(&sa.sa_mask) == -1)
+		ft_exit(1, 2, "Error:\nsigemptyset: invalid argument\n");
+	if (sigaddset(&sa.sa_mask, SIGUSR1) == -1)
+		ft_exit(2, 2, "Error:\nsiggaddset: invalid argument\n");
+	if (sigaddset(&sa.sa_mask, SIGUSR2) == -1)
+		ft_exit(3, 2, "Error:\nsiggaddset: invalid argument\n");
 	sa.sa_sigaction = handle_signal;
 	sa.sa_flags = SA_SIGINFO;
 	ft_printf("Server PID: %d\n", getpid());
 	if (sigaction(SIGUSR1, &sa, NULL) == -1)
-		ft_exit(1, 2, "Error: sigaction failed!\n");
+		ft_exit(7, 2, "Error: sigaction failed!\n");
 	if (sigaction(SIGUSR2, &sa, NULL) == -1)
-		ft_exit(2, 2, "Error: sigaction failed!\n");
+		ft_exit(8, 2, "Error: sigaction failed!\n");
 	while (1)
 		pause();
 	return (0);
