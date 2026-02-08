@@ -1,0 +1,5 @@
+==19466== Memcheck, a memory error detector
+==19466== Copyright (C) 2002-2024, and GNU GPL'd, by Julian Seward et al.
+==19466== Using Valgrind-3.25.1 and LibVEX; rerun with -h for copyright info
+==19466== Command: ./client_bonus 19464 Test\ Message
+==19466== 
