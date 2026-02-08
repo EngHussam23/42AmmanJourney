@@ -6,7 +6,7 @@
 /*   By: halragga <halragga@student.42amman.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/02 14:57:57 by halragga          #+#    #+#             */
-/*   Updated: 2026/02/08 07:32:13 by halragga         ###   ########.fr       */
+/*   Updated: 2026/02/08 07:42:02 by halragga         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,10 @@
 static void	ft_exit(int code, int fd, char *msg)
 {
 	if (msg && (fd == 1 || fd == 2))
+	{
 		write(fd, msg, ft_strlen(msg));
+		write(fd, "\n", 1);
+	}
 	exit(code);
 }
 

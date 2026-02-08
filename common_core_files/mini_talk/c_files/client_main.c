@@ -6,7 +6,7 @@
 /*   By: halragga <halragga@student.42amman.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/02 18:43:36 by halragga          #+#    #+#             */
-/*   Updated: 2026/02/07 19:00:20 by halragga         ###   ########.fr       */
+/*   Updated: 2026/02/08 07:41:48 by halragga         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,10 @@ static volatile sig_atomic_t	g_ack_received = 0;
 static void	ft_exit(int code, int fd, char *msg)
 {
 	if (msg && (fd == 1 || fd == 2))
+	{
 		write(fd, msg, ft_strlen(msg));
+		write(fd, "\n", 1);
+	}
 	exit(code);
 }
 
