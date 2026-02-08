@@ -6,7 +6,7 @@
 /*   By: halragga <halragga@student.42amman.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/02 18:43:36 by halragga          #+#    #+#             */
-/*   Updated: 2026/02/08 07:41:48 by halragga         ###   ########.fr       */
+/*   Updated: 2026/02/08 10:32:51 by halragga         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,7 +78,7 @@ int	main(int argc, char **argv)
 	if (sigemptyset(&sb.sa_mask) == -1)
 		ft_exit(2, 2, "Error:\nsigemptyset: invalid argument\n");
 	sb.sa_handler = handle_ack;
-	sb.sa_flags = 0;
+	sb.sa_flags = SA_SIGINFO;
 	if (sigaction(SIGUSR1, &sb, NULL))
 		ft_exit(3, 2, "Error: failed to setup sig handler\n");
 	pid = (pid_t)ft_atoi(argv[1]);
