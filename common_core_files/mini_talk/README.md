@@ -1,23 +1,73 @@
-# Mini Talk - 42 Amman Project
+_This project has been created as part of the 42 curriculum by halragga_
 
-A Unix signal-based inter-process communication (IPC) system that allows a client to send messages to a server using only `SIGUSR1` and `SIGUSR2` signals.
+# MiniTalk
 
-## 📋 Project Overview
+## 📋 Description
+
+### Mini Talk - 42 Amman Project
+
+A Unix signal-based inter-process communication (IPC) system, or in human simple words: a program that allows a client to send messages to a server using only `SIGUSR1` and `SIGUSR2` signals.
+
+### Project Overview
 
 **Mini Talk** is a 42 school project that demonstrates:
+
 - Signal handling using `sigaction()` with `SA_SIGINFO` flag
 - Bit manipulation for character encoding/decoding
 - Inter-process communication (IPC) via signals
 - Robust error handling and edge case management
 - Memory management with dynamic string allocation
 
-**Score**: 22/25 (88%) - Excellent
+## 🧑‍💻 Instructions
 
----
+### 🏗️ Installation
 
-## 🎯 Objectives
+1. copy the `SSH` clone link.
+2. go to your terminal and nvigate to the desired directory.    
+3. write this command in your terminal `git clone <clone link>` and replace `<clone link>` with actual link.    
+4. hit `Enter` and now you got your clone ready.
 
-### Mandatory Part
+### 🔧 Compilation
+
+1. to compile the project you have 2 options, either compile the mandatory part, or the bonus part, you can compile both too (each in a separate command):
+    - mandatory:
+        . write this command in your terminal `make`.
+    - bonus:
+        . write this command in your terminal `make bonus`.
+2. to clean the project:
+    - `make clean` to the remove the object files only.
+    - `make fclean` to objects, excutables, archieves, all at once.
+    - `make re` to recompile the project.
+
+### 🚀 Excution
+
+1. mandatory:
+    1. on terminal 1: Start the server `./server`
+        - the output should be: `Server PID: 12345`
+    2. terminal 2: Send a message to server:
+        - `./client 12345 "Hello, server!"`
+2. bonus:
+    1. terminal 1: Start the bonus server:L `./server_bonus`
+        - the output should be: `Server PID: 12345`
+    2. terminal 2: Send a message to the server:
+        - `./client_bonus 12345 "Hello, server!"`
+        - output:
+            1. `.` one dot per byte received (byte/char acknowledgment)
+            2. `##message received!##` on a new line (message acknowledgment)
+
+## 🌐 Resources
+
+I relied on the following resources side by side with my peers support and guidance:
+
+1. co-pilot's ability to plan manage and guidance throught the project's requirements to reduce the time spent on the project and to explain in detail whatever question or misunderstanding I get.
+2. the siganal.h man page which gave me helpful and useful insights on the signals to be used, in addition to the function provided by the subject.
+
+## Additional
+
+### 🎯 Objectives
+
+#### Mandatory Part
+
 - ✅ Transmit any size message between client and server
 - ✅ Server displays its PID on startup
 - ✅ Client receives server acknowledgement after each bit
@@ -25,16 +75,17 @@ A Unix signal-based inter-process communication (IPC) system that allows a clien
 - ✅ Handle multiple messages without server restart
 - ✅ Minimize global variables
 
-### Bonus Part
+#### Bonus Part
+
 - ✅ Server sends confirmation when message reception is complete
 - ✅ Client displays a character (`.`) per received byte
 - ✅ Client displays confirmation message on completion
 
 ---
 
-## 🏗️ Project Structure
+### 🏗️ Project Structure
 
-```
+```bash
 mini_talk/
 ├── Makefile                 # Compilation automation
 ├── mini_talk.h             # Main header file
@@ -61,58 +112,9 @@ mini_talk/
 
 ---
 
-## 🔧 Installation & Usage
+### 💻 Technical Implementation
 
-### Compilation
-
-```bash
-# Compile mandatory part (server + client)
-make
-
-# Compile with bonus features
-make bonus
-
-# Clean object files
-make clean
-
-# Deep clean (remove executables and objects)
-make fclean
-
-# Recompile from scratch
-make re
-```
-
-### Running the Project
-
-#### Mandatory Version
-
-```bash
-# Terminal 1: Start the server
-./server
-# Output: Server PID: 12345
-
-# Terminal 2: Send message to server
-./client 12345 "Hello, server!"
-```
-
-#### Bonus Version
-
-```bash
-# Terminal 1: Start the bonus server
-./server_bonus
-# Output: Server PID: 12345
-
-# Terminal 2: Send message with progress display
-./client_bonus 12345 "Hello, server!"
-# Output: . (one dot per byte received)
-#         ##message received!##
-```
-
----
-
-## 💻 Technical Implementation
-
-### Signal-Based Communication Protocol
+#### Signal-Based Communication Protocol
 
 The project uses a **8-bit binary encoding** for each character:
 
@@ -130,20 +132,22 @@ The project uses a **8-bit binary encoding** for each character:
    - After all characters, send a null terminator (`\0`)
    - Signals the end of the message
 
-### Example: Sending Character 'A' (65 = 01000001)
+#### Example: Sending Character 'A' (65 = 01000001)
 
-```
+```bash
 Bit: 7  6  5  4  3  2  1  0
 Val: 0  1  0  0  0  0  0  1
 Sig: 1  2  1  1  1  1  1  2
+
+0 → Send `SIGUSR1`, wait for ACK
+1 → Send `SIGUSR2`, wait for ACK
+... (repeat for all 8 bits)
 ```
-- `0` → Send `SIGUSR1`, wait for ACK
-- `1` → Send `SIGUSR2`, wait for ACK
-- ... (repeat for all 8 bits)
 
-### Key Data Structures
+#### Key Data Structures
 
-#### Server Signal Handler (Mandatory)
+##### Server Signal Handler (Mandatory)
+
 ```c
 static void handle_signal(int signum, siginfo_t *info, void *context)
 {
@@ -167,7 +171,8 @@ static void handle_signal(int signum, siginfo_t *info, void *context)
 }
 ```
 
-#### Client Transmission
+##### Client Transmission
+
 ```c
 static void ft_send(pid_t pid, char c)
 {
@@ -191,7 +196,7 @@ static void ft_send(pid_t pid, char c)
 
 ---
 
-## 🛡️ Error Handling
+### 🛡️ Error Handling
 
 The project implements comprehensive error handling:
 
@@ -208,14 +213,16 @@ All errors are reported to `stderr` with descriptive messages.
 
 ---
 
-## 📊 Bonus Features
+### 📊 Bonus Features
 
-### Enhanced Server (bonus)
+#### Enhanced Server (bonus)
+
 - Sends `SIGUSR2` signal when entire message is received
 - Enables client to confirm successful delivery
 - Maintains message accumulation across multiple sends
 
-### Enhanced Client (bonus)
+#### Enhanced Client (bonus)
+
 - Displays progress: one `.` per byte received
 - Prints `##message received!##` on completion
 - Counts bits received and provides visual feedback
@@ -223,7 +230,7 @@ All errors are reported to `stderr` with descriptive messages.
 
 ---
 
-## 🔍 Libft Library
+### 🔍 Libft Library
 
 This project uses a custom C library (`Libft`) with 40+ utility functions including:
 
@@ -232,13 +239,12 @@ This project uses a custom C library (`Libft`) with 40+ utility functions includ
 - Character checks: `ft_isalpha()`, `ft_isdigit()`, `ft_isalnum()`
 - Conversion functions: `ft_atoi()`, `ft_itoa()`
 - Printf replacement: `ft_printf()` with format specifiers
-- Bonus: `get_next_line()`, `ft_split()`, etc.
 
 **Compilation**: Automatically compiled via `make` - builds `libft.a` archive
 
 ---
 
-## ⚙️ Compilation Flags
+### ⚙️ Compilation Flags
 
 ```makefile
 CFLAGS = -Wall -Wextra -Werror -I. -I$(LIBFT_PATH)
@@ -250,14 +256,16 @@ CFLAGS = -Wall -Wextra -Werror -I. -I$(LIBFT_PATH)
 
 ---
 
-## 🧪 Testing
+### 🧪 Testing
 
 Included test scripts:
+
 - `mini_talk_tester.sh` - Basic functionality tests
 - `minitalk_42_final_evaluation.sh` - Full 42 evaluation
 - `final_42_evaluation_corrected.sh` - Corrected scoring
 
 Run tests:
+
 ```bash
 bash other/mini_talk_tester.sh
 bash other/minitalk_42_final_evaluation.sh
@@ -265,30 +273,34 @@ bash other/minitalk_42_final_evaluation.sh
 
 ---
 
-## 📝 Implementation Notes
+### 📝 Implementation Notes
 
-### Variable Constraints
+#### Variable Constraints
+
 - **Mandatory**: Limited global variables (only `sig_atomic_t` for signal flags)
 - **Bonus**: Same constraints maintained
 
-### Memory Safety
+#### Memory Safety
+
 - Dynamic string allocation for message buffer
 - Proper cleanup with `free()`
 - No memory leaks (verified with valgrind)
 
-### Signal Safety
+#### Signal Safety
+
 - Used `sigaction()` with `SA_SIGINFO` flag
 - Safe type: `volatile sig_atomic_t` for signal flags
 - Proper signal masking with `sigemptyset()` and `sigaddset()`
 
-### Process Communication
+#### Process Communication
+
 - Validates PID before sending signals
 - Handles edge cases: invalid PIDs, non-existent processes
 - Reliable bit-by-bit transmission with acknowledgement
 
 ---
 
-## 🐛 Known Limitations
+### 🐛 Known Limitations
 
 - Character encoding limited to ASCII/extended ASCII
 - No built-in message queuing (sequential processing)
@@ -297,7 +309,7 @@ bash other/minitalk_42_final_evaluation.sh
 
 ---
 
-## 📚 Resources & References
+### 📚 Resources & References
 
 - POSIX signals: `man 7 signal`, `man 2 sigaction`
 - Bit manipulation techniques
@@ -306,20 +318,20 @@ bash other/minitalk_42_final_evaluation.sh
 
 ---
 
-## 👤 Author
+### 👤 Author
 
 **Hussam Ragga** (`halragga@student.42amman.com`)
 - 42 Amman Student
 
 ---
 
-## 📄 License
+### 📄 License
 
 Part of 42 School Curriculum - All Rights Reserved
 
 ---
 
-## ✨ Highlights
+### ✨ Highlights
 
 - **Pure C implementation** - No external libraries except Libft
 - **Efficient bit manipulation** - Clean encoding/decoding logic
