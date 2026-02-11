@@ -6,7 +6,7 @@
 /*   By: halragga <halragga@student.42amman.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/02 14:58:22 by halragga          #+#    #+#             */
-/*   Updated: 2026/02/05 02:37:35 by halragga         ###   ########.fr       */
+/*   Updated: 2026/02/10 18:13:37 by halragga         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,5 +26,16 @@
 
 // My headers:
 # include "libft.h"
+
+typedef struct s_alloc
+{
+	char	*msg_str;
+	char	*temp;
+	pid_t	pid;
+}	t_alloc;
+
+// Utils functions (server only - not for client)
+void	ft_str_saver(char new_c, t_alloc *msg_str);
+t_alloc	*get_alloc_ptr(int clean);
 
 #endif

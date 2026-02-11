@@ -6,7 +6,7 @@
 /*   By: halragga <halragga@student.42amman.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/02 18:43:36 by halragga          #+#    #+#             */
-/*   Updated: 2026/02/08 16:06:25 by halragga         ###   ########.fr       */
+/*   Updated: 2026/02/10 18:15:48 by halragga         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,7 +52,7 @@ static void	ft_send(pid_t pid, char c)
 				ft_exit(3, 2, "Error: invalid kill call\n");
 		}
 		else if (kill(pid, SIGUSR1) == -1)
-			ft_exit(3, 2, "Error: invalid kill call\n");
+			ft_exit(4, 2, "Error: invalid kill call\n");
 		while (g_ack_received == 0)
 			pause();
 		bit--;
@@ -67,25 +67,30 @@ static void	handle_ack(int signum)
 		ft_exit(0, 1, NULL);
 }
 
+static void	setup_signal_handlers(void)
+{
+	struct sigaction	sb;
+
+	if (sigemptyset(&sb.sa_mask) == -1)
+		ft_exit(2, 2, "Error:\nsigemptyset: invalid argument\n");
+	sb.sa_flags = SA_RESTART;
+	sb.sa_handler = handle_ack;
+	if (sigaction(SIGUSR1, &sb, NULL) == -1
+		|| sigaction(SIGUSR2, &sb, NULL) == -1)
+		ft_exit(3, 2, "Error: failed to setup sig handler\n");
+}
+
 int	main(int argc, char **argv)
 {
-	pid_t				pid;
-	int					i;
-	struct sigaction	sb;
+	pid_t	pid;
+	int		i;
 
 	if (argc != 3)
 		ft_exit(1, 2, "Error: bad input!\nUsage: ./client <PID> <MSG>\n");
-	if (sigemptyset(&sb.sa_mask) == -1)
-		ft_exit(2, 2, "Error:\nsigemptyset: invalid argument\n");
-	sb.sa_handler = handle_ack;
-	sb.sa_flags = SA_SIGINFO;
-	if (sigaction(SIGUSR1, &sb, NULL) == -1)
-		ft_exit(3, 2, "Error: failed to setup sig handler\n");
 	pid = (pid_t)ft_atoi(argv[1]);
-	if (pid <= 0)
-		ft_exit(4, 2, "Error: invalid PID\n");
 	if (kill(pid, 0) == -1)
-		ft_exit(5, 2, "Error: invalid kill call\n");
+		ft_exit(5, 2, "Error: invalid pid\n");
+	setup_signal_handlers();
 	i = 0;
 	while (argv[2][i])
 	{

@@ -2,7 +2,7 @@ _This project has been created as part of the 42 curriculum by halragga_
 
 # MiniTalk
 
-## 📋 Description
+## Description
 
 ### Mini Talk - 42 Amman Project
 
@@ -18,44 +18,34 @@ A Unix signal-based inter-process communication (IPC) system, or in human simple
 - Robust error handling and edge case management
 - Memory management with dynamic string allocation
 
-## 🧑‍💻 Instructions
+## Instructions
 
-### 🏗️ Installation
+### Installation
 
 1. copy the `SSH` clone link.
 2. go to your terminal and nvigate to the desired directory.    
 3. write this command in your terminal `git clone <clone link>` and replace `<clone link>` with actual link.    
 4. hit `Enter` and now you got your clone ready.
 
-### 🔧 Compilation
+### Compilation
 
-1. to compile the project you have 2 options, either compile the mandatory part, or the bonus part, you can compile both too (each in a separate command):
+1. to compile the project you have 1 option, compile the mandatory part, you can compile:
     - mandatory:
         . write this command in your terminal `make`.
-    - bonus:
-        . write this command in your terminal `make bonus`.
 2. to clean the project:
     - `make clean` to the remove the object files only.
     - `make fclean` to objects, excutables, archieves, all at once.
     - `make re` to recompile the project.
 
-### 🚀 Excution
+### Excution
 
 1. mandatory:
     1. on terminal 1: Start the server `./server`
         - the output should be: `Server PID: 12345`
     2. terminal 2: Send a message to server:
         - `./client 12345 "Hello, server!"`
-2. bonus:
-    1. terminal 1: Start the bonus server:L `./server_bonus`
-        - the output should be: `Server PID: 12345`
-    2. terminal 2: Send a message to the server:
-        - `./client_bonus 12345 "Hello, server!"`
-        - output:
-            1. `.` one dot per byte received (byte/char acknowledgment)
-            2. `##message received!##` on a new line (message acknowledgment)
 
-## 🌐 Resources
+## Resources
 
 I relied on the following resources side by side with my peers support and guidance:
 
@@ -64,7 +54,7 @@ I relied on the following resources side by side with my peers support and guida
 
 ## Additional
 
-### 🎯 Objectives
+### Objectives
 
 #### Mandatory Part
 
@@ -75,28 +65,19 @@ I relied on the following resources side by side with my peers support and guida
 - ✅ Handle multiple messages without server restart
 - ✅ Minimize global variables
 
-#### Bonus Part
-
-- ✅ Server sends confirmation when message reception is complete
-- ✅ Client displays a character (`.`) per received byte
-- ✅ Client displays confirmation message on completion
-
 ---
 
-### 🏗️ Project Structure
+### Project Structure
 
 ```bash
 mini_talk/
 ├── Makefile                 # Compilation automation
 ├── mini_talk.h             # Main header file
-├── mini_talk_bonus.h       # Bonus header file
 ├── README.md               # This file
 │
 ├── c_files/
 │   ├── server_main.c       # Mandatory server implementation
 │   ├── client_main.c       # Mandatory client implementation
-│   ├── server_main_bonus.c # Bonus server with feedback
-│   └── client_main_bonus.c # Bonus client with progress display
 │
 ├── Libft/                  # Custom C library
 │   ├── *.c                 # 40+ utility functions
@@ -112,7 +93,7 @@ mini_talk/
 
 ---
 
-### 💻 Technical Implementation
+### Technical Implementation
 
 #### Signal-Based Communication Protocol
 
@@ -196,7 +177,7 @@ static void ft_send(pid_t pid, char c)
 
 ---
 
-### 🛡️ Error Handling
+### Error Handling
 
 The project implements comprehensive error handling:
 
@@ -213,24 +194,7 @@ All errors are reported to `stderr` with descriptive messages.
 
 ---
 
-### 📊 Bonus Features
-
-#### Enhanced Server (bonus)
-
-- Sends `SIGUSR2` signal when entire message is received
-- Enables client to confirm successful delivery
-- Maintains message accumulation across multiple sends
-
-#### Enhanced Client (bonus)
-
-- Displays progress: one `.` per byte received
-- Prints `##message received!##` on completion
-- Counts bits received and provides visual feedback
-- Enhanced signal handler with `SA_SIGINFO` for more data
-
----
-
-### 🔍 Libft Library
+### Libft Library
 
 This project uses a custom C library (`Libft`) with 40+ utility functions including:
 
@@ -244,7 +208,7 @@ This project uses a custom C library (`Libft`) with 40+ utility functions includ
 
 ---
 
-### ⚙️ Compilation Flags
+### Compilation Flags
 
 ```makefile
 CFLAGS = -Wall -Wextra -Werror -I. -I$(LIBFT_PATH)
@@ -256,7 +220,7 @@ CFLAGS = -Wall -Wextra -Werror -I. -I$(LIBFT_PATH)
 
 ---
 
-### 🧪 Testing
+### Testing
 
 Included test scripts:
 
@@ -278,7 +242,6 @@ bash other/minitalk_42_final_evaluation.sh
 #### Variable Constraints
 
 - **Mandatory**: Limited global variables (only `sig_atomic_t` for signal flags)
-- **Bonus**: Same constraints maintained
 
 #### Memory Safety
 
@@ -328,21 +291,3 @@ bash other/minitalk_42_final_evaluation.sh
 ### 📄 License
 
 Part of 42 School Curriculum - All Rights Reserved
-
----
-
-### ✨ Highlights
-
-- **Pure C implementation** - No external libraries except Libft
-- **Efficient bit manipulation** - Clean encoding/decoding logic
-- **Robust error handling** - Comprehensive validation and error reporting
-- **Signal mastery** - Advanced sigaction usage with SA_SIGINFO
-- **Memory conscious** - Minimal global state, proper cleanup
-- **Bonus implementation** - Full feedback system with progress display
-- **Test coverage** - Evaluation scripts included
-- **Well-documented** - Code comments and comprehensive README
-
----
-
-**Last Updated**: February 8, 2026
-**Final Score**: 22/25 (88% - Excellent)
