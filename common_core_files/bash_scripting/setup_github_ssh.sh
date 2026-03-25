@@ -23,3 +23,5 @@ echo -e "\nCopy the above key and add it to your GitHub account:"
 echo "  https://github.com/settings/keys"
 
 echo -e "\nDone! SSH key generated and added to ssh-agent."
+
+echo -e "\nRun this commant when you're back from Github to confirm the process:\nssh -T git@github.com"
